@@ -1,7 +1,8 @@
 import os
 from flask import (
     Flask, flash, render_template, request, session, redirect, url_for, jsonify) 
-from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.security import generate_password_hash
+from pymongo import MongoClient, errors
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from pymongo import MongoClient, errors
@@ -146,6 +147,6 @@ def logout():
     session.pop("user")
     return redirect(url_for("login"))
 
-    
+
 if __name__ == '__main__':
     app.run(debug=True)
