@@ -150,6 +150,28 @@ def add_slang():
     return render_template("add_slang.html")
 
 
+@app.route("/delete_slang", methods=["GET", "POST"])
+def delete_slang():
+    if request.method == "POST":
+        slang_word = request.form.get("slang").lower()  # Get slang word from form
+        
+        try:
+            # Find the slang in the database by name and delete it
+            result = mongo.db.slangs.delete_one({"slang": slang_word})
+            
+            if result.deleted_count > 0:
+                flash(f"The slang '{slang_word}' has been deleted successfully!", "success")
+            else:
+                flash(f"Slang '{slang_word}' not found!", "error")
+        
+        except Exception as e:
+            flash(f"Error: {str(e)}", "error")  # Handle any database errors
+
+        return redirect(url_for("home"))  # Redirect to homepage or another page
+
+    return render_template("delete_slang.html")  # Show the delete slang form
+
+
 @app.route("/logout")
 def logout():
     #remove user from session cookie
