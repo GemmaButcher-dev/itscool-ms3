@@ -29,3 +29,15 @@ header {
     border-radius: 50%;
     margin-right: 3rem;
 }
+
+    /* == Backgrounds == */
+body {
+    display: flex;
+    flex-direction: column;
+    background:
+        url('/static/images/blackboard_background.webp');
+    /* Solid color underlay */
+    min-height: 100vh;
+    position: relative;
+    font-size: 18px;
+}
