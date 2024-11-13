@@ -87,3 +87,13 @@ button {
     border-radius: 5px;
     border: 1px solid #ccc;
 }
+
+#alphabet-filter span {
+    display: inline-block;
+    margin: 0.2rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    border: 1px solid #004080;
+    border-radius: 5px;
+    color: #004080;
+}
