@@ -36,4 +36,19 @@
             <p>No slangs found.</p>
         {% endif %}
     </div>
+
+    <!-- Slangs Starting with a Specific Letter -->
+    {% if letter %}
+        <h2>Slangs Starting with "{{ letter }}"</h2>
+        <ul>
+            {% if slangs %}
+                {% for slang in slangs %}
+                    <li>{{ slang['slang'] }}: {{ slang['definition'] }}</li>
+                {% endfor %}
+            {% else %}
+                <li>No slangs found for "{{ letter }}"</li>
+            {% endif %}
+        </ul>
+        <a href="{{ url_for('home') }}">Back to All Slangs</a>
+    {% endif %}
 {% endblock %}
