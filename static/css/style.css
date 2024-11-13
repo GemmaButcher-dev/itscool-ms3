@@ -12,6 +12,10 @@ a {
     color: purple;
 }
 
+li {
+    color: whitesmoke;
+}
+
 /* == Header == */
 
 header {
@@ -113,6 +117,15 @@ button {
 #alphabet-filter span:hover {
     background: #004080;
     color: white;
+}
+
+.letter-search {
+
+}
+
+.search-form {
+
+
 }
 
 /* search results */
