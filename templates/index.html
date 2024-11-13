@@ -19,4 +19,21 @@
             <button type="submit">Search</button>
         </form>
     </div>
+
+    <!-- Display All Slangs Grouped by Letter -->
+    <div>
+        <h2>All Slangs</h2>
+        {% if grouped_slangs %}
+            {% for letter, slang_list in grouped_slangs.items() %}
+                <h3>{{ letter }}</h3>
+                <ul>
+                    {% for slang in slang_list %}
+                        <li>{{ slang['slang'] }}: {{ slang['definition'] }}</li>
+                    {% endfor %}
+                </ul>
+            {% endfor %}
+        {% else %}
+            <p>No slangs found.</p>
+        {% endif %}
+    </div>
 {% endblock %}
