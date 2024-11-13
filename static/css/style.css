@@ -79,3 +79,11 @@ button {
     border: none;
     cursor: pointer;
 }
+
+#search-bar {
+    padding: 0.5rem;
+    width: 60%;
+    margin: 1rem 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
