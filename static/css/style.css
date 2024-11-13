@@ -65,3 +65,9 @@ form {
     width: 100%;  /* Ensure both cards stretch equally */
     max-width: 400px;  /* Set a limit to prevent overflow */
 }
+
+input, textarea {
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 16px;
+}
