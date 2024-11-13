@@ -71,7 +71,7 @@ def search():
         slangs = []
     return render_template("index.html", query=query, slangs=slangs)
 
-    
+
 # Sign-up route
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
@@ -127,5 +127,17 @@ def login():
     return render_template("login.html")
 
 
+@app.route("/dashboard/<username>", methods=["GET", "POST"])
+def profile(username):
+    #grab session user's username from db
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+    
+    if session["user"]:
+        return render_template("dashboard.html", username=username)
+
+    return redirect(url_for("login"))
+
+    
 if __name__ == '__main__':
     app.run(debug=True)
