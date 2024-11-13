@@ -10,4 +10,13 @@
             <a href="{{ url_for('slangs_by_letter', letter=letter) }}">{{ letter }}</a>
         {% endfor %}
     </div>
+
+    <!-- Search Form -->
+    <div>
+        <h2>Search Slang Words</h2>
+        <form action="{{ url_for('search') }}" method="get">
+            <input type="text" name="q" placeholder="Search for slang...">
+            <button type="submit">Search</button>
+        </form>
+    </div>
 {% endblock %}
