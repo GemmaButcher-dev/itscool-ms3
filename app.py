@@ -58,8 +58,20 @@ def slangs_by_letter(letter):
     # Retrieve slangs starting with the specified letter
     slangs = mongo.db.slangs.find({"slang": {"$regex": f"^{letter}", "$options": "i"}})
     return render_template("index.html", letter=letter, slangs=slangs)
-    
 
+
+# Search route
+@app.route("/search")
+def search():
+    query = request.args.get("q")
+    if query:
+        # Retrieve slangs matching the search query
+        slangs = mongo.db.slangs.find({"slang": {"$regex": query, "$options": "i"}})
+    else:
+        slangs = []
+    return render_template("index.html", query=query, slangs=slangs)
+
+    
 # Sign-up route
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
