@@ -143,7 +143,6 @@ def add_slang():
         try:
             mongo.db.slangs.insert_one(new_doc)  # Insert into MongoDB collection
             flash("New slang added successfully!", "success")
-            # return redirect(url_for("home"))  # Redirect back to homepage or another page
         except Exception as e:
             flash(f"Error: {str(e)}", "error")  # Handle error and flash message
             return redirect(url_for("add_slang")) 
@@ -166,8 +165,6 @@ def delete_slang():
         
         except Exception as e:
             flash(f"Error: {str(e)}", "error")  # Handle any database errors
-
-        return redirect(url_for("home"))  # Redirect to homepage or another page
 
     return render_template("delete_slang.html")  # Show the delete slang form
 
