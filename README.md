@@ -1,10 +1,382 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+Welcome to
 
-Welcome Gemma Butcher,
+#  ItsCool 
+![device mockup]()
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+View the live project [here!]()
 
-You can safely delete this README.md file or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **June 18, 2024**
+## Table of Contents (#table-of-contents)
+1. [UX](#ux)
+
+  * Project Goals
+  * User Goals 
+  * Design Choices
+  * Wireframes
+
+2. [Features](#features)
+
+   * Navigation Bar
+   * Sign Up
+   * Log In
+   * Logout
+   * Add slang word
+   * Create username
+   * Create password
+   * User dashboard
+   * Footer
+   * 404 Page
+   * Error Handling
+   * Features left to implement
+
+3. [Technologies used](#technologies-used)
+
+  * Languages Used
+  * Frameworks, Programs and Libraries Used
+
+4. [Testing](#testing)
+
+5. [Deployment](#deployment)
+
+  * GitHub Pages
+  * Forking the GitHub Repository
+  * Making a Local Clone
+
+6. [Credits](#credits)
+
+  * Content
+  * Media
+  * Code
+  * Acknowledgements
+
+------
+
+## UX
+
+### User Stories
+
+#### Project Goals
+
+The target audience is for teenagers and adults trying to determine the definition of school slang words used in the UK and to add tot he current ItsCool community dictionary.
+
+#### User Goals
+
+"**_As a guest user, I would like to_** _______________"
+
+✅  browse through the slang terms listed alphabetically so I can see all the terms that are available.
+
+✅  click on slang terms to view their definitions and sample usage, so I can understand the meaning and context.
+
+✅  search for slang terms by typing keywords or phrases, so I can quickly find the slang term I'm interested in.
+
+✅  browse slang terms by selecting a letter from A-Z, so I can easily find terms that start with a specific letter.
+
+✅  read about the purpose of this slang dictionary, so I can understand the context and relevance of the terms listed.
+
+
+"**_As a registered user, I would like to_** _______________"
+
+✅  as a new user, create an account by providing a username and password, so I can log in and use additional features.
+
+✅  as a returning user, I want to log in with my username and password, so I can access my account.
+
+✅  as a logged-in user, I want to update my profile details if necessary, so my account information is accurate.
+
+✅  as a logged-in user, I want to log out of my account, so I can ensure my account remains secure on shared devices.
+
+✅  get immediate feedback to know if I have signed up, logged in or signed out.
+
+✅  be able to turn on and off all sounds throughout the app
+
+✅  add new slang terms and definitions, so I can expand the slang dictionary and help others learn.
+
+✅  to edit slang terms I’ve added to correct or improve definitions, ensuring the information stays accurate and up-to-date.
+
+✅  delete slang terms that are no longer relevant or are duplicates, so the dictionary remains clean and useful.
+
+"**_As an student user, I would like to_** _______________"
+
+✅  Learn About Common School Slang:
+    As a student, I want to browse school-related slang so I can understand the informal language and slang used by peers in the school environment.
+
+✅  Contribute School-Specific Slang:
+    As a student, I want to contribute slang that’s specific to my school or region, so I can share it with other students who may find it relevant or interesting.
+
+✅  See Slang Organized Alphabetically:
+    As a student, I want to see slang words organized by their first letter, so I can easily find terms that I hear frequently.
+
+✅  Report Incorrect or Inappropriate Content:
+    As a student, I want to report slang entries that are incorrect, outdated, or inappropriate, so I can help maintain a positive and accurate dictionary.
+
+"**_As an teacher or parent, I would like to_** _______________"
+
+✅  Understand Student Language:
+    As a teacher or parent, I want to look up slang terms and definitions, so I can understand the language students are using in social and school settings.
+
+✅  View Related Terms and Meanings:
+    As a teacher or parent, I want to see related terms or common slang phrases grouped together, so I can get a better context for terms that might be used together.
+
+✅  Browse by Letter or Category:
+    As a teacher or parent, I want to browse slang by letter or category to find terms more easily and understand common slang patterns.
+
+
+
+"**_As an administrator, I would like to_** _______________"
+
+✅  review slang terms submitted by users before they are published, so I can ensure quality and appropriateness.
+
+✅  manage user accounts, including editing and deleting accounts if needed, so I can enforce rules and maintain site integrity.
+
+✅  edit or delete any slang term to correct inaccuracies, enforce content guidelines, and remove inappropriate entries.
+
+✅ 
+
+✅ 
+
+✅ 
+
+✅ 
+
+✅ 
+
+
+
+### Design Choices
+
+   * Mobile first, single column responsive design. 
+
+#### Colour Scheme
+
+ The global colour selection for Super Squad is shown below.
+
+ * 
+ * white #ffffff
+ * 
+ * 
+
+#### Typography
+
+   * The Exo+2 google font with a fall back font of sans-serif should the font fail to load. It is used for the header logo text, introduction text and footer.
+   * Supernova 2 font from cdn fonts is used for the game selection buttons text with a fall back font of sans serif should it fail to load. This font has a fun and slightly dramatic comic characteristics whilst remaining legible. 
+
+#### Imagery
+
+A range of imagery is used from free background images at [freepik](https://www.freepik.com/) to using [leonardo AI](https://app.leonardo.ai/image-generation) something unique and effective, bespoke to this project.
+
+The below image was created using Leonardo AI.
+
+![screenshot]()
+
+### Wireframes
+
+Wireframes were created using [Balsamiq](https://balsamiq.com/) and can be found in the [wireframes folder](docs/wireframes).
+Below is the mobile view wireframe of the homepage.
+
+![screenshot]()
+------
+The wireframe showing the
+
+![screenshot]()
+
+## Features
+
+### Existing Features
+
+   #### Navigation Bar
+
+   * 
+![screenshot]()
+
+   #### Sign Up
+
+   * 
+![screenshot]()
+
+
+
+   #### Log In
+
+   * 
+
+|    | Example Image  |
+|----|----------------|
+|    | ![screenshot]() |
+|    | ![screenshot]() |
+|    | ![screenshot]()|
+
+
+
+   #### Log Out
+
+   * 
+
+|        | Example Image     |                 |
+|--------|------------------|-----------------|
+|         | ![screenshot]() | ![sound clip]() |
+|         | ![screenshot]() | ![sound clip]() |
+|         | ![screenshot]() | ![sound clip]() |
+
+
+
+   ![screenshot]()
+
+   #### User Dashboard
+
+   * 
+   
+   #### Footer
+
+   * There is a fixed footer at the bottom of the page. 
+   * The footer contains the game developer name and copyright with an automatically updated year. This has been done using JavaScript and updates when the page is loaded to the current year. The function updates the span element in the footer.
+
+
+   #### 404 Page
+
+   * A 404 page is navigated to when an error occurs or the website fails load. The page explains to the user that there is an issue and offers a button to navigate back to the homepage/index.html without using browser buttons.
+
+   ![screenshot]()
+
+   #### Error Handling
+
+   * Error handling is built directly into the game functions so should the game data not load or be 'fetched' from the json the function will handle the error and will show an error by way or stating 'error fetching game data'.
+
+### Features Left To Implement
+
+   * 
+   * 
+   * 
+   * 
+
+## Technologies Used
+
+### Languages Used
+
+- ![HTML5](https://img.shields.io/static/v1?label=HTML&message=5&color=E34F26&logo=html5&logoColor=ffffff)
+    - [HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5) - Used as the base for markup text.
+- ![CSS3](https://img.shields.io/static/v1?label=CSS&message=3&color=1572B6&logo=css3&logoColor=ffffff)
+    - [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3) - Used as the base for cascading styles.
+- ![JavaScript](https://img.shields.io/static/v1?label=JavaScript&message=ES6&color=F7DF1E&logo=javascript&logoColor=ffffff)
+    - [JavaScript ES6](https://developer.mozilla.org/en-US/docs/Web/JavaScript) - Used as the base for game interaction.
+
+### Frameworks, Programs and Libraries Used
+
+1. [Bootstrap 5.3](https://getbootstrap.com/):
+   Bootstrap was used to assist with the responsiveness and styling of the website.
+2. [Google Fonts](https://fonts.google.com/):
+   Google fonts were used to import the 'Exo+2' font into the index.html and style.css files which is used on all pages throughout the project.
+3. [Font Awesome](https://fontawesome.com/):
+   Font Awesome was used on all pages throughout the website to add icons for aesthetic and UX purposes.
+4. jQuery:
+   jQuery came with Bootstrap to make the app responsive.
+5. [Git](https://git-scm.com/):
+   Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
+6. [GitHub](https://github.com/):
+   GitHub is used to store the projects code after being pushed from Git and manage version control.
+7. [Balsamiq](https://balsamiq.com/):
+   Balsamiq was used to create the wireframes during the design process.
+8. [Am i responsive?](https://ui.dev/amiresponsive):
+   Am i reponsive was used to create the device mockup in README.md.
+9. [ahrefs](https://ahrefs.com/writing-tools/img-alt-text-generator):
+   ahrefs was used to help generate alt text for images.
+10. [Canva](https://www.canva.com/colors/color-palette-generator/):
+    Canva's logo generator was used to create a logo for the favicons.
+
+## Testing
+
+All detailed testing information can be seen in the [TESTING.md](TESTING.md) file.
+Thorough manual testing has been carried out.
+
+ The below matrix shows the responsiveness and browser compatability testing carried out.
+![Screenshot](docs/testing/testing_matrix.png)
+
+## Deployment
+
+### GitHub Pages
+
+The project was deployed to GitHub Pages using the following steps...
+
+1. Log in to GitHub and locate the [GitHub Repository](https://github.com/GemmaButcher-dev/freestyle_dance.git)
+2. At the top of the Repository (not top of page), locate the "Settings" Button on the menu.
+    - Alternatively Click [Here](https://raw.githubusercontent.com/) for a GIF demonstrating the process starting from Step 2.
+3. Scroll down the Settings page until you locate the "GitHub Pages" Section.
+4. Under "Source", click the dropdown called "None" and select "Master Branch".
+5. The page will automatically refresh.
+6. Scroll back down through the page to locate the now published site [link](https://gemmabutcher-dev.github.io/freestyle_dance/) in the "GitHub Pages" section.
+
+### Forking the GitHub Repository
+
+By forking the GitHub Repository we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original repository by using the following steps...
+
+1. Log in to GitHub and locate the [GitHub Repository](https://github.com/GemmaButcher-dev/freestyle_dance.git)
+2. At the top of the Repository (not top of page) just above the "Settings" Button on the menu, locate the "Fork" Button.
+3. You should now have a copy of the original repository in your GitHub account.
+
+### Making a Local Clone
+
+1. Log in to GitHub and locate the [GitHub Repository](https://github.com/GemmaButcher-dev/freestyle_dance.git)
+2. Under the repository name, click "Clone or download".
+3. To clone the repository using HTTPS, under "Clone with HTTPS", copy the link.
+4. Open Git Bash
+5. Change the current working directory to the location where you want the cloned directory to be made.
+6. Type `git clone`, and then paste the URL you copied in Step 3.
+
+```
+$ git clone https://github.com/GemmaButcher-dev/freestyle_dance.git
+```
+
+7. Press Enter. Your local clone will be created.
+
+```
+$ git clone https://github.com/GemmaButcher-dev/freestyle_dance.git
+> Cloning into `CI-Clone`...
+> remote: Counting objects: 10, done.
+> remote: Compressing objects: 100% (8/8), done.
+> remove: Total 10 (delta 1), reused 10 (delta 1)
+> Unpacking objects: 100% (10/10), done.
+```
+
+Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop) to retrieve pictures for some of the buttons and more detailed explanations of the above process.
+
+## Credits
+
+### Code
+
+  * [Bootstrap4](https://getbootstrap.com/docs/4.4/getting-started/introduction/): Bootstrap Library used throughout the 
+    project mainly to make site responsive using the Bootstrap Grid System.
+  * [Google Developer Tools](https://developer.chrome.com/docs/devtools) : For problem solving with layout and managing css 
+    overrides and use of console.
+  * [ahref](https://ahrefs.com/writing-tools/img-alt-text-generator) : For image alt text.
+  * Favicon sitemanifest and header tags were provided by [Favicon Generator](https://favicon.io/)
+  * ChatGPT for problem solving out of hours and providing help with function formatting.
+  * 
+  * 
+   
+
+### Content
+
+  * All content was designed by the developer. 
+  * Base Secondary slang content was sourced using [BBC Bitesize](https://www.bbc.co.uk/bitesize/articles/zkvwgwx).
+  * Base middle slang content was sourced using [Tiny Beans](https://tinybeans.com/middle-school-slang/).
+  * Base primary slang content was sourced using [Twinkle](https://www.twinkl.co.uk/resource/kids-explain-british-slang-words-mini-lesson-twinkl-kids-tv-t-tp-1659009278).
+  * [ChatGPT](https://openai.com/index/chatgpt/).
+  * [Code institute](https://learn.codeinstitute.net) Learning material.
+
+### Media
+
+  * All background images were sourced at [canva](https://www.canva.com/)
+  * Hero theme audio was sourced at [uppbeat](https://uppbeat.io/music/theme/superhero)
+  *  [Leonardo AI](https://app.leonardo.ai/image-generation)
+  * [My Instants](https://www.myinstants.com/)
+  * image title  [Flaming Text](https://eu1.flamingtext.com/)
+  * Favicon icons and png files were generated by [Favicon Generator](https://favicon.io/)
+  * Markdown badges for README were sourced from [Shields.io](https://shields.io)
+
+### Acknowledgements
+
+  * My Mentor for continuous helpful feedback and guidance.
+  * Cohort Leader Rachel Furlong for her continued support.
+  * Tutor support at Code Institute for their support.
+  * ChatGPT for problem solving out of hours.
+
 
 ## Gitpod Reminders
 
