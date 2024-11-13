@@ -40,6 +40,16 @@ def mongo_connect(url):
 @app.route("/")
 @app.route("/index")
 def home():
+    # Retrieve all slangs
+    slangs = mongo.db.slangs.find().sort("slang")  # Sort alphabetically
+
+    # Group slangs by their first letter
+    grouped_slangs = {}
+    for slang in slangs:
+        first_letter = slang['slang'][0].upper()
+        grouped_slangs.setdefault(first_letter, []).append(slang)
+
+    return render_template("index.html", grouped_slangs=grouped_slangs)
 
 
 # Sign-up route
