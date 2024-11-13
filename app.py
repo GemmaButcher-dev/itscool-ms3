@@ -36,11 +36,35 @@ def mongo_connect(url):
     except errors.ConnectionFailure as e:  # Use errors from pymongo
         print(f"Could not connect to MongoDB: {e}")
 
-        
+
 @app.route("/")
 def hello():
     return "ItScool"
 
+
+# Sign-up route
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+    if request.method == "POST":
+        #check if username already exists in db
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+
+        if existing_user:
+            flash("username already exists")
+            return redirect(url_for("signup"))
+
+        signup = {
+            "username": request.form.get("username").lower(),
+            "password": generate_password_hash(request.form.get("password"))
+        }
+        mongo.db.users.insert_one(signup)
+
+        #put the new user into 'session' cookie
+        session["user"] = request.form.get("username").lower(),
+        flash("Signup Successfull!")
+        return redirect(url_for("profile", username=session["user"]))
+    return render_template("signup.html")
 
 if __name__ == '__main__':
     app.run(debug=True)
