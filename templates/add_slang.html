@@ -8,6 +8,21 @@
                 <h3 class="center-align">
                     Add a slang word
                 </h3>
+                <form action="{{ url_for('add_slang') }}" method="post">
+                    <label for="slang">Slang Word:</label>
+                    <input type="text" id="slang" name="slang" required placeholder="Enter slang word">
+    
+                    <label for="definition">Definition:</label>
+                    <textarea id="definition" name="definition" required placeholder="Enter slang definition"></textarea>
+    
+                    <label for="age">Age Range:</label>
+                    <input type="text" id="age" name="age" placeholder="Enter age range (e.g., 13-18)">
+    
+                    <label for="type">Type:</label>
+                    <input type="text" id="type" name="type" placeholder="Enter word type (e.g., adjective)">
+    
+                    <button type="submit">Add Slang</button>
+                </form>
             </div>
         </div>
     </div>
