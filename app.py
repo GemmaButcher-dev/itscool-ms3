@@ -52,6 +52,14 @@ def home():
     return render_template("index.html", grouped_slangs=grouped_slangs)
 
 
+# Route for filtering by a specific letter
+@app.route("/letter/<letter>")
+def slangs_by_letter(letter):
+    # Retrieve slangs starting with the specified letter
+    slangs = mongo.db.slangs.find({"slang": {"$regex": f"^{letter}", "$options": "i"}})
+    return render_template("index.html", letter=letter, slangs=slangs)
+    
+
 # Sign-up route
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
