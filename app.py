@@ -19,32 +19,6 @@ app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
 
-#  # MongoDB Atlas connection string
-# client = MongoClient(os.environ.get("MONGO_URI"))
-# db = client.school_slang  # Select the database
-
-
-# # Collections
-# slang_collection = db.slangs  # Collection for slang words
-# users_collection = db['users']  # Collection for users
-# Mongo URI for `mongo_connect`
-
-
-# MONGO_URI = os.environ.get("MONGO_URI")
-# DATABASE = "school_slang"
-# COLLECTION = "slangs"
-
-# # Revised mongo_connect function
-# def mongo_connect(url):
-#     try:
-#         conn = MongoClient(url)  # Directly use MongoClient here
-#         return conn
-#     except errors.ConnectionFailure as e:  # Use errors from pymongo
-#         print(f"Could not connect to MongoDB: {e}")
-
-
-
-
 # Initializing PyMongo
 mongo = PyMongo(app)
 
@@ -149,7 +123,7 @@ def profile(username):
         return render_template("dashboard.html", username=username)
 
     return redirect(url_for("login"))
-    
+
 
 
 @app.route("/logout")
