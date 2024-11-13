@@ -125,6 +125,30 @@ def profile(username):
     return redirect(url_for("login"))
 
 
+@app.route("/add_slang", methods=["GET", "POST"])
+def add_slang():
+    if request.method == "POST":
+        slang = request.form.get("slang").lower()
+        definition = request.form.get("definition").lower()
+        age = request.form.get("age").lower()  # This field is optional
+        type = request.form.get("type").lower()  # This field is optional
+
+        new_doc = {
+            "slang": slang,
+            "definition": definition,
+            "age": age,
+            "type": type
+        }
+
+        try:
+            mongo.db.slangs.insert_one(new_doc)  # Insert into MongoDB collection
+            flash("New slang added successfully!", "success")
+            # return redirect(url_for("home"))  # Redirect back to homepage or another page
+        except Exception as e:
+            flash(f"Error: {str(e)}", "error")  # Handle error and flash message
+            return redirect(url_for("add_slang")) 
+    return render_template("add_slang.html")
+
 
 @app.route("/logout")
 def logout():
