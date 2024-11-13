@@ -20,6 +20,7 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         {% if session.user %}
                             <li><a class="nav-link" href="{{url_for('add_slang') }}">Add Slang</a></li>
+                            <li><a class="nav-link" href="{{url_for('delete_slang') }}">Remove Slang</a></li>
                             <li><a class="nav-link" href="{{url_for('logout') }}">Logout</a></li>
                             <li><a class="nav-link" href="{{url_for('profile', username=session['user']) }}">Dashboard</a></li>
                         {% else %}
