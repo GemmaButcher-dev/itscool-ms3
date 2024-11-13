@@ -3,4 +3,11 @@
 {% block content %}
     <h1>School Slang Dictionary</h1>
 
+    <!-- A-Z Links for filtering slangs by letter -->
+    <div>
+        <h2>Browse by Letter</h2>
+        {% for letter in "ABCDEFGHIJKLMNOPQRSTUVWXYZ" %}
+            <a href="{{ url_for('slangs_by_letter', letter=letter) }}">{{ letter }}</a>
+        {% endfor %}
+    </div>
 {% endblock %}
