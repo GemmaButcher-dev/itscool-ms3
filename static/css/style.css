@@ -97,3 +97,8 @@ button {
     border-radius: 5px;
     color: #004080;
 }
+
+#alphabet-filter span:hover {
+    background: #004080;
+    color: white;
+}
