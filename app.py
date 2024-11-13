@@ -5,7 +5,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from pymongo import MongoClient, errors
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
-from pymongo import MongoClient, errors
+from pymongo import MongoClient
+from functools import wraps
 
 if os.path.exists("env.py"):
     import env
@@ -167,6 +168,53 @@ def delete_slang():
             flash(f"Error: {str(e)}", "error")  # Handle any database errors
 
     return render_template("delete_slang.html")  # Show the delete slang form
+
+
+def admin_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        # Check if the user is logged in and if they are an admin
+        user = mongo.db.users.find_one({"username": session.get("user")})
+        if user and user.get("role") == "admin":
+            return f(*args, **kwargs)
+        flash("You need to be an admin to access this page.")
+        return redirect(url_for('home'))  # Redirect to home or any other page for non-admin users
+    return decorated_function
+
+
+@app.route("/admin/approve_slang", methods=["GET", "POST"])
+@admin_required
+def approve_slang():
+    if request.method == "POST":
+        slang_id = request.form.get("slang_id")
+        # You can add an approval field to your slangs collection if needed
+        mongo.db.slangs.update_one({"_id": ObjectId(slang_id)}, {"$set": {"approved": True}})
+        flash("Slang approved successfully!", "success")
+        return redirect(url_for("admin_dashboard"))
+    
+    # Display all slangs that are pending approval (you can query based on an 'approved' field)
+    pending_slangs = mongo.db.slangs.find({"approved": {"$ne": True}})
+    return render_template("approve_slang.html", pending_slangs=pending_slangs)
+
+@app.route("/admin/delete_slang", methods=["POST"])
+@admin_required
+def delete_slang():
+    slang_id = request.form.get("slang_id")
+    try:
+        # Delete the slang based on its ID
+        mongo.db.slangs.delete_one({"_id": ObjectId(slang_id)})
+        flash("Slang deleted successfully!", "success")
+    except Exception as e:
+        flash(f"Error: {str(e)}", "error")
+    
+    return redirect(url_for("admin_dashboard"))
+
+
+@app.route("/admin_dashboard")
+@admin_required
+def admin_dashboard():
+    pending_slangs = mongo.db.slangs.find({"approved": {"$ne": True}})
+    return render_template("admin_dashboard.html", pending_slangs=pending_slangs)
 
 
 @app.route("/logout")
