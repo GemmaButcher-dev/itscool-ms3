@@ -4,7 +4,7 @@
     <h1>School Slang Dictionary</h1>
 
     <!-- A-Z Links for filtering slangs by letter -->
-    <div>
+    <div class="letter-search">
         <h2>Browse by Letter</h2>
         {% for letter in "ABCDEFGHIJKLMNOPQRSTUVWXYZ" %}
             <a href="{{ url_for('slangs_by_letter', letter=letter) }}">{{ letter }}</a>
@@ -12,7 +12,7 @@
     </div>
 
     <!-- Search Form -->
-    <div>
+    <div class="search-form">
         <h2>Search Slang Words</h2>
         <form action="{{ url_for('search') }}" method="get">
             <input type="text" name="q" placeholder="Search for slang...">
@@ -21,7 +21,7 @@
     </div>
 
     <!-- Display All Slangs Grouped by Letter -->
-    <div>
+    <div class="letter-group">
         <h2>All Slangs</h2>
         {% if grouped_slangs %}
             {% for letter, slang_list in grouped_slangs.items() %}
