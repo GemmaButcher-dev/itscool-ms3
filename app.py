@@ -38,8 +38,8 @@ def mongo_connect(url):
 
 
 @app.route("/")
-def hello():
-    return "ItScool"
+@app.route("/index")
+def home():
 
 
 # Sign-up route
