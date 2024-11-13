@@ -43,6 +43,8 @@ app.secret_key = os.environ.get("SECRET_KEY")
 #         print(f"Could not connect to MongoDB: {e}")
 
 
+
+
 # Initializing PyMongo
 mongo = PyMongo(app)
 
@@ -147,6 +149,37 @@ def profile(username):
         return render_template("dashboard.html", username=username)
 
     return redirect(url_for("login"))
+
+
+coll = db['slangs']  # Replace with your actual collection name
+
+
+# Call the function to add slang
+add_slang(coll)
+
+
+def add_slang():
+    print("")
+    slang = input("Enter slang word > ")
+    definition = input("Enter slang definition  > ")
+    age = input("Enter age range > ")
+    type = input("Enter word type ie adjective > ")
+
+    new_doc = {
+        "slang": slang.lower(),
+        "definition": definition.lower(),
+        "age": age.lower(),
+        "type": type.lower()
+    }
+
+    try:
+        coll.insert_one(new_doc)
+        print("")
+        print("Document inserted successfully!")
+        return True  # You can return True to indicate success
+    except:
+        print("error accessing the database")
+        return False  # Return False to indicate failure
 
 
 @app.route("/logout")
