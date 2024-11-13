@@ -1,6 +1,16 @@
 /* Google Fonts import*/
 
 /* == General == */
+h1,
+h2,
+h3 {
+    color: whitesmoke;
+}
+
+a {
+    text-decoration: none;
+    color: purple;
+}
 
 /* == Header == */
 
@@ -80,6 +90,8 @@ button {
     cursor: pointer;
 }
 
+/* search bar */
+
 #search-bar {
     padding: 0.5rem;
     width: 60%;
@@ -93,7 +105,7 @@ button {
     margin: 0.2rem;
     padding: 0.5rem;
     cursor: pointer;
-    border: 1px solid #004080;
+    border: 1px solid darkorchid;
     border-radius: 5px;
     color: #004080;
 }
@@ -102,6 +114,10 @@ button {
     background: #004080;
     color: white;
 }
+
+/* search results */
+
+
 
 .slang-card {
     margin: 1rem auto;
@@ -120,3 +136,4 @@ button {
 .slang-card p {
     margin: 0.5rem 0;
 }
+
