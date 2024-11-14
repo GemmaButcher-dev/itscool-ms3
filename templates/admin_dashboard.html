@@ -1,0 +1,32 @@
+<!-- templates/admin_dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+    <p>Welcome, {{ session.get('user') }}!</p>
+
+    <!-- Display pending slang words for review -->
+    <h2>Pending Slang Words</h2>
+    <ul>
+        {% for slang in pending_slangs %}
+            <li>
+                <strong>{{ slang.slang }}</strong>: {{ slang.definition }}
+                <form action="{{ url_for('approve_slang') }}" method="post" style="display: inline;">
+                    <input type="hidden" name="slang_id" value="{{ slang._id }}">
+                    <button type="submit">Approve</button>
+                </form>
+                <form action="{{ url_for('delete_slang') }}" method="post" style="display: inline;">
+                    <input type="hidden" name="slang_id" value="{{ slang._id }}">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <a href="{{ url_for('home') }}">Back to Home</a>
+</body>
+</html>
