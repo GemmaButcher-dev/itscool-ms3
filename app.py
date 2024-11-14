@@ -70,7 +70,7 @@ def approve_slang():
 
 
 # Admin-only delete slang route
-@app.route("/admin/delete_slang", methods=["POST"], endpoint="admin_delete_slang")
+@app.route("/admin/delete_slang", methods=["POST"])
 @admin_required
 def delete_slang_admin():
     slang_id = request.form.get("slang_id")
@@ -191,7 +191,7 @@ def add_slang():
 
 
 # General delete slang route (accessible by all users)
-@app.route("/delete_slang", methods=["GET", "POST"], endpoint="user_delete_slang")
+@app.route("/delete_slang", methods=["POST"], endpoint="user_delete_slang")
 def delete_slang_user():
     if request.method == "POST":
         slang_word = request.form.get("slang").lower()  # Get slang word from form
