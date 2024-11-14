@@ -87,7 +87,7 @@ def admin_dashboard():
 
 
 
-# Approve slang route
+#  admin Approve slang route
 @app.route("/admin/approve_slang", methods=["POST"])
 @admin_required
 def approve_slang():
@@ -107,15 +107,18 @@ def approve_slang():
     redirect(url_for("admin_dashboard"))
 
 
-# Admin-only delete slang route
+#  admin delete  slang route
 @app.route("/admin/delete_slang", methods=["POST"])
 @admin_required
 def delete_slang_admin():
     slang_id = request.form.get("slang_id")
     try:
         # Delete the slang based on its ID
-        mongo.db.slangs.delete_one({"_id": ObjectId(slang_id)})
-        flash("Slang deleted successfully!", "success")
+        result = mongo.db.slangs.delete_one({"_id": ObjectId(slang_id)})
+        if result.deleted_count > 0:
+            flash("Slang deleted successfully!", "success")
+        else:
+            flash("Error deleting slang or slang not found.", "error")
     except Exception as e:
         flash(f"Error: {str(e)}", "error")
     
@@ -243,24 +246,6 @@ def delete_slang_user():
         except Exception as e:
             flash(f"Error: {str(e)}", "error")  # Handle any database errors
     return render_template("delete_slang.html")  # Show the delete slang form
-
-
-
-@app.route("/admin/delete_slang", methods=["POST"])
-@admin_required
-def delete_slang_admin():
-    slang_id = request.form.get("slang_id")
-    try:
-        # Delete the slang based on its ID
-        result = mongo.db.slangs.delete_one({"_id": ObjectId(slang_id)})
-        if result.deleted_count > 0:
-            flash("Slang deleted successfully!", "success")
-        else:
-            flash("Error deleting slang or slang not found.", "error")
-    except Exception as e:
-        flash(f"Error: {str(e)}", "error")
-    
-    return redirect(url_for("admin_dashboard"))
 
 
 @app.route("/logout")
