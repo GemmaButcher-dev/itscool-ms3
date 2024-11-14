@@ -111,6 +111,35 @@ def delete_slang_admin():
     return redirect(url_for("admin_dashboard"))
 
 
+@app.route("/admin/add_slang", methods=["POST"])
+@admin_required
+def add_slang_admin():
+    # Get form data
+    slang_word = request.form.get("slang").lower()
+    definition = request.form.get("definition").lower()
+    age = request.form.get("age").lower()
+    type = request.form.get("type").lower()
+
+    # Create the new slang document to insert into MongoDB
+    new_slang = {
+        "slang": slang_word,
+        "definition": definition,
+        "age": age,
+        "type": type,
+        "approved": False  # unapproved by default
+    }
+
+    try:
+        # Insert new slang into MongoDB collection
+        mongo.db.slangs.insert_one(new_slang)
+        flash("New slang added successfully! Pending approval.", "success")
+    except Exception as e:
+        flash(f"Error adding slang: {str(e)}", "error")
+
+    # Redirect back to the admin dashboard after adding the slang
+    return redirect(url_for("admin_dashboard"))
+
+
 # Route for filtering by a specific letter
 @app.route("/letter/<letter>")
 def slangs_by_letter(letter):
