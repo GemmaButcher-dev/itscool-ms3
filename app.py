@@ -92,9 +92,19 @@ def admin_dashboard():
 @admin_required
 def approve_slang():
     slang_id = request.form.get("slang_id")
-    mongo.db.slangs.update_one({"_id": ObjectId(slang_id)}, {"$set": {"approved": True}})
-    flash("Slang approved successfully!", "success")
-    return redirect(url_for("admin_dashboard"))
+    try:
+        result = mongo.db.slangs.update_one(
+            {"_id": ObjectId(slang_id)}, {"$set": {"approved": True}}
+        )
+        if result.modified_count > 0:
+            flash("Slang approved successfully!", "success")
+        else:
+            flash("Error approving slang or slang not found.", "error")
+    except Exception as e:
+        flash(f"Error: {str(e)}", "error")
+
+    return
+    redirect(url_for("admin_dashboard"))
 
 
 # Admin-only delete slang route
