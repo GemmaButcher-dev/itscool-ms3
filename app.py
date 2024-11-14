@@ -68,7 +68,7 @@ def admin_dashboard():
     search_query = request.form.get('search_query')
     if search_query:
         # Search slang words by name (case-insensitive search)
-        pending_slangs = Slang.query.filter(Slang.slang.ilike(f'%{search_query}%')).all()
+        pending_slangs = mongo.db.slangs.find({"slang": {"$regex": search_query, "$options": "i"}})
     else:
         # If no search query, show all slangs (both approved and pending)
         pending_slangs = Slang.query.all()
