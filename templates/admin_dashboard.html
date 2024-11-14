@@ -11,7 +11,7 @@
 
     <h3>Pending Approval Slang</h3>
 
-    { if pending_slangs}
+    {% if pending_slangs %}
     <ul>
         {% for slang in pending_slangs %}
             <li>
@@ -43,5 +43,37 @@
     <p>No pending slangs to approve.</p>
     {% endif %}
 
-    <a href="{{ url_for('home') }}">Back to Home</a>
+    <hr>
+
+    <h3> Add New Slang</h3>
+    <form action="{{ url_for('add_slang_admin') }}" method="POST">
+        <div class="form-group">
+            <label for="slang">Slang Word:</label>
+            <input type="text" name="slang" id="slang" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="definition">Definition:</label>
+            <textarea name="definition" id="definition" class="form-control" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="age">Age of Slang:</label>
+            <input type="text" name="age" id="age" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="type">Type of Slang (e.g., 'adjective', 'verb'):</label>
+            <input type="text" name="type" id="type" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">Add Slang</button>
+    </form>
+
+    <!-- flash messages -->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="row flashes">
+                    <h4 class="light-blue lighten-4 center-align">{{ message }}</h4>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
 {% endblock %}
