@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-
 {% block content %}
     <h2>Admin Dashboard</h2>
     <p>Welcome, {{ session.get('user') }}!</p>
@@ -10,7 +9,9 @@
         <button type="submit">Search</button>
     </form>
 
-    <h2>All Slang Words</h2>
+    <h3>Pending Approval Slang</h3>
+
+    { if pending_slangs}
     <ul>
         {% for slang in pending_slangs %}
             <li>
@@ -23,15 +24,24 @@
                     <span class="badge bg-warning">Pending</span>
                 {% endif %}
 
+                <!-- Approve button -->
+                <form action="{{ url_for('approve_slang') }}" method="post" style="display: inline;">
+                    <input type="hidden" name="slang_id" value="{{ slang._id }}">
+                    <button type="submit" class="btn btn-success">Approve</button>
+                </form>
+
                 <!-- Delete Form -->
-                <form action="{{ url_for('admin_dashboard') }}" method="POST" style="display: inline;">
+                <form action="{{ url_for('delete_slang_admin') }}" method="POST" style="display: inline;">
                     <input type="hidden" name="slang_id" value="{{ slang.id }}">
                     <input type="hidden" name="delete_slang" value="true">
-                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="submit" class="btn btn-danger">Delete Slang</button>
                 </form>
             </li>
         {% endfor %}
     </ul>
+    {% else %}
+    <p>No pending slangs to approve.</p>
+    {% endif %}
 
     <a href="{{ url_for('home') }}">Back to Home</a>
 {% endblock %}
