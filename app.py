@@ -248,12 +248,15 @@ def delete_slang_user():
 
 @app.route("/admin/delete_slang", methods=["POST"])
 @admin_required
-def delete_slang():
+def delete_slang_admin():
     slang_id = request.form.get("slang_id")
     try:
         # Delete the slang based on its ID
-        mongo.db.slangs.delete_one({"_id": ObjectId(slang_id)})
-        flash("Slang deleted successfully!", "success")
+        result = mongo.db.slangs.delete_one({"_id": ObjectId(slang_id)})
+        if result.deleted_count > 0:
+            flash("Slang deleted successfully!", "success")
+        else:
+            flash("Error deleting slang or slang not found.", "error")
     except Exception as e:
         flash(f"Error: {str(e)}", "error")
     
