@@ -61,7 +61,8 @@ def home():
 
 @app.route('/admin_dashboard', methods=['GET', 'POST'])
 def admin_dashboard():
-    if 'user' not in session or session['user'] != 'admin':  # Check if user is logged in as admin
+    if 'user' not in session or session.get('role') != 'admin':  # Check if user is logged in as admin
+        flash("You need to be an admin to access this page.")
         return redirect(url_for('login'))  # Redirect if not admin
 
     # Handle search functionality
@@ -71,14 +72,15 @@ def admin_dashboard():
         pending_slangs = mongo.db.slangs.find({"slang": {"$regex": search_query, "$options": "i"}})
     else:
         # If no search query, show all slangs (both approved and pending)
-        pending_slangs = Slang.query.all()
+        pending_slangs = mongo.db.slangs.find()
 
     if request.method == 'POST' and 'delete_slang' in request.form:
         slang_id = request.form['slang_id']
-        slang = Slang.query.get(slang_id)
-        if slang:
-            db.session.delete(slang)
-            db.session.commit()
+        try:
+            mongo.db.slangs.delete_one({"_id": ObjectId(slang_id)})
+            flash("Slang deleted successfully!", "success")
+        except Exception as e:
+            flash(f"Error: {str(e)}", "error")
         return redirect(url_for('admin_dashboard'))
 
     return render_template('admin_dashboard.html', pending_slangs=pending_slangs)
