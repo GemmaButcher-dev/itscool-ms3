@@ -9,11 +9,16 @@
                     Request to remove a slang word
                 </h3>
                 <form action="{{ url_for('delete_slang') }}" method="post">
+                    <input type="hidden" name="slang_id" value="{{ slang._id }}">
+                    <button type="submit">Delete</button>
+                </form>
+                
+                <!-- <form action="{{ url_for('delete_slang') }}" method="post">
                     <label for="slang">Slang Word:</label>
-                    <input type="text" id="slang" name="slang" required placeholder="Enter slang word to delete">
+                    <input type="hidden" id="slang" name="slang_id" required placeholder="Enter slang word to delete">
 
                     <button type="submit">Delete Slang</button>
-                </form>
+                </form> -->
                  <!-- flash messages -->
                 {% with messages = get_flashed_messages() %}
                 {% if messages %}
