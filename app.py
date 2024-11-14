@@ -51,12 +51,38 @@ def home():
     return render_template("index.html", grouped_slangs=grouped_slangs)
 
 
-# Admin dashboard
-@app.route("/admin_dashboard")
-@admin_required
+# # Admin dashboard
+# @app.route("/admin_dashboard")
+# @admin_required
+# def admin_dashboard():
+#     pending_slangs = mongo.db.slangs.find({"approved": {"$ne": True}})
+#     return render_template("admin_dashboard.html", pending_slangs=pending_slangs)
+
+
+@app.route('/admin_dashboard', methods=['GET', 'POST'])
 def admin_dashboard():
-    pending_slangs = mongo.db.slangs.find({"approved": {"$ne": True}})
-    return render_template("admin_dashboard.html", pending_slangs=pending_slangs)
+    if 'user' not in session or session['user'] != 'admin':  # Check if user is logged in as admin
+        return redirect(url_for('login'))  # Redirect if not admin
+
+    # Handle search functionality
+    search_query = request.form.get('search_query')
+    if search_query:
+        # Search slang words by name (case-insensitive search)
+        pending_slangs = Slang.query.filter(Slang.slang.ilike(f'%{search_query}%')).all()
+    else:
+        # If no search query, show all slangs (both approved and pending)
+        pending_slangs = Slang.query.all()
+
+    if request.method == 'POST' and 'delete_slang' in request.form:
+        slang_id = request.form['slang_id']
+        slang = Slang.query.get(slang_id)
+        if slang:
+            db.session.delete(slang)
+            db.session.commit()
+        return redirect(url_for('admin_dashboard'))
+
+    return render_template('admin_dashboard.html', pending_slangs=pending_slangs)
+
 
 
 # Approve slang route
@@ -208,16 +234,16 @@ def delete_slang_user():
 
 
 
-def admin_required(f):
-    @wraps(f)
-    def decorated_function(*args, **kwargs):
-        # Check if the user is logged in and if they are an admin
-        user = mongo.db.users.find_one({"username": session.get("user")})
-        if user and user.get("role") == "admin":
-            return f(*args, **kwargs)
-        flash("You need to be an admin to access this page.")
-        return redirect(url_for('home'))  # Redirect to home or any other page for non-admin users
-    return decorated_function
+# def admin_required(f):
+#     @wraps(f)
+#     def decorated_function(*args, **kwargs):
+#         # Check if the user is logged in and if they are an admin
+#         user = mongo.db.users.find_one({"username": session.get("user")})
+#         if user and user.get("role") == "admin":
+#             return f(*args, **kwargs)
+#         flash("You need to be an admin to access this page.")
+#         return redirect(url_for('home'))  # Redirect to home or any other page for non-admin users
+#     return decorated_function
 
 
 @app.route("/admin/delete_slang", methods=["POST"])
