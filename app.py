@@ -51,14 +51,6 @@ def home():
     return render_template("index.html", grouped_slangs=grouped_slangs)
 
 
-# # Admin dashboard
-# @app.route("/admin_dashboard")
-# @admin_required
-# def admin_dashboard():
-#     pending_slangs = mongo.db.slangs.find({"approved": {"$ne": True}})
-#     return render_template("admin_dashboard.html", pending_slangs=pending_slangs)
-
-
 @app.route('/admin_dashboard', methods=['GET', 'POST'])
 def admin_dashboard():
     if 'user' not in session or session.get('role') != 'admin':  # Check if user is logged in as admin
