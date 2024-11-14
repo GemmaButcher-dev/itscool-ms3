@@ -69,19 +69,21 @@ def admin_dashboard():
     search_query = request.form.get('search_query')
     if search_query:
         # Search slang words by name (case-insensitive search)
-        pending_slangs = mongo.db.slangs.find({"slang": {"$regex": search_query, "$options": "i"}})
+        pending_slangs = mongo.db.slangs.find({"slang": {"$regex": search_query, "$options": "i"},
+        "approved": {"$ne": True}
+        })
     else:
         # If no search query, show all slangs (both approved and pending)
-        pending_slangs = mongo.db.slangs.find()
+        pending_slangs = mongo.db.slangs.find({"approved": {"$ne": True}})
 
-    if request.method == 'POST' and 'delete_slang' in request.form:
-        slang_id = request.form['slang_id']
-        try:
-            mongo.db.slangs.delete_one({"_id": ObjectId(slang_id)})
-            flash("Slang deleted successfully!", "success")
-        except Exception as e:
-            flash(f"Error: {str(e)}", "error")
-        return redirect(url_for('admin_dashboard'))
+    # if request.method == 'POST' and 'delete_slang' in request.form:
+    #     slang_id = request.form['slang_id']
+    #     try:
+    #         mongo.db.slangs.delete_one({"_id": ObjectId(slang_id)})
+    #         flash("Slang deleted successfully!", "success")
+    #     except Exception as e:
+    #         flash(f"Error: {str(e)}", "error")
+    #     return redirect(url_for('admin_dashboard'))
 
     return render_template('admin_dashboard.html', pending_slangs=pending_slangs)
 
