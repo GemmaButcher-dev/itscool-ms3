@@ -22,11 +22,11 @@
                             <!-- Links for logged-in users -->
                             {% if session.get('role') != 'admin' %}
                                 <!-- Show Add Slang and Remove Slang links only for non-admin users -->
-                                <li><a class="nav-link" href="{{url_for('add_slang') }}">Add Slang</a></li>
-                                <li><a class="nav-link" href="{{url_for('delete_slang') }}">Remove Slang</a></li>
-                                <li><a class="nav-link" href="{{url_for('profile', username=session['user']) }}">Dashboard</a></li>
+                                <li><a class="nav-link" href="{{ url_for('add_slang') }}">Add Slang</a></li>
+                                <li><a class="nav-link" href="{{ url_for('user_delete_slang') }}">Remove Slang</a></li>
+                                <li><a class="nav-link" href="{{ url_for('profile', username=session['user']) }}">Dashboard</a></li>
                             {% endif %}
-                            <li><a class="nav-link" href="{{url_for('logout') }}">Logout</a></li>
+                            <li><a class="nav-link" href="{{ url_for('logout') }}">Logout</a></li>
         
                             {% if session.get('role') == 'admin' %}
                                 <!-- Admin-only link -->
@@ -35,8 +35,8 @@
                             
                         {% else %}
                             <!-- Links for logged-out users -->
-                            <li><a class="nav-link" href="{{url_for('login') }}">Log In</a></li>
-                            <li><a class="nav-link" href="{{url_for('signup') }}">Sign Up</a></li>
+                            <li><a class="nav-link" href="{{ url_for('login') }}">Log In</a></li>
+                            <li><a class="nav-link" href="{{ url_for('signup') }}">Sign Up</a></li>
                         {% endif %}
                     </ul>
                 </div>
