@@ -246,18 +246,6 @@ def delete_slang_user():
 
 
 
-# def admin_required(f):
-#     @wraps(f)
-#     def decorated_function(*args, **kwargs):
-#         # Check if the user is logged in and if they are an admin
-#         user = mongo.db.users.find_one({"username": session.get("user")})
-#         if user and user.get("role") == "admin":
-#             return f(*args, **kwargs)
-#         flash("You need to be an admin to access this page.")
-#         return redirect(url_for('home'))  # Redirect to home or any other page for non-admin users
-#     return decorated_function
-
-
 @app.route("/admin/delete_slang", methods=["POST"])
 @admin_required
 def delete_slang():
