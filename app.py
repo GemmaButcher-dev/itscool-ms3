@@ -220,7 +220,7 @@ def login():
             
             # Redirect to user dashboard/profile for non-admin users
             flash(f"Welcome, {session['user']}!")
-            return redirect(url_for("profile", username=session["user"]))
+            return redirect(url_for("home", username=session["user"]))
         
         flash("Incorrect Username and/or Password")
     return render_template("login.html")
