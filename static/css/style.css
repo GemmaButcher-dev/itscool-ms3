@@ -78,6 +78,27 @@ body {
     font-size: larger;
 }
 
+/*== Accordion ==*/
+
+.accordion-button.custom-header {
+    background-color: #4caf50; /* Green background */
+    color: white; /* White text */
+}
+
+.accordion-body.custom-body {
+    background-color: #f9f9f9; /* Light gray */
+    border: 1px solid #4caf50; /* Green border */
+    padding: 10px;
+}
+
+.accordion-body li {
+    color: black;
+}
+
+.accordion #collapse {
+    align-items: center;
+}
+
 /* == login/out form == */
 
 form {
