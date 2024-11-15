@@ -57,18 +57,30 @@ def admin_dashboard():
         flash("You need to be an admin to access this page.")
         return redirect(url_for('login'))  # Redirect if not admin
 
-    # Handle search functionality
-    search_query = request.form.get('search_query')
-    if search_query:
-        # Search slang words by name (case-insensitive search)
-        pending_slangs = mongo.db.slangs.find({"slang": {"$regex": search_query, "$options": "i"},
-        "approved": {"$ne": True}
-        })
-    else:
-        # If no search query, show all slangs (both approved and pending)
-        pending_slangs = mongo.db.slangs.find({"approved": {"$ne": True}})
+    search_results = []
+    search_query = None
 
-    return render_template('admin_dashboard.html', pending_slangs=pending_slangs)
+    # Handle search functionality
+    if request.method == 'POST' and 'search_query' in request.form:
+        search_query = request.form.get('search_query')
+        if search_query:
+            search_results = mongo.db.slangs.find({
+                "slang": {"$regex": search_query, "$options": "i"}
+            })
+
+        # Get all pending slangs (approved = False or not present)
+    pending_slangs = mongo.db.slangs.find({"approved": {"$ne": True}})
+        
+    # else:
+    #     # If no search query, show all slangs (both approved and pending)
+    #     pending_slangs = mongo.db.slangs.find({"approved": {"$ne": True}})
+
+    return render_template(
+        'admin_dashboard.html', 
+        pending_slang = pending_slangs,
+        search_results = search_results,
+        search_query = search_query,
+    )
 
 
 
