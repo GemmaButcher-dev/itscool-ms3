@@ -18,12 +18,6 @@
                 <li id="result-{{ slang._id }}">
                     <strong>{{ slang.slang }}</strong>: {{ slang.definition }}
 
-                    <!-- Approve button for search results 
-                    <form action="{{ url_for('approve_slang') }}" method="post" style="display: inline;">
-                        <input type="hidden" name="slang_id" value="{{ slang._id }}">
-                        <button type="submit" class="btn btn-success">Approve</button>
-                    </form> -->
-
                      <!-- Delete button for search results -->
                      <form action="{{ url_for('delete_slang_admin') }}" method="POST" style="display: inline;">
                         <input type="hidden" name="slang_id" value="{{ slang._id }}">
