@@ -58,6 +58,15 @@ body {
     font-size: 18px;
 }
 
+/* == home page == */
+
+.welcome-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px; 
+}
+
 /* == login/out form == */
 
 form {
