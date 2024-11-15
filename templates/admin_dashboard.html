@@ -23,12 +23,16 @@
                         <input type="hidden" name="slang_id" value="{{ slang._id }}">
                         <button type="submit" class="btn btn-danger">Delete Slang</button>
                     </form>
+
+                    <!-- cancel button to remove search result/s -->
+                    <button class="btn btn-secondary cancel-btn" data-id="result-{{ slang._id }}">Cancel</button>
+
                 </li>
             {% endfor %}
         </ul>
     {% else %}
         {% if search_query %}
-            <p>No results found for "{{ search_query }}".</p>
+            <p>No results found matching "{{ search_query }}".</p>
         {% endif %}
     {% endif %}
 
