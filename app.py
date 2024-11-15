@@ -152,12 +152,12 @@ def add_slang_admin():
     return redirect(url_for("admin_dashboard"))
 
 
-# Route for filtering by a specific letter
-@app.route("/letter/<letter>")
-def slangs_by_letter(letter):
-    # Retrieve slangs starting with the specified letter
-    slangs = mongo.db.slangs.find({"slang": {"$regex": f"^{letter}", "$options": "i"}})
-    return render_template("index.html", letter=letter, slangs=slangs)
+# # Route for filtering by a specific letter
+# @app.route("/letter/<letter>")
+# def slangs_by_letter(letter):
+#     # Retrieve slangs starting with the specified letter
+#     slangs = mongo.db.slangs.find({"slang": {"$regex": f"^{letter}", "$options": "i"}})
+#     return render_template("index.html", letter=letter, slangs=slangs)
 
 
 # Search route
