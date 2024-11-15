@@ -9,6 +9,30 @@
         <button type="submit">Search</button>
     </form>
 
+    <!-- Search Results -->
+    {% if search_results%}
+        <h3>Search Results</h3>
+        <ul>
+            {% for slang in search_results %}
+                <li>
+                    <strong>{{ slang.slang }}</strong>: {{ slang.definition }}
+
+                    <!-- Approve button for search results 
+                    <form action="{{ url_for('approve_slang') }}" method="post" style="display: inline;">
+                        <input type="hidden" name="slang_id" value="{{ slang._id }}">
+                        <button type="submit" class="btn btn-success">Approve</button>
+                    </form> -->
+
+                     <!-- Delete button for search results -->
+                     <form action="{{ url_for('delete_slang_admin') }}" method="POST" style="display: inline;">
+                        <input type="hidden" name="slang_id" value="{{ slang._id }}">
+                        <button type="submit" class="btn btn-danger">Delete Slang</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    
+
     <h3>Pending Approval Slang</h3>
 
     {% if pending_slangs %}
