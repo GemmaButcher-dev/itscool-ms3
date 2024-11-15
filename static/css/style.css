@@ -3,7 +3,9 @@
 /* == General == */
 h1,
 h2,
-h3 {
+h3,
+h4,
+p {
     color: whitesmoke;
 }
 
@@ -150,3 +152,52 @@ button {
     margin: 0.5rem 0;
 }
 
+/* Confirmation Modal for admin slang deletion*/
+
+/* Modal Background */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Transparent black */
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+}
+
+/* Modal Footer */
+.modal-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+/* Button Styling */
+.btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-danger {
+    background-color: red;
+    color: white;
+}
+
+.btn-secondary {
+    background-color: gray;
+    color: white;
+}
