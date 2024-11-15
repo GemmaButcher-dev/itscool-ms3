@@ -10,11 +10,12 @@
     </form>
 
     <!-- Search Results -->
-    {% if search_results%}
-        <h3>Search Results</h3>
-        <ul>
+{% if search_query %}
+    <h3>Search Results for "{{ search_query }}":</h3>
+    {% if search_results%}        
+        <ul id="search-results-admin">
             {% for slang in search_results %}
-                <li>
+                <li id="result-{{ slang._id }}">
                     <strong>{{ slang.slang }}</strong>: {{ slang.definition }}
 
                     <!-- Approve button for search results 
