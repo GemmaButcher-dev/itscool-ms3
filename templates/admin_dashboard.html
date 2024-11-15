@@ -31,7 +31,13 @@
                 </li>
             {% endfor %}
         </ul>
-    
+    {% else %}
+        {% if search_query %}
+            <p>No results found for "{{ search_query }}".</p>
+        {% endif %}
+    {% endif %}
+
+    <hr>
 
     <h3>Pending Approval Slang</h3>
 
