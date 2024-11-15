@@ -32,7 +32,7 @@
 
                 <!-- Delete Form -->
                 <form action="{{ url_for('delete_slang_admin') }}" method="POST" style="display: inline;">
-                    <input type="hidden" name="slang_id" value="{{ slang.id }}">
+                    <input type="hidden" name="slang_id" value="{{ slang._id }}">
                     <input type="hidden" name="delete_slang" value="true">
                     <button type="submit" class="btn btn-danger">Delete Slang</button>
                 </form>
