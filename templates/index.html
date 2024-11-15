@@ -3,13 +3,13 @@
 {% block content %}
     <h1>School Slang Dictionary</h1>
 
-    <!-- A-Z Links for filtering slangs by letter -->
+    <!-- A-Z Links for filtering slangs by letter
     <div class="letter-search">
         <h2>Browse by Letter</h2>
         {% for letter in "ABCDEFGHIJKLMNOPQRSTUVWXYZ" %}
             <a href="{{ url_for('slangs_by_letter', letter=letter) }}">{{ letter }}</a>
         {% endfor %}
-    </div>
+    </div> -->
 
     <!-- Search Form -->
     <div class="search-form">
@@ -24,14 +24,27 @@
     <div class="letter-group">
         <h2>All Slangs</h2>
         {% if grouped_slangs %}
-            {% for letter, slang_list in grouped_slangs.items() %}
-                <h3>{{ letter }}</h3>
-                <ul>
-                    {% for slang in slang_list %}
-                        <li>{{ slang['slang'] }}: {{ slang['definition'] }}</li>
-                    {% endfor %}
-                </ul>
+            <div class="accordion" id="accordionLetter">
+                {% for letter, slang_list in grouped_slangs.items() %}
+                 <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading{{ letter }}">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ letter }}" aria-expanded="true" aria-controls="collapse{{ letter }}">
+                            {{ letter }}
+                        </button>
+                    </h2>
+                    <div id="collapse{{ letter }}" class="accordion-collapse collapse" aria-labelledby="heading{{ letter }}" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <ul>
+                                {% for slang in slang_list %}
+                                    <li>{{ slang['slang'] }}: {{ slang['definition'] }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             {% endfor %}
+        </div>
+        
         {% else %}
             <p>No slangs found.</p>
         {% endif %}
