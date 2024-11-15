@@ -31,10 +31,9 @@
             {% endfor %}
         </ul>
     {% else %}
-        {% if search_query %}
-            <p>No results found matching "{{ search_query }}".</p>
-        {% endif %}
+        <p>No results found matching "{{ search_query }}".</p>
     {% endif %}
+{% endif %}
 
     <hr>
 
