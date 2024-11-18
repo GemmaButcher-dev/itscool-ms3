@@ -2,16 +2,19 @@
 
 {% block content %}
 
-    <div class="welcome-container">
+    <div class="welcome-container col">
         <img class="welcome-image" src="./static/images/ItsCool title.webp" alt="text welcome to ItScool">
     </div>
-    <div class="intro-container">
+    <div class="intro-container col">
         <h1 class="intro-text">Welcome to the ultimate school slang navigation tool!</h1>
     </div>
+
     <!-- Search Form -->
     <div class="search-section">
+        <div class="row">
         <h2 class="search-header">Search Slang Words</h2><br>
-        <div cleass="search-form">
+        </div>
+        <div class="row search-form">
         <form action="{{ url_for('search') }}" method="get">
             <input type="text" name="q" placeholder="Search for slang...">
             <button type="submit">Search</button>
