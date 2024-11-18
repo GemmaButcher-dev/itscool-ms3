@@ -178,7 +178,6 @@ button {
 
 .search-form {
 
-
 }
 
 /* search results */
@@ -268,3 +267,60 @@ footer {
     background-color: #f5f5f5;
     z-index: 3;
 }
+
+/*== 404 page ==*/
+
+.img-404 {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.notcool-img {
+    max-width: 70%;  /* Ensures the image doesn't overflow its container */
+    height: auto;    /* Maintains aspect ratio */
+    display: block;  /* Centers the image */
+    margin: 0 auto;  /* Horizontally centers the image */
+}
+
+.button-div {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.button-404 { 
+    color: #f5f5f5;
+    background-color: #9932cb;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.button-404:hover {
+    background-color: #8000a3; /* Darker purple on hover */
+}
+
+.error-container { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 15px;
+}
+
+.error-text {
+    color: #f5f5f5;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+.heading-404 {
+    text-align: center;
+    margin: 40px 0 40px 0;
+}
+
+
