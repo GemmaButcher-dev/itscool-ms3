@@ -2,26 +2,26 @@
 
 {% block content %}
 
-<!--Title-->
+<!-- Title -->
 <div class="heading-404 container-fluid">
-<h1>ItScool | 404</h1>
+    <h1>ItScool | 404</h1>
 </div>
 
 <div class="img-404">
-    <img class="notcool-img" src="static/images/ItsCool404_img.webp" alt="its not cool title image">
+    <img src="static/images/ItsCool404_img.webp" alt="its not cool title image" style="max-width: 100%; height: auto;">
 </div>
 
- <!-- Intro message -->
- <div class="error-container container-fluid">
+<!-- Intro message -->
+<div class="error-container container-fluid">
     <h2 class="error-text">
-        <br>Oooopps! It looks like something wasnt so cool!<br>
-        <br>Lets fix this!<br><br>
+        <br>Oooopps! It looks like something wasn't so cool!<br>
+        <br>Let's fix this!<br><br>
     </h2>
 </div>
 
-    <!-- Button to go to homepage -->
+<!-- Button to go to homepage -->
 <div class="button-div">
-    <button href="{{ url_for('home') }}" class="btn-primary button-404">Take me home!</button>
+    <button onclick="window.location.href='{{ url_for('home') }}'" class="btn-primary button-404">Take me home!</button>
 </div>
 
 
