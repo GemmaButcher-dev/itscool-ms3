@@ -3,19 +3,27 @@
 {% block content %}
 
 <!--Title-->
-<div class="404-heading">
+<div class="heading-404 container-fluid">
 <h1>ItScool | 404</h1>
 </div>
 
+<div class="img-404">
+    <img class="notcool-img" src="static/images/ItsCool404_img.webp" alt="its not cool title image">
+</div>
+
  <!-- Intro message -->
- <div class="404-container">
-    <h2 class="404-text">
+ <div class="error-container container-fluid">
+    <h2 class="error-text">
         <br>Oooopps! It looks like something wasnt so cool!<br>
         <br>Lets fix this!<br><br>
     </h2>
-    </div>
+</div>
+
     <!-- Button to go to homepage -->
-    <button id="404-home" type="button" class="home-404" onclick="location.href='index.html'" aria-label="button to return to homepage">Take me home</button>
+<div class="button-div">
+    <button href="{{ url_for('home') }}" class="btn-primary button-404">Take me home!</button>
+</div>
+
 
 
 {% endblock %}
