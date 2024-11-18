@@ -9,12 +9,14 @@
         <h1 class="intro-text">Welcome to the ultimate school slang navigation tool!</h1>
     </div>
     <!-- Search Form -->
-    <div class="search-form">
-        <h2>Search Slang Words</h2>
+    <div class="search-section">
+        <h2 class="search-header">Search Slang Words</h2><br>
+        <div cleass="search-form">
         <form action="{{ url_for('search') }}" method="get">
             <input type="text" name="q" placeholder="Search for slang...">
             <button type="submit">Search</button>
         </form>
+        </div>
     </div>
 
     <!-- Display All Slangs Grouped by Letter -->
