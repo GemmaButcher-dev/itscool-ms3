@@ -11,7 +11,7 @@ p {
 
 a {
     text-decoration: none;
-    color: purple;
+    color: #9932cb;
 }
 
 li {
@@ -58,7 +58,7 @@ body {
     font-size: 18px;
 }
 
-/* == home page == */
+/* == Index == */
 
 .welcome-container {
     display: flex;
@@ -88,7 +88,7 @@ body {
     margin-right: 1rem;
 }
 
-/*== Accordion ==*/
+/*== Index Accordion ==*/
 
 .accordion-button.custom-header {
     background-color: #4caf50; /* Green background */
@@ -140,7 +140,7 @@ input, textarea {
 }
 
 button {
-    background-color: darkorchid;
+    background-color: #9932cb;
     color: #fff;
     padding: 10px;
     border: none;
@@ -162,7 +162,7 @@ button {
     margin: 0.2rem;
     padding: 0.5rem;
     cursor: pointer;
-    border: 1px solid darkorchid;
+    border: 1px solid #9932cb;
     border-radius: 5px;
     color: #004080;
 }
