@@ -41,3 +41,21 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+// update date footer year when loaded function
+
+function updateDate() {
+    // Get the current date
+    const today = new Date();
+
+    // Format the date (e.g., Year)
+    const formattedDate = today.toLocaleDateString('en-US', {
+        year: 'numeric',
+    });
+
+    // Find the element by its ID and update its content
+    document.getElementById('current-date').textContent = formattedDate;
+}
+
+// Call the function to update the date on page load
+document.addEventListener('DOMContentLoaded', updateDate);
