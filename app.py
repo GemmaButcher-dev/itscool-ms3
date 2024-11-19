@@ -172,7 +172,7 @@ def search():
 def signup():
     if request.method == "POST":
         #check if username already exists in db
-        existing_user = mongo.db.users.find_one(
+        existing_user = session.get('role')(
             {"username": request.form.get("username").lower()})
 
         if existing_user:
@@ -197,16 +197,14 @@ def signup():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-        existing_user = mongo.db.users.find_one(
+        existing_user = session.get('role')(
             {"username": request.form.get("username").lower()})
         
         # Check if the user exists and if the password is correct
         if existing_user and check_password_hash(
             existing_user["password"], request.form.get("password")):
-            
-            # Save user information in session
             session["user"] = request.form.get("username").lower()
-            session["role"] = existing_user.get("role", "user")  # Default to "user" if no role is set
+            session["role"] = existing_user.get("role", "user")   # Default to "user" if no role is set
             
             # Check if the user is an admin
             if session["role"] == "admin":
@@ -224,7 +222,7 @@ def login():
 @app.route("/dashboard/<username>", methods=["GET", "POST"])
 def profile(username):
     #grab session user's username from db
-    username = mongo.db.users.find_one(
+    username = session.get('role')(
         {"username": session["user"]})["username"]
     
     if session["user"]:
