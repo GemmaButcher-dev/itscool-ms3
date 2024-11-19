@@ -28,8 +28,7 @@ mongo = PyMongo(app)
 def admin_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
-        user = mongo.db.users.find_one({"username": session.get("user")})
-        if user and user.get("role") == "admin":
+        if session.get("role") == "admin":
             return f(*args, **kwargs)
         flash("You need to be an admin to access this page.")
         return redirect(url_for("home"))
@@ -270,7 +269,7 @@ def delete_slang_user():
     except Exception as e:
         flash(f"Error: {str(e)}", "error")  # Handle any database errors
 
-    return render_template("delete_slang.form")  # Show the delete slang form
+    return render_template("delete_slang_form")  # Show the delete slang form
 
 
 # Route to render the delete slang form page
@@ -295,4 +294,5 @@ def page_not_found(e):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=False)
