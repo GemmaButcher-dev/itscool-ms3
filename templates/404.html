@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
+<!-- pass flask url to script -->
+<script>
+    const homeUrl = "{{ url_for('home') }}";
+</script>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
 <!-- Title -->
 <div class="heading-404 container-fluid">
