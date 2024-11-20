@@ -60,7 +60,7 @@ function updateDate() {
 // Call the function to update the date on page load
 document.addEventListener('DOMContentLoaded', updateDate);
 
-// 404 redirect timeout
-setTimeout(() => {
-    window.location.replace("{{ url_for('home') }}");
-}, 5000); // Redirect after 5 seconds
+// // 404 redirect timeout
+// setTimeout(() => {
+//     window.location.replace("{{ url_for('home') }}");
+// }, 5000); // Redirect after 5 seconds
