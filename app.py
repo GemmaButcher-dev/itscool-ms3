@@ -24,11 +24,13 @@ app.secret_key = os.environ.get("SECRET_KEY")
 # Initializing PyMongo
 mongo = PyMongo(app)
 
+
 # Decorator to restrict access to admin users
 def admin_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
-        if session.get("role") == "admin":
+        user = mongo.db.users.find_one({"username": session.get("user")})
+        if user and user.get("role") == "admin":
             return f(*args, **kwargs)
         flash("You need to be an admin to access this page.")
         return redirect(url_for("home"))
@@ -52,7 +54,8 @@ def home():
 
 @app.route('/admin_dashboard', methods=['GET', 'POST'])
 def admin_dashboard():
-    if 'user' not in session or session.get('role') != 'admin':  # Check if user is logged in as admin
+    # Check if user is logged in as admin
+    if 'user' not in session or session.get('role') != 'admin':
         flash("You need to be an admin to access this page.")
         return redirect(url_for('login'))  # Redirect if not admin
 
@@ -69,13 +72,12 @@ def admin_dashboard():
 
         # Get all pending slangs (approved = False or not present)
     pending_slangs = mongo.db.slangs.find({"approved": {"$ne": True}})
-        
 
     return render_template(
-        'admin_dashboard.html', 
-        pending_slang = pending_slangs,
-        search_results = search_results,
-        search_query = search_query,
+        'admin_dashboard.html',
+        pending_slang=pending_slangs,
+        search_results=search_results,
+        search_query=search_query,
     )
 
 
@@ -84,7 +86,7 @@ def admin_dashboard():
 @admin_required
 def approve_slang():
     slang_id = request.form.get("slang_id")
-    
+
     # Find the slang by its ID and update the 'approved' field to True
     result = mongo.db.slangs.update_one(
         {"_id": ObjectId(slang_id)},
@@ -114,7 +116,7 @@ def delete_slang_admin():
             flash("Error deleting slang or slang not found.", "error")
     except Exception as e:
         flash(f"Error: {str(e)}", "error")
-    
+
     return redirect(url_for("admin_dashboard"))
 
 
@@ -151,7 +153,8 @@ def add_slang_admin():
 @app.route("/letter/<letter>")
 def slangs_by_letter(letter):
     # Retrieve slangs starting with the specified letter
-    slangs = mongo.db.slangs.find({"slang": {"$regex": f"^{letter}", "$options": "i"}})
+    slangs = mongo.db.slangs.find({"slang": {"$regex": f"^{letter}",
+                                  "$options": "i"}})
     return render_template("index.html", letter=letter, slangs=slangs)
 
 
@@ -161,7 +164,8 @@ def search():
     query = request.args.get("q")
     if query:
         # Retrieve slangs matching the search query
-        slangs = mongo.db.slangs.find({"slang": {"$regex": query, "$options": "i"}})
+        slangs = mongo.db.slangs.find({"slang":
+                                      {"$regex": query, "$options": "i"}})
     else:
         slangs = []
     return render_template("index.html", query=query, slangs=slangs)
@@ -171,8 +175,8 @@ def search():
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     if request.method == "POST":
-        #check if username already exists in db
-        existing_user = session.get('role')(
+        # check if username already exists in db
+        existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
 
         if existing_user:
@@ -186,7 +190,7 @@ def signup():
         }
         mongo.db.users.insert_one(signup)
 
-        #put the new user into 'session' cookie
+        # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
         flash("Signup Successfull!")
         return redirect(url_for("profile", username=session["user"]))
@@ -197,34 +201,36 @@ def signup():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-        existing_user = session.get('role')(
+        existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
-        
+
         # Check if the user exists and if the password is correct
         if existing_user and check_password_hash(
-            existing_user["password"], request.form.get("password")):
+         existing_user["password"], request.form.get("password")):
+
+            # Save user information in session
             session["user"] = request.form.get("username").lower()
-            session["role"] = existing_user.get("role", "user")   # Default to "user" if no role is set
-            
+            session["role"] = existing_user.get(
+                "role", "user")  # Default to "user" if no role is set
+
             # Check if the user is an admin
             if session["role"] == "admin":
                 flash(f"Welcome to the admin dashboard, {session['user']}!")
-                return redirect(url_for("admin_dashboard"))  # Redirect to admin dashboard
-            
+                # Redirect to admin dashboard
+                return redirect(url_for("admin_dashboard"))
+
             # Redirect to user dashboard/profile for non-admin users
             flash(f"Welcome, {session['user']}!")
             return redirect(url_for("home", username=session["user"]))
-        
         flash("Incorrect Username and/or Password")
     return render_template("login.html")
 
 
 @app.route("/dashboard/<username>", methods=["GET", "POST"])
 def profile(username):
-    #grab session user's username from db
-    username = session.get('role')(
+    # grab session user's username from db
+    username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    
     if session["user"]:
         return render_template("dashboard.html", username=username)
 
@@ -258,16 +264,16 @@ def delete_slang_user():
     try:
         # Find the slang in the database by name and delete it
         result = mongo.db.slangs.delete_one({"slang": slang_word})
-      
         if result.deleted_count > 0:
-            flash(f"The slang '{slang_word}' has been deleted successfully!", "success")
+            flash(f"The slang '{
+                slang_word}' has been deleted successfully!", "success")
         else:
             flash(f"Slang '{slang_word}' not found!", "error")
 
     except Exception as e:
         flash(f"Error: {str(e)}", "error")  # Handle any database errors
 
-    return render_template("delete_slang_form")  # Show the delete slang form
+    return render_template("delete_slang.form")  # Show the delete slang form
 
 
 # Route to render the delete slang form page
@@ -278,7 +284,7 @@ def delete_slang_form():
 
 @app.route("/logout")
 def logout():
-    #remove user from session cookie
+    # remove user from session cookie
     flash("You have been logged out!")
     session.pop("user", None)
     session.pop("role", None)
@@ -292,5 +298,4 @@ def page_not_found(e):
 
 
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port, debug=False)
+    app.run(debug=True)
