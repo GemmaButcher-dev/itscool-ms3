@@ -7,15 +7,16 @@
   3. [Accessibility Testing](#accessibility-testing)
   4. [Responsiveness & Compatability Testing](#responsiveness--compatability-testing)
   5. [JavaScript Testing](#javascript-testing)
+  6. [Python Testing](#python-testing)
         * JS Hint
-  6. [Bug Fixes](#bug-fixes)
+  7. [Bug Fixes](#bug-fixes)
         * 
-  7. [Testing User Stories from User Experience (UX) Section](#testing-user-stories)
+  8. [Testing User Stories from User Experience (UX) Section](#testing-user-stories)
         * Project Goals
-        * Players Goals
+        * User Goals
         * ItScool helps players meet these goals by:
-  8.  [Other Testing Methods](#other-testing)
-  9. [Further Testing](#further-testing)
+  9.  [Other Testing Methods](#other-testing)
+  10. [Further Testing](#further-testing)
 
   ------
 
@@ -62,6 +63,21 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 | ES5       |![screenshot]()      |  |
 | Re-test 1 |![screenshot]() |               | 
 | Re-test 2 |![screenshot]() | Passed - No warnings                                 |
+
+
+## Python Testing
+
+### CI Python Linter
+
+  * All Python code was put though [CI Python Linter](https://pep8ci.herokuapp.com/) and tested against a beautifier tool called [Code Beautify](https://codebeautify.org/python-formatter-beautifier#).
+
+| Test      | Screenshot                                                                                   | Notes                                                |
+|----------------------------|-----------------------------------------------------------------------------|------------------------------------------------------|
+| CI python linter           |![screenshot](static/images/documents/testing/ci_python_linter_analysis.png) |  Initial testing showing white spaces, incorrect blank lines and some lines were too long.|
+| CI python linter re-test 1 |![screenshot](static/images/documents/testing/ci_python_linter_fixed.png)    |  Passed - No warnings           | 
+| Code Beutify               |![screenshot](static/images/documents/testing/code_beautify_python.png)      |  Made changes to line lengths and some indentation |
+| CI python linter re-test 2 |![screenshot](static/images/documents/testing/ci_python_linter_2.png)        |  Initiated reliability issues with beautifier tool with line lengths being too long |
+| CI python linter re-test 3 |![screenshot](static/images/documents/testing/ci_python_linter_fixed.png)    |  Passed - No warnings   |
 
 
 ## Bug Fixes
