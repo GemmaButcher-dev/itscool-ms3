@@ -41,9 +41,16 @@ The complete site was tested on the lighthouse facility in Google Developer Tool
 The W3C Markup Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project. The results and screenshots are in the table below.
 
 | Page                | Screenshot                               | Notes  |
-|---------------------|------------------------------------------|--------|
-|Start/Home Screen    |![screenshot]() | Passed/Failed |
-|404                  |![screenshot]()   | Passed /Failed| 
+|---------------------|------------------------------------------------|--------|
+|base.html            |![screenshot]()   | Passed/Failed |
+|index.html           |![screenshot]()   | Passed /Failed| 
+|login.html           |![screenshot]()   | Passed /Failed|
+|signup.html          |![screenshot]()   | Passed/Failed |
+|dashboard.html       |![screenshot]()   | Passed /Failed| 
+|admin_dashboard.html |![screenshot]()   | Passed /Failed|
+|add_slang.html       |![screenshot]()   | Passed /Failed| 
+|delete_slang.html    |![screenshot]()   | Passed /Failed|
+|404.html             |![screenshot]()   | Passed /Failed| 
 |CSS                  |![screenshot]()   | Passed /Failed|
 
 
