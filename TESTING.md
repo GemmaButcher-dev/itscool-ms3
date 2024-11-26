@@ -60,7 +60,7 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
 | Test      | Screenshot                                     | Notes                                                |
 |-----------|------------------------------------------------|------------------------------------------------------|
-| JS Hint       |![screenshot](static/images/documents/testing/jshint_testing.png)      | Shows an undefined variable in the script.js file. This variable is defined in a script tag in the 404.html file. For more inforamtion see [bug-fix] section |
+| JS Hint       |![screenshot](static/images/documents/testing/jshint_testing.png)      | Shows an undefined variable in the script.js file. This variable is defined in a script tag in the 404.html file. For more inforamtion see [bug-fixes] section |
 
 
 ## Python Testing
