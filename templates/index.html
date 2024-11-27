@@ -15,8 +15,8 @@
         <h2 class="search-header">Search Slang Words</h2><br>
         </div>
         <div class="row search-form">
-        <form id="slang-search-form" action="{{ url_for('search') }}" method="get">
-            <input type="text" id="search-input" name="q" placeholder="Search for slang...">
+        <form action="{{ url_for('search') }}" method="get">
+            <input type="text" name="q" placeholder="Search for slang..." value="{{ query }}">
             <button type="submit">Search</button>
         </form>
         </div>
@@ -33,35 +33,37 @@
         </div>
     </div>
 
-    <!-- Display All Slangs Grouped by Letter -->
-    <div class="letter-group" id="all-slangs-section" {% if query %} style="display:none;" {% endif %}>
-        <h2>All Slangs</h2>
-        {% if grouped_slangs %}
-            <div class="accordion" id="accordionLetter">
-                {% for letter, slang_list in grouped_slangs.items() %}
-                 <div class="accordion-item">
-                    <h2 class="accordion-header" id="heading{{ letter }}">
-                        <button class="accordion-button custom-header" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ letter }}" aria-expanded="true" aria-controls="collapse{{ letter }}">
-                            {{ letter }}
-                        </button>
-                    </h2>
-                    <div id="collapse{{ letter }}" class="accordion-collapse collapse" aria-labelledby="heading{{ letter }}" data-bs-parent="#accordionExample">
-                        <div class="accordion-body custom-body">
-                            <ul>
-                                {% for slang in slang_list %}
-                                    <li>{{ slang['slang'] }}: {{ slang['definition'] }}</li>
-                                {% endfor %}
-                            </ul>
+    <!-- Display All Slangs Grouped by Letter (hidden if query is present) -->
+    {% if not query %}
+        <div class="letter-group">
+            <h2>All Slangs</h2>
+            {% if grouped_slangs %}
+                <div class="accordion" id="accordionLetter">
+                    {% for letter, slang_list in grouped_slangs.items() %}
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="heading{{ letter }}">
+                            <button class="accordion-button custom-header" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ letter }}" aria-expanded="true" aria-controls="collapse{{ letter }}">
+                                {{ letter }}
+                            </button>
+                        </h2>
+                        <div id="collapse{{ letter }}" class="accordion-collapse collapse" aria-labelledby="heading{{ letter }}" data-bs-parent="#accordionExample">
+                            <div class="accordion-body custom-body">
+                                <ul>
+                                    {% for slang in slang_list %}
+                                        <li>{{ slang['slang'] }}: {{ slang['definition'] }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
+            {% else %}
+                <p>No slangs found.</p>
+            {% endif %}
         </div>
-        
-        {% else %}
-            <p>No slangs found.</p>
         {% endif %}
-    </div>
+        
 
     <!-- Slangs Starting with a Specific Letter -->
     {% if letter %}
@@ -80,7 +82,7 @@
 
     <!-- Search Results -->
     {% if query %}
-    <div id="search-results-section" style="display: none;">
+    <div class="search-results">
         <h2>Search Results for "{{ query }}"</h2>
         <ul>
             {% if slangs %}
