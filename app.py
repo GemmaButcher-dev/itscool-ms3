@@ -7,7 +7,7 @@ from pymongo import MongoClient
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from functools import wraps
-from fuzzywuzzy import fuzz
+from fuzzywuzzy import fuzz, process
 
 
 if os.path.exists("env.py"):
@@ -164,10 +164,20 @@ def slangs_by_letter(letter):
 def search():
     query = request.args.get("q")
     slangs = []
+
     if query:
-        # Retrieve slangs matching the search query / input 
-        slangs = mongo.db.slangs.find({"slang":
-                                      {"$regex": query, "$options": "i"}})
+        # Retrieve all slangs from the database
+        all_slangs = mongo.db.slangs.find()
+
+        # Iterate through all slangs and calculate fuzzy match scores
+        for slang in all_slangs:
+            # Calculate the similarity between the query and each slang term
+            similarity_score = fuzz.partial_ratio(query.lower(), slang['slang'].lower())
+
+            # If the similarity score is greater than a threshold (>60%), display result
+            if similarity_score > 60:
+                slangs.append(slang)
+
     return render_template("index.html", query=query, slangs=slangs)
 
 
