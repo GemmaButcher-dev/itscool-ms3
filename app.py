@@ -162,12 +162,11 @@ def slangs_by_letter(letter):
 @app.route("/search")
 def search():
     query = request.args.get("q")
+    slangs = []
     if query:
-        # Retrieve slangs matching the search query
+        # Retrieve slangs matching the search query / input 
         slangs = mongo.db.slangs.find({"slang":
                                       {"$regex": query, "$options": "i"}})
-    else:
-        slangs = []
     return render_template("index.html", query=query, slangs=slangs)
 
 
