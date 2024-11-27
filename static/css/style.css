@@ -105,6 +105,10 @@ body {
     color: #000000;
 }
 
+.accordion-body ul li {
+    margin-bottom: 10px;
+}
+
 .accordion #collapse {
     align-items: center;
 }
