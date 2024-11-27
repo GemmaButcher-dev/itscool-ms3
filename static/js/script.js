@@ -1,12 +1,12 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const cancelButtons = document.querySelectorAll(".cancel-btn");
+const cancelButtons = document.querySelectorAll(".cancel-btn");
+document.addEventListener("DOMContentLoaded", function          () {
     const modal = document.getElementById("confirmation-modal");
     const confirmBtn = document.getElementById("confirm-btn");
     const cancelBtn = document.getElementById("cancel-btn");
     let currentResultId = null;
 
     cancelButtons.forEach((button) => {
-        button.addEventListener("click", function () {
+        button.addEventListener("click", function() {
             // Get the result ID from the clicked cancel button
             currentResultId = button.getAttribute("data-id");
 
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Handle the confirm button click (remove the word)
-    confirmBtn.addEventListener("click", function () {
+    confirmBtn.addEventListener("click", function() {
         if (currentResultId) {
             const resultElement = document.getElementById(currentResultId);
             if (resultElement) {
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Handle the cancel button click (close the modal)
-    cancelBtn.addEventListener("click", function () {
+    cancelBtn.addEventListener("click", function() {
         modal.style.display = "none";
     });
 
@@ -42,13 +42,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-    const searchInput = document.getElementById("search-input");
-    const allSlangsSection = document.getElementById("all-slangs-section");
-
-    //hide all-slangs-section when a search input is taken and result is displayed
-    
-})
+    window.onload = function() {
+        const query = "{{ query }}";
+        const allSlangsSection = document.getElementById('all-slangs');
+        
+        if (query) {
+            allSlangsSection.style.display = 'none';
+        }
+    }
 
 // update date footer year when loaded function
 
