@@ -34,7 +34,7 @@
     </div>
 
     <!-- Display All Slangs Grouped by Letter -->
-    <div class="letter-group">
+    <div class="letter-group" id="all-slangs-section">
         <h2>All Slangs</h2>
         {% if grouped_slangs %}
             <div class="accordion" id="accordionLetter">
@@ -80,6 +80,7 @@
 
     <!-- Search Results -->
     {% if query %}
+    <div id="search-results-section" style="display: none;">
         <h2>Search Results for "{{ query }}"</h2>
         <ul>
             {% if slangs %}
@@ -91,5 +92,6 @@
             {% endif %}
         </ul>
         <a href="{{ url_for('home') }}">Back to All Slangs</a>
+    </div>
     {% endif %}
 {% endblock %}
