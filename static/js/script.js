@@ -1,5 +1,5 @@
 const cancelButtons = document.querySelectorAll(".cancel-btn");
-document.addEventListener("DOMContentLoaded", function          () {
+document.addEventListener("DOMContentLoaded", function() {
     const modal = document.getElementById("confirmation-modal");
     const confirmBtn = document.getElementById("confirm-btn");
     const cancelBtn = document.getElementById("cancel-btn");
@@ -42,14 +42,15 @@ document.addEventListener("DOMContentLoaded", function          () {
     });
 });
 
-    window.onload = function() {
-        const query = "{{ query }}";
-        const allSlangsSection = document.getElementById('all-slangs');
+//to hide all slangs section if there is a query
+window.onload = function() {
+    const query = "{{ query }}";
+    const allSlangsSection = document.getElementById('all-slangs');
         
-        if (query) {
-            allSlangsSection.style.display = 'none';
-        }
+    if (query) {
+        allSlangsSection.style.display = 'none';
     }
+}
 
 // update date footer year when loaded function
 
