@@ -7,6 +7,7 @@ from pymongo import MongoClient
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from functools import wraps
+from fuzzywuzzy import fuzz
 
 
 if os.path.exists("env.py"):
