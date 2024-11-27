@@ -42,6 +42,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    const searchInput = document.getElementById("search-input");
+    const allSlangsSection = document.getElementById("all-slangs-section");
+
+    //hide all-slangs-section when a search input is taken and result is displayed
+    
+})
+
 // update date footer year when loaded function
 
 function updateDate() {
