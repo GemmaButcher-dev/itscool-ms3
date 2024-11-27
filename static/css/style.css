@@ -122,15 +122,15 @@ form {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;  /* Ensures padding around form elements is uniform */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Adds shadow for depth */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 .form-card {
     display: flex;
     flex-direction: column;
-    width: 100%;  /* Ensure both cards stretch equally */
-    max-width: 400px;  /* Set a limit to prevent overflow */
+    width: 100%;
+    max-width: 400px;
 }
 
 input, textarea {
@@ -276,10 +276,10 @@ footer {
 }
 
 .notcool-img {
-    max-width: 70%;  /* Ensures the image doesn't overflow its container */
-    height: auto;    /* Maintains aspect ratio */
-    display: block;  /* Centers the image */
-    margin: 0 auto;  /* Horizontally centers the image */
+    max-width: 70%;
+    height: auto;    
+    display: block; 
+    margin: 0 auto;  
 }
 
 .button-div {
