@@ -174,8 +174,8 @@ def search():
             # Calculate the similarity between the query and each slang term
             similarity_score = fuzz.partial_ratio(query.lower(), slang['slang'].lower())
 
-            # If the similarity score is greater than a threshold (>60%), display result
-            if similarity_score > 60:
+            # If the similarity score is greater than a threshold (>70%), display result
+            if similarity_score > 70:
                 slangs.append(slang)
 
     return render_template("index.html", query=query, slangs=slangs)
