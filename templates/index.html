@@ -22,16 +22,16 @@
         </div>
     </div>
 
-    <div class="info-section row">
+    <!-- <div class="info-section row">
         <div class="col-7">
-            <img>
+            <img sr>
         </div>
         <div class="col-5">
             <p class="info-text">
 
             </p>
         </div>
-    </div>
+    </div> -->
 
     <!-- Display All Slangs Grouped by Letter (hidden if query is present) -->
     {% if not query %}
@@ -64,21 +64,6 @@
         </div>
         {% endif %}
         
-
-    <!-- Slangs Starting with a Specific Letter -->
-    <!-- {% if letter %}
-        <h2>Slangs Starting with "{{ letter }}"</h2>
-        <ul>
-            {% if slangs %}
-                {% for slang in slangs %}
-                    <li>{{ slang['slang'] }}: {{ slang['definition'] }}</li>
-                {% endfor %}
-            {% else %}
-                <li>No slangs found for "{{ letter }}"</li>
-            {% endif %}
-        </ul>
-        <a href="{{ url_for('home') }}">Back to All Slangs</a>
-    {% endif %} -->
 
     <!-- Search Results -->
     {% if query %}
