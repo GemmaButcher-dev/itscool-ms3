@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+
 {% block content %}
     <h3>Sign Up</h3>
     <div class="form-container">
@@ -8,36 +9,44 @@
             <!-- username -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-user-plus"></i>
+                    <label for="username">
+                        <i class="fas fa-user-plus"></i>
+                    </label>
                     <input id="username" name="username" type="text" minlength="5"
-                        maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
-                    <label for="username">Username</label>
+                        maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required
+                        title="Username must be 5-15 alphanumeric characters.">
                 </div>
             </div>
+
             <!-- password -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-user-lock"></i>
+                    <label>
+                        <i class="fas fa-user-lock"></i>Password
+                    </label>
                     <input id="password" name="password" type="password" minlength="5"
                         maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
                     <label for="password">Password</label>
                 </div>
             </div>
-            <!-- register -->
-            <div class="row">
-                <button type="submit" class="col s12 btn-large light-blue darken-4 text-shadow">
-                    Register <i class="fas fa-sign-in-alt"></i>
-                </button>
-            </div>
+
+                    <!-- Register Button -->
+                    <div class="row">
+                        <button type="submit" class="col s12 btn-large light-blue darken-4 text-shadow">
+                            Register <i class="fas fa-sign-in-alt"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
         </form>
-        </div>
     </div>
+
     <div class="signup-link">
         <div class="col-12">
             <p>
                 Already Signed Up? <a href="{{ url_for('login') }}" class="">Log In</a>
             </p>
         </div>
+    </div>
 
 {% endblock %}
