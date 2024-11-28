@@ -9,14 +9,15 @@
   5. [JavaScript Testing](#javascript-testing)
   6. [Python Testing](#python-testing)
         * JS Hint
-  7. [Bug Fixes](#bug-fixes)
+  7. [Fuzzywuzzy](#fuzzywuzzy-testing)
+  8. [Bug Fixes](#bug-fixes)
         * 
-  8. [Testing User Stories from User Experience (UX) Section](#testing-user-stories)
+  9. [Testing User Stories from User Experience (UX) Section](#testing-user-stories)
         * Project Goals
         * User Goals
         * ItScool helps players meet these goals by:
-  9.  [Other Testing Methods](#other-testing)
-  10. [Further Testing](#further-testing)
+  10.  [Other Testing Methods](#other-testing)
+  11. [Further Testing](#further-testing)
 
   ------
 
@@ -92,6 +93,14 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
 After initially correcting the code format and it passing testing using the CI python linter it seemed that the indentation after breaking a line due to line length wasnt quite aesthetically correct. The decision was made to use a python beautifier tool which then amended the code and changed the line lengths and indentations. To test the reliability of the beautifier tool the beautified code was re-run through the CI python linter which then logged warnings for some of the lines being too long. The app.py file was the reverted back to the tested and passed version that was verified by CI python linter, as there is questionability to the reliability and accuracy of the beautifier tool and issues that could be caused with the formatted version of the code it suggests. This may be subject to opinion and further testing of the tool but it was decided to go with the results and testing of the CI python linter.
 
+
+## Fuzzywuzzy Testing
+
+  * Initially the matching threshold was set to 80% whilst in development.
+  * The function and installation was tested by entering random slang words that were stored in the database and by seeing what results were displayed as a match. 
+  * At 80% threshold the user needs to be very accurate and close to the correct spelling of the slang word to get a close match. This does not align with the user stories.
+  * The threshold was then reduced to 50% and tested in the same way again at 5% intervals. Between 50-65% the results were too broad and the matches were too 'fuzzy'. 
+  * 70% match threshold seems to return close enough matches with enough tollerance and flexibility for spelling mistakes for all users.
 
 ## Bug Fixes
 
