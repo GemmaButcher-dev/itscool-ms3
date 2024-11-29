@@ -18,7 +18,7 @@ li {
     color: #f5f5f5;
 }
 
-/* == Header == */
+/* ==== Header ==== */
 
 header {
     width: 100%;
@@ -26,6 +26,8 @@ header {
     display: flex;
     justify-content: center;
 }
+
+/* Nav Bar */
 
 .nav-bar {
     width: 40%;
@@ -46,13 +48,15 @@ header {
     margin-right: 3rem;
 }
 
-    /* == Backgrounds == */
+/* == Backgrounds == */
+
 body {
     display: flex;
     flex-direction: column;
     background:
         url('/static/images/blackboard_background.webp');
-    /* Solid color underlay */
+
+    /* Solid color underlay incase image fails to load */
     min-height: 100vh;
     position: relative;
     font-size: 18px;
@@ -202,7 +206,19 @@ button {
     margin: 0.5rem 0;
 }
 
-/* Confirmation Modal for admin slang deletion*/
+/* Add slang Page */
+
+.add_slang-container{
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px; 
+}
+
+.form-heading {
+    color: #000000;
+}
+
+/* ===== Confirmation Modal for admin slang deletion ====== */
 
 /* Modal Background */
 .modal {
