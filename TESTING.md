@@ -25,10 +25,15 @@
 
 The complete site was tested on the lighthouse facility in Google Developer Tools to assess the overall performance of the site. The site meets the pass criteria and you can see the results in the below table.
 
-| Page                | Screenshot                                      | Notes                                                        |
-|---------------------|-------------------------------------------------|--------------------------------------------------------------|
-|Start/Home Screen    |![screenshot]() |                          |
-|404                  |![screenshot]()   |  |
+| Page         | Screenshot                                                                        | Notes          |
+|--------------|-----------------------------------------------------------------------------------|----------------|
+|Home Screen   |![screenshot](static/images/documents/testing/lighthouse/index_lighthouse.png)     |  Meets criteria|
+|Login         |![screenshot](static/images/documents/testing/lighthouse/login_lighthouse.png)     |  Meets criteria|                        
+|Sign Up       |![screenshot](static/images/documents/testing/lighthouse/signup_lighthouse.png)    |  Meets criteria|                        
+|Dashboard     |![screenshot](static/images/documents/testing/lighthouse/dashboard_lighthouse.png) |  Meets criteria|                        
+|Add slang     |![screenshot](static/images/documents/testing/lighthouse/add_slang_lighthouse.png) |  Meets criteria|                        
+|Delete slang  |![screenshot](static/images/documents/testing/lighthouse/delete_lighthouse.png)    |  Meets criteria|                        
+|404           |![screenshot](static/images/documents/testing/lighthouse/404_lighthouse.png)       |  Meets criteria. Lower SEO but as a 404 page this is not too concerning|
 
 
 ## Responsiveness & Compatability Testing
