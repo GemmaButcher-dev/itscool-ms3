@@ -1,11 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
 
+<div class="add_slang-container container-fluid">
+    <div class="add-slang-heading">
+        <h2>Add a slang word</h2>
+    </div>
+    <div class="add-slang-info">
+        <p>Fill in the form below to submit a slang word to be added to ItsCool. How Cool!? A slang shared is a problem halved.</p>
+    </div>
+</div>
+
 <div class="row">
     <div class="col s12 m8 offset-m2">
         <div class="card">
             <div class="card-body">
-                <h3 class="center-align">Add a slang word</h3>
+                <h3 class="center-align form-heading">Add a slang word</h3>
                 <form action="{{ url_for('add_slang') }}" method="post">
 
                     <!-- Slang word -->
