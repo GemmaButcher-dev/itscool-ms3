@@ -48,14 +48,12 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
 | Page                 | Screenshot                                                                          | Notes                             |
 |----------------------|-------------------------------------------------------------------------------------|-----------------------------------|
-|base.html             |[view here](static/images/documents/testing/base.html_validator.png)                 | Passed (error due to jinja tags)  |
-|index.html            |[view here](static/images/documents/testing/index.html_validator.png)                | Passed (error due to jinja tags)  | 
+|index.html            |[view here](static/images/documents/testing/markup_validator/index.html_validator.png) | Passed | 
 |login.html            |[view here](static/images/documents/testing/login.html_validator.png)                | Passed (error due to jinja tags)  |
-|signup.html           |[view here](static/images/documents/testing/signup.html_validator.png)               | Failed - Unclosed div and form tag|
-|signup.html re-test   |[view here](static/images/documents/testing/signup.html_validator_retest_.png)       | Passed (error due to jinja tags)  |
-|dashboard.html        |[view here](static/images/documents/testing/dashboard.html_validator1.png)           | Failed - Unclosed div tag         | 
-|dashboard.html re-test|[view here](static/images/documents/testing/dashboard.html_validator1_retest.png)    | Passed (error due to jinja tags)  | 
-|admin_dashboard.html  |[view here](static/images/documents/testing/admin_dashboard.html_validator.png)      | Passed (error due to jinja tags)  |
+|signup.html           |[view here](static/images/documents/testing/signup.html_validator.png)               |  |
+
+|dashboard.html        |[view here](static/images/documents/testing/dashboard.html_validator1.png)           |         | 
+|admin_dashboard.html  |[view here](static/images/documents/testing/admin_dashboard.html_validator.png)      | Passed  |
 |add_slang.html        |[view here]()   | Passed /Failed| 
 |delete_slang.html     |[view here]()   | Passed /Failed|
 |404.html              |[view here]()   | Passed /Failed| 
