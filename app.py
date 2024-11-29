@@ -76,7 +76,7 @@ def admin_dashboard():
 
     return render_template(
         'admin_dashboard.html',
-        pending_slang=pending_slangs,
+        pending_slangs=pending_slangs,
         search_results=search_results,
         search_query=search_query,
     )
