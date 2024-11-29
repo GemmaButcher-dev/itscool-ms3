@@ -18,33 +18,23 @@
                 <form action="{{ url_for('add_slang') }}" method="post">
 
                     <!-- Slang word -->
-                    <div class="input-field">
                         <label for="slang">Slang Word:</label>
                         <input type="text" id="slang" name="slang" required placeholder="Enter slang word">
-                    </div>
 
                     <!-- Definition -->
-                    <div class="input-field">
                         <label for="definition">Definition:</label>
                         <textarea id="definition" name="definition" required placeholder="Enter slang definition"></textarea>
-                    </div>
                     
                     <!-- Age Range -->
-                    <div class="input-field">
                         <label for="age">Age Range:</label>
                         <input type="text" id="age" name="age" placeholder="Enter age range (e.g., 13-18)">
-                    </div>
                     
                     <!-- Type -->
-                    <div class="input-field">
                         <label for="type">Type:</label>
                         <input type="text" id="type" name="type" placeholder="Enter word type (e.g., adjective)">
-                    </div>
                     
                     <!-- Submit Button -->
-                    <div class="input-field">
                         <button type="submit">Add Slang</button>
-                    </div>
                 </form>
 
                  <!-- flash messages -->
