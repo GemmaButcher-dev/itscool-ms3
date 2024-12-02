@@ -73,6 +73,17 @@
                     <input type="hidden" name="delete_slang" value="true">
                     <button type="submit" class="btn btn-danger">Delete Slang</button>
                 </form>
+
+                <!-- Edit button -->
+                <button class="btn btn-primary edit-btn" 
+                data-id="{{ slang._id }}" 
+                data-slang="{{ slang.slang }}" 
+                data-definition="{{ slang.definition }}" 
+                data-age="{{ slang.age }}" 
+                data-type="{{ slang.type }}">
+                Edit
+                </button>
+                </form>
             </li>
         {% endfor %}
     </ul>
@@ -104,31 +115,42 @@
     </form>
 
     <!-- Edit pending slang modal -->
-    <div class="modal fade" id="editSlangModal" tabindex="-1" aria-labelledby="editSlangModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+    <!-- Modal -->
+<!-- Edit Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <form id="editSlangForm" method="POST">
             <div class="modal-content">
-                <form action="{{ url_for('update_slang') }}" method="POST">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="editSlangModalLabel">Edit Slang</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">Edit Slang</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="editSlangId" name="slang_id">
+                    <div class="mb-3">
+                        <label for="editSlang" class="form-label">Slang</label>
+                        <input type="text" class="form-control" id="editSlang" name="slang">
                     </div>
-                    <div class="modal-body">
-                        <input type="hidden" name="slang_id" id="edit_slang_id">
-                        <div class="mb-3">
-                            <label for="edit_slang" class="form-label">Slang</label>
-                            <input type="text" name="slang" id="edit_slang" class="form-control" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="edit_definition" class="form-label">Definition</label>
-                            <textarea name="definition" id="edit_definition" class="form-control" required></textarea>
-                        </div>
+                    <div class="mb-3">
+                        <label for="editDefinition" class="form-label">Definition</label>
+                        <input type="text" class="form-control" id="editDefinition" name="definition">
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    <div class="mb-3">
+                        <label for="editAge" class="form-label">Age</label>
+                        <input type="text" class="form-control" id="editAge" name="age">
                     </div>
-                </form>
+                    <div class="mb-3">
+                        <label for="editType" class="form-label">Type</label>
+                        <input type="text" class="form-control" id="editType" name="type">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </div>
             </div>
-        </div>
+        </form>
     </div>
+</div>
+
 {% endblock %}
