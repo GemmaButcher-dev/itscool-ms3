@@ -49,7 +49,7 @@
     <h3>Pending Approval Slang</h3>
 
     {% if pending_slangs %}
-    <ul>
+    <ul class="list-group">
         {% for slang in pending_slangs %}
             <li>
                 <strong>{{ slang.slang }}</strong>: {{ slang.definition }}
@@ -103,14 +103,32 @@
         <button type="submit" class="btn btn-primary">Add Slang</button>
     </form>
 
-    <!-- flash messages -->
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            {% for message in messages %}
-                <div class="row flashes">
-                    <h4 class="light-blue lighten-4 center-align">{{ message }}</h4>
-                </div>
-            {% endfor %}
-        {% endif %}
-    {% endwith %}
+    <!-- Edit pending slang modal -->
+    <div class="modal fade" id="editSlangModal" tabindex="-1" aria-labelledby="editSlangModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="{{ url_for('update_slang') }}" method="POST">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editSlangModalLabel">Edit Slang</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="hidden" name="slang_id" id="edit_slang_id">
+                        <div class="mb-3">
+                            <label for="edit_slang" class="form-label">Slang</label>
+                            <input type="text" name="slang" id="edit_slang" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="edit_definition" class="form-label">Definition</label>
+                            <textarea name="definition" id="edit_definition" class="form-control" required></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 {% endblock %}
