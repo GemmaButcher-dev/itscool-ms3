@@ -52,6 +52,33 @@ window.onload = function() {
     }
 }
 
+// edit pending slang modal for admin_dashboard
+
+document.addEventListener("DOMContentLoaded", function () {
+    const editButtons = document.querySelectorAll(".edit-btn");
+    editButtons.forEach(button => {
+        button.addEventListener("click", function () {
+            const slangId = this.getAttribute("data-id");
+            const slang = this.getAttribute("data-slang");
+            const definition = this.getAttribute("data-definition");
+            const age = this.getAttribute("data-age");
+            const type = this.getAttribute("data-type");
+
+            document.getElementById("editSlangId").value = slangId;
+            document.getElementById("editSlang").value = slang;
+            document.getElementById("editDefinition").value = definition;
+            document.getElementById("editAge").value = age;
+            document.getElementById("editType").value = type;
+
+            // Show the modal
+            var editModal = new bootstrap.Modal(document.getElementById('editModal'));
+            editModal.show();
+            
+            document.getElementById("editSlangForm").action = "/admin/edit_slang/" + slangId;
+        });
+    });
+});
+
 // update date footer year when loaded function
 
 function updateDate() {
