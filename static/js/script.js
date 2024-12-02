@@ -64,20 +64,23 @@ document.addEventListener("DOMContentLoaded", function () {
             const age = this.getAttribute("data-age");
             const type = this.getAttribute("data-type");
 
+            // Populate the modal with the data
             document.getElementById("editSlangId").value = slangId;
             document.getElementById("editSlang").value = slang;
             document.getElementById("editDefinition").value = definition;
             document.getElementById("editAge").value = age;
             document.getElementById("editType").value = type;
 
-            // Show the modal
+            // Set the form action to the correct URL
+            document.getElementById("editSlangForm").action = "/admin/edit_slang/" + slangId;
+
+            // Show the modal using Bootstrap's modal method
             var editModal = new bootstrap.Modal(document.getElementById('editModal'));
             editModal.show();
-            
-            document.getElementById("editSlangForm").action = "/admin/edit_slang/" + slangId;
         });
     });
 });
+
 
 // update date footer year when loaded function
 
