@@ -75,6 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("editSlangForm").action = "/admin/edit_slang/" + slangId;
 
             // Show the modal using Bootstrap's modal method
+            console.log("Opening Modal");
             var editModal = new bootstrap.Modal(document.getElementById('editModal'));
             editModal.show();
         });
