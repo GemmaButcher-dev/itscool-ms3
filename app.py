@@ -129,6 +129,25 @@ def edit_slang(slang_id):
     age = request.form.get("age").lower()
     type = request.form.get("type").lower()
 
+    try:
+        result = mongo.db.slangs.update_one(
+            {"_id": ObjectId(slang_id)},
+            {"$set": {
+                "slang": slang_word,
+                "definition": definition,
+                "age": age,
+                "type": type,
+            }}
+        )
+        if result.modified_count > 0:
+            flash("Slang edited successfully!", "success")
+        else:
+            flash("No changes were made or slang not found.", "error")
+    except Exception as e:
+        flash(f"Error: {str(e)}", "error")
+
+    return redirect(url_for("admin_dashboard"))
+
 @app.route("/admin/add_slang", methods=["POST"])
 @admin_required
 def add_slang_admin():
