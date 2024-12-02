@@ -120,6 +120,14 @@ def delete_slang_admin():
 
     return redirect(url_for("admin_dashboard"))
 
+# admin edit a pending slang
+@app.route("/admin/edit_slang/<slang_id>", methods=["POST"])
+@admin_required
+def edit_slang(slang_id):
+    slang_word = request.form.get("slang").lower()
+    definition = request.form.get("definition").lower()
+    age = request.form.get("age").lower()
+    type = request.form.get("type").lower()
 
 @app.route("/admin/add_slang", methods=["POST"])
 @admin_required
