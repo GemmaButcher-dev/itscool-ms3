@@ -268,6 +268,40 @@ button {
     color: #f5f5f5;
 }
 
+/* =====  Modal for admin edit_slang ====== */
+
+/* edit modal */
+#edit-modal {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    display: none;
+}
+
+.modal-backdrop {
+    z-index: 1040 !important;
+}
+
+.modal-content {
+    z-index: 1050 !important; 
+}
+
+#edit-modal .btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#edit-modal .btn-danger {
+    background-color: #ff0000;
+    color: #f5f5f5;
+}
+
+#edit-modal .btn-secondary {
+    background-color: #808080;
+    color: #f5f5f5;
+}
+
 /* Footer */
 
 footer {
