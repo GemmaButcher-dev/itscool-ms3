@@ -71,6 +71,9 @@ def admin_dashboard():
                 "slang": {"$regex": search_query, "$options": "i"}
             })
 
+    # Get all slangs from database
+    slangs = mongo.db.slangs.find() 
+
         # Get all pending slangs (approved = False or not present)
     pending_slangs = mongo.db.slangs.find({"approved": {"$ne": True}})
 
@@ -79,6 +82,7 @@ def admin_dashboard():
         pending_slangs=pending_slangs,
         search_results=search_results,
         search_query=search_query,
+        slangs=slangs
     )
 
 
@@ -121,32 +125,39 @@ def delete_slang_admin():
     return redirect(url_for("admin_dashboard"))
 
 # admin edit a pending slang
-@app.route("/admin/edit_slang/<slang_id>", methods=["POST"])
+@app.route("/admin/edit_slang/<slang_id>", methods=['GET', 'POST'])
 @admin_required
 def edit_slang(slang_id):
-    slang_word = request.form.get("slang").lower()
-    definition = request.form.get("definition").lower()
-    age = request.form.get("age").lower()
-    type = request.form.get("type").lower()
+    slang = mongo.db.slangs.find_one({"_id": ObjectId(slang_id)})
 
-    try:
-        result = mongo.db.slangs.update_one(
-            {"_id": ObjectId(slang_id)},
-            {"$set": {
-                "slang": slang_word,
-                "definition": definition,
-                "age": age,
-                "type": type,
-            }}
-        )
-        if result.modified_count > 0:
-            flash("Slang edited successfully!", "success")
-        else:
-            flash("No changes were made or slang not found.", "error")
-    except Exception as e:
-        flash(f"Error: {str(e)}", "error")
+    if request.method == 'POST':
+        slang_word = request.form.get("slang").lower()
+        definition = request.form.get("definition").lower()
+        age = request.form.get("age").lower()
+        type = request.form.get("type").lower()
 
-    return redirect(url_for("admin_dashboard"))
+        try:
+            result = mongo.db.slangs.update_one(
+                {"_id": ObjectId(slang_id)},
+                {"$set": {
+                    "slang": slang_word,
+                    "definition": definition,
+                    "age": age,
+                    "type": type,
+                }}
+            )
+            if result.modified_count > 0:
+                flash("Slang edited successfully!", "success")
+            else:
+                flash("No changes were made or slang not found.", "error")
+        except Exception as e:
+            flash(f"Error: {str(e)}", "error")
+
+        return redirect(url_for("admin_dashboard"))
+
+    # Render the template with the slang data
+    return render_template("admin_dashboard.html", slang=slang)
+
 
 @app.route("/admin/add_slang", methods=["POST"])
 @admin_required
