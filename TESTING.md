@@ -91,12 +91,12 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 | CI python linter           |![screenshot](static/images/documents/testing/ci_python_linter_analysis.png) |  Initial testing showing white spaces, incorrect blank lines and some lines were too long.|
 | CI python linter re-test 1 |![screenshot](static/images/documents/testing/ci_python_linter_fixed.png)    |  Passed - No warnings           | 
 | Code Beutify               |![screenshot](static/images/documents/testing/code_beautify_python.png)      |  Made changes to line lengths and some indentation |
-| CI python linter re-test 2 |![screenshot](static/images/documents/testing/ci_python_linter_2.png)        |  Indicated reliability issues with beautifier tool with line lengths being too long |
+| CI python linter re-test 2 |![screenshot](static/images/documents/testing/ci_python_linter_2.png)        |  Indicated beautifier tool was not pep8 compliant with line lengths being too long |
 | CI python linter re-test 3 |![screenshot](static/images/documents/testing/ci_python_linter_fixed.png)    |  Passed - No warnings   |
 
 ### Summary
 
-After initially correcting the code format and it passing testing using the CI python linter it seemed that the indentation after breaking a line due to line length wasnt quite aesthetically correct. The decision was made to use a python beautifier tool which then amended the code and changed the line lengths and indentations. To test the reliability of the beautifier tool the beautified code was re-run through the CI python linter which then logged warnings for some of the lines being too long. The app.py file was the reverted back to the tested and passed version that was verified by CI python linter, as there is questionability to the reliability and accuracy of the beautifier tool and issues that could be caused with the formatted version of the code it suggests. This may be subject to opinion and further testing of the tool but it was decided to go with the results and testing of the CI python linter.
+After initially correcting the code format and it passing testing using the CI python linter it seemed that the indentation after breaking a line due to line length wasnt quite aesthetically correct, although meeting pep8 guidlines. The decision was made to use a python beautifier tool which then amended the code and changed the line lengths and indentations. To test if the beautifier tool was pep8 comliant the beautified code was re-run through the CI python linter which then logged warnings for some of the lines being too long. The app.py file was the reverted back to the tested and passed version that was verified by CI python linter, as this meant that  the beautifier tool was not pep8 compliant. As the criteria for this project is that python is to be pep8 compliant, using results and testing of the CI python linter was the most reliable approach.
 
 
 ## Fuzzywuzzy Testing
