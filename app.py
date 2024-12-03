@@ -292,46 +292,39 @@ def profile(username):
         return redirect(url_for("login"))
 
     # Retrieve the user's favorite slang words
-    favorite_slang_ids = user.get("favorites", [])  # Assuming 'favorites' is a list of slang word ObjectIds
-    favorites = list(mongo.db.slangs.find({"_id": {"$in": favorite_slang_ids}}))
+    favorite_slang_ids = user.get("favorites", [])
+    if isinstance(favorite_slang_ids, list):
+        favorites = list(mongo.db.slangs.find({"_id": {"$in": favorite_slang_ids}}))
+    else:
+        favorites = []
 
     # Render the dashboard with the user's favorites
     return render_template("dashboard.html", username=username, favorites=favorites)
 
 
-# Favourites route
-@app.route("/update_favorite", methods=["POST"])
-def update_favorite():
+
+@app.route("/favourite/add", methods=["POST"])
+def add_to_favourites():
     if "user" not in session:
-        return jsonify({"status": "error", "message": "User not logged in"}), 401
+        flash("Please log in to add to favourites.")
+        return redirect(url_for("login"))
 
-    user = mongo.db.users.find_one({"username": session["user"]})
-    if not user:
-        return jsonify({"status": "error", "message": "User not found"}), 404
+    slang_id = request.form.get("slang_id")
+    if slang_id:
+        user = mongo.db.users.find_one({"username": session["user"]})
+        if user:
+            # Add slang to user's favourites if it's not already there
+            if ObjectId(slang_id) not in user.get("favorites", []):
+                mongo.db.users.update_one(
+                    {"username": session["user"]},
+                    {"$addToSet": {"favorites": ObjectId(slang_id)}}
+                )
+                flash("Added to your favorites!", "success")
+            else:
+                flash("This slang is already in your favorites.", "info")
 
-    data = request.get_json()
-    slang_id = data.get("slang_id")
-    action = data.get("action")
+    return redirect(url_for("profile", username=session["user"]))
 
-    if not slang_id or action not in ["add", "remove"]:
-        return jsonify({"status": "error", "message": "Invalid data"}), 400
-
-    try:
-        if action == "add":
-            # Add slang to user's favorites
-            mongo.db.users.update_one(
-                {"_id": user["_id"]},
-                {"$addToSet": {"favorites": ObjectId(slang_id)}}
-            )
-        elif action == "remove":
-            # Remove slang from user's favorites
-            mongo.db.users.update_one(
-                {"_id": user["_id"]},
-                {"$pull": {"favorites": ObjectId(slang_id)}}
-            )
-        return jsonify({"status": "success"}), 200
-    except Exception as e:
-        return jsonify({"status": "error", "message": str(e)}), 500
 
 
 # Add slang route
