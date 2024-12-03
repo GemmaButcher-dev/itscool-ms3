@@ -42,10 +42,10 @@ def admin_required(f):
 @app.route("/")
 @app.route("/index")
 def home():
-    # Retrieve all slangs
-    slangs = mongo.db.slangs.find().sort("slang")  # Sort alphabetically
+    # -- Retrieve all slangs
+    slangs = mongo.db.slangs.find().sort("slang")  # -- Sort alphabetically
 
-    # Group slangs by their first letter
+    # -- Group slangs by their first letter
     grouped_slangs = {}
     for slang in slangs:
         first_letter = slang['slang'][0].upper()
@@ -57,7 +57,7 @@ def home():
 # Admin dashboard route
 @app.route('/admin_dashboard', methods=['GET', 'POST'])
 def admin_dashboard():
-    # Check if user is logged in as admin
+    # -- Check if user is logged in as admin
     if 'user' not in session or session.get('role') != 'admin':
         flash("You need to be an admin to access this page.")
         return redirect(url_for('login'))  # Redirect if not admin
@@ -65,7 +65,7 @@ def admin_dashboard():
     search_results = []
     search_query = None
 
-    # Handle search functionality
+    # -- Handle search functionality
     if request.method == 'POST' and 'search_query' in request.form:
         search_query = request.form.get('search_query')
         if search_query:
@@ -73,10 +73,10 @@ def admin_dashboard():
                 "slang": {"$regex": search_query, "$options": "i"}
             })
 
-    # Get all slangs from database
+    # -- Get all slangs from database
     slangs = mongo.db.slangs.find() 
 
-        # Get all pending slangs (approved = False or not present)
+    # -- Get all pending slangs (approved = False or not present)
     pending_slangs = mongo.db.slangs.find({"approved": {"$ne": True}})
 
     return render_template(
@@ -94,7 +94,7 @@ def admin_dashboard():
 def approve_slang():
     slang_id = request.form.get("slang_id")
 
-    # Find the slang by its ID and update the 'approved' field to True
+    # -- Find the slang by its ID and update the 'approved' field to True
     result = mongo.db.slangs.update_one(
         {"_id": ObjectId(slang_id)},
         {"$set": {"approved": True}}
@@ -105,7 +105,7 @@ def approve_slang():
     else:
         flash("There was an issue approving the slang.", "error")
 
-    # Redirect back to the admin dashboard after approval
+    # -- Redirect back to the admin dashboard after approval
     return redirect(url_for("admin_dashboard"))
 
 
@@ -115,7 +115,7 @@ def approve_slang():
 def delete_slang_admin():
     slang_id = request.form.get("slang_id")
     try:
-        # Delete the slang based on its ID
+        # -- Delete the slang based on its ID
         result = mongo.db.slangs.delete_one({"_id": ObjectId(slang_id)})
         if result.deleted_count > 0:
             flash("Slang deleted successfully!", "success")
@@ -157,7 +157,7 @@ def edit_slang(slang_id):
 
         return redirect(url_for("admin_dashboard"))
 
-    # Render the template with the slang data
+    # -- Render the template with the slang data
     return render_template("admin_dashboard.html", slang=slang)
 
 
@@ -165,36 +165,36 @@ def edit_slang(slang_id):
 @app.route("/admin/add_slang", methods=["POST"])
 @admin_required
 def add_slang_admin():
-    # Get form data
+    # -- Get form data
     slang_word = request.form.get("slang").lower()
     definition = request.form.get("definition").lower()
     age = request.form.get("age").lower()
     type = request.form.get("type").lower()
 
-    # Create the new slang document to insert into MongoDB
+    # -- Create the new slang document to insert into MongoDB
     new_slang = {
         "slang": slang_word,
         "definition": definition,
         "age": age,
         "type": type,
-        "approved": False  # unapproved by default
+        "approved": False  # -- Unapproved by default
     }
 
     try:
-        # Insert new slang into MongoDB collection
+        # -- Insert new slang into MongoDB collection
         mongo.db.slangs.insert_one(new_slang)
         flash("New slang added successfully! Pending approval.", "success")
     except Exception as e:
         flash(f"Error adding slang: {str(e)}", "error")
 
-    # Redirect back to the admin dashboard after adding the slang
+    # -- Redirect back to the admin dashboard after adding the slang
     return redirect(url_for("admin_dashboard"))
 
 
 # Route for filtering by a specific letter
 @app.route("/letter/<letter>")
 def slangs_by_letter(letter):
-    # Retrieve slangs starting with the specified letter
+    # -- Retrieve slangs starting with the specified letter
     slangs = mongo.db.slangs.find({"slang": {"$regex": f"^{letter}",
                                   "$options": "i"}})
     return render_template("index.html", letter=letter, slangs=slangs)
@@ -207,15 +207,15 @@ def search():
     slangs = []
 
     if query:
-        # Retrieve all slangs from the database
+        # -- Retrieve all slangs from the database
         all_slangs = mongo.db.slangs.find()
 
-        # Iterate through all slangs and calculate fuzzy match scores
+        # -- Iterate through all slangs and calculate fuzzy match scores
         for slang in all_slangs:
-            # Calculate the similarity between the query and each slang term
+            # -- Calculate the similarity between the query and each slang term
             similarity_score = fuzz.partial_ratio(query.lower(), slang['slang'].lower())
 
-            # If the similarity score is greater than a threshold (>70%), display result
+            # -- If the similarity score is greater than a threshold (>70%), display result
             if similarity_score > 70:
                 slangs.append(slang)
 
@@ -226,7 +226,7 @@ def search():
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     if request.method == "POST":
-        # check if username already exists in db
+        # -- Check if username already exists in db
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
 
@@ -237,11 +237,11 @@ def signup():
         signup = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password")),
-            "role": "user"  # Default role is 'user'
+            "role": "user"  # -- Default role is 'user'
         }
         mongo.db.users.insert_one(signup)
 
-        # put the new user into 'session' cookie
+        # -- Put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
         flash("Signup Successfull!")
         return redirect(url_for("profile", username=session["user"]))
@@ -255,22 +255,22 @@ def login():
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
 
-        # Check if the user exists and if the password is correct
+        # -- Check if the user exists and if the password is correct
         if existing_user and check_password_hash(
          existing_user["password"], request.form.get("password")):
 
-            # Save user information in session
+            # -- Save user information in session
             session["user"] = request.form.get("username").lower()
             session["role"] = existing_user.get(
-                "role", "user")  # Default to "user" if no role is set
+                "role", "user")  # -- Default to "user" if no role is set
 
-            # Check if the user is an admin
+            # -- Check if the user is an admin
             if session["role"] == "admin":
                 flash(f"Welcome to the admin dashboard, {session['user']}!")
-                # Redirect to admin dashboard
+                # -- Redirect to admin dashboard
                 return redirect(url_for("admin_dashboard"))
 
-            # Redirect to user dashboard/profile for non-admin users
+            # -- Redirect to user dashboard/profile for non-admin users
             flash(f"Welcome, {session['user']}!")
             return redirect(url_for("home", username=session["user"]))
         flash("Incorrect Username and/or Password")
@@ -279,30 +279,30 @@ def login():
 # User dashboard route
 @app.route("/dashboard/<username>", methods=["GET"])
 def profile(username):
-    # Check if the user is logged in and accessing their own dashboard
+    # -- Check if the user is logged in and accessing their own dashboard
     if "user" not in session or session["user"].lower() != username.lower():
         flash("Please log in to view your dashboard.")
         return redirect(url_for("login"))
 
-    # Retrieve the user document from MongoDB
+    # -- Retrieve the user document from MongoDB
     user = mongo.db.users.find_one({"username": session["user"]})
 
     if not user:
         flash("User not found.")
         return redirect(url_for("login"))
 
-    # Retrieve the user's favorite slang words
+    # -- Retrieve the user's favorite slang words
     favorite_slang_ids = user.get("favorites", [])
     if isinstance(favorite_slang_ids, list):
         favorites = list(mongo.db.slangs.find({"_id": {"$in": favorite_slang_ids}}))
     else:
         favorites = []
 
-    # Render the dashboard with the user's favorites
+    # -- Render the dashboard with the user's favorites
     return render_template("dashboard.html", username=username, favorites=favorites)
 
 
-
+# Add favourite to user dashboard route
 @app.route("/favourite/add", methods=["POST"])
 def add_to_favourites():
     if "user" not in session:
@@ -313,7 +313,7 @@ def add_to_favourites():
     if slang_id:
         user = mongo.db.users.find_one({"username": session["user"]})
         if user:
-            # Add slang to user's favourites if it's not already there
+            # -- Add slang to user's favourites if it's not already there
             if ObjectId(slang_id) not in user.get("favorites", []):
                 mongo.db.users.update_one(
                     {"username": session["user"]},
@@ -324,7 +324,6 @@ def add_to_favourites():
                 flash("This slang is already in your favorites.", "info")
 
     return redirect(url_for("profile", username=session["user"]))
-
 
 
 # Add slang route
@@ -340,7 +339,7 @@ def add_slang():
             "definition": definition,
             "age": age,
             "type": type,
-            "approved": False  # New slang is unapproved by default
+            "approved": False  # -- New slang is unapproved by default
         }
         mongo.db.slangs.insert_one(new_doc)
         flash("New slang added successfully! Pending approval.", "success")
@@ -351,31 +350,31 @@ def add_slang():
 @app.route("/delete_slang", methods=["GET", "POST"], endpoint="user_delete_slang")
 def delete_slang_user():
     if request.method == "POST":
-        slang_word = request.form.get("slang").lower()  # Get slang word from form
+        slang_word = request.form.get("slang").lower()  # -- Get slang word from form
         try:
-            # Find the slang in the database by name and delete it
+            # -- Find the slang in the database by name and delete it
             result = mongo.db.slangs.delete_one({"slang": slang_word})
             if result.deleted_count > 0:
                 flash(f"The slang '{slang_word}' has been deleted successfully!", "success")
             else:
                 flash(f"Slang '{slang_word}' not found!", "error")
         except Exception as e:
-            flash(f"Error: {str(e)}", "error")  # Handle any database errors
+            flash(f"Error: {str(e)}", "error")  # -- Handle any database errors
     
-    # Render the form on both GET and POST requests
+    # -- Render the form on both GET and POST requests
     return render_template("delete_slang.html")
 
 # Logout route
 @app.route("/logout")
 def logout():
-    # remove user from session cookie
+    # -- Remove user from session cookie
     flash("You have been logged out!")
     session.pop("user", None)
     session.pop("role", None)
     return redirect(url_for("login"))
 
 
-# error handling /404 route
+# Error handling /404 route
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template("404.html"), 404
