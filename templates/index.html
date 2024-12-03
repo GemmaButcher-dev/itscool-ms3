@@ -62,10 +62,14 @@
         <ul>
             {% if slangs %}
                 {% for slang in slangs %}
-                    <li>{{ slang['slang'] }}: {{ slang['definition'] }}</li>
-                {% else %}
-                    <li>No results found for "{{ query }}"</li>
+                    <li id="slang-{{ loop.index }}">
+                        {{ slang['slang'] }}: {{ slang['definition'] }}
+                        <!-- Add Remove Button -->
+                        <button class="btn btn-danger remove-btn" data-id="slang-{{ loop.index }}" data-bs-toggle="modal" data-bs-target="#confirmationModal">Remove</button>
+                    </li>
                 {% endfor %}
+            {% else %}
+                    <li>No results found for "{{ query }}"</li>
             {% endif %}
         </ul>
         <a href="{{ url_for('home') }}">Back to All Slangs</a>
