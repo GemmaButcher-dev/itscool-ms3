@@ -231,7 +231,6 @@ button {
     display: none; /* Hidden by default */
     justify-content: center;
     align-items: center;
-    z-index: 1000;
 }
 
 /* Modal Content */
@@ -276,13 +275,13 @@ button {
     display: none;
 }
 
-.modal-backdrop {
+/* .modal-backdrop {
     z-index: 1040 !important;
 }
 
 .modal-content {
     z-index: 1050 !important; 
-}
+} */
 
 #edit-modal .btn {
     padding: 10px 15px;
