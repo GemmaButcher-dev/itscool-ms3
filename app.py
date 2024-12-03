@@ -38,6 +38,7 @@ def admin_required(f):
     return decorated_function
 
 
+# Index.html route
 @app.route("/")
 @app.route("/index")
 def home():
@@ -53,6 +54,7 @@ def home():
     return render_template("index.html", grouped_slangs=grouped_slangs)
 
 
+# Admin dashboard route
 @app.route('/admin_dashboard', methods=['GET', 'POST'])
 def admin_dashboard():
     # Check if user is logged in as admin
@@ -86,7 +88,7 @@ def admin_dashboard():
     )
 
 
-#  admin Approve slang route
+#  Admin approve slang route
 @app.route("/admin/approve_slang", methods=["POST"])
 @admin_required
 def approve_slang():
@@ -107,7 +109,7 @@ def approve_slang():
     return redirect(url_for("admin_dashboard"))
 
 
-#  admin delete  slang route
+#  Admin delete slang route
 @app.route("/admin/delete_slang", methods=["POST"])
 @admin_required
 def delete_slang_admin():
@@ -124,7 +126,7 @@ def delete_slang_admin():
 
     return redirect(url_for("admin_dashboard"))
 
-# admin edit a pending slang
+# Admin edit pending slang route
 @app.route("/admin/edit_slang/<slang_id>", methods=['GET', 'POST'])
 @admin_required
 def edit_slang(slang_id):
@@ -159,6 +161,7 @@ def edit_slang(slang_id):
     return render_template("admin_dashboard.html", slang=slang)
 
 
+# Add slang route for admin
 @app.route("/admin/add_slang", methods=["POST"])
 @admin_required
 def add_slang_admin():
@@ -273,16 +276,62 @@ def login():
         flash("Incorrect Username and/or Password")
     return render_template("login.html")
 
-
-@app.route("/dashboard/<username>", methods=["GET", "POST"])
+# User dashboard route
+@app.route("/dashboard/<username>", methods=["GET"])
 def profile(username):
-    # grab session user's username from db
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-    if session["user"]:
-        return render_template("dashboard.html", username=username)
+    # Check if the user is logged in and accessing their own dashboard
+    if "user" not in session or session["user"].lower() != username.lower():
+        flash("Please log in to view your dashboard.")
+        return redirect(url_for("login"))
 
-    return redirect(url_for("login"))
+    # Retrieve the user document from MongoDB
+    user = mongo.db.users.find_one({"username": session["user"]})
+
+    if not user:
+        flash("User not found.")
+        return redirect(url_for("login"))
+
+    # Retrieve the user's favorite slang words
+    favorite_slang_ids = user.get("favorites", [])  # Assuming 'favorites' is a list of slang word ObjectIds
+    favorites = list(mongo.db.slangs.find({"_id": {"$in": favorite_slang_ids}}))
+
+    # Render the dashboard with the user's favorites
+    return render_template("dashboard.html", username=username, favorites=favorites)
+
+
+# Favourites route
+@app.route("/update_favorite", methods=["POST"])
+def update_favorite():
+    if "user" not in session:
+        return jsonify({"status": "error", "message": "User not logged in"}), 401
+
+    user = mongo.db.users.find_one({"username": session["user"]})
+    if not user:
+        return jsonify({"status": "error", "message": "User not found"}), 404
+
+    data = request.get_json()
+    slang_id = data.get("slang_id")
+    action = data.get("action")
+
+    if not slang_id or action not in ["add", "remove"]:
+        return jsonify({"status": "error", "message": "Invalid data"}), 400
+
+    try:
+        if action == "add":
+            # Add slang to user's favorites
+            mongo.db.users.update_one(
+                {"_id": user["_id"]},
+                {"$addToSet": {"favorites": ObjectId(slang_id)}}
+            )
+        elif action == "remove":
+            # Remove slang from user's favorites
+            mongo.db.users.update_one(
+                {"_id": user["_id"]},
+                {"$pull": {"favorites": ObjectId(slang_id)}}
+            )
+        return jsonify({"status": "success"}), 200
+    except Exception as e:
+        return jsonify({"status": "error", "message": str(e)}), 500
 
 
 # Add slang route
@@ -323,7 +372,7 @@ def delete_slang_user():
     # Render the form on both GET and POST requests
     return render_template("delete_slang.html")
 
-
+# Logout route
 @app.route("/logout")
 def logout():
     # remove user from session cookie
