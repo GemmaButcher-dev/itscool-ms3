@@ -81,8 +81,28 @@
   <script src="{{ url_for('static', filename='js/script.js') }}"></script>
   {% block scripts %}
   {% endblock %}
-  <!-- Custom Confirmation Modal -->
-    <div id="confirmation-modal" class="modal" style="display: none;">
+
+  <!-- Bootstrap Confirmation Modal -->
+   <!-- Bootstrap Modal for Confirmation -->
+<div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmationModalLabel">Confirm Action</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to remove this search result?
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="confirm-btn" class="btn btn-danger">Yes, remove it</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- <div id="confirmation-modal" class="modal" style="display: none;">
         <div class="modal-content">
             <h4>Confirm Action</h4>
             <p>Are you sure you want to remove this search result?</p>
@@ -91,7 +111,7 @@
             <button id="confirm-btn" class="btn btn-danger">Yes, remove it</button>
             <button id="cancel-btn" class="btn btn-secondary">Cancel</button>
         </div>
-    </div>
+    </div> -->
 
 </body>
 </html>
