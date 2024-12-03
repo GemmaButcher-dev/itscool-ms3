@@ -1,81 +1,83 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     let currentResultId = null;
-    
-        // Attach event to open the confirmation modal
-        document.querySelectorAll(".remove-btn").forEach(button => {
-            button.addEventListener("click", function() {
-                currentResultId = this.getAttribute("data-id");
-                const confirmationModal = document.getElementById('confirmationModal');
-                confirmationModal.style.display = "block";
-            });
+
+    // DELETE SLANG FUNCTIONALITY
+    const confirmationModal = document.getElementById("confirmationModal");
+
+    // Attach event listener to remove buttons to open the delete confirmation modal
+    document.querySelectorAll(".remove-btn").forEach(button => {
+        button.addEventListener("click", function () {
+            currentResultId = this.getAttribute("data-id");
+            confirmationModal.style.display = "flex"; // Show the confirmation modal
         });
-    
-        // Confirm button - remove item & close the modal
-        document.getElementById("confirm-btn").addEventListener("click", function() {
-            if (currentResultId) {
-                document.getElementById(currentResultId)?.remove();
-                currentResultId = null;
-    
-                // Hide the modal
-                document.getElementById('confirmationModal').style.display = "none";
-            }
-        });
-    
-        // Close confirmation modal when clicking cancel or close button
-        document.getElementById("cancel-confirmation").addEventListener("click", function() {
-            document.getElementById('confirmationModal').style.display = "none";
-        });
-    
-        document.getElementById("close-confirmation").addEventListener("click", function() {
-            document.getElementById('confirmationModal').style.display = "none";
-        });
-    
-        // Attach event for edit modal
-        document.querySelectorAll(".edit-btn").forEach(button => {
-            button.addEventListener("click", function() {
-                const slangId = this.getAttribute("data-id");
-                const slang = this.getAttribute("data-slang");
-                const definition = this.getAttribute("data-definition");
-                const age = this.getAttribute("data-age");
-                const type = this.getAttribute("data-type");
-    
-                // Populate the modal with the data
-                document.getElementById("editSlangId").value = slangId;
-                document.getElementById("editSlang").value = slang;
-                document.getElementById("editDefinition").value = definition;
-                document.getElementById("editAge").value = age;
-                document.getElementById("editType").value = type;
-    
-                // Show the modal
-                document.getElementById('editModal').style.display = "block";
-            });
-        });
-    
-        // Save changes and close edit modal
-        document.getElementById("save-edit").addEventListener("click", function() {
-            // Submit the form (optional: you could handle this via AJAX)
-            document.getElementById("editSlangForm").submit();
-    
-            // Close modal after saving
-            document.getElementById('editModal').style.display = "none";
-        });
-    
-        // Close edit modal when clicking cancel or close button
-        document.getElementById("cancel-edit").addEventListener("click", function() {
-            document.getElementById('editModal').style.display = "none";
-        });
-    
-        document.getElementById("close-edit").addEventListener("click", function() {
-            document.getElementById('editModal').style.display = "none";
-        });
-    
-        // Optional: Clicking outside of the modal should close it
-        window.onclick = function(event) {
-            if (event.target.classList.contains('modal')) {
-                event.target.style.display = "none";
-            }
+    });
+
+    // Confirm deletion and close the modal
+    document.getElementById("confirm-btn").addEventListener("click", function () {
+        if (currentResultId) {
+            document.getElementById(currentResultId)?.remove();
+            currentResultId = null;
+            confirmationModal.style.display = "none"; // Hide the modal after confirming
         }
     });
+
+    // Close confirmation modal when clicking cancel or close button
+    document.getElementById("cancel-confirmation").addEventListener("click", function () {
+        confirmationModal.style.display = "none";
+    });
+    document.getElementById("close-confirmation").addEventListener("click", function () {
+        confirmationModal.style.display = "none";
+    });
+
+    // EDIT SLANG FUNCTIONALITY
+    const editModal = document.getElementById("editModal");
+
+    // Attach event listeners to edit buttons to open the edit modal
+    document.querySelectorAll(".edit-btn").forEach(button => {
+        button.addEventListener("click", function () {
+            const slangId = this.getAttribute("data-id");
+            const slang = this.getAttribute("data-slang");
+            const definition = this.getAttribute("data-definition");
+            const age = this.getAttribute("data-age");
+            const type = this.getAttribute("data-type");
+
+            // Populate the modal with the data
+            document.getElementById("editSlangId").value = slangId;
+            document.getElementById("editSlang").value = slang;
+            document.getElementById("editDefinition").value = definition;
+            document.getElementById("editAge").value = age;
+            document.getElementById("editType").value = type;
+
+            // Show the edit modal
+            editModal.style.display = "flex";
+        });
+    });
+
+    // Save changes and close edit modal
+    document.getElementById("save-edit").addEventListener("click", function () {
+        // Submit the form
+        document.getElementById("editSlangForm").submit();
+
+        // Close the modal after saving
+        editModal.style.display = "none";
+    });
+
+    // Close edit modal when clicking cancel or close button
+    document.getElementById("cancel-edit").addEventListener("click", function () {
+        editModal.style.display = "none";
+    });
+    document.getElementById("close-edit").addEventListener("click", function () {
+        editModal.style.display = "none";
+    });
+
+    // Clicking outside of any modal should close it
+    window.onclick = function (event) {
+        if (event.target.classList.contains('modal')) {
+            event.target.style.display = "none";
+        }
+    }
+});
+
     
 
     document.addEventListener("DOMContentLoaded", function() {
