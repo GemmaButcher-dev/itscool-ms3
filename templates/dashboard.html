@@ -13,5 +13,19 @@
         </div>
     </div>
 
+    <!-- Favourite section -->
+    <div class="fav-container">
+        <h3>Favorite Slang Words</h3>
+
+        {% if favorites %}
+            <ul>
+                {% for slang in favorites %}
+                    <li>{{ slang['slang'] }}: {{ slang['definition'] }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>You have not favorited any slang words yet.</p>
+        {% endif %}
+    </div>
 
 {% endblock %}
