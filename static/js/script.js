@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let currentResultId = null;
 
     // Attach event to open the confirmation modal
-    document.querySelectorAll(".cancel-btn").forEach(button => {
+    document.querySelectorAll(".remove-btn").forEach(button => {
         button.addEventListener("click", function() {
             currentResultId = this.getAttribute("data-id");
             const confirmationModal = new bootstrap.Modal(document.getElementById('confirmationModal'));
@@ -10,15 +10,33 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    // Confirm button - remove item
+    // Confirm button - remove item & close the modal
     document.getElementById("confirm-btn").addEventListener("click", function() {
         if (currentResultId) {
+            //Remove the search result
             document.getElementById(currentResultId)?.remove();
+
+            // hide the modal after removing the item
+            const confirmationModal = bootstrap.Modal.getInstance(document.getElementById('confirmationModal'));
+            confirmationModal.hide();
+
+            // Ensure that the backdrop is removed
+            const backdrop = document.querySelector('.modal-backdrop');
+            if (backdrop) {
+                backdrop.parentNode.removeChild(backdrop);
+            }
         }
     });
 
+     // Ensure the cancel button closes the modal (Bootstrap default =bug fix=)
+     document.getElementById("cancel-btn")?.addEventListener("click", function() {
+        const confirmationModal = new bootstrap.Modal(document.getElementById('confirmationModal'));
+        confirmationModal.hide();
+    });
+});
+
     // Hide the 'all-slangs' section when there's a query
-    const query = "{{ query }}";  // Replace with dynamic handling if needed
+    const query = "{{ query }}";
     if (query) {
         document.getElementById('all-slangs').style.display = 'none';
     }
@@ -55,4 +73,3 @@ document.addEventListener("DOMContentLoaded", function() {
     setTimeout(() => {
         window.location.replace(homeUrl); // Ensure 'homeUrl' is defined
     }, 10000);
-});
