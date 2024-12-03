@@ -232,29 +232,39 @@ button {
     color: #000000;
 }
 
-/* ===== Confirmation Modal for admin slang deletion ====== */
-
-/* Modal Background */
+/* ===== General modal styling ====== */
 
 .modal {
+    display: none; /* Hidden by default */
     position: fixed;
-    top: 0;
+    z-index: 1000;
     left: 0;
+    top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.502); 
-    display: none; /* Hidden by default */
-    justify-content: center;
-    align-items: center;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
 }
 
-/* Modal Content */
 .modal-content {
-    background-color: #ffffff;
+    background-color: #fff;
+    margin: 10% auto;
     padding: 20px;
-    border-radius: 8px;
-    width: 300px;
+    border-radius: 5px;
+    width: 50%;
+    position: relative;
 }
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
+/* ===== Confirmation Modal for admin slang deletion ====== */
 
 /* Modal Footer */
 .modal-footer {
@@ -308,7 +318,7 @@ button {
     color: #f5f5f5;
 }
 
-/* Footer */
+/*== Footer ==*/
 
 footer {
     position: fixed;
