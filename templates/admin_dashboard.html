@@ -115,40 +115,38 @@
     </form>
 
     <!-- Edit pending slang modal -->
-<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <form id="editSlangForm" method="POST">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="editModalLabel">Edit Slang</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5>Edit Slang</h5>
+                <button type="button" class="close-btn" id="close-edit">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="editSlangForm" method="POST">
                     <input type="hidden" id="editSlangId" name="slang_id">
                     <div class="mb-3">
-                        <label for="editSlang" class="form-label">Slang</label>
-                        <input type="text" class="form-control" id="editSlang" name="slang">
+                        <label for="editSlang">Slang</label>
+                        <input type="text" id="editSlang" name="slang" required>
                     </div>
                     <div class="mb-3">
-                        <label for="editDefinition" class="form-label">Definition</label>
-                        <input type="text" class="form-control" id="editDefinition" name="definition">
+                        <label for="editDefinition">Definition</label>
+                        <input type="text" id="editDefinition" name="definition" required>
                     </div>
                     <div class="mb-3">
-                        <label for="editAge" class="form-label">Age</label>
-                        <input type="text" class="form-control" id="editAge" name="age">
+                        <label for="editAge">Age</label>
+                        <input type="text" id="editAge" name="age">
                     </div>
                     <div class="mb-3">
-                        <label for="editType" class="form-label">Type</label>
-                        <input type="text" class="form-control" id="editType" name="type">
+                        <label for="editType">Type</label>
+                        <input type="text" id="editType" name="type">
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    <button type="submit" class="btn btn-primary">Save Changes</button>
-                </div>
+                    <div class="modal-footer">
+                        <button type="button" id="save-edit" class="btn btn-primary">Save Changes</button>
+                        <button type="button" id="cancel-edit" class="btn btn-secondary">Cancel</button>
+                    </div>
+                </form>
             </div>
-        </form>
+        </div>
     </div>
-</div>
 
 {% endblock %}
