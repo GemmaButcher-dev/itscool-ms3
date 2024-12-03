@@ -62,6 +62,33 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
+    document.addEventListener("DOMContentLoaded", function() {
+        // Attach event listeners to all favorite buttons
+        document.querySelectorAll(".favorite-btn").forEach(button => {
+            button.addEventListener("click", function() {
+                const slangId = this.getAttribute("data-id");
+    
+                // Send a POST request to the server to add to favorites
+                fetch("/add_to_favorites", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ slang_id: slangId })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert("Added to favorites!");
+                    } else {
+                        alert("Failed to add to favorites.");
+                    }
+                });
+            });
+        });
+    });
+    
+
     // Update footer with the current year
     function updateDate() {
         const today = new Date();
