@@ -127,11 +127,9 @@ def delete_slang_admin():
     return redirect(url_for("admin_dashboard"))
 
 # Admin edit pending slang route
-@app.route("/admin/edit_slang/<slang_id>", methods=['GET', 'POST'])
+@app.route("/admin/edit_slang/<slang_id>", methods=['POST'])
 @admin_required
 def edit_slang(slang_id):
-    slang = mongo.db.slangs.find_one({"_id": ObjectId(slang_id)})
-
     if request.method == 'POST':
         slang_word = request.form.get("slang").lower()
         definition = request.form.get("definition").lower()
@@ -139,6 +137,7 @@ def edit_slang(slang_id):
         type = request.form.get("type").lower()
 
         try:
+            # -- Update the slang in MongoDB
             result = mongo.db.slangs.update_one(
                 {"_id": ObjectId(slang_id)},
                 {"$set": {
@@ -155,10 +154,8 @@ def edit_slang(slang_id):
         except Exception as e:
             flash(f"Error: {str(e)}", "error")
 
+        # -- Redirect to the admin dashboard after editing
         return redirect(url_for("admin_dashboard"))
-
-    # -- Render the template with the slang data
-    return render_template("admin_dashboard.html", slang=slang)
 
 
 # Add slang route for admin
