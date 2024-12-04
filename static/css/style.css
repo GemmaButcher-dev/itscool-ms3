@@ -310,13 +310,13 @@ footer {
     bottom: 0;
     width: 100%;
     font-family: sans-serif, sans-serif;
-    font-size: 0.75rem;
+    font-size: 0.875rem;
     text-align: center;
-    color: #000000;
+    color: #333333;
     padding: 1rem 2rem;
     background-color: #e0e0e0;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 3;
+    z-index: 100;
 }
 
 
