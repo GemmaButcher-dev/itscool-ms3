@@ -114,4 +114,4 @@ document.addEventListener("DOMContentLoaded", function () {
     // 404 redirect after 10 seconds
     setTimeout(() => {
         window.location.replace(homeUrl); // -- Ensure 'homeUrl' is defined
-    }, 10000);
+    }, 10000)
