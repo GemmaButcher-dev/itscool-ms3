@@ -33,48 +33,50 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     
-        // EDIT SLANG FUNCTIONALITY
-        // Attach event listeners to edit buttons to open the edit modal
-        document.querySelectorAll(".edit-btn").forEach(button => {
-            button.addEventListener("click", function () {
-                const slangId = this.getAttribute("data-id");
-                const slang = this.getAttribute("data-slang");
-                const definition = this.getAttribute("data-definition");
-                const age = this.getAttribute("data-age");
-                const type = this.getAttribute("data-type");
+    // EDIT SLANG FUNCTIONALITY
+    // Attach event listeners to edit buttons to open the edit modal
+    document.querySelectorAll(".edit-btn").forEach(button => {
+        button.addEventListener("click", function () {
+            const slangId = this.getAttribute("data-id");
+            const slang = this.getAttribute("data-slang");
+            const definition = this.getAttribute("data-definition");
+            const age = this.getAttribute("data-age");
+            const type = this.getAttribute("data-type");
     
-                // -- Populate the modal with the data
-                document.getElementById("editSlangId").value = slangId;
-                document.getElementById("editSlang").value = slang;
-                document.getElementById("editDefinition").value = definition;
-                document.getElementById("editAge").value = age;
-                document.getElementById("editType").value = type;
+            // -- Put data into modal
+            document.getElementById("editSlangId").value = slangId;
+            document.getElementById("editSlang").value = slang;
+            document.getElementById("editDefinition").value = definition;
+            document.getElementById("editAge").value = age;
+            document.getElementById("editType").value = type;
     
-                // -- Set the form action URL to include the slang ID
-                document.getElementById("editSlangForm").action = `/admin/edit_slang/${slangId}`;
+            // -- Set the form action URL to include the slang ID
+            document.getElementById("editSlangForm").action = `/admin/edit_slang/${slangId}`;
     
-                // -- Show the modal
-                editModal.style.display = "block";
-            });
+            // -- Show the modal
+            editModal.style.display = "block";
         });
-    
-        // Close edit modal when clicking cancel or close button
-        document.getElementById("cancel-edit").addEventListener("click", function () {
-            editModal.style.display = "none";
-        });
-        document.getElementById("close-edit").addEventListener("click", function () {
-            editModal.style.display = "none";
-        });
-    
-        // Clicking outside of the modal content should close it
-        window.onclick = function (event) {
-            if (event.target.classList.contains('modal')) {
-                event.target.style.display = "none";
-            }
-        }
     });
-
     
+    // Close edit modal when clicking cancel or close button
+    document.getElementById("cancel-edit").addEventListener("click", function () {
+        editModal.style.display = "none";
+    });
+    document.getElementById("close-edit").addEventListener("click", function () {
+        editModal.style.display = "none";
+    });
+    
+    // Close modal when clicking outside of it
+    window.onclick = function (event) {
+        if (event.target === confirmationModal) {
+            confirmationModal.style.display = "none";
+        }
+        if (event.target === editModal) {
+            editModal.style.display = "none";
+        }
+    };
+
+    // FUNCTIONALITY FOR FAVOURITE SLANG
 
     document.addEventListener("DOMContentLoaded", function() {
         // -- Attach event listeners to all favorite buttons
