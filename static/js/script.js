@@ -77,29 +77,26 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     // FUNCTIONALITY FOR FAVOURITE SLANG
-
-    document.addEventListener("DOMContentLoaded", function() {
-        // -- Attach event listeners to all favorite buttons
-        document.querySelectorAll(".favorite-btn").forEach(button => {
-            button.addEventListener("click", function() {
-                const slangId = this.getAttribute("data-id");
+    // Attach event listeners to all favorite buttons
+    document.querySelectorAll(".favorite-btn").forEach(button => {
+        button.addEventListener("click", function() {
+            const slangId = this.getAttribute("data-id");
     
-                // -- Send a POST request to the server to add to favorites
-                fetch("/add_to_favorites", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({ slang_id: slangId })
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        alert("Added to favorites!");
-                    } else {
-                        alert("Failed to add to favorites.");
-                    }
-                });
+            // -- Send a POST request to the server to add to favorites
+            fetch("/add_to_favorites", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ slang_id: slangId })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert("Added to favorites!");
+                } else {
+                    alert("Failed to add to favorites.");
+                }
             });
         });
     });
@@ -114,5 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 404 redirect after 10 seconds
     setTimeout(() => {
-        window.location.replace(homeUrl); // -- Ensure 'homeUrl' is defined
-    }, 10000)
+        // -- Ensure 'homeUrl' is defined
+        window.location.replace(homeUrl);
+    }, 10000);
+});
