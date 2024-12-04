@@ -50,12 +50,18 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("editAge").value = age;
             document.getElementById("editType").value = type;
     
-            // -- Set the form action URL to include the slang ID
-            document.getElementById("editSlangForm").action = `/admin/edit_slang/${slangId}`;
-    
             // -- Show the modal
-            editModal.style.display = "block";
+            editModal.style.display = "flex";
         });
+    });
+
+    // Save changes to the slang word and close edit modal
+    document.getElementById("save-edit").addEventListener("click", function () {
+        // -- Form submission will happen when clicking save changes
+        document.getElementById("editSlangForm").submit();
+
+        // -- Close modal after saving
+        editModal.style.display = "none";
     });
     
     // Close edit modal when clicking cancel or close button
@@ -68,13 +74,11 @@ document.addEventListener("DOMContentLoaded", function () {
     
     // Close modal when clicking outside of it
     window.onclick = function (event) {
-        if (event.target === confirmationModal) {
-            confirmationModal.style.display = "none";
-        }
-        if (event.target === editModal) {
-            editModal.style.display = "none";
+        if (event.target.classList.contains('modal')) {
+            event.target.style.display = "none";
         }
     };
+
 
     // FUNCTIONALITY FOR FAVOURITE SLANG
     // Attach event listeners to all favorite buttons
