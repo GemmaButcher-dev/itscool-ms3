@@ -9,7 +9,8 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".remove-btn").forEach(button => {
         button.addEventListener("click", function () {
             currentResultId = this.getAttribute("data-id");
-            confirmationModal.style.display = "block"; // Show the confirmation modal
+             // -- Show the confirmation modal
+            confirmationModal.style.display = "block";
         });
     });
 
@@ -18,7 +19,8 @@ document.addEventListener("DOMContentLoaded", function () {
         if (currentResultId) {
             document.getElementById(currentResultId)?.remove();
             currentResultId = null;
-            confirmationModal.style.display = "none"; // Hide the modal after confirming
+            // -- Hide the modal after confirming
+            confirmationModal.style.display = "none";
         }
     });
 
@@ -30,12 +32,8 @@ document.addEventListener("DOMContentLoaded", function () {
         confirmationModal.style.display = "none";
     });
 
-    document.addEventListener("DOMContentLoaded", function () {
-        let currentResultId = null;
     
         // EDIT SLANG FUNCTIONALITY
-        const editModal = document.getElementById("editModal");
-    
         // Attach event listeners to edit buttons to open the edit modal
         document.querySelectorAll(".edit-btn").forEach(button => {
             button.addEventListener("click", function () {
