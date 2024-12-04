@@ -1,14 +1,15 @@
 document.addEventListener("DOMContentLoaded", function () {
     let currentResultId = null;
 
-    // DELETE SLANG FUNCTIONALITY
+    // Delete slang functionality
     const confirmationModal = document.getElementById("confirmationModal");
+    const editModal = document.getElementById("editModal");
 
     // Attach event listener to remove buttons to open the delete confirmation modal
     document.querySelectorAll(".remove-btn").forEach(button => {
         button.addEventListener("click", function () {
             currentResultId = this.getAttribute("data-id");
-            confirmationModal.style.display = "flex"; // Show the confirmation modal
+            confirmationModal.style.display = "block"; // Show the confirmation modal
         });
     });
 
