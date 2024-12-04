@@ -249,21 +249,21 @@ textarea {
     margin: 1rem auto;
     padding: 1rem;
     width: 80%;
-    background: #ffffff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: var(--background-light);
+    box-shadow: var(--box-shadow);
     border-radius: 8px;
 }
 
-.slang-card h2 {
+/* .slang-card h2 {
     margin: 0;
     font-size: 1.5rem;
 }
 
 .slang-card p {
     margin: 0.5rem 0;
-}
+} */
 
-/* Add slang Page */
+/* Add Slang Page */
 
 .add_slang-container{
     justify-content: center;
@@ -275,7 +275,7 @@ textarea {
     color: #000000;
 }
 
-/* ===== General modal styling ====== */
+/* ===== General Modal Styling ====== */
 
 .modal {
     position: fixed;
@@ -288,17 +288,16 @@ textarea {
     max-width: 500px;
     height: 45vh;
     padding: 2rem;
-    background-color: #ffffff;
+    background-color: var(--background-light);
     border-radius: 10px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
-    justify-content: center;
+    box-shadow: var(--box-shadow);
     align-items: center;
     z-index: 1000;
     opacity: 0;
     animation: slide-in 0.3s ease-in-out;
 }
 
-/* Animation for modal appearance */
+/* Animation For Modal Appearance */
 @keyframes slide-in {
     from {
         opacity: 0;
