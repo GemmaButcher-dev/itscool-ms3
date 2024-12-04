@@ -127,35 +127,32 @@ def delete_slang_admin():
     return redirect(url_for("admin_dashboard"))
 
 # Admin edit pending slang route
-@app.route("/admin/edit_slang/<slang_id>", methods=['POST'])
+@app.route("/admin/edit_slang/", methods=['POST'])
 @admin_required
-def edit_slang(slang_id):
-    if request.method == 'POST':
-        slang_word = request.form.get("slang").lower()
-        definition = request.form.get("definition").lower()
-        age = request.form.get("age").lower()
-        type = request.form.get("type").lower()
+def edit_slang():
+    slang_id = request.form.get("slang_id")
+    slang_word = request.form.get("slang").lower()
+    definition = request.form.get("definition").lower()
+    age = request.form.get("age").lower()
+    type = request.form.get("type").lower()
 
-        try:
-            # -- Update the slang in MongoDB
-            result = mongo.db.slangs.update_one(
-                {"_id": ObjectId(slang_id)},
-                {"$set": {
-                    "slang": slang_word,
-                    "definition": definition,
-                    "age": age,
-                    "type": type,
-                }}
-            )
-            if result.modified_count > 0:
-                flash("Slang edited successfully!", "success")
-            else:
-                flash("No changes were made or slang not found.", "error")
-        except Exception as e:
+    try:
+        # -- Update the slang in MongoDB with no approval
+        mongo.db.slangs.update_one(
+            {"_id": ObjectId(slang_id)},
+            {"$set": {
+                "slang": slang_word,
+                "definition": definition,
+                "age": age,
+                "type": type,
+            }}
+        )
+        flash("Slang edited successfully! It is still pending approval.", "success")
+    except Exception as e:
             flash(f"Error: {str(e)}", "error")
 
-        # -- Redirect to the admin dashboard after editing
-        return redirect(url_for("admin_dashboard"))
+    # -- Redirect to the admin dashboard after editing
+    return redirect(url_for("admin_dashboard"))
 
 
 # Add slang route for admin
