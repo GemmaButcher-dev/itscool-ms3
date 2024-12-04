@@ -29,64 +29,61 @@ document.addEventListener("DOMContentLoaded", function () {
         confirmationModal.style.display = "none";
     });
 
-    // EDIT SLANG FUNCTIONALITY
-    const editModal = document.getElementById("editModal");
-
-    // Attach event listeners to edit buttons to open the edit modal
-    document.querySelectorAll(".edit-btn").forEach(button => {
-        button.addEventListener("click", function () {
-            const slangId = this.getAttribute("data-id");
-            const slang = this.getAttribute("data-slang");
-            const definition = this.getAttribute("data-definition");
-            const age = this.getAttribute("data-age");
-            const type = this.getAttribute("data-type");
-
-            // Populate the modal with the data
-            document.getElementById("editSlangId").value = slangId;
-            document.getElementById("editSlang").value = slang;
-            document.getElementById("editDefinition").value = definition;
-            document.getElementById("editAge").value = age;
-            document.getElementById("editType").value = type;
-
-            // Show the edit modal
-            editModal.style.display = "flex";
+    document.addEventListener("DOMContentLoaded", function () {
+        let currentResultId = null;
+    
+        // EDIT SLANG FUNCTIONALITY
+        const editModal = document.getElementById("editModal");
+    
+        // Attach event listeners to edit buttons to open the edit modal
+        document.querySelectorAll(".edit-btn").forEach(button => {
+            button.addEventListener("click", function () {
+                const slangId = this.getAttribute("data-id");
+                const slang = this.getAttribute("data-slang");
+                const definition = this.getAttribute("data-definition");
+                const age = this.getAttribute("data-age");
+                const type = this.getAttribute("data-type");
+    
+                // Populate the modal with the data
+                document.getElementById("editSlangId").value = slangId;
+                document.getElementById("editSlang").value = slang;
+                document.getElementById("editDefinition").value = definition;
+                document.getElementById("editAge").value = age;
+                document.getElementById("editType").value = type;
+    
+                // Set the form action URL to include the slang ID
+                document.getElementById("editSlangForm").action = `/admin/edit_slang/${slangId}`;
+    
+                // Show the modal
+                editModal.style.display = "flex";
+            });
         });
-    });
-
-    // Save changes and close edit modal
-    document.getElementById("save-edit").addEventListener("click", function () {
-        // Submit the form
-        document.getElementById("editSlangForm").submit();
-
-        // Close the modal after saving
-        editModal.style.display = "none";
-    });
-
-    // Close edit modal when clicking cancel or close button
-    document.getElementById("cancel-edit").addEventListener("click", function () {
-        editModal.style.display = "none";
-    });
-    document.getElementById("close-edit").addEventListener("click", function () {
-        editModal.style.display = "none";
-    });
-
-    // Clicking outside of any modal should close it
-    window.onclick = function (event) {
-        if (event.target.classList.contains('modal')) {
-            event.target.style.display = "none";
+    
+        // Close edit modal when clicking cancel or close button
+        document.getElementById("cancel-edit").addEventListener("click", function () {
+            editModal.style.display = "none";
+        });
+        document.getElementById("close-edit").addEventListener("click", function () {
+            editModal.style.display = "none";
+        });
+    
+        // Clicking outside of the modal content should close it
+        window.onclick = function (event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = "none";
+            }
         }
-    }
-});
+    });
 
     
 
     document.addEventListener("DOMContentLoaded", function() {
-        // Attach event listeners to all favorite buttons
+        // -- Attach event listeners to all favorite buttons
         document.querySelectorAll(".favorite-btn").forEach(button => {
             button.addEventListener("click", function() {
                 const slangId = this.getAttribute("data-id");
     
-                // Send a POST request to the server to add to favorites
+                // -- Send a POST request to the server to add to favorites
                 fetch("/add_to_favorites", {
                     method: "POST",
                     headers: {
@@ -116,5 +113,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 404 redirect after 10 seconds
     setTimeout(() => {
-        window.location.replace(homeUrl); // Ensure 'homeUrl' is defined
+        window.location.replace(homeUrl); // -- Ensure 'homeUrl' is defined
     }, 10000);
