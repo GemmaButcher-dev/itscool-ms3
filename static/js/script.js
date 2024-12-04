@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
-    let currentResultId = null;
+  let currentResultId = null;
+    let currentForm = null;
 
     // Delete slang functionality
     const confirmationModal = document.getElementById("confirmationModal");
@@ -7,8 +8,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Attach event listener to remove buttons to open the delete confirmation modal
     document.querySelectorAll(".remove-btn").forEach(button => {
-        button.addEventListener("click", function () {
+        button.addEventListener("click", function (event) {
+            event.preventDefault();
+
+            // -- Set the currentResultId to the slang to be deleted
             currentResultId = this.getAttribute("data-id");
+
+            // Set the current form to submit if deletion is confirmed
+            currentForm = this.closest(".delete-form");
+
              // -- Show the confirmation modal
             confirmationModal.style.display = "block";
         });
@@ -16,9 +24,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Confirm deletion and close the modal
     document.getElementById("confirm-btn").addEventListener("click", function () {
-        if (currentResultId) {
-            document.getElementById(currentResultId)?.remove();
-            currentResultId = null;
+        if (currentForm) {
+            // -- Submit the form if confirmed
+            currentForm.submit();
+            currentForm = null;  // Reset the current form
+
             // -- Hide the modal after confirming
             confirmationModal.style.display = "none";
         }
@@ -28,9 +38,18 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("cancel-confirmation").addEventListener("click", function () {
         confirmationModal.style.display = "none";
     });
+
     document.getElementById("close-confirmation").addEventListener("click", function () {
         confirmationModal.style.display = "none";
     });
+
+    // Close modal when clicking outside of it
+    window.addEventListener("click", function (event) {
+        if (event.target === confirmationModal) {
+            confirmationModal.style.display = "none";
+        }
+    });  
+
 
     
     // EDIT SLANG FUNCTIONALITY
