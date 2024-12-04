@@ -18,21 +18,23 @@
 }
 
 /* ===== General ===== */
-h1,
-h2,
-h3,
-h4,
-p {
-    color: #f5f5f5;
+body {
+    display: flex;
+    flex-direction: column;
+    background: url('/static/images/blackboard_background.webp');
+    min-height: 100vh;
+    position: relative;
+    font-size: 18px;
+    color: var(--text-color-primary);
+}
+
+h1, h2, h3, h4, p, li {
+    color: var(--text-color-primary);
 }
 
 a {
     text-decoration: none;
-    color: #9932cb;
-}
-
-li {
-    color: #f5f5f5;
+    color: var(--text-color-primary);
 }
 
 /* ==== Header ==== */
@@ -66,18 +68,6 @@ header {
 }
 
 /* == Backgrounds == */
-
-body {
-    display: flex;
-    flex-direction: column;
-    background:
-        url('/static/images/blackboard_background.webp');
-
-    /* Solid color underlay incase image fails to load */
-    min-height: 100vh;
-    position: relative;
-    font-size: 18px;
-}
 
 /* == Index == */
 
