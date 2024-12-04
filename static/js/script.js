@@ -1,10 +1,66 @@
 document.addEventListener("DOMContentLoaded", function () {
-  let currentResultId = null;
+    let currentResultId = null;
     let currentForm = null;
+
+    // Modal Functionality
+    const backdrop = document.createElement('div');
+    backdrop.className = 'modal-backdrop';
 
     // Delete slang functionality
     const confirmationModal = document.getElementById("confirmationModal");
     const editModal = document.getElementById("editModal");
+
+    // Show modal function
+    function showModal(modal) {
+        document.body.appendChild(backdrop);
+        modal.style.display = "block";
+        backdrop.style.display = "block";
+        setTimeout(() => {
+            modal.style.opacity = "1";
+            backdrop.style.opacity = "1";
+        }, 10); // Small delay to trigger transition
+    }
+
+    // Hide modal function
+    function hideModal(modal) {
+        modal.style.opacity = "0";
+        backdrop.style.opacity = "0";
+        setTimeout(() => {
+            modal.style.display = "none";
+            backdrop.style.display = "none";
+            document.body.removeChild(backdrop);
+        }, 300); // Match transition duration
+    }
+
+    // Attach open event for delete buttons
+    document.querySelectorAll(".remove-btn").forEach(button => {
+        button.addEventListener("click", function (event) {
+            event.preventDefault();
+            showModal(confirmationModal);
+        });
+    });
+
+    // Attach close event to close button and backdrop
+    document.getElementById("close-confirmation").addEventListener("click", function () {
+        hideModal(confirmationModal);
+    });
+
+    document.getElementById("cancel-confirmation").addEventListener("click", function () {
+        hideModal(confirmationModal);
+    });
+
+    // Close modal when clicking on the backdrop
+    window.addEventListener("click", function (event) {
+        if (event.target === backdrop) {
+            hideModal(confirmationModal);
+        }
+    });
+
+    // Confirm delete button
+    document.getElementById("confirm-btn").addEventListener("click", function () {
+        // Submit form here or remove element
+        hideModal(confirmationModal);
+    });
 
     // Attach event listener to remove buttons to open the delete confirmation modal
     document.querySelectorAll(".remove-btn").forEach(button => {
