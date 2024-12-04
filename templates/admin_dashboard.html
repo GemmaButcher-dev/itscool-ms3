@@ -68,10 +68,10 @@
                 </form>
 
                 <!-- Delete Form -->
-                <form action="{{ url_for('delete_slang_admin') }}" method="POST" style="display: inline;">
+                <form class="delete-form" action="{{ url_for('delete_slang_admin') }}" method="POST" style="display: inline;">
                     <input type="hidden" name="slang_id" value="{{ slang._id }}">
                     <input type="hidden" name="delete_slang" value="true">
-                    <button type="submit" class="btn btn-danger">Delete Slang</button>
+                    <button type="button" class="btn btn-danger remove-btn" data-id="{{ slang._id }}">Delete Slang</button>
                 </form>
 
                 <!-- Edit button -->
