@@ -180,10 +180,11 @@ header {
     color: #ff6b6b;
     font-size: 1.5em;
     cursor: pointer;
+    transition: color 0.3s ease-in-out;
 }
 
 .favorite-btn.active {
-    color: #e63946;
+    color: #e63946 !important;
 }
 
 
