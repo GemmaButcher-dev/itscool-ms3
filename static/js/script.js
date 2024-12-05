@@ -28,7 +28,9 @@ document.addEventListener("DOMContentLoaded", function () {
         setTimeout(() => {
             modal.style.display = "none";
             backdrop.style.display = "none";
-            document.body.removeChild(backdrop);
+            if (document.body.contains(backdrop)) {
+                document.body.removeChild(backdrop);
+            }
         }, 300); // Match transition duration
     }
 
@@ -36,16 +38,37 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".remove-btn").forEach(button => {
         button.addEventListener("click", function (event) {
             event.preventDefault();
+
+            // Set the current result ID to remove
+            currentResultId = this.getAttribute("data-id");
+            currentForm = this.closest(".delete-form");
+
+            // Show the confirmation modal
             showModal(confirmationModal);
         });
     });
 
-    // Attach close event to close button and backdrop
-    document.getElementById("close-confirmation").addEventListener("click", function () {
+    // Attach event to confirm deletion and close modal
+    document.getElementById("confirm-btn").addEventListener("click", function () {
+        if (currentResultId) {
+            // Remove the slang element from the DOM
+            const elementToRemove = document.getElementById(currentResultId);
+            if (elementToRemove) {
+                elementToRemove.remove();
+            }
+
+            currentResultId = null; // Reset after removal
+            hideModal(confirmationModal);
+        }
+    });
+
+    // Attach event to cancel deletion
+    document.getElementById("cancel-confirmation").addEventListener("click", function () {
         hideModal(confirmationModal);
     });
 
-    document.getElementById("cancel-confirmation").addEventListener("click", function () {
+    // Attach event to close button on modal
+    document.getElementById("close-confirmation").addEventListener("click", function () {
         hideModal(confirmationModal);
     });
 
@@ -56,58 +79,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Confirm delete button
-    document.getElementById("confirm-btn").addEventListener("click", function () {
-        // Submit form here or remove element
-        hideModal(confirmationModal);
-    });
-
-    // Attach event listener to remove buttons to open the delete confirmation modal
-    document.querySelectorAll(".remove-btn").forEach(button => {
-        button.addEventListener("click", function (event) {
-            event.preventDefault();
-
-            // -- Set the currentResultId to the slang to be deleted
-            currentResultId = this.getAttribute("data-id");
-
-            // Set the current form to submit if deletion is confirmed
-            currentForm = this.closest(".delete-form");
-
-             // -- Show the confirmation modal
-            confirmationModal.style.display = "block";
-        });
-    });
-
-    // Confirm deletion and close the modal
-    document.getElementById("confirm-btn").addEventListener("click", function () {
-        if (currentForm) {
-            // -- Submit the form if confirmed
-            currentForm.submit();
-            currentForm = null;  // Reset the current form
-
-            // -- Hide the modal after confirming
-            confirmationModal.style.display = "none";
-        }
-    });
-
-    // Close confirmation modal when clicking cancel or close button
-    document.getElementById("cancel-confirmation").addEventListener("click", function () {
-        confirmationModal.style.display = "none";
-    });
-
-    document.getElementById("close-confirmation").addEventListener("click", function () {
-        confirmationModal.style.display = "none";
-    });
-
-    // Close modal when clicking outside of it
-    window.addEventListener("click", function (event) {
-        if (event.target === confirmationModal) {
-            confirmationModal.style.display = "none";
-        }
-    });  
-
-
-    
     // EDIT SLANG FUNCTIONALITY
     // Attach event listeners to edit buttons to open the edit modal
     document.querySelectorAll(".edit-btn").forEach(button => {
@@ -117,51 +88,47 @@ document.addEventListener("DOMContentLoaded", function () {
             const definition = this.getAttribute("data-definition");
             const age = this.getAttribute("data-age");
             const type = this.getAttribute("data-type");
-    
-            // -- Put data into modal
+
+            // Put data into modal
             document.getElementById("editSlangId").value = slangId;
             document.getElementById("editSlang").value = slang;
             document.getElementById("editDefinition").value = definition;
             document.getElementById("editAge").value = age;
             document.getElementById("editType").value = type;
-    
-            // -- Show the modal
-            editModal.style.display = "flex";
+
+            // Show the edit modal
+            showModal(editModal);
         });
     });
 
     // Save changes to the slang word and close edit modal
     document.getElementById("save-edit").addEventListener("click", function () {
-        // -- Form submission will happen when clicking save changes
         document.getElementById("editSlangForm").submit();
-
-        // -- Close modal after saving
-        editModal.style.display = "none";
+        hideModal(editModal);
     });
-    
+
     // Close edit modal when clicking cancel or close button
     document.getElementById("cancel-edit").addEventListener("click", function () {
-        editModal.style.display = "none";
+        hideModal(editModal);
     });
     document.getElementById("close-edit").addEventListener("click", function () {
-        editModal.style.display = "none";
+        hideModal(editModal);
     });
-    
-    // Close modal when clicking outside of it
-    window.onclick = function (event) {
-        if (event.target.classList.contains('modal')) {
-            event.target.style.display = "none";
-        }
-    };
 
+    // Close modal when clicking outside of it
+    window.addEventListener("click", function (event) {
+        if (event.target === editModal) {
+            hideModal(editModal);
+        }
+    });
 
     // FUNCTIONALITY FOR FAVOURITE SLANG
     // Attach event listeners to all favorite buttons
     document.querySelectorAll(".favorite-btn").forEach(button => {
-        button.addEventListener("click", function() {
+        button.addEventListener("click", function () {
             const slangId = this.getAttribute("data-id");
-    
-            // -- Send a POST request to the server to add to favorites
+
+            // Send a POST request to the server to add to favorites
             fetch("/add_to_favorites", {
                 method: "POST",
                 headers: {
@@ -169,28 +136,27 @@ document.addEventListener("DOMContentLoaded", function () {
                 },
                 body: JSON.stringify({ slang_id: slangId })
             })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    alert("Added to favorites!");
-                } else {
-                    alert("Failed to add to favorites.");
-                }
-            });
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert("Added to favorites!");
+                    } else {
+                        alert("Failed to add to favorites.");
+                    }
+                });
         });
     });
-    
 
     // Update footer with the current year
     function updateDate() {
         const today = new Date();
-        document.getElementById('current-date').textContent = today.getFullYear();
+        document.getElementById("current-date").textContent = today.getFullYear();
     }
     updateDate();
 
     // 404 redirect after 10 seconds
     setTimeout(() => {
-        // -- Ensure 'homeUrl' is defined
+        // Ensure 'homeUrl' is defined
         window.location.replace(homeUrl);
     }, 10000);
 });
