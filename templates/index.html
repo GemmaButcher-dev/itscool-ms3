@@ -40,7 +40,17 @@
                             <div class="accordion-body custom-body">
                                 <ul>
                                     {% for slang in slang_list %}
-                                        <li>{{ slang['slang'] }}: {{ slang['definition'] }}</li>
+                                        <li id="slang-{{ slang._id }}" class="slang-item">
+                                            <div class="slang-header">
+                                                <button id="fav-btn-accordion" class="favorite-btn" data-id="{{ slang._id }}">
+                                                    <i class="fa fa-heart"></i>
+                                                </button>
+                                                <strong>{{ slang['slang'] }}</strong>
+                                            </div>
+                                            <div class="slang-definition">
+                                                {{ slang['definition'] }}
+                                            </div>
+                                        </li>
                                     {% endfor %}
                                 </ul>
                             </div>
