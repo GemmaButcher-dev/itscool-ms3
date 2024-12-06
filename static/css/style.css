@@ -114,7 +114,7 @@ header {
     margin-right: 3rem;
 }
 
-/* === Index Page === */
+/* ==== Index Page ==== */
 .welcome-container,
 .intro-container,
 .search-section {
@@ -184,7 +184,7 @@ header {
 }
 
 
-/* == Login/out form == */
+/* ==== Login/out Form ==== */
 
 form,
 .form-card {
@@ -278,7 +278,7 @@ button {
     margin-bottom: 5px;
 }
 
-/* Add Slang Page */
+/* ==== Add Slang Page ==== */
 
 .add_slang-container{
     justify-content: center;
@@ -289,6 +289,18 @@ button {
 .form-heading {
     color: #000000;
 }
+
+/* ==== User Dashboard ==== */
+
+#profile-card {
+    align-items: center;
+    margin-top: 30px;
+}
+.profile-heading {
+    color:#000000;
+    align-content: center;
+}
+
 
 /* ===== General Modal Styling ====== */
 
