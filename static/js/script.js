@@ -74,7 +74,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // Save changes to the slang word and close edit modal
     document.getElementById("save-edit").addEventListener("click", function () {
         document.getElementById("editSlangForm").submit();
-        editModal.hide();
     });
 
     // Close edit modal when clicking cancel or close button
