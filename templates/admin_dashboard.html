@@ -124,7 +124,7 @@
           <button type="button" class="btn-close" id="close-edit" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form id="editSlangForm">
+          <form id="editSlangForm" action="{{ url_for('edit_slang') }}" method="post">
             <input type="hidden" id="editSlangId" name="slang_id">
             <div class="mb-3">
               <label for="editSlang" class="form-label">Slang</label>
