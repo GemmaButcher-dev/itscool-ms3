@@ -2,37 +2,9 @@ document.addEventListener("DOMContentLoaded", function () {
     let currentResultId = null;
     let currentForm = null;
 
-    // Modal Functionality
-    const backdrop = document.createElement('div');
-    backdrop.className = 'modal-backdrop';
-
-    // Delete slang functionality
-    const confirmationModal = document.getElementById("confirmationModal");
-    const editModal = document.getElementById("editModal");
-
-    // Show modal function
-    function showModal(modal) {
-        document.body.appendChild(backdrop);
-        modal.style.display = "block";
-        backdrop.style.display = "block";
-        setTimeout(() => {
-            modal.style.opacity = "1";
-            backdrop.style.opacity = "1";
-        }, 10); // Small delay to trigger transition
-    }
-
-    // Hide modal function
-    function hideModal(modal) {
-        modal.style.opacity = "0";
-        backdrop.style.opacity = "0";
-        setTimeout(() => {
-            modal.style.display = "none";
-            backdrop.style.display = "none";
-            if (document.body.contains(backdrop)) {
-                document.body.removeChild(backdrop);
-            }
-        }, 300); // Match transition duration
-    }
+    // DELETE SLANG FUNCTIONALITY
+    const confirmationModalElement = document.getElementById("confirmationModal");
+    const confirmationModal = new bootstrap.Modal(confirmationModalElement);
 
     // Attach open event for delete buttons
     document.querySelectorAll(".remove-btn").forEach(button => {
@@ -44,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
             currentForm = this.closest(".delete-form");
 
             // Show the confirmation modal
-            showModal(confirmationModal);
+            confirmationModal.show();
         });
     });
 
@@ -57,29 +29,27 @@ document.addEventListener("DOMContentLoaded", function () {
                 elementToRemove.remove();
             }
 
-            currentResultId = null; // Reset after removal
-            hideModal(confirmationModal);
+            // Optionally, submit the form to remove it from the database (if required)
+            if (currentForm) {
+                currentForm.submit();
+            }
+
+            // Reset variables and hide modal
+            currentResultId = null;
+            currentForm = null;
+            confirmationModal.hide();
         }
     });
 
     // Attach event to cancel deletion
     document.getElementById("cancel-confirmation").addEventListener("click", function () {
-        hideModal(confirmationModal);
-    });
-
-    // Attach event to close button on modal
-    document.getElementById("close-confirmation").addEventListener("click", function () {
-        hideModal(confirmationModal);
-    });
-
-    // Close modal when clicking on the backdrop
-    window.addEventListener("click", function (event) {
-        if (event.target === backdrop) {
-            hideModal(confirmationModal);
-        }
+        confirmationModal.hide();
     });
 
     // EDIT SLANG FUNCTIONALITY
+    const editModalElement = document.getElementById("editModal");
+    const editModal = new bootstrap.Modal(editModalElement);
+
     // Attach event listeners to edit buttons to open the edit modal
     document.querySelectorAll(".edit-btn").forEach(button => {
         button.addEventListener("click", function () {
@@ -89,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const age = this.getAttribute("data-age");
             const type = this.getAttribute("data-type");
 
-            // Put data into modal
+            // Put data into the modal form
             document.getElementById("editSlangId").value = slangId;
             document.getElementById("editSlang").value = slang;
             document.getElementById("editDefinition").value = definition;
@@ -97,29 +67,22 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("editType").value = type;
 
             // Show the edit modal
-            showModal(editModal);
+            editModal.show();
         });
     });
 
     // Save changes to the slang word and close edit modal
     document.getElementById("save-edit").addEventListener("click", function () {
         document.getElementById("editSlangForm").submit();
-        hideModal(editModal);
+        editModal.hide();
     });
 
     // Close edit modal when clicking cancel or close button
     document.getElementById("cancel-edit").addEventListener("click", function () {
-        hideModal(editModal);
+        editModal.hide();
     });
     document.getElementById("close-edit").addEventListener("click", function () {
-        hideModal(editModal);
-    });
-
-    // Close modal when clicking outside of it
-    window.addEventListener("click", function (event) {
-        if (event.target === editModal) {
-            hideModal(editModal);
-        }
+        editModal.hide();
     });
 
     // FUNCTIONALITY FOR FAVOURITE SLANG
@@ -157,6 +120,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // 404 redirect after 10 seconds
     setTimeout(() => {
         // Ensure 'homeUrl' is defined
-        window.location.replace(homeUrl);
+        if (typeof homeUrl !== 'undefined') {
+            window.location.replace(homeUrl);
+        }
     }, 10000);
 });
