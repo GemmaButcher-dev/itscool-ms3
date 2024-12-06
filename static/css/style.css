@@ -115,13 +115,24 @@ header {
 }
 
 /* ==== Index Page ==== */
-.welcome-container,
-.intro-container,
+.intro-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
 .search-section {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 30px;
+}
+
+.welcome-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .welcome-image {
@@ -145,6 +156,9 @@ header {
 }
 
 /* Index Accordion */
+.letter-group {
+    margin-bottom: 60px;
+}
 
 .accordion-button.custom-header {
     background-color: #4caf50;
@@ -295,6 +309,7 @@ button {
 #profile-card {
     align-items: center;
     margin-top: 30px;
+    background-color: #4caf50;
 }
 .profile-heading {
     color:#000000;
@@ -453,7 +468,29 @@ footer {
     #profile-card {
         max-width: 75%;
     }
-} 
+
+    .welcome-container {
+        margin-top: 20px;
+        max-width: 75%;
+    }
+
+    .intro-text {
+        font-size: medium;
+        max-width: 80%;
+    }
+
+    #search-row {
+        --bs-gutter-x: 1.5rem;
+        --bs-gutter-y: 0;
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: calc(-1* var(--bs-gutter-y));
+    }
+
+    .letter-group h2 {
+        font-size: large;
+    }
+}
 
 /* Medium Devices - Tablets and Desktops */
 @media screen and (min-width: 768px) {
