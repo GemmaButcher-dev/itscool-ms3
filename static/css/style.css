@@ -301,6 +301,10 @@ button {
     align-content: center;
 }
 
+.fav-container-dashboard {
+    margin-top: 30px;
+}
+
 
 /* ===== General Modal Styling ====== */
 
@@ -445,6 +449,10 @@ footer {
     .btn {
         width: 100%;
     } 
+
+    #profile-card {
+        max-width: 75%;
+    }
 } 
 
 /* Medium Devices - Tablets and Desktops */
@@ -468,6 +476,10 @@ footer {
         max-width: 35rem;
         margin: 0 auto;
     }
+
+    #profile-card {
+        max-width: 65%;
+    }
 }
 
 /* Larger Screens */
@@ -475,6 +487,10 @@ footer {
     .modal {
         width: 50%;
         padding: 2rem;
+    }
+
+    #profile-card {
+        max-width: 60%;
     }
 }
 
