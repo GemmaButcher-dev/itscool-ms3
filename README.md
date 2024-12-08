@@ -161,8 +161,8 @@ The target audience is for children, teenagers and adults trying to determine th
 
 #### Typography
 
-   * The Exo+2 google font with a fall back font of sans-serif should the font fail to load. It is used for the header logo text, introduction text and footer.
-   * Supernova 2 font from cdn fonts is used for the game selection buttons text with a fall back font of sans serif should it fail to load. This font has a fun and slightly dramatic comic characteristics whilst remaining legible. 
+   * The Poppins google font is to be used with a fall back font of sans-serif should the font fail to load. It is used for the header, navbar, headings and footer. 
+   * The Roboto font google font is used for the body text with a fall back font of sans serif should it fail to load. This font has a fun and slightly dramatic comic characteristics whilst remaining legible. 
 
 #### Imagery
 
@@ -232,24 +232,24 @@ The wireframe showing the
    #### Footer
 
    * There is a fixed footer at the bottom of the page. 
-   * The footer contains the game developer name and copyright with an automatically updated year. This has been done using JavaScript and updates when the page is loaded to the current year. The function updates the span element in the footer.
+   * The footer contains the developer name and copyright with an automatically updated year. This has been done using JavaScript and updates when the page is loaded to the current year. The function updates the span element in the footer.
 
 
    #### 404 Page
 
-   * A 404 page is navigated to when an error occurs or the website fails load. The page explains to the user that there is an issue and offers a button to navigate back to the homepage/index.html without using browser buttons.
+   * A 404 page is navigated to when an error occurs or the website fails load. The page explains to the user that there is an issue and offers a button to navigate back to the homepage/index.html without using browser buttons. It also has a times redirect function so that after 10 seconds the user is redirected back to home page if they do not trigger the redirect via the button directly.
 
    ![screenshot]()
 
    #### Error Handling
 
-   * Error handling is built directly into the game functions so should the game data not load or be 'fetched' from the json the function will handle the error and will show an error by way or stating 'error fetching game data'.
+   * Error handling is built directly into the app functions so should the app data not load the function will handle the error and will show an error by way or stating 'error fetching data'.
 
 ### Features Left To Implement
 
-   * 
-   * 
-   * 
+   * Functions to allow admin to manage user registration and accounts directly via the admin dashboard within the app.
+   * External links to pages as an additional field to each slang document to allow users to find out more about slang origins, i.e links to youtubers who initiated the slang word.
+   * A professionals dashboard where teachers and other professionals can view slang words and flag warnings and issues caused in educational settings by them retrospectively.
    * 
 
 ## Technologies Used
@@ -261,7 +261,7 @@ The wireframe showing the
 - ![CSS3](https://img.shields.io/static/v1?label=CSS&message=3&color=1572B6&logo=css3&logoColor=ffffff)
     - [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3) - Used as the base for cascading styles.
 - ![JavaScript](https://img.shields.io/static/v1?label=JavaScript&message=ES6&color=F7DF1E&logo=javascript&logoColor=ffffff)
-    - [JavaScript ES6](https://developer.mozilla.org/en-US/docs/Web/JavaScript) - Used as the base for game interaction.
+    - [JavaScript ES6](https://developer.mozilla.org/en-US/docs/Web/JavaScript) - Used as the base for interactive functionality.
 
 ### Frameworks, Programs and Libraries Used
 
