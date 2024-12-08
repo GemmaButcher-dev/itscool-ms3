@@ -56,7 +56,7 @@ View the live project [here!]()
 
 #### Project Goals
 
-The target audience is for teenagers and adults trying to determine the definition of school slang words used in the UK and to add tot he current ItsCool community dictionary.
+The target audience is for children, teenagers and adults trying to determine the definition, spelling, origin and appropriation of school slang words used in the UK and to add to the current ItsCool community dictionary.
 
 #### User Goals
 
@@ -85,21 +85,21 @@ The target audience is for teenagers and adults trying to determine the definiti
 
 ✅  get immediate feedback to know if I have signed up, logged in or signed out.
 
-✅  be able to turn on and off all sounds throughout the app
+✅  access a user dashboard when logged in.
 
-✅  add new slang terms and definitions, so I can expand the slang dictionary and help others learn.
+✅  request to add new slang terms and definitions, so I can expand the slang dictionary and share knowledge.
 
 ✅  to edit slang terms I’ve added to correct or improve definitions, ensuring the information stays accurate and up-to-date.
 
-✅  delete slang terms that are no longer relevant or are duplicates, so the dictionary remains clean and useful.
+✅  request to delete slang terms that are no longer relevant or are duplicates, so the dictionary remains clean and useful.
 
 "**_As an student user, I would like to_** _______________"
 
 ✅  Learn About Common School Slang:
-    As a student, I want to browse school-related slang so I can understand the informal language and slang used by peers in the school environment.
+    As a student, I want to browse slang terminology so I can understand the informal language and slang used by peers in the school environment and elsewhere.
 
 ✅  Contribute School-Specific Slang:
-    As a student, I want to contribute slang that’s specific to my school or region, so I can share it with other students who may find it relevant or interesting.
+    As a student, I want to contribute slang that’s specific to my age, school type or region, so I can share it with other students who may find it relevant or interesting.
 
 ✅  See Slang Organized Alphabetically:
     As a student, I want to see slang words organized by their first letter, so I can easily find terms that I hear frequently.
@@ -107,16 +107,22 @@ The target audience is for teenagers and adults trying to determine the definiti
 ✅  Report Incorrect or Inappropriate Content:
     As a student, I want to report slang entries that are incorrect, outdated, or inappropriate, so I can help maintain a positive and accurate dictionary.
 
-"**_As an teacher or parent, I would like to_** _______________"
+✅  Save Favourite Slang:
+   As a student, I want to be able to save my favourite slang words to a favourites list in my user dashboard.
+
+"**_As a teacher or parent, I would like to_** _______________"
 
 ✅  Understand Student Language:
     As a teacher or parent, I want to look up slang terms and definitions, so I can understand the language students are using in social and school settings.
 
 ✅  View Related Terms and Meanings:
-    As a teacher or parent, I want to see related terms or common slang phrases grouped together, so I can get a better context for terms that might be used together.
+    As a teacher or parent, I want to be able to search for slang words that i have heard and want to find out their corresponding definition and appropriateness.
 
 ✅  Browse by Letter or Category:
-    As a teacher or parent, I want to browse slang by letter or category to find terms more easily and understand common slang patterns.
+    As a teacher or parent, I want to browse slang by letter to find terms more easily and understand common slang patterns.
+
+✅  Save Relevant Slang:
+    As a teacher or parent, I want to be able to save slang words to a favourites list in my user dashboard that i can come back to as a reference point.
 
 
 
@@ -128,13 +134,13 @@ The target audience is for teenagers and adults trying to determine the definiti
 
 ✅  edit or delete any slang term to correct inaccuracies, enforce content guidelines, and remove inappropriate entries.
 
-✅ 
+✅  edit, delete or approve pending approval requests from users requesting a slang word to be added to the app via an admin     dashboard.
 
-✅ 
+✅  search for slang words to be deleted from the app in the admin dashboard.
 
-✅ 
+✅  use a form to add new slang words to the app.
 
-✅ 
+✅  navigate easily to the admin dashboard via a navbar.
 
 ✅ 
 
