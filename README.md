@@ -152,12 +152,12 @@ The target audience is for children, teenagers and adults trying to determine th
 
 #### Colour Scheme
 
- The global colour selection for Super Squad is shown below.
+ The global colour selection for ItScool is shown below.
 
- * 
- * white #ffffff
- * 
- * 
+ * Primary colour: Purple #9932cb
+ * Secondary colour: #6c757d
+ * Primary text colour: #f5f5f5
+ * Secondary text colour: #000000
 
 #### Typography
 
