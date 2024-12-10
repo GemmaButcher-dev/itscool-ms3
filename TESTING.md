@@ -123,14 +123,14 @@ After initially correcting the code format and it passing testing using the CI p
 The project user stories have been met with the following features;
 
 "**_As a guest user, I would like to_** _______________"
+
 ✅  browse through the slang terms listed alphabetically so I can see all the terms that are available.
 
    ItScool provides:<br>
-      * . <br>
-      * .<br>
-      * .
+      * a bootstrap accordion of all slangs listed alphabetically on all devices. <br>
+      * correspoding defintions in the accordion nect to each slang word.<br>
 
-       can be seen below.
+       The accordion can be seen below.
 
 ![screenshot]()
 
@@ -138,8 +138,8 @@ The project user stories have been met with the following features;
 ✅  click on slang terms to view their definitions and sample usage, so I can understand the meaning and context.
 
    ItScool provides:<br>
-      * .<br>
-      * .
+      * A bootstrap accordion which when clicked, reveals slang words listed with their corresponding definitions<br>
+      * A search bar that displays search results to the user.
 
       can be seen below
 
@@ -148,15 +148,18 @@ The project user stories have been met with the following features;
 ✅  search for slang terms by typing keywords or phrases, so I can quickly find the slang term I'm interested in.
 
    ItScool provides:<br>
-     * .<br>
-     * .
+     * A search bar function that returns searches that match key words.<br>
+
+     The search bar is shown below.
+
+![screenshot]()
 
 ✅  browse slang terms by selecting a letter from A-Z, so I can easily find terms that start with a specific letter.
 
    ItScool provides:<br>
-     * .<br>
+     * A bootstrap accordion of all slangs listed alphabetically on all devices. <br>
 
-      is shown below.
+     The accordion is shown below.
 
 ![screenshot]()
 
