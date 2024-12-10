@@ -249,7 +249,7 @@ The wireframe showing the
    * Functions to allow admin to manage user registration and accounts directly via the admin dashboard within the app.
    * External links to pages as an additional field to each slang document to allow users to find out more about slang origins, i.e links to youtubers who initiated the slang word.
    * A professionals dashboard where teachers and other professionals can view slang words and flag warnings and issues caused in educational settings by them retrospectively.
-   * 
+   * as a logged-in user, I want to update my profile details if necessary, so my account information is accurate.
 
 ## Technologies Used
 
