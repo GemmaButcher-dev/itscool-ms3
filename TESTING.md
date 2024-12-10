@@ -166,9 +166,10 @@ The project user stories have been met with the following features;
 ✅  as a new user, create an account by providing a username and password, so I can log in and use additional features.
 
    ItScool provides:<br>
-     * .<br>
+     * A signup page for users to register as a user with a signup form.<br>
+     * This function is a create part of CRUD functionality for this project. it allows the user to create a profile with a username and password.
 
-      is shown below.
+     Signup page is shown below.
 
 ![screenshot]()
 
@@ -177,19 +178,17 @@ The project user stories have been met with the following features;
   ItScool provides:<br>
      * 
 
+  ![screenshot]()
+
 "**_As a registered user, I would like to_** _______________"
 
 ✅  as a returning user, I want to log in with my username and password, so I can access my account.
 
   ItScool provides:<br>
-      * <br>
-      *.
+      * A login page for users to login with their username and password.<br>
+      * A user profile dashboard where the user is directed to on login.
 
-✅  as a logged-in user, I want to update my profile details if necessary, so my account information is accurate.
-
-  ItScool provides:<br>
-     * . <br>
-     * .
+![screenshot]()
 
 ✅  get immediate feedback to know if I have signed up, logged in or signed out.
 
