@@ -193,28 +193,35 @@ The project user stories have been met with the following features;
 ✅  get immediate feedback to know if I have signed up, logged in or signed out.
 
   ItScool provides:<br>
-     * .<br>
-     * .
+     * Immediate feedback via a flash message to let users know they have signd up successfully.<br>
+     * Immediate feedback via a flash message to let users know they have logged in successfully.<br>
+     * Immediate feedback via a flash message to let users know they have logged out successfully.<br>
 
-      is shown below.
+    Examples of a flash message is shown below.
 
 ![screenshot]()
 
 ✅  access a user dashboard when logged in.
 
   ItScool provides:<br>
-     * .<br>
-     * .
+     * a user dashboard for logged in users acessible via the navbar as required.<br>
+     * a redirect to user profile dashboard upon user login.<br>
+
+     User dashboard is shown [here]()
+
+![screenshot]()
 
 ✅  request to add new slang terms and definitions, so I can expand the slang dictionary and share knowledge.
 
   ItScool provides:<br>
-      * .<br>
-      * .
+      * A navigation link to a add slang word request form in the navbar<br>
+      * A add slang page with a add slang word request for for logged in users.<br>
 
 ✅  to edit slang terms I’ve added to correct or improve definitions, ensuring the information stays accurate and up-to-date.
 
   ItScool provides:<br>
+      * A add slang form where any slang or revision of slang will be reviewed by admin to update appropriately.
+      * This is the update functionality within the CRUD functionality.
      
 
 ![screenshot]()
@@ -222,6 +229,8 @@ The project user stories have been met with the following features;
 ✅  request to delete slang terms that are no longer relevant or are duplicates, so the dictionary remains clean and useful.
 
   ItScool provides:<br>
+      * A delete slang page for logged in users which can be navigated to in the navbar.
+      * Delete slang form on the delete slang page that once submitted is subject to review by admin. This is part of the delete functionality within CRUD. 
      
 
 ![screenshot]()
