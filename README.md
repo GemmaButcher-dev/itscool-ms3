@@ -56,7 +56,7 @@ View the live project [here!]()
 
 #### Project Goals
 
-The target audience is for teenagers and adults trying to determine the definition of school slang words used in the UK and to add tot he current ItsCool community dictionary.
+The target audience is for children, teenagers and adults trying to determine the definition, spelling, origin and appropriation of school slang words used in the UK and to add to the current ItsCool community dictionary.
 
 #### User Goals
 
@@ -72,10 +72,11 @@ The target audience is for teenagers and adults trying to determine the definiti
 
 ✅  read about the purpose of this slang dictionary, so I can understand the context and relevance of the terms listed.
 
+✅  as a new user, create an account by providing a username and password, so I can log in and use additional features.
+
 
 "**_As a registered user, I would like to_** _______________"
 
-✅  as a new user, create an account by providing a username and password, so I can log in and use additional features.
 
 ✅  as a returning user, I want to log in with my username and password, so I can access my account.
 
@@ -85,21 +86,21 @@ The target audience is for teenagers and adults trying to determine the definiti
 
 ✅  get immediate feedback to know if I have signed up, logged in or signed out.
 
-✅  be able to turn on and off all sounds throughout the app
+✅  access a user dashboard when logged in.
 
-✅  add new slang terms and definitions, so I can expand the slang dictionary and help others learn.
+✅  request to add new slang terms and definitions, so I can expand the slang dictionary and share knowledge.
 
 ✅  to edit slang terms I’ve added to correct or improve definitions, ensuring the information stays accurate and up-to-date.
 
-✅  delete slang terms that are no longer relevant or are duplicates, so the dictionary remains clean and useful.
+✅  request to delete slang terms that are no longer relevant or are duplicates, so the dictionary remains clean and useful.
 
 "**_As an student user, I would like to_** _______________"
 
 ✅  Learn About Common School Slang:
-    As a student, I want to browse school-related slang so I can understand the informal language and slang used by peers in the school environment.
+    As a student, I want to browse slang terminology so I can understand the informal language and slang used by peers in the school environment and elsewhere.
 
 ✅  Contribute School-Specific Slang:
-    As a student, I want to contribute slang that’s specific to my school or region, so I can share it with other students who may find it relevant or interesting.
+    As a student, I want to contribute slang that’s specific to my age, school type or region, so I can share it with other students who may find it relevant or interesting.
 
 ✅  See Slang Organized Alphabetically:
     As a student, I want to see slang words organized by their first letter, so I can easily find terms that I hear frequently.
@@ -107,16 +108,22 @@ The target audience is for teenagers and adults trying to determine the definiti
 ✅  Report Incorrect or Inappropriate Content:
     As a student, I want to report slang entries that are incorrect, outdated, or inappropriate, so I can help maintain a positive and accurate dictionary.
 
-"**_As an teacher or parent, I would like to_** _______________"
+✅  Save Favourite Slang:
+   As a student, I want to be able to save my favourite slang words to a favourites list in my user dashboard.
+
+"**_As a teacher or parent, I would like to_** _______________"
 
 ✅  Understand Student Language:
     As a teacher or parent, I want to look up slang terms and definitions, so I can understand the language students are using in social and school settings.
 
 ✅  View Related Terms and Meanings:
-    As a teacher or parent, I want to see related terms or common slang phrases grouped together, so I can get a better context for terms that might be used together.
+    As a teacher or parent, I want to be able to search for slang words that i have heard and want to find out their corresponding definition and appropriateness.
 
 ✅  Browse by Letter or Category:
-    As a teacher or parent, I want to browse slang by letter or category to find terms more easily and understand common slang patterns.
+    As a teacher or parent, I want to browse slang by letter to find terms more easily and understand common slang patterns.
+
+✅  Save Relevant Slang:
+    As a teacher or parent, I want to be able to save slang words to a favourites list in my user dashboard that i can come back to as a reference point.
 
 
 
@@ -128,15 +135,13 @@ The target audience is for teenagers and adults trying to determine the definiti
 
 ✅  edit or delete any slang term to correct inaccuracies, enforce content guidelines, and remove inappropriate entries.
 
-✅ 
+✅  edit, delete or approve pending approval requests from users requesting a slang word to be added to the app via an admin     dashboard.
 
-✅ 
+✅  search for slang words to be deleted from the app in the admin dashboard.
 
-✅ 
+✅  use a form to add new slang words to the app.
 
-✅ 
-
-✅ 
+✅  navigate easily to the admin dashboard via a navbar. 
 
 
 
@@ -146,17 +151,17 @@ The target audience is for teenagers and adults trying to determine the definiti
 
 #### Colour Scheme
 
- The global colour selection for Super Squad is shown below.
+ The global colour selection for ItScool is shown below.
 
- * 
- * white #ffffff
- * 
- * 
+ * Primary colour: Purple #9932cb
+ * Secondary colour: #6c757d
+ * Primary text colour: #f5f5f5
+ * Secondary text colour: #000000
 
 #### Typography
 
-   * The Exo+2 google font with a fall back font of sans-serif should the font fail to load. It is used for the header logo text, introduction text and footer.
-   * Supernova 2 font from cdn fonts is used for the game selection buttons text with a fall back font of sans serif should it fail to load. This font has a fun and slightly dramatic comic characteristics whilst remaining legible. 
+   * The Poppins google font is to be used with a fall back font of sans-serif should the font fail to load. It is used for the header, navbar, headings and footer. 
+   * The Roboto font google font is used for the body text with a fall back font of sans serif should it fail to load. This font has a fun and slightly dramatic comic characteristics whilst remaining legible. 
 
 #### Imagery
 
@@ -226,25 +231,25 @@ The wireframe showing the
    #### Footer
 
    * There is a fixed footer at the bottom of the page. 
-   * The footer contains the game developer name and copyright with an automatically updated year. This has been done using JavaScript and updates when the page is loaded to the current year. The function updates the span element in the footer.
+   * The footer contains the developer name and copyright with an automatically updated year. This has been done using JavaScript and updates when the page is loaded to the current year. The function updates the span element in the footer.
 
 
    #### 404 Page
 
-   * A 404 page is navigated to when an error occurs or the website fails load. The page explains to the user that there is an issue and offers a button to navigate back to the homepage/index.html without using browser buttons.
+   * A 404 page is navigated to when an error occurs or the website fails load. The page explains to the user that there is an issue and offers a button to navigate back to the homepage/index.html without using browser buttons. It also has a times redirect function so that after 10 seconds the user is redirected back to home page if they do not trigger the redirect via the button directly.
 
    ![screenshot]()
 
    #### Error Handling
 
-   * Error handling is built directly into the game functions so should the game data not load or be 'fetched' from the json the function will handle the error and will show an error by way or stating 'error fetching game data'.
+   * Error handling is built directly into the app functions so should the app data not load the function will handle the error and will show an error by way or stating 'error fetching data'.
 
 ### Features Left To Implement
 
-   * 
-   * 
-   * 
-   * 
+   * Functions to allow admin to manage user registration and accounts directly via the admin dashboard within the app.
+   * External links to pages as an additional field to each slang document to allow users to find out more about slang origins, i.e links to youtubers who initiated the slang word.
+   * A professionals dashboard where teachers and other professionals can view slang words and flag warnings and issues caused in educational settings by them retrospectively.
+   * as a logged-in user, I want to update my profile details if necessary, so my account information is accurate.
 
 ## Technologies Used
 
@@ -255,14 +260,14 @@ The wireframe showing the
 - ![CSS3](https://img.shields.io/static/v1?label=CSS&message=3&color=1572B6&logo=css3&logoColor=ffffff)
     - [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3) - Used as the base for cascading styles.
 - ![JavaScript](https://img.shields.io/static/v1?label=JavaScript&message=ES6&color=F7DF1E&logo=javascript&logoColor=ffffff)
-    - [JavaScript ES6](https://developer.mozilla.org/en-US/docs/Web/JavaScript) - Used as the base for game interaction.
+    - [JavaScript ES6](https://developer.mozilla.org/en-US/docs/Web/JavaScript) - Used as the base for interactive functionality.
 
 ### Frameworks, Programs and Libraries Used
 
 1. [Bootstrap 5.3](https://getbootstrap.com/):
    Bootstrap was used to assist with the responsiveness and styling of the website.
 2. [Google Fonts](https://fonts.google.com/):
-   Google fonts were used to import the 'Exo+2' font into the index.html and style.css files which is used on all pages throughout the project.
+   Google fonts were used to import the 'Poppins' and 'Roboto' font into the html and css files which is used on all pages throughout the project.
 3. [Font Awesome](https://fontawesome.com/):
    Font Awesome was used on all pages throughout the website to add icons for aesthetic and UX purposes.
 4. jQuery:
@@ -278,7 +283,7 @@ The wireframe showing the
 9. [ahrefs](https://ahrefs.com/writing-tools/img-alt-text-generator):
    ahrefs was used to help generate alt text for images.
 10. [Canva](https://www.canva.com/colors/color-palette-generator/):
-    Canva's logo generator was used to create a logo for the favicons.
+    Canva's logo generator was used to create a logo for the favicons,the title image and the 404 title image.
 
 ## Testing
 
@@ -294,7 +299,7 @@ Thorough manual testing has been carried out.
 
 The project was deployed to GitHub Pages using the following steps...
 
-1. Log in to GitHub and locate the [GitHub Repository](https://github.com/GemmaButcher-dev/freestyle_dance.git)
+1. Log in to GitHub and locate the [GitHub Repository](https://github.com/GemmaButcher-dev/itscool-ms3.git)
 2. At the top of the Repository (not top of page), locate the "Settings" Button on the menu.
     - Alternatively Click [Here](https://raw.githubusercontent.com/) for a GIF demonstrating the process starting from Step 2.
 3. Scroll down the Settings page until you locate the "GitHub Pages" Section.
@@ -320,13 +325,13 @@ By forking the GitHub Repository we make a copy of the original repository on ou
 6. Type `git clone`, and then paste the URL you copied in Step 3.
 
 ```
-$ git clone https://github.com/GemmaButcher-dev/freestyle_dance.git
+$ git clone https://github.com/GemmaButcher-dev/itscool-ms3.git
 ```
 
 7. Press Enter. Your local clone will be created.
 
 ```
-$ git clone https://github.com/GemmaButcher-dev/freestyle_dance.git
+$ git clone https://github.com/GemmaButcher-dev/itscool-ms3.git
 > Cloning into `CI-Clone`...
 > remote: Counting objects: 10, done.
 > remote: Compressing objects: 100% (8/8), done.
@@ -362,11 +367,10 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
 
 ### Media
 
-  * All background images were sourced at [canva](https://www.canva.com/)
-  * Hero theme audio was sourced at [uppbeat](https://uppbeat.io/music/theme/superhero)
-  *  [Leonardo AI](https://app.leonardo.ai/image-generation)
+  * All background images were sourced at [canva](https://www.canva.com/)python3 app.py
+  
   * [My Instants](https://www.myinstants.com/)
-  * image title  [Flaming Text](https://eu1.flamingtext.com/)
+  * Image titles were created using [canva](https://www.canva.com/)
   * Favicon icons and png files were generated by [Favicon Generator](https://favicon.io/)
   * Markdown badges for README were sourced from [Shields.io](https://shields.io)
 

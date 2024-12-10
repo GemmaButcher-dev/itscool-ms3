@@ -122,80 +122,259 @@ After initially correcting the code format and it passing testing using the CI p
 
 The project user stories have been met with the following features;
 
+"**_As a guest user, I would like to_** _______________"
 
-✅  
+✅  browse through the slang terms listed alphabetically so I can see all the terms that are available.
 
    ItScool provides:<br>
-      * . <br>
-      * .<br>
-      * .
+      * a bootstrap accordion of all slangs listed alphabetically on all devices. <br>
+      * correspoding defintions in the accordion nect to each slang word.<br>
 
-       can be seen below.
+       The accordion can be seen below.
 
 ![screenshot]()
 
 
-✅  
+✅  click on slang terms to view their definitions and sample usage, so I can understand the meaning and context.
 
    ItScool provides:<br>
-      * .<br>
-      * .
+      * A bootstrap accordion which when clicked, reveals slang words listed with their corresponding definitions<br>
+      * A search bar that displays search results to the user.
 
       can be seen below
 
 ![screenshot]()
 
-✅  .
+✅  search for slang terms by typing keywords or phrases, so I can quickly find the slang term I'm interested in.
 
    ItScool provides:<br>
-     * .<br>
-     * .
+     * A search bar function that returns searches that match key words.<br>
 
-✅  
-   ItScool provides:<br>
-     * .<br>
-
-      is shown below.
+     The search bar is shown below.
 
 ![screenshot]()
 
-✅  
+✅  browse slang terms by selecting a letter from A-Z, so I can easily find terms that start with a specific letter.
+
+   ItScool provides:<br>
+     * A bootstrap accordion of all slangs listed alphabetically on all devices. <br>
+
+     The accordion is shown below.
+
+![screenshot]()
+
+✅  as a new user, create an account by providing a username and password, so I can log in and use additional features.
+
+   ItScool provides:<br>
+     * A signup page for users to register as a user with a signup form.<br>
+     * This function is a create part of CRUD functionality for this project. it allows the user to create a profile with a username and password.
+
+     Signup page is shown below.
+
+![screenshot]()
+
+✅  read about the purpose of this slang dictionary, so I can understand the context and relevance of the terms listed.
+
   ItScool provides:<br>
      * 
 
-✅  
+  ![screenshot]()
+
+"**_As a registered user, I would like to_** _______________"
+
+✅  as a returning user, I want to log in with my username and password, so I can access my account.
 
   ItScool provides:<br>
-      * <br>
-      *.
+      * A login page for users to login with their username and password.<br>
+      * A user profile dashboard where the user is directed to on login.
 
-✅  .
+![screenshot]()
 
-  ItScool provides:<br>
-     * . <br>
-     * .
-
-✅  .
+✅  get immediate feedback to know if I have signed up, logged in or signed out.
 
   ItScool provides:<br>
-     * .<br>
-     * .
+     * Immediate feedback via a flash message to let users know they have signd up successfully.<br>
+     * Immediate feedback via a flash message to let users know they have logged in successfully.<br>
+     * Immediate feedback via a flash message to let users know they have logged out successfully.<br>
 
-      is shown below.
+    Examples of a flash message is shown below.
+
+![screenshot]()
+
+✅  access a user dashboard when logged in.
+
+  ItScool provides:<br>
+     * a user dashboard for logged in users acessible via the navbar as required.<br>
+     * a redirect to user profile dashboard upon user login.<br>
+
+     User dashboard is shown [here]()
+
+![screenshot]()
+
+✅  request to add new slang terms and definitions, so I can expand the slang dictionary and share knowledge.
+
+  ItScool provides:<br>
+      * A navigation link to a add slang word request form in the navbar<br>
+      * A add slang page with a add slang word request for for logged in users.<br>
+
+✅  to edit slang terms I’ve added to correct or improve definitions, ensuring the information stays accurate and up-to-date.
+
+  ItScool provides:<br>
+      * A add slang form where any slang or revision of slang will be reviewed by admin to update appropriately.
+      * This is the update functionality within the CRUD functionality.
+     
+
+![screenshot]()
+
+✅  request to delete slang terms that are no longer relevant or are duplicates, so the dictionary remains clean and useful.
+
+  ItScool provides:<br>
+      * A delete slang page for logged in users which can be navigated to in the navbar.
+      * Delete slang form on the delete slang page that once submitted is subject to review by admin. This is part of the delete functionality within CRUD. 
+     
+
+![screenshot]()
+
+"**_As an student user, I would like to_** _______________"
+
+✅  Learn About Common School Slang:
+    As a student, I want to browse slang terminology so I can understand the informal language and slang used by peers in the school environment and elsewhere.
+
+  ItScool provides:<br>
+      * A bootstrap accordion where students can browse slang words and their corresponding terminology.
+     
+
+![screenshot]()
+
+✅  See Slang Organized Alphabetically:
+    As a student, I want to see slang words organized by their first letter, so I can easily find terms that I hear frequently.
+
+  ItScool provides:<br>
+      * A bootstrap accordion where students can browse slang words and their corresponding terminology grouped by the letter they begin with.
+     
+
+![screenshot]()
+
+✅   Report Incorrect or Inappropriate Content:
+    As a student, I want to report slang entries that are incorrect, outdated, or inappropriate, so I can help maintain a positive and accurate dictionary.
+
+
+  ItScool provides:<br>
+      * A delete slang word page where users can request a slang word and its related fields to be deleted from the dictionary if a users feels it is incorrect or innapropriate for the user groups.
+      * A clearly labelled delete slang page which can be navigated to from the nav bar.
+      * A simple, clear delete slang form that takes the slang word to be deleted and submits it to admin for approval.
+     
+
+![screenshot]()
+
+✅  Save Favourite Slang:
+   As a student, I want to be able to save my favourite slang words to a favourites list in my user dashboard.
+
+  ItScool provides:<br>
+      * A heart shaped favourite button that allows users to add favourite slang words to be added to a favourites list in their user profile dashboard page. 
+     
+
+![screenshot]()
+
+✅  Contribute School-Specific Slang:
+    As a student, I want to contribute slang that’s specific to my age, school type or region, so I can share it with other students who may find it relevant or interesting.
+
+  ItScool provides:<br>
+     
+
+![screenshot]()
+
+"**_As a teacher or parent, I would like to_** _______________"
+
+✅  Understand Student Language:
+    As a teacher or parent, I want to look up slang terms and definitions, so I can understand the language students are using in social and school settings. 
+
+  ItScool provides:<br>
+     
+
+![screenshot]()
+
+✅  View Related Terms and Meanings:
+    As a teacher or parent, I want to be able to search for slang words that i have heard and want to find out their corresponding definition and appropriateness.
+
+  ItScool provides:<br>
+     
+
+![screenshot]()
+
+✅  Browse by Letter or Category:
+    As a teacher or parent, I want to browse slang by letter to find terms more easily and understand common slang patterns.
+
+  ItScool provides:<br>
+     
+
+![screenshot]()
+
+✅  Save Relevant Slang:
+    As a teacher or parent, I want to be able to save slang words to a favourites list in my user dashboard that i can come back to as a reference point.
+
+  ItScool provides:<br>
+     
+
+![screenshot]()
+
+"**_As an administrator, I would like to_** _______________"
+
+✅  review slang terms submitted by users before they are published, so I can ensure quality and appropriateness.
+
+  ItScool provides:<br>
+     
+
+![screenshot]()
+
+✅   manage user accounts, including editing and deleting accounts if needed, so I can enforce rules and maintain site integrity.
+
+  ItScool provides:<br>
+     
+
+![screenshot]()
+
+✅  edit or delete any slang term to correct inaccuracies, enforce content guidelines, and remove inappropriate entries.
+
+  ItScool provides:<br>
+     
+
+![screenshot]()
+
+✅  edit, delete or approve pending approval requests from users requesting a slang word to be added to the app via an admin     dashboard.
+
+  ItScool provides:<br>
+     
+
+![screenshot]()
+
+✅  search for slang words to be deleted from the app in the admin dashboard.
+
+  ItScool provides:<br>
+     
+
+![screenshot]()
+
+✅  use a form to add new slang words to the app.
+
+  ItScool provides:<br>
+     
+
+![screenshot]()
+
+✅  navigate easily to the admin dashboard via a navbar.
+
+  ItScool provides:<br>
+     
 
 ![screenshot]()
 
 ✅  
 
   ItScool provides:<br>
-     * .<br>
-     * .
+     
 
-✅  
-
-  ItScool provides:<br>
-      * .<br>
-      * .
+![screenshot]()
 
 ✅  
 
