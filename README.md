@@ -1,9 +1,9 @@
 Welcome to
 
 #  ItsCool 
-![device mockup]()
+![device mockup](static/documents/readme/amiresponsive.png)
 
-View the live project [here!]()
+View the live project [here!](https://ui.dev/amiresponsive?url=https://itscool-project-b4212f408fa2.herokuapp.com/index)
 
 ## Table of Contents (#table-of-contents)
 1. [UX](#ux)
