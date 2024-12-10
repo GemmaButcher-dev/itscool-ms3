@@ -122,8 +122,8 @@ After initially correcting the code format and it passing testing using the CI p
 
 The project user stories have been met with the following features;
 
-
-✅  
+"**_As a guest user, I would like to_** _______________"
+✅  browse through the slang terms listed alphabetically so I can see all the terms that are available.
 
    ItScool provides:<br>
       * . <br>
@@ -135,7 +135,7 @@ The project user stories have been met with the following features;
 ![screenshot]()
 
 
-✅  
+✅  click on slang terms to view their definitions and sample usage, so I can understand the meaning and context.
 
    ItScool provides:<br>
       * .<br>
@@ -145,13 +145,14 @@ The project user stories have been met with the following features;
 
 ![screenshot]()
 
-✅  .
+✅  search for slang terms by typing keywords or phrases, so I can quickly find the slang term I'm interested in.
 
    ItScool provides:<br>
      * .<br>
      * .
 
-✅  
+✅  browse slang terms by selecting a letter from A-Z, so I can easily find terms that start with a specific letter.
+
    ItScool provides:<br>
      * .<br>
 
@@ -159,23 +160,35 @@ The project user stories have been met with the following features;
 
 ![screenshot]()
 
-✅  
+✅  as a new user, create an account by providing a username and password, so I can log in and use additional features.
+
+   ItScool provides:<br>
+     * .<br>
+
+      is shown below.
+
+![screenshot]()
+
+✅  read about the purpose of this slang dictionary, so I can understand the context and relevance of the terms listed.
+
   ItScool provides:<br>
      * 
 
-✅  
+"**_As a registered user, I would like to_** _______________"
+
+✅  as a returning user, I want to log in with my username and password, so I can access my account.
 
   ItScool provides:<br>
       * <br>
       *.
 
-✅  .
+✅  as a logged-in user, I want to update my profile details if necessary, so my account information is accurate.
 
   ItScool provides:<br>
      * . <br>
      * .
 
-✅  .
+✅  get immediate feedback to know if I have signed up, logged in or signed out.
 
   ItScool provides:<br>
      * .<br>
@@ -185,17 +198,166 @@ The project user stories have been met with the following features;
 
 ![screenshot]()
 
-✅  
+✅  access a user dashboard when logged in.
 
   ItScool provides:<br>
      * .<br>
      * .
 
-✅  
+✅  request to add new slang terms and definitions, so I can expand the slang dictionary and share knowledge.
 
   ItScool provides:<br>
       * .<br>
       * .
+
+✅  to edit slang terms I’ve added to correct or improve definitions, ensuring the information stays accurate and up-to-date.
+
+  ItScool provides:<br>
+     
+
+![screenshot]()
+
+✅  request to delete slang terms that are no longer relevant or are duplicates, so the dictionary remains clean and useful.
+
+  ItScool provides:<br>
+     
+
+![screenshot]()
+
+"**_As an student user, I would like to_** _______________"
+
+✅  Learn About Common School Slang:
+    As a student, I want to browse slang terminology so I can understand the informal language and slang used by peers in the school environment and elsewhere.
+
+  ItScool provides:<br>
+     
+
+![screenshot]()
+
+✅  See Slang Organized Alphabetically:
+    As a student, I want to see slang words organized by their first letter, so I can easily find terms that I hear frequently.
+
+  ItScool provides:<br>
+     
+
+![screenshot]()
+
+✅   Report Incorrect or Inappropriate Content:
+    As a student, I want to report slang entries that are incorrect, outdated, or inappropriate, so I can help maintain a positive and accurate dictionary.
+
+
+  ItScool provides:<br>
+     
+
+![screenshot]()
+
+✅  Save Favourite Slang:
+   As a student, I want to be able to save my favourite slang words to a favourites list in my user dashboard.
+
+  ItScool provides:<br>
+     
+
+![screenshot]()
+
+✅  Contribute School-Specific Slang:
+    As a student, I want to contribute slang that’s specific to my age, school type or region, so I can share it with other students who may find it relevant or interesting.
+
+  ItScool provides:<br>
+     
+
+![screenshot]()
+
+"**_As a teacher or parent, I would like to_** _______________"
+
+✅  Understand Student Language:
+    As a teacher or parent, I want to look up slang terms and definitions, so I can understand the language students are using in social and school settings. 
+
+  ItScool provides:<br>
+     
+
+![screenshot]()
+
+✅  View Related Terms and Meanings:
+    As a teacher or parent, I want to be able to search for slang words that i have heard and want to find out their corresponding definition and appropriateness.
+
+  ItScool provides:<br>
+     
+
+![screenshot]()
+
+✅  Browse by Letter or Category:
+    As a teacher or parent, I want to browse slang by letter to find terms more easily and understand common slang patterns.
+
+  ItScool provides:<br>
+     
+
+![screenshot]()
+
+✅  Save Relevant Slang:
+    As a teacher or parent, I want to be able to save slang words to a favourites list in my user dashboard that i can come back to as a reference point.
+
+  ItScool provides:<br>
+     
+
+![screenshot]()
+
+"**_As an administrator, I would like to_** _______________"
+
+✅  review slang terms submitted by users before they are published, so I can ensure quality and appropriateness.
+
+  ItScool provides:<br>
+     
+
+![screenshot]()
+
+✅   manage user accounts, including editing and deleting accounts if needed, so I can enforce rules and maintain site integrity.
+
+  ItScool provides:<br>
+     
+
+![screenshot]()
+
+✅  edit or delete any slang term to correct inaccuracies, enforce content guidelines, and remove inappropriate entries.
+
+  ItScool provides:<br>
+     
+
+![screenshot]()
+
+✅  edit, delete or approve pending approval requests from users requesting a slang word to be added to the app via an admin     dashboard.
+
+  ItScool provides:<br>
+     
+
+![screenshot]()
+
+✅  search for slang words to be deleted from the app in the admin dashboard.
+
+  ItScool provides:<br>
+     
+
+![screenshot]()
+
+✅  use a form to add new slang words to the app.
+
+  ItScool provides:<br>
+     
+
+![screenshot]()
+
+✅  navigate easily to the admin dashboard via a navbar.
+
+  ItScool provides:<br>
+     
+
+![screenshot]()
+
+✅  
+
+  ItScool provides:<br>
+     
+
+![screenshot]()
 
 ✅  
 

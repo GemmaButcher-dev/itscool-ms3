@@ -141,9 +141,7 @@ The target audience is for children, teenagers and adults trying to determine th
 
 ✅  use a form to add new slang words to the app.
 
-✅  navigate easily to the admin dashboard via a navbar.
-
-✅ 
+✅  navigate easily to the admin dashboard via a navbar. 
 
 
 
