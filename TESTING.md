@@ -241,6 +241,7 @@ The project user stories have been met with the following features;
     As a student, I want to browse slang terminology so I can understand the informal language and slang used by peers in the school environment and elsewhere.
 
   ItScool provides:<br>
+      * A bootstrap accordion where students can browse slang words and their corresponding terminology.
      
 
 ![screenshot]()
@@ -249,6 +250,7 @@ The project user stories have been met with the following features;
     As a student, I want to see slang words organized by their first letter, so I can easily find terms that I hear frequently.
 
   ItScool provides:<br>
+      * A bootstrap accordion where students can browse slang words and their corresponding terminology grouped by the letter they begin with.
      
 
 ![screenshot]()
@@ -258,6 +260,9 @@ The project user stories have been met with the following features;
 
 
   ItScool provides:<br>
+      * A delete slang word page where users can request a slang word and its related fields to be deleted from the dictionary if a users feels it is incorrect or innapropriate for the user groups.
+      * A clearly labelled delete slang page which can be navigated to from the nav bar.
+      * A simple, clear delete slang form that takes the slang word to be deleted and submits it to admin for approval.
      
 
 ![screenshot]()
@@ -266,6 +271,7 @@ The project user stories have been met with the following features;
    As a student, I want to be able to save my favourite slang words to a favourites list in my user dashboard.
 
   ItScool provides:<br>
+      * A heart shaped favourite button that allows users to add favourite slang words to be added to a favourites list in their user profile dashboard page. 
      
 
 ![screenshot]()
