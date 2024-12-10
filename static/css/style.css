@@ -170,6 +170,12 @@ header {
     margin-right: 1rem;
 }
 
+#search-button {
+    font-family: var(--heading-font);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
 /* Index Accordion */
 .letter-group {
     margin-bottom: 60px;
