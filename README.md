@@ -178,23 +178,29 @@ Wireframes were created using [Balsamiq](https://balsamiq.com/) and can all be f
 Below is the mobile view wireframe of the homepage.
 
 ![screenshot](documents/wireframes/mobile_index.png)
+
 ------
+
 The wireframe showing the homepage on a tablet is shown below.
 
 ![screenshot](documents/wireframes/tablet_index.png)
 
 ------
+
 The wireframe showing the homepage on a desktop is shown below.
 
 ![screenshot](documents/wireframes/desktop_index.png)
 
 ------
+
 The mobile view [login](documents/wireframes/mobile_login.png) and [sign up](documents/wireframes/mobile_signup.png) wireframes can be viewed in the [wireframes folder](documents/wireframes).
 
 ------
+
 The mobile view of the [add slang](documents/wireframes/mobile_add_slang.png), [delete slang](documents/wireframes/mobile_delete_slang.png) and [user dashboard](documents/wireframes/mobile_user_dashboard.png) wireframes can be viewed in the [wireframes folder](documents/wireframes).
 
 ------
+
 The wireframe showing the admin dashboard on a mobile device is shown below.
 
 ![screenshot](documents/wireframes/mobile_admin.png)
