@@ -168,11 +168,10 @@ The target audience is for children, teenagers and adults trying to determine th
 
 #### Imagery
 
-A range of imagery is used from free background images at [freepik](https://www.freepik.com/) to using [leonardo AI](https://app.leonardo.ai/image-generation) something unique and effective, bespoke to this project.
+[Canva](https://www.canva.com/) was used to create the background and title images for the project. The homepage and 404 page title images are shown below.
 
-The below image was created using Leonardo AI.
-
-![screenshot]()
+![screenshot](static/images/ItsCool_title.webp)
+![screenshot](static/images/ItsCool404_img.webp)
 
 ### Wireframes
 
