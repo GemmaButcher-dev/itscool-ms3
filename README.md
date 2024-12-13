@@ -1,52 +1,55 @@
 Welcome to
 
 #  ItsCool 
-![device mockup](static/documents/readme/amiresponsive.png)
+![device mockup](/documents/readme/amiresponsive.png)
 
-View the live project [here!](https://ui.dev/amiresponsive?url=https://itscool-project-b4212f408fa2.herokuapp.com/index)
+View the live project [here!](https://itscool-project-b4212f408fa2.herokuapp.com/index)
 
 ## Table of Contents (#table-of-contents)
 1. [UX](#ux)
 
-  * Project Goals
-  * User Goals 
-  * Design Choices
-  * Wireframes
+   * [Project Goals](#project-goals)
+   * [User Goals](#user-goals) 
+   * [Design Choices](#design-choices)
+      - [Colour Scheme](#colour-scheme)
+      - [Typography](#typography)
+      - [Imagery](#imagery)
+   * [Wireframes](#wireframes)
 
 2. [Features](#features)
 
-   * Navigation Bar
-   * Sign Up
-   * Log In
-   * Logout
-   * Add slang word
-   * Create username
-   * Create password
-   * User dashboard
-   * Footer
-   * 404 Page
-   * Error Handling
-   * Features left to implement
+   * [Navigation Bar](#navigation-bar)
+   * [Sign Up](#sign-up)
+   * [Log In](#log-in)
+   * [Logout](#log-out)
+   * [Add slang word](#add-slang-word)
+   * [Create username](#create-username)
+   * [Create password](#create-password)
+   * [User dashboard](#user-dashboard)
+   * [Footer](#footer)
+   * [404 Page](#404-page)
+   * [Error Handling](#error-handling)
+   * [Features left to implement](#features-left-to-implement)
 
 3. [Technologies used](#technologies-used)
 
-  * Languages Used
-  * Frameworks, Programs and Libraries Used
+   * [Languages Used](#languages-used)
+   * [Frameworks, Programs and Libraries Used](#frameworks-programs-and-libraries-used)
 
 4. [Testing](#testing)
 
 5. [Deployment](#deployment)
 
-  * GitHub Pages
-  * Forking the GitHub Repository
-  * Making a Local Clone
+   * [GitHub Pages](#github-pages)
+   * [Forking the GitHub Repository](#forking-the-github-repository)
+   * [Making a Local Clone](#making-a-local-clone)
 
 6. [Credits](#credits)
 
-  * Content
-  * Media
-  * Code
-  * Acknowledgements
+   * [Content](#content)
+   * [Media](#media)
+   * [Code](#code)
+   * [Acknowledgements](#acknowledgements)
 
 ------
 
