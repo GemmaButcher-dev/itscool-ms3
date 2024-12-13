@@ -213,8 +213,10 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
 
    #### Navigation Bar
 
-   * 
-![screenshot]()
+   * There is an expandable navbar on mobile and tablet devices shown below.
+![screenshot](documents/readme/mobile_navbar.png)
+   * The navbar on desktop sized screen is fixed and take up between 30% and &0% of the width of the screen depending on size.
+   ![screenshot](documents/readme/mobile_navbar.png)
 
    #### Sign Up
 
@@ -247,23 +249,27 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
 
 
 
-   ![screenshot]()
+![screenshot]()
 
    #### User Dashboard
 
-   * 
+   * There is a dashboard that displays the users profile and a list of favourited slang words appear. This can be viewed [here]().
+
    
    #### Footer
 
    * There is a fixed footer at the bottom of the page. 
    * The footer contains the developer name and copyright with an automatically updated year. This has been done using JavaScript and updates when the page is loaded to the current year. The function updates the span element in the footer.
 
+![screenshot](documents/readme/footer.png)
+
+
 
    #### 404 Page
 
    * A 404 page is navigated to when an error occurs or the website fails load. The page explains to the user that there is an issue and offers a button to navigate back to the homepage/index.html without using browser buttons. It also has a times redirect function so that after 10 seconds the user is redirected back to home page if they do not trigger the redirect via the button directly.
 
-   ![screenshot]()
+![screenshot](documents/readme/footer.png)
 
    #### Error Handling
 
