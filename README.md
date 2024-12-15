@@ -316,6 +316,8 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
    ahrefs was used to help generate alt text for images.
 10. [Canva](https://www.canva.com/colors/color-palette-generator/):
     Canva's logo generator was used to create a logo for the favicons,the title image and the 404 title image.
+11. [Lucid Cahrts](https://www.lucidchart.com/):
+    Lucid charts was used to create the entity relationship diagram.
 
 ## Testing
 
