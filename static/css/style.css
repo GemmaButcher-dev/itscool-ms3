@@ -103,6 +103,10 @@ a {
     border: none;
 }
 
+.input-field label {
+    color: #000000;
+}
+
 /* ==== Header ==== */
 header {
     width: 100%;
