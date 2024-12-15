@@ -155,7 +155,7 @@ The target audience is for children, teenagers and adults trying to determine th
 
    * The starting point for the entity relationships was drawn up as a entity relationship diagram using [lucid charts](https://www.lucidchart.com/).
    * The initial ERD (entity relationship diagram) is very basic which will be built upon as the project develops in the future. The ERD is shown below.
-![screenshot](documents/readme/ItScool_ERD.png)
+![screenshot](documents/readme/ItScool_erd.png)
 
 ### Design Choices
 
