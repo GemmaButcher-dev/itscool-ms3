@@ -54,29 +54,31 @@
             <li>
                 <strong>{{ slang.slang }}</strong>: {{ slang.definition }}
 
-                <!-- Approve button -->
-                <form action="{{ url_for('approve_slang') }}" method="post" style="display: inline;">
-                    <input type="hidden" name="slang_id" value="{{ slang._id }}">
-                    <button type="submit" class="btn btn-success approve-btn">Approve</button>
-                </form>
+                <div class="action-buttons">
+                    <!-- Approve button -->
+                    <form action="{{ url_for('approve_slang') }}" method="post" style="display: inline;">
+                        <input type="hidden" name="slang_id" value="{{ slang._id }}">
+                        <button type="submit" class="btn btn-success approve-btn">Approve</button>
+                    </form>
 
-                <!-- Delete Form -->
-                <form class="delete-form" action="{{ url_for('delete_slang_admin') }}" method="POST" style="display: inline;">
-                    <input type="hidden" name="slang_id" value="{{ slang._id }}">
-                    <input type="hidden" name="delete_slang" value="true">
-                    <button type="button" class="btn btn-danger remove-btn" data-id="{{ slang._id }}">Delete Slang</button>
-                </form>
+                    <!-- Delete Form -->
+                    <form class="delete-form" action="{{ url_for('delete_slang_admin') }}" method="POST" style="display: inline;">
+                        <input type="hidden" name="slang_id" value="{{ slang._id }}">
+                        <input type="hidden" name="delete_slang" value="true">
+                        <button type="button" class="btn btn-danger remove-btn" data-id="{{ slang._id }}">Delete Slang</button>
+                    </form>
 
-                <!-- Edit button -->
-                <button class="btn btn-primary edit-btn" 
-                data-id="{{ slang._id }}" 
-                data-slang="{{ slang.slang }}" 
-                data-definition="{{ slang.definition }}" 
-                data-age="{{ slang.age }}" 
-                data-type="{{ slang.type }}">
-                Edit
-                </button>
-                </form>
+                    <!-- Edit button -->
+                    <button class="btn btn-primary edit-btn" 
+                    data-id="{{ slang._id }}" 
+                    data-slang="{{ slang.slang }}" 
+                    data-definition="{{ slang.definition }}" 
+                    data-age="{{ slang.age }}" 
+                    data-type="{{ slang.type }}">
+                    Edit
+                    </button>
+                    </form>
+                </div>
             </li>
         {% endfor %}
     </ul>

@@ -344,6 +344,8 @@ button {
     margin-top: 30px;
 }
 
+/* ==== Admin Dashboard ==== */
+
 
 /* ===== General Modal Styling ====== */
 
@@ -468,26 +470,22 @@ footer {
 /* Small Devices */
 @media screen and (max-width: 600px) {
     
-     .modal {
-            width: 75%;
-            padding: 1rem;
-            height: 50vh;
-            top: 40%;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    .modal {
+        width: 75%;
+        padding: 1rem;
+        height: 50vh;
+        top: 40%;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     }
 
     .modal-content {
         max-height: calc(51vh - 2.75rem);
     } 
 
-     .modal-footer {
+    .modal-footer {
         flex-direction: column;
         gap: 1rem;
-    } */
-
-    .btn {
-        width: 100%;
-    } 
+    }
 
     #profile-card {
         max-width: 75%;
@@ -513,6 +511,28 @@ footer {
 
     .letter-group h2 {
         font-size: large;
+    }
+
+    /* General Buttons */
+    .btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+        border-radius: 4px;
+    }
+
+    .edit-btn,
+    .remove-btn,
+    .approve-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.75rem;
+        border-radius: 3px;
+    }
+
+    /* modal */
+    .modal-footer .btn,
+    footer .btn {
+        width: 100%; /* Make buttons full-width for better touch usability */
+        margin-bottom: 0.5rem; /* Add spacing */
     }
 }
 
