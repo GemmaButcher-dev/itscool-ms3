@@ -232,7 +232,7 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
 
    #### Log In
 
-   * Within the log in page there is a log in form that takes a registered users username and password and directs them to the user dashboard upon login.
+   * Within the log in page there is a log in form that takes a registered users username and password. The user is notified of login status via a flash message.
    * The login page is accessible from the link in the nav bar, underneath the signup form and also appears after successfully logging out via the navbar log out link.
 ![screenshot](documents/readme/login.png)
 
@@ -247,7 +247,7 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
    #### User Dashboard
 
    * There is a dashboard that displays the users profile and a list of favourited slang words appear. 
-   * The user is automatically directed here upon loggin in successfully using their username and password on the login page.
+   * The user can navigate here upon logging in successfully using their username and password on the login page.
    This can be viewed [here]().
 
    
@@ -272,8 +272,8 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
 
    * Functions to allow admin to manage user registration and accounts directly via the admin dashboard within the app.
    * External links to pages as an additional field to each slang document to allow users to find out more about slang origins, i.e links to youtubers who initiated the slang word.
-   * A professionals dashboard where teachers and other professionals can view slang words and flag warnings and issues caused in educational settings by them retrospectively.
-   * as a logged-in user, I want to update my profile details if necessary, so my account information is accurate.
+   * A professionals dashboard where teachers and other professionals can view slang words and flag warnings and issues caused in educational settings by slang words and defintions retrospectively.
+   * Functions for logged-in users to update profile details if necessary, so their account information is accurate.
 
 ## Technologies Used
 
