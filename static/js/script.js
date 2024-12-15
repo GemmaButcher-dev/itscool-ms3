@@ -46,30 +46,30 @@ document.addEventListener("DOMContentLoaded", function () {
         confirmationModal.hide();
     });
 
-    // EDIT SLANG FUNCTIONALITY
-    const editModalElement = document.getElementById("editModal");
-    const editModal = new bootstrap.Modal(editModalElement);
+    // // EDIT SLANG FUNCTIONALITY
+    // const editModalElement = document.getElementById("editModal");
+    // const editModal = new bootstrap.Modal(editModalElement);
 
-    // Attach event listeners to edit buttons to open the edit modal
-    document.querySelectorAll(".edit-btn").forEach(button => {
-        button.addEventListener("click", function () {
-            const slangId = this.getAttribute("data-id");
-            const slang = this.getAttribute("data-slang");
-            const definition = this.getAttribute("data-definition");
-            const age = this.getAttribute("data-age");
-            const type = this.getAttribute("data-type");
+    // // Attach event listeners to edit buttons to open the edit modal
+    // document.querySelectorAll(".edit-btn").forEach(button => {
+    //     button.addEventListener("click", function () {
+    //         const slangId = this.getAttribute("data-id");
+    //         const slang = this.getAttribute("data-slang");
+    //         const definition = this.getAttribute("data-definition");
+    //         const age = this.getAttribute("data-age");
+    //         const type = this.getAttribute("data-type");
 
-            // Put data into the modal form
-            document.getElementById("editSlangId").value = slangId;
-            document.getElementById("editSlang").value = slang;
-            document.getElementById("editDefinition").value = definition;
-            document.getElementById("editAge").value = age;
-            document.getElementById("editType").value = type;
+    //         // Put data into the modal form
+    //         document.getElementById("editSlangId").value = slangId;
+    //         document.getElementById("editSlang").value = slang;
+    //         document.getElementById("editDefinition").value = definition;
+    //         document.getElementById("editAge").value = age;
+    //         document.getElementById("editType").value = type;
 
-            // Show the edit modal
-            editModal.show();
-        });
-    });
+    //         // Show the edit modal
+    //         editModal.show();
+    //     });
+    // });
 
     // Save changes to the slang word and close edit modal
     document.getElementById("save-edit").addEventListener("click", function () {
