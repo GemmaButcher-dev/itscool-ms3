@@ -26,6 +26,20 @@ document.addEventListener("DOMContentLoaded", function () {
                 editModal.show();
             });
         });
+    
+        // Save changes to the slang word and close edit modal
+        document.getElementById("save-edit").addEventListener("click", function () {
+            document.getElementById("editSlangForm").submit();
+        });
+    
+        // Close edit modal when clicking cancel or close button
+        document.getElementById("cancel-edit").addEventListener("click", function () {
+            editModal.hide();
+        });
+        document.getElementById("close-edit").addEventListener("click", function () {
+            editModal.hide();
+        });
+        
     } else {
         console.error("Edit modal element not found in the DOM.");
     }
