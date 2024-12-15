@@ -248,7 +248,7 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
 
    * There is a dashboard that displays the users profile and a list of favourited slang words appear. 
    * The user can navigate here upon logging in successfully using their username and password on the login page.
-   This can be viewed [here]().
+   This can be viewed [here](documents/readme/user_dashboard.png).
 
    
    #### Footer
