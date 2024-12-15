@@ -232,12 +232,6 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
    * The login page is accessible from the link in the nav bar, underneath the signup form and also appears after successfully logging out via the navbar log out link.
 ![screenshot](documents/readme/login.png)
 
-|    | Example Image  |
-|----|----------------|
-|    | ![screenshot]() |
-|    | ![screenshot]() |
-|    | ![screenshot]()|
-
 
 
    #### Log Out
@@ -256,7 +250,9 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
 
    #### User Dashboard
 
-   * There is a dashboard that displays the users profile and a list of favourited slang words appear. This can be viewed [here]().
+   * There is a dashboard that displays the users profile and a list of favourited slang words appear. 
+   * The user is automatically directed here upon loggin in successfully using their username and password on the login page.
+   This can be viewed [here]().
 
    
    #### Footer
