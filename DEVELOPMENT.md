@@ -5,6 +5,11 @@
 2. [Fuzzywuzzy](#fuzzywuzzy)
 3. [Status Badge](#status-badge)
 4. [Action Buttons](#action-buttons)
+5. [Modals](#modals)
+        -[Bootstrap](#bootstrap)
+        -[script.js](#scriptjs)
+
+------
 
 ## Project Board
 
@@ -48,5 +53,42 @@
 
 * They were grouped into a section called 'action' buttons. This makes the create, update and delete functionalities of CRUD very clear and does not get lost within a list item as before.
 
-* This is important as the admin dashboard is key to maintaining the quality of the database content.
+* This is important as the admin dashboard is key to maintaining the quality of the database content. The revised button layout can be seen below. This can be compared to the original wireframe [here](documents/wireframes/mobile_admin.png).
+![screenshot](documents/development/action_buttons.png)
+
+------
+
+## Modals
+
+### Bootstrap
+
+* Initially the project was built using vanilla javascript and styled in the style.css. There were lots of issues removing a backdrop that greyed out the screen behind the modal. 
+
+* As there was one script.js file running all of the functions on various pages this may have been causing the problem.
+
+* To minimise errors when the script.js file was executing the decision was made to use [Bootstrap 5.3](https://getbootstrap.com/) own modal classes and layout for the modals, thus handling the modal backdrop on closure.
+
+* This hasnt impacted the design aesthetically but has made the code more relaible and freed up the script.js file.
+
+### script.js
+
+* During development, after switching to bootstrap modal classes, there was an error log in the console. This pointed to the edit modal. 
+
+* Initially it wasnt clear what was causing this but it was only occuring on the index page.
+
+* This subsequently stopped the footer date from updating which is where the issue was first noticed within the browser.
+
+* This was useful as it pointed out where the script.js file stopped running. 
+
+* The issue was that the single script.js was trying to run different functions across different template pages. When the script was being excecuted on a template that wasnt relevant it would throw an error and not run the rest of the script. The app was loosing functionality due to this.
+
+* The decision was made to add another JavaScript file to run the edit modal functionality specifically. This could the be linked to the admin dashboard template directly so that the line of code that was causing the issue would only run for the admin dashboard template.
+
+* This fixed the bug and restored original functionality. The console error that was shown for the script.js file can be seen below.
+
+![screenshot](documents/development/edit_modal_bugfix.png)
+
+------
+
+
 
