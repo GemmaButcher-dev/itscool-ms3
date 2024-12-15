@@ -362,7 +362,6 @@ def delete_slang_user():
 @app.route("/logout")
 def logout():
     # -- Remove user from session cookie
-    flash("You have been logged out!")
     session.pop("user", None)
     session.pop("role", None)
     return redirect(url_for("login"))
