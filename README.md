@@ -12,7 +12,6 @@ View the live project [here!](https://itscool-project-b4212f408fa2.herokuapp.com
    * [User Goals](#user-goals)
    * [Entity Reltionship Diagram](#entity-relationship-diagram)
       -[Lucid Charts](#lucid-charts)
-      -[ERD]()
    * [Design Choices](#design-choices)
       - [Colour Scheme](#colour-scheme)
       - [Typography](#typography)
