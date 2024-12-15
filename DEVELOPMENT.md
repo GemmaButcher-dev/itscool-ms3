@@ -13,7 +13,7 @@
 
 ## Project Board
 
-* Throughout the development of this project i managed tasks using a git hub project board within the repository. I was able to order task by priority and progress status.
+* Throughout the development of this project tasks were managed using a git hub project board within the repository. This enables ordering tasks by priority and progress status.
 
 * Using the project board provides a great visual prioritisation and task management aid. This was essential for running a project with lots of files at various stsges of development.
 
@@ -41,7 +41,7 @@
 
 * After building the admin dashboard and styling as per the [wireframe](documents/wireframes/mobile_admin.png), the section seemed cluttered.
 
-* As well as the red, green and purple buttons there was then an additional yellow pending badge that looked like it could be easily mistaken for a button. This was noticed from feedback from the school users testing the app. please see [TESTING.md](TESTING.md).
+* As well as the red, green and purple buttons there was then an additional yellow pending badge that looked like it could be easily mistaken for a button. This was noticed from feedback from the school users testing the app. Please see [TESTING.md](TESTING.md).
 
 ------
 
@@ -49,11 +49,12 @@
 
 * After the status badge was removed the buttons that update, approve or delete the pending slangs were moved into their own space underneath the pending slang list item.
 
-* This makies them much easier to style and adjust layout and style to media queries more easily.
+* This makes them much easier to style and adjust layout and style for media queries more easily.
 
 * They were grouped into a section called 'action' buttons. This makes the create, update and delete functionalities of CRUD very clear and does not get lost within a list item as before.
 
 * This is important as the admin dashboard is key to maintaining the quality of the database content. The revised button layout can be seen below. This can be compared to the original wireframe [here](documents/wireframes/mobile_admin.png).
+
 ![screenshot](documents/development/action_buttons.png)
 
 ------
@@ -62,17 +63,17 @@
 
 ### Bootstrap
 
-* Initially the project was built using vanilla javascript and styled in the style.css. There were lots of issues removing a backdrop that greyed out the screen behind the modal. 
+* Initially the project was built using vanilla javascript and styled in the style.css. There were lots of issues removing the backdrop that greyed out the screen behind the modal. 
 
-* As there was one script.js file running all of the functions on various pages this may have been causing the problem.
+* As there was one script.js file executing all of the functions on various pages this may have been causing the problem.
 
-* To minimise errors when the script.js file was executing the decision was made to use [Bootstrap 5.3](https://getbootstrap.com/) own modal classes and layout for the modals, thus handling the modal backdrop on closure.
+* To minimise errors when the script.js file was executing the decision was made to use [Bootstrap 5.3](https://getbootstrap.com/) own modal classes and layout for the modals, thus handling the modal backdrop on closure automatically.
 
-* This hasnt impacted the design aesthetically but has made the code more relaible and freed up the script.js file.
+* This hasn't impacted the design aesthetically but has made the code more reliable and freed up the script.js file.
 
 ### script.js
 
-* During development, after switching to bootstrap modal classes, there was an error log in the console. This pointed to the edit modal. 
+* During development, after switching to [Bootstrap 5.3](https://getbootstrap.com/) modal classes, there was an error log in the console. This pointed to the edit modal. 
 
 * Initially it wasnt clear what was causing this but it was only occuring on the index page.
 
@@ -80,7 +81,7 @@
 
 * This was useful as it pointed out where the script.js file stopped running. 
 
-* The issue was that the single script.js was trying to run different functions across different template pages. When the script was being excecuted on a template that wasnt relevant it would throw an error and not run the rest of the script. The app was loosing functionality due to this.
+* The issue was that the single script.js was trying to run different functions across different template pages. When the script was being executed on a template that wasn't relevant, it would throw an error and not run the rest of the script. The app was loosing functionality due to this.
 
 * The decision was made to add another JavaScript file to run the edit modal functionality specifically. This could the be linked to the admin dashboard template directly so that the line of code that was causing the issue would only run for the admin dashboard template.
 
