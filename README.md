@@ -214,14 +214,18 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
    #### Navigation Bar
 
    * There is an expandable navbar on mobile and tablet devices shown below.
+
 ![screenshot](documents/readme/mobile_navbar.png)
+
    * The navbar on desktop sized screen is fixed and take up between 30% and &0% of the width of the screen depending on size.
-   ![screenshot](documents/readme/mobile_navbar.png)
+
+![screenshot](documents/readme/mobile_navbar.png)
 
    #### Sign Up
 
    * Within the sign up page there is a sign up form which takes a username and password to register a user on the database.
    * The sign up page is accessible from both the nav bar and links underneath the login and logout page.
+
 ![screenshot](documents/readme/signup.png)
 
 
@@ -236,7 +240,7 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
 
    #### Log Out
 
-   * The logout link is accessible from the navbar by either expanding itusing the 'hamburger' icon on smaller devices or from the fixed width navbar on larger screens. This can be viewed [here](documents/readme/logout.png).
+   * The logout link is accessible from the navbar by either expanding it using the 'hamburger' icon on smaller devices or from the fixed width navbar on larger screens. This can be viewed [here](documents/readme/logout.png).
 
 
 
@@ -258,9 +262,7 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
 
    #### 404 Page
 
-   * A 404 page is navigated to when an error occurs or the website fails load. The page explains to the user that there is an issue and offers a button to navigate back to the homepage/index.html without using browser buttons. It also has a times redirect function so that after 10 seconds the user is redirected back to home page if they do not trigger the redirect via the button directly.
-
-![screenshot](documents/readme/footer.png)
+   * A 404 page is navigated to when an error occurs or the website fails load. The page explains to the user that there is an issue and offers a button to navigate back to the homepage/index.html without using browser buttons. It also has a times redirect function so that after 10 seconds the user is redirected back to home page if they do not trigger the redirect via the button directly. This can be viewed [here](documents/readme/404.png).
 
    #### Error Handling
 
