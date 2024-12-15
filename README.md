@@ -220,14 +220,16 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
 
    #### Sign Up
 
-   * 
-![screenshot]()
+   * Within the sign up page there is a sign up form which takes a username and password to register a user on the database.
+   * The sign up page is accessible from both the nav bar and links underneath the login and logout page.
+![screenshot](documents/readme/signup.png)
 
 
 
    #### Log In
 
    * 
+![screenshot](documents/readme/login.png)
 
 |    | Example Image  |
 |----|----------------|
