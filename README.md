@@ -236,17 +236,9 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
 
    #### Log Out
 
-   * 
-
-|        | Example Image     |                 |
-|--------|------------------|-----------------|
-|         | ![screenshot]() | ![sound clip]() |
-|         | ![screenshot]() | ![sound clip]() |
-|         | ![screenshot]() | ![sound clip]() |
+   * The logout link is accessible from the navbar by either expanding itusing the 'hamburger' icon on smaller devices or from the fixed width navbar on larger screens. This can be viewed [here](documents/readme/logout.png).
 
 
-
-![screenshot]()
 
    #### User Dashboard
 
