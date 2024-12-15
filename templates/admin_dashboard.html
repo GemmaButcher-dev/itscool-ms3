@@ -54,17 +54,10 @@
             <li>
                 <strong>{{ slang.slang }}</strong>: {{ slang.definition }}
 
-                <!-- Show approval status -->
-                {% if slang.approved %}
-                    <span class="badge bg-success">Approved</span>
-                {% else %}
-                    <span class="badge bg-warning">Pending</span>
-                {% endif %}
-
                 <!-- Approve button -->
                 <form action="{{ url_for('approve_slang') }}" method="post" style="display: inline;">
                     <input type="hidden" name="slang_id" value="{{ slang._id }}">
-                    <button type="submit" class="btn btn-success">Approve</button>
+                    <button type="submit" class="btn btn-success approve-btn">Approve</button>
                 </form>
 
                 <!-- Delete Form -->
