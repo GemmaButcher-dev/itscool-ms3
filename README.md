@@ -228,7 +228,8 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
 
    #### Log In
 
-   * 
+   * Within the log in page there is a log in form that takes a registered users username and password and directs them to the user dashboard upon login.
+   * The login page is accessible from the link in the nav bar, underneath the signup form and also appears after successfully logging out via the navbar log out link.
 ![screenshot](documents/readme/login.png)
 
 |    | Example Image  |
