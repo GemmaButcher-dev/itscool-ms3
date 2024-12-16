@@ -477,6 +477,14 @@ footer {
     .search-header {
         font-size: 16px;
     }
+
+    .search-results h2 {
+        font-size: 1.2rem;
+    }
+
+    .results-list {
+        font-size: 1rem;
+    }
     
     .modal {
         width: 75%;

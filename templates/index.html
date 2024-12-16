@@ -69,13 +69,12 @@
     {% if query %}
     <div class="search-results">
         <h2>Search Results for "{{ query }}"</h2>
-        <ul>
+        <ul class="results-list">
             {% if slangs %}
                 {% for slang in slangs %}
                     <li id="slang-{{ loop.index }}">
                         {{ slang['slang'] }}: {{ slang['definition'] }}
-                        <!-- Add Remove Button -->
-                        <button class="btn btn-danger remove-btn" data-id="slang-{{ loop.index }}" data-bs-toggle="modal" data-bs-target="#confirmationModal">Remove</button>
+                        <!-- Add Favourite Button -->
                         <button class="btn favorite-btn" data-id="{{ slang['_id'] }}">
                             <i class="fa fa-heart" aria-hidden="true"></i>
                         </button>
