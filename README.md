@@ -21,9 +21,10 @@ View the live project [here!](https://itscool-project-b4212f408fa2.herokuapp.com
 2. [Features](#features)
 
    * [Navigation Bar](#navigation-bar)
-   * [Search Function](#search-function)
-      - [Index Search Function](#index-search-function)
-      - [Admin Search Function](#admin-search-function)
+   * [Search Slang Function](#search-slang-function)
+      - [Input and Button](#input-and-button)
+      - [Search Results](#search-results)
+   * [Accordion](#accordion)
    * [Sign Up](#sign-up)
    * [Log In](#log-in)
    * [Logout](#log-out)
@@ -31,6 +32,7 @@ View the live project [here!](https://itscool-project-b4212f408fa2.herokuapp.com
    * [Create username](#create-username)
    * [Create password](#create-password)
    * [User dashboard](#user-dashboard)
+   * [Admin Dashboard](#admin-dashboard)
    * [Footer](#footer)
    * [404 Page](#404-page)
    * [Error Handling](#error-handling)
@@ -156,6 +158,7 @@ The target audience is for children, teenagers and adults trying to determine th
 #### Lucid Charts
 
    * The starting point for the entity relationships was drawn up as a entity relationship diagram using [lucid charts](https://www.lucidchart.com/).
+
    * The initial ERD (entity relationship diagram) is very basic which will be built upon as the project develops in the future. The ERD is shown below.
 
 ![screenshot](documents/readme/ItScool_erd.png)
@@ -168,14 +171,18 @@ The target audience is for children, teenagers and adults trying to determine th
 
  The global colour selection for ItScool is shown below.
 
- * Primary colour: Purple #9932cb
- * Secondary colour: #6c757d
- * Primary text colour: #f5f5f5
- * Secondary text colour: #000000
+   * Primary colour: Purple #9932cb
+
+   * Secondary colour: #6c757d
+
+   * Primary text colour: #f5f5f5
+
+   * Secondary text colour: #000000
 
 #### Typography
 
    * The Poppins google font is to be used with a fall back font of sans-serif should the font fail to load. It is used for the header, navbar, headings and footer. 
+
    * The Roboto font google font is used for the body text with a fall back font of sans serif should it fail to load. This font has a fun and slightly dramatic comic characteristics whilst remaining legible. 
 
 #### Imagery
@@ -229,24 +236,41 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
 
 ![screenshot](documents/readme/mobile_navbar.png)
 
-   * The navbar on desktop sized screen is fixed and take up between 30% and &0% of the width of the screen depending on size.
+   * The navbar on desktop sized screen is fixed and takes up between 30% and 80% of the width of the screen depending on screen size, as shown Below.
 
-![screenshot](documents/readme/mobile_navbar.png)
+![screenshot](documents/readme/desktop_navbar.png)
 
-   #### Search Function
 
-   ##### Index Search Function
+   #### Search Slang Function
 
-   * 
+   ##### Input and Button
 
-   ##### Admin Search Function
+   * The search function is accessible to all users including non registered users.
 
-   * 
+   * The search function is underneath the welcome container on the index page. It takes the input from the user.
+
+   * Users can type a slang word into the search box and any matching results will be displayed underneath in the search results area. The search function can be seen below.
+
+
+![screenshot](documents/readme/search_function.png)
+
+   ##### Search Results
+
+   * Search results are displayed in the search results container underneath the search form container. 
+
+   * Results are matched using fuzzywuzzy. Please refer to [DEVELOPMENT.md](DEVELOPMENT.md) for further details about fuzzywuzzy.
+
+   * The slang word, its definition, age group and word type are displayed in the search results area.
+
+   * There is immediate, automatic user feedback informing the user with a flash message if no matches are found. This can be seen below.
+
+   ![screenshot](documents/readme/search_results.png)
 
 
    #### Sign Up
 
    * Within the sign up page there is a sign up form which takes a username and password to register a user on the database.
+
    * The sign up page is accessible from both the nav bar and links underneath the login and logout page.
 
 ![screenshot](documents/readme/signup.png)
@@ -256,7 +280,9 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
    #### Log In
 
    * Within the log in page there is a log in form that takes a registered users username and password. The user is notified of login status via a flash message.
+
    * The login page is accessible from the link in the nav bar, underneath the signup form and also appears after successfully logging out via the navbar log out link.
+
 ![screenshot](documents/readme/login.png)
 
 
@@ -269,7 +295,8 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
 
    #### User Dashboard
 
-   * There is a dashboard that displays the users profile and a list of favourited slang words appear. 
+   * There is a dashboard that displays the users profile and a list of favourited slang words appear.
+
    * The user can navigate here upon logging in successfully using their username and password on the login page.
    This can be viewed [here](documents/readme/user_dashboard.png).
 
@@ -277,6 +304,7 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
    #### Footer
 
    * There is a fixed footer at the bottom of the page. 
+
    * The footer contains the developer name and copyright with an automatically updated year. This has been done using JavaScript and updates when the page is loaded to the current year. The function updates the span element in the footer.
 
 ![screenshot](documents/readme/footer.png)
@@ -294,8 +322,11 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
 ### Features Left To Implement
 
    * Functions to allow admin to manage user registration and accounts directly via the admin dashboard within the app.
+
    * External links to pages as an additional field to each slang document to allow users to find out more about slang origins, i.e links to youtubers who initiated the slang word.
+
    * A professionals dashboard where teachers and other professionals can view slang words and flag warnings and issues caused in educational settings by slang words and defintions retrospectively.
+
    * Functions for logged-in users to update profile details if necessary, so their account information is accurate.
 
 ## Technologies Used
