@@ -2,7 +2,7 @@
 {% block content %}
 <div class="row">
     <div class="col s12 m8 offset-m2">
-        <div class="card">
+        <div class="card delete-card">
             <div class="card-body">
                 <h3 class="center-align">Request to remove a slang word</h3>
 
@@ -10,7 +10,7 @@
                 <form action="{{ url_for('user_delete_slang') }}" method="post" style="display: inline;">
                     <div class="form-group">
                         <label for="slang">Enter the slang word to delete:</label>
-                        <input type="text" name="slang" id="slang" class="form-control" required>
+                        <input type="text" name="slang" id="slang" class="form-control" placeholder="Enter a slang word to delete" required>
                     </div>
                     <button type="submit" class="btn btn-danger">Delete Slang</button>
                 </form>

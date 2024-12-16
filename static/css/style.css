@@ -112,6 +112,10 @@ a {
     color: #000000;
 }
 
+.flashes {
+    padding-left: 20px;
+    padding-top: 20px;
+}
 /* ==== Header ==== */
 header {
     width: 100%;
@@ -331,7 +335,6 @@ button {
 }
 
 /* ==== User Dashboard ==== */
-
 #profile-card {
     align-items: center;
     margin-top: 30px;
@@ -344,6 +347,11 @@ button {
 
 .fav-container-dashboard {
     margin-top: 30px;
+}
+
+/* ==== Add/Delete Slang Pages */
+.card-body h3 {
+    color: #000000;
 }
 
 /* ==== Admin Dashboard ==== */
