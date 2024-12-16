@@ -8,7 +8,7 @@
 5. [Modals](#modals)
         -[Bootstrap](#bootstrap)
         -[script.js](#scriptjs)
-
+6. [Box Shadows](#box-shadows)
 ------
 
 ## Project Board
@@ -63,7 +63,7 @@
 
 ### Bootstrap
 
-* Initially the project was built using vanilla javascript and styled in the style.css. There were lots of issues removing the backdrop that greyed out the screen behind the modal. 
+* Initially the project was built using vanilla javascript and styled in the style.css. There were lots of issues removing the backdrop that greyed out the screen behind the modal. An example of this can be seen [here](documents/development/backdrop_fix.png).
 
 * As there was one script.js file executing all of the functions on various pages this may have been causing the problem.
 
@@ -91,5 +91,13 @@
 
 ------
 
+## Box Shadows
 
+* The initial design when created seemed a little flat in areas. As the design is meant to represent a chalkboard type effect this didnt feel too engaging or give much dimension to the user interface.
+
+* A box shadow was added to the slang word search boxes with a white gret 50% opacity to give a partially rubbed out chalk look.
+
+* This effect looks much more appealing to all users and fits with the user stories. The new effect can be seen below.
+
+![screenshot](documents/development/box_shadow.png)
 
