@@ -11,7 +11,7 @@ View the live project [here!](https://itscool-project-b4212f408fa2.herokuapp.com
    * [Project Goals](#project-goals)
    * [User Goals](#user-goals)
    * [Entity Reltionship Diagram](#entity-relationship-diagram)
-      -[Lucid Charts](#lucid-charts)
+      - [Lucid Charts](#lucid-charts)
    * [Design Choices](#design-choices)
       - [Colour Scheme](#colour-scheme)
       - [Typography](#typography)
@@ -21,6 +21,9 @@ View the live project [here!](https://itscool-project-b4212f408fa2.herokuapp.com
 2. [Features](#features)
 
    * [Navigation Bar](#navigation-bar)
+   * [Search Function](#search-function)
+      - [Index Search Function](#index-search-function)
+      - [Admin Search Function](#admin-search-function)
    * [Sign Up](#sign-up)
    * [Log In](#log-in)
    * [Logout](#log-out)
@@ -154,6 +157,7 @@ The target audience is for children, teenagers and adults trying to determine th
 
    * The starting point for the entity relationships was drawn up as a entity relationship diagram using [lucid charts](https://www.lucidchart.com/).
    * The initial ERD (entity relationship diagram) is very basic which will be built upon as the project develops in the future. The ERD is shown below.
+
 ![screenshot](documents/readme/ItScool_erd.png)
 
 ### Design Choices
@@ -228,6 +232,17 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
    * The navbar on desktop sized screen is fixed and take up between 30% and &0% of the width of the screen depending on size.
 
 ![screenshot](documents/readme/mobile_navbar.png)
+
+   #### Search Function
+
+   ##### Index Search Function
+
+   * 
+
+   ##### Admin Search Function
+
+   * 
+
 
    #### Sign Up
 
