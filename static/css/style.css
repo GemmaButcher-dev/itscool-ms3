@@ -62,6 +62,7 @@ a {
 }
 
 .main-content {
+    padding-top: 20px;
     padding-bottom: 50px;
 }
 
@@ -283,7 +284,7 @@ header {
     color: #e63946 !important;
 }
 
-/* ==== Login/out Form ==== */
+/* ==== Login/Sign up Form ==== */
 
 form,
 .form-card {
@@ -348,7 +349,7 @@ button {
 
 /* ==== Admin Dashboard ==== */
 
-.admin-search{
+.admin-search {
     box-shadow: 0 0 5px 3px hsla(0, 0%, 100%, 0.573);
 }
 
