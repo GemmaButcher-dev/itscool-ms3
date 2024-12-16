@@ -193,7 +193,7 @@ header {
     color: var(--text-color-primary);
 }
 
-#search-button {
+.search-btn {
     border-radius: 5px;
     padding: 5px 10px 5px 10px;
     margin: 10px 0 20px 10px;
@@ -347,6 +347,10 @@ button {
 }
 
 /* ==== Admin Dashboard ==== */
+
+.admin-search{
+    box-shadow: 0 0 5px 3px hsla(0, 0%, 100%, 0.573);
+}
 
 
 /* ===== General Modal Styling ====== */
