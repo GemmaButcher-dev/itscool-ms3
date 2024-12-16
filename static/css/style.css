@@ -119,7 +119,7 @@ header {
     justify-content: center;
 }
 
-/* Nav Bar */
+/* ==== Nav Bar ==== */
 .nav-bar {
     width: 40%;
     display: flex;
@@ -166,24 +166,78 @@ header {
     font-size: larger;
 }
 
-/* Index search Form */
+/* ==== Index search Form ==== */
 
+/*  Search bar  */
 .search-form {
     display: flex;
     justify-content: center;
 }
 
-.search-header {
-    margin-right: 1rem;
+#alphabet-filter span {
+    display: inline-block;
+    margin: 0.2rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    color: #004080;
+}
+
+#alphabet-filter span:hover {
+    background: #004080;
+    color: var(--text-color-primary);
 }
 
 #search-button {
+    border-radius: 5px;
+    padding: 5px 10px 5px 10px;
+    margin: 10px 0 20px 10px;
     font-family: var(--heading-font);
     font-weight: 600;
     text-transform: uppercase;
 }
 
-/* Index Accordion */
+.search-header {
+    margin-right: 1rem;
+    margin-bottom: 30px;
+}
+
+/* Search results */
+
+.slang-card {
+    margin: 1rem auto;
+    padding: 1rem;
+    width: 80%;
+    background: var(--background-light);
+    box-shadow: var(--box-shadow);
+    border-radius: 8px;
+}
+
+.slang-card h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.slang-card p {
+    margin: 0.5rem 0;
+}
+
+.slang-item {
+    list-style: none;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #ddd;
+}
+
+.slang-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+/* ==== Index Accordion ==== */
 .letter-group {
     margin-bottom: 60px;
 }
@@ -225,7 +279,6 @@ header {
     color: #e63946 !important;
 }
 
-
 /* ==== Login/out Form ==== */
 
 form,
@@ -259,65 +312,6 @@ button {
     padding: 10px;
     border: none;
     cursor: pointer;
-}
-
-/* Search bar */
-
-#search-bar {
-    padding: 0.5rem;
-    width: 60%;
-    margin: 1rem 0;
-    border-radius: 5px;
-    border: 1px solid #cccccc;
-}
-
-#alphabet-filter span {
-    display: inline-block;
-    margin: 0.2rem;
-    padding: 0.5rem;
-    cursor: pointer;
-    border: 1px solid var(--primary-color);
-    border-radius: 5px;
-    color: #004080;
-}
-
-#alphabet-filter span:hover {
-    background: #004080;
-    color: var(--text-color-primary);
-}
-
-/* Search results */
-
-.slang-card {
-    margin: 1rem auto;
-    padding: 1rem;
-    width: 80%;
-    background: var(--background-light);
-    box-shadow: var(--box-shadow);
-    border-radius: 8px;
-}
-
-.slang-card h2 {
-    margin: 0;
-    font-size: 1.5rem;
-}
-
-.slang-card p {
-    margin: 0.5rem 0;
-}
-
-.slang-item {
-    list-style: none;
-    padding: 10px 0;
-    display: flex;
-    flex-direction: column;
-    border-bottom: 1px solid #ddd;
-}
-
-.slang-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 5px;
 }
 
 /* ==== Add Slang Page ==== */
@@ -369,7 +363,6 @@ button {
     box-shadow: var(--box-shadow, 0 4px 8px rgba(0, 0, 0, 0.1));
  }
 
-
  .modal-header,
  .modal-footer {
     background-color: var(--header-background, #f5f5f5); 
@@ -407,7 +400,7 @@ button {
     font-size: 1rem;
 }
 
-/*== Footer ==*/
+/* ==== Footer ==== */
 
 footer {
     position: fixed;
@@ -425,7 +418,7 @@ footer {
 }
 
 
-/*== 404 page ==*/
+/* ==== 404 page ==== */
 
 .img-404,
 .notcool-img {
@@ -470,9 +463,13 @@ footer {
     margin-bottom: 30px;
 }
 
-/* ====== Media Queries ====== */
+/* ==== Media Queries ==== */
 /* Small Devices */
 @media screen and (max-width: 600px) {
+    .search-header {
+        margin-bottom: 55px;
+        font-size: 16px;
+    }
     
     .modal {
         width: 75%;
