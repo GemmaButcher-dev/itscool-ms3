@@ -174,6 +174,10 @@ header {
     justify-content: center;
 }
 
+.index-search {
+    box-shadow: 0 0 5px 3px hsla(0, 0%, 100%, 0.573);
+}
+
 #alphabet-filter span {
     display: inline-block;
     margin: 0.2rem;
@@ -200,7 +204,7 @@ header {
 
 .search-header {
     margin-right: 1rem;
-    margin-bottom: 30px;
+    margin-bottom: 55px;
 }
 
 /* Search results */
@@ -467,7 +471,6 @@ footer {
 /* Small Devices */
 @media screen and (max-width: 600px) {
     .search-header {
-        margin-bottom: 55px;
         font-size: 16px;
     }
     
