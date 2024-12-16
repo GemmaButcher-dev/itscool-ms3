@@ -95,7 +95,7 @@
 
 * The initial design when created seemed a little flat in areas. As the design is meant to represent a chalkboard type effect this didnt feel too engaging or give much dimension to the user interface.
 
-* A box shadow was added to the slang word search boxes with a white gret 50% opacity to give a partially rubbed out chalk look.
+* A box shadow was added to the slang word search boxes with a white grey 50% opacity to give a partially rubbed out chalk look.
 
 * This effect looks much more appealing to all users and fits with the user stories. The new effect can be seen below.
 
