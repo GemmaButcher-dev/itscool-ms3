@@ -17,7 +17,7 @@
         </div>
         <div class="row search-form">
         <form action="{{ url_for('search') }}" method="get">
-            <input type="text" name="q" placeholder="Search for slang..." value="{{ query }}">
+            <input class="index-search" type="text" name="q" placeholder="Enter a slang word..." value="{{ query }}">
             <button id="search-button" type="submit">Search</button>
         </form>
         </div>
