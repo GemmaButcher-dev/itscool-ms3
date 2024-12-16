@@ -61,6 +61,10 @@ a {
     align-items: center;
 }
 
+.main-content {
+    padding-bottom: 50px;
+}
+
 .card {
     background: var(--background-light);
     box-shadow: var(--box-shadow);
