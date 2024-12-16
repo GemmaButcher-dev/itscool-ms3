@@ -11,15 +11,6 @@
     <button class="search-btn" type="submit">Search</button>
 </form>
 
-<!-- Flash Messages -->
-{% with messages = get_flashed_messages() %}
-    {% if messages %}
-        {% for message in messages %}
-            <div class="alert alert-info">{{ message }}</div>
-        {% endfor %}
-    {% endif %}
-{% endwith %}
-
 <!-- Search Results -->
 {% if search_query %}
 <h3>Search Results for "{{ search_query }}":</h3>
