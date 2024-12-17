@@ -368,6 +368,10 @@ button {
 
 .admin-search {
     box-shadow: 0 0 5px 3px hsla(0, 0%, 100%, 0.573);
+    width: 100%; /* Full width by default */
+    max-width: 400px; /* Set a maximum width for larger screens */
+    padding: 0.5rem; /* Add padding for a better appearance */
+    box-sizing: border-box; /* Ensure padding doesn't increase the width */
 }
 
 
@@ -522,7 +526,7 @@ footer {
         flex-direction: column;
         gap: 1rem;
     }
-
+/* User Dashboard*/
     #profile-card {
         max-width: 75%;
     }
@@ -571,8 +575,14 @@ footer {
     /* modal */
     .modal-footer .btn,
     footer .btn {
-        width: 100%; /* Make buttons full-width for better touch usability */
-        margin-bottom: 0.5rem; /* Add spacing */
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    /* Admin Dashboard */
+    .admin-search {
+        width: 80%;
+        margin: 0 auto;
     }
 }
 
