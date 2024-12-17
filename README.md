@@ -28,11 +28,15 @@ View the live project [here!](https://itscool-project-b4212f408fa2.herokuapp.com
    * [Sign Up](#sign-up)
    * [Log In](#log-in)
    * [Logout](#log-out)
-   * [Add slang word](#add-slang-word)
+   * [Add Slang Word](#add-slang-word)
    * [Create username](#create-username)
    * [Create password](#create-password)
    * [User dashboard](#user-dashboard)
    * [Admin Dashboard](#admin-dashboard)
+      - [Search Function](#search-function)
+      - [Pending Slangs](#pending-slangs)
+      - [Action Buttons](#action-buttons)
+      - [Add Slang Form](#add-slang-form)
    * [Favourites](#favourites)
       - [Favourite Button](#favourite-button)
       - [Favourites List](#favourites-list)
@@ -236,7 +240,7 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
 
 ### Existing Features
 
-   #### Navigation Bar
+#### Navigation Bar
 
    * There is an expandable navbar on mobile and tablet devices shown below.
 
@@ -247,9 +251,9 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
 ![screenshot](documents/readme/desktop_navbar.png)
 
 
-   #### Search Slang Function
+#### Search Slang Function
 
-   ##### Input and Button
+##### Input and Button
 
    * The search function is accessible to all users including non registered users.
 
@@ -260,7 +264,7 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
 
 ![screenshot](documents/readme/search_function.png)
 
-   ##### Search Results
+##### Search Results
 
    * Search results are displayed in the search results container underneath the search form container. 
 
@@ -272,7 +276,7 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
 
    ![screenshot](documents/readme/search_results.png)
 
-   #### Accordion
+#### Accordion
 
    * Located on the index.html is a bootstrap accordion grouping slang terms and their definitions by the letter in which they start with.
 
@@ -280,7 +284,7 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
 
 ![screenshot](documents/readme/accordion.png)
 
-   #### Sign Up
+#### Sign Up
 
    * Within the sign up page there is a sign up form which takes a username and password to register a user on the database.
 
@@ -290,7 +294,7 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
 
 
 
-   #### Log In
+#### Log In
 
    * Within the log in page there is a log in form that takes a registered users username and password. The user is notified of login status via a flash message.
 
@@ -300,13 +304,13 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
 
 
 
-   #### Log Out
+#### Log Out
 
    * The logout link is accessible from the navbar by either expanding it using the 'hamburger' icon on smaller devices or from the fixed width navbar on larger screens. This can be viewed [here](documents/readme/logout.png).
 
 
 
-   #### User Dashboard
+#### User Dashboard
 
    * There is a dashboard that displays the users profile and a list of favourited slang words appear.
 
@@ -314,7 +318,7 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
    This can be viewed [here](documents/readme/user_dashboard.png).
 
 
-   #### Admin Dashboard
+#### Admin Dashboard
 
    * Admin users are able to access an admin dashboard via the navbar when logged in successfully.
 
@@ -338,7 +342,7 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
 
    * An edit button next to the pending slang allows the admin to edit a pending slang before approval. Clicking this button triggers the display of the edit modal where the input is taken from the admin to make changes to the pending slang.
 
-   ##### Add Slang Word
+   ##### Add Slang Form
 
    * There is a form located in the admin dashboard that allows an admin user to add a slang word to the dictionary without it going through the pending approval process.
    The admin dashboard can be seen below.
