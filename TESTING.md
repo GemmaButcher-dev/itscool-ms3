@@ -82,13 +82,13 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
   * All JavaScript code was put though [JS Hint](https://jshint.com/) 
 
-| Test      | Screenshot                                     | Notes                                                |
-|-----------|------------------------------------------------|------------------------------------------------------|
-| JS Hint       |![screenshot](static/images/documents/testing/jshint_testing.png)      | Passed - No warnings. 1 undefined variable as expected. |
+| Test      | Screenshot                                              | Notes                                                   |
+|-----------|---------------------------------------------------------|---------------------------------------------------------|
+| JS Hint   |![screenshot](documents/testing/jshint_testing.png)      | Passed - No warnings. 1 undefined variable as expected. |
 
 ### Summary
 
- Shows an undefined variable in the script.js file. This variable is defined in a script tag in the 404.html file. For more information see [bug-fixes] section 
+ Shows an undefined variable in the script.js file. This variable is defined in a script tag in the 404.html file. For more information see [bug-fixes] section.
 
 
 ## Python Testing
@@ -99,11 +99,11 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
 | Test      | Screenshot                                                                                   | Notes                                                |
 |----------------------------|-----------------------------------------------------------------------------|------------------------------------------------------|
-| CI python linter           |![screenshot](static/images/documents/testing/ci_python_linter_analysis.png) |  Initial testing showing white spaces, incorrect blank lines and some lines were too long.|
-| CI python linter re-test 1 |![screenshot](static/images/documents/testing/ci_python_linter_fixed.png)    |  Passed - No warnings           | 
-| Code Beutify               |![screenshot](static/images/documents/testing/code_beautify_python.png)      |  Made changes to line lengths and some indentation |
-| CI python linter re-test 2 |![screenshot](static/images/documents/testing/ci_python_linter_2.png)        |  Indicated beautifier tool was not pep8 compliant with line lengths being too long |
-| CI python linter re-test 3 |![screenshot](static/images/documents/testing/ci_python_linter_fixed.png)    |  Passed - No warnings   |
+| CI python linter           |![screenshot](documents/testing/ci_python_linter_analysis.png) |  Initial testing showing white spaces, incorrect blank lines and some lines were too long.|
+| CI python linter re-test 1 |![screenshot](documents/testing/ci_python_linter_2.png)    |  Passed - No warnings           | 
+| Code Beutify               |![screenshot](documents/testing/code_beautify_python.png)      |  Made changes to line lengths and some indentation |
+| CI python linter re-test 2 |![screenshot](documents/testing/ci_python_linter_2.png)        |  Indicated beautifier tool was not pep8 compliant with line lengths being too long |
+| CI python linter re-test 3 |![screenshot](documents/testing/ci_python_linter_fixed.png)    |  Passed - No warnings   |
 
 ### Summary
 
