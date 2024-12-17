@@ -49,9 +49,8 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 | Page                 | Screenshot                                                                          | Notes                             |
 |----------------------|-------------------------------------------------------------------------------------|-----------------------------------|
 |index.html            |[view here](static/images/documents/testing/markup_validator/index.html_validator.png) | Passed | 
-|login.html            |[view here](static/images/documents/testing/login.html_validator.png)                | Passed (error due to jinja tags)  |
-|signup.html           |[view here](static/images/documents/testing/signup.html_validator.png)               |  |
-
+|login.html            |[view here](static/images/documents/testing/login.html_validator.png)                | Passed  |
+|signup.html           |[view here](documents/testing/webaim_signup.png)                                     | Passed |
 |dashboard.html        |[view here](static/images/documents/testing/dashboard.html_validator1.png)           |         | 
 |admin_dashboard.html  |[view here](static/images/documents/testing/admin_dashboard.html_validator.png)      | Passed  |
 |add_slang.html        |[view here]()   | Passed /Failed| 
@@ -62,7 +61,20 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
 ## Accesibility Testing
 
-* The complete site was tested using [Web Aim](https://wave.webaim.org/) and has passed. This can be [viewed here for index.html]() and [viewed here for 404.html]().
+* The complete site was tested using [Web Aim](https://wave.webaim.org/) and has passed. The links are available in the below table.
+
+
+| Page                 | Screenshot                                                           | Notes                             |
+|----------------------|----------------------------------------------------------------------|-----------------------------------|
+|index.html            |[view here](documents/testing/webaim_index_pass.png) | Passed | 
+|login.html            |[view here](documents/testing/webaim_login.png)| Passed  |
+|signup.html           |[view here](static/images/documents/testing/signup.html_validator.png)               |  |
+|dashboard.html        |[view here](static/images/documents/testing/dashboard.html_validator1.png)           |         | 
+|admin_dashboard.html  |[view here](static/images/documents/testing/admin_dashboard.html_validator.png)      | Passed  |
+|add_slang.html        |[view here]()   | Passed /Failed| 
+|delete_slang.html     |[view here]()   | Passed /Failed|
+|404.html              |[view here]()   | Passed /Failed| 
+|CSS                   |[view here]()   | Passed /Failed|
 
 
 ## JavaScript Testing
