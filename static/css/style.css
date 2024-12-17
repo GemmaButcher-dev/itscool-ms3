@@ -288,6 +288,11 @@ header {
     color: #e63946 !important;
 }
 
+.favorite-btn.active i {
+    color: #e63946; /* Highlight heart icon when active */
+}
+
+
 /* ==== Login/Sign up Form ==== */
 
 form,
