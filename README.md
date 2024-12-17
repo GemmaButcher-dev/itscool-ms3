@@ -316,6 +316,34 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
 
    #### Admin Dashboard
 
+   * Admin users are able to access an admin dashboard via the navbar when logged in successfully.
+
+   ##### Search Function
+
+   * Here admin can search for a slang word to delete from the dictionary. There is a search input box and a search button which then produces results found.
+
+   * There is a delete button next to the slang results which when clicked triggers the confirmation modal asking the admin user if they are sure they want to delete the item to minimise accidental or unwated deletion from the database.
+
+   ##### Pending Slangs 
+
+   * Within the dashboard there is a pending slangs section which displays slang words that have been subject to a removal request from registered users.
+
+   ##### Action Buttons
+
+   * There are 3 action buttons next to each pending slang. Each are critical in the management of the dictionary.
+
+   * A delete button allows the admin to delete the pending slang from the list meaning it will not be added. Before this action is executed a confirmation modal asks the user if they are sure they want to proceed to prevent accidental or unwanted deletion.
+
+   * An approve button allows the admin to approve the request to add a slang to the database.
+
+   * An edit button next to the pending slang allows the admin to edit a pending slang before approval. Clicking this button triggers the display of the edit modal where the input is taken from the admin to make changes to the pending slang.
+
+   ##### Add Slang Word
+
+   * There is a form located in the admin dashboard that allows an admin user to add a slang word to the dictionary without it going through the pending approval process.
+   The admin dashboard can be seen below.
+
+![screenshot](documents/readme/admin_dashboard.png)
 
    #### Favourites
 
