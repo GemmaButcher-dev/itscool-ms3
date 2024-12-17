@@ -427,13 +427,9 @@ button {
 }
 
 /* Modal Body */
-.modal-body {
-    label {
+.modal-body label,
+.modal-body p {
         color: #000000;
-    }
-    p {
-        color: #000000;
-    }
 }
 
 .modal-body input, 
