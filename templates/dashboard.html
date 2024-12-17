@@ -2,9 +2,9 @@
 {% block content %}
 
     <div class="row">
-        <div class="col s12 m8 offset-m2">
+        <div class="profile-columnn col s12 m8 offset-m2">
         <div class="card container" id="profile-card">
-            <div class="card-body">
+            <div class="profile-body card-body">
                 <h3 class="profile-heading center-align">
                     {{ username }}'s Profile
                 </h3>
@@ -13,14 +13,17 @@
         </div>
     </div>
 
-    <!-- Favourite section -->
+    <!-- Favourite Slangs section -->
     <div class="fav-container-dashboard container">
-        <h3>Favorite Slang Words</h3>
+        <h3>My Favorite Slang Words</h3>
 
         {% if favorites %}
-            <ul>
+            <ul class="favourited-list">
                 {% for slang in favorites %}
-                    <li>{{ slang['slang'] }}: {{ slang['definition'] }}</li>
+                    <li id="favorite-{{ slang._id }}">
+                        <strong>{{ slang.slang }}</strong> - {{ slang.definition }} <br>
+                        <em>Age:</em> {{ slang.age }} | <em>Type:</em> {{ slang.type }}
+                    </li>
                 {% endfor %}
             </ul>
         {% else %}
