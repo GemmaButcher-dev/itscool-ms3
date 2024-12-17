@@ -326,6 +326,40 @@ def add_to_favourites():
 
     return jsonify({"success": False, "message": "User not found."}), 404
 
+# Delete Favourite slang in user dashboard
+@app.route("/favourite/remove", methods=["POST"])
+def remove_from_favourites():
+    if "user" not in session:
+        return jsonify({"success": False, "message": "Please log in to remove favorites."}), 401
+
+    data = request.get_json()
+    slang_id = data.get("slang_id")
+
+    if not slang_id:
+        return jsonify({"success": False, "message": "Slang ID is required."}), 400
+
+    try:
+        # Validate ObjectId
+        slang_id = ObjectId(slang_id)
+    except InvalidId:
+        return jsonify({"success": False, "message": "Invalid Slang ID."}), 400
+
+    try:
+        # Update the user's favorites by removing the slang ID
+        result = mongo.db.users.update_one(
+            {"username": session["user"]},
+            {"$pull": {"favorites": slang_id}}
+        )
+
+        # Check if the update modified the document
+        if result.modified_count == 0:
+            return jsonify({"success": False, "message": "Slang not found in favorites."}), 404
+
+        return jsonify({"success": True, "message": "Slang removed from favorites!"})
+    except Exception as e:
+        print(f"Error: {e}")
+        return jsonify({"success": False, "message": "An error occurred."}), 500
+
 
 # Add slang route
 @app.route("/add_slang", methods=["GET", "POST"])
