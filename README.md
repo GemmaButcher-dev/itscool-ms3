@@ -33,6 +33,9 @@ View the live project [here!](https://itscool-project-b4212f408fa2.herokuapp.com
    * [Create password](#create-password)
    * [User dashboard](#user-dashboard)
    * [Admin Dashboard](#admin-dashboard)
+   * [Favourites](#favourites)
+      - [Favourite Button](#favourite-button)
+      - [Favourites List](#favourites-list)
    * [Footer](#footer)
    * [404 Page](#404-page)
    * [Error Handling](#error-handling)
@@ -266,6 +269,13 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
 
    ![screenshot](documents/readme/search_results.png)
 
+   #### Accordion
+
+   * Located on the index.html is a bootstrap accordion grouping slang terms and their definitions by the letter in which they start with.
+
+   * The header for each letter expands revealing all slangs starting with that letter beneath it.
+
+![screenshot](documents/readme/accordion.png)
 
    #### Sign Up
 
@@ -299,6 +309,35 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
 
    * The user can navigate here upon logging in successfully using their username and password on the login page.
    This can be viewed [here](documents/readme/user_dashboard.png).
+
+
+   #### Admin Dashboard
+
+
+   #### Favourites
+
+   ##### Favourite Button
+
+
+   * A favourite button serves the function of allowing registered users to add their favourite slangs to a favourites list.
+
+   * The favourite buttons are located next to each slang in the accordion and next to each slang in the search results in the index.html.
+
+   * Favourite buttons are visible to all users however if a user is not logged in there is immediate feedback to inform the user they need to be logged in to use this function. 
+
+   * The accordion favourite button can be seen below.
+![screenshot](documents/readme/favourite_accordion.png)
+
+   * The search result favourite button can be seen below.
+![screenshot](documents/readme/result_favourite.png)
+
+   ##### Favourites List 
+
+   * Registered users have the additional function of a list of favourited slang words.
+
+   * Registered users favourited slangs list is accessible in their user dashboard.
+
+   * Registered users can add slangs to their favourites list by clicking the heart shaped favourite button.
 
    
    #### Footer
