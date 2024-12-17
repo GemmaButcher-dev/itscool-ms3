@@ -325,10 +325,10 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
 
    * Favourite buttons are visible to all users however if a user is not logged in there is immediate feedback to inform the user they need to be logged in to use this function. 
 
-   * The accordion favourite button can be seen below.
+   * The favourite buttons can be seen below.
+
 ![screenshot](documents/readme/favourite_accordion.png)
 
-   * The search result favourite button can be seen below.
 ![screenshot](documents/readme/result_favourite.png)
 
    ##### Favourites List 
@@ -356,7 +356,7 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
 
    #### Error Handling
 
-   * Error handling is built directly into the app functions so should the app data not load the function will handle the error and will show an error by way or stating 'error fetching data'.
+   * Error handling is built directly into the app functions so should the app data not load the function will handle the error and will show an error by way or stating 'error fetching data'. An example of this can be viewed [here](documents/readme/error_handling.png).
 
 ### Features Left To Implement
 
