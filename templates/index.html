@@ -42,7 +42,7 @@
                                     {% for slang in slang_list %}
                                         <li id="slang-{{ slang._id }}" class="slang-item">
                                             <div class="slang-header">
-                                                <button class="favorite-btn" data-id="{{ slang._id }}">
+                                                <button class="favorite-btn" data-id="{{ slang._id }}" aria-label="Add {{ slang.slang }} to favorites" aria-pressed="false">
                                                     <i class="fa fa-heart"></i>
                                                 </button>
                                                 <strong>{{ slang['slang'] }}</strong>
@@ -75,7 +75,7 @@
                     <li id="slang-{{ loop.index }}">
                         {{ slang['slang'] }}: {{ slang['definition'] }}
                         <!-- Add Favourite Button -->
-                        <button class="btn favorite-btn" data-id="{{ slang['_id'] }}">
+                        <button class="btn favorite-btn" data-id="{{ slang['_id'] }}" aria-label="Add {{ slang.slang }} to favorites" aria-pressed="false">
                             <i class="fa fa-heart" aria-hidden="true"></i>
                         </button>
                     </li>
