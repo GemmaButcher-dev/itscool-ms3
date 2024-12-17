@@ -32,7 +32,7 @@
                     {% for letter, slang_list in grouped_slangs.items() %}
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="heading{{ letter }}">
-                            <button class="accordion-button custom-header" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ letter }}" aria-expanded="true" aria-controls="collapse{{ letter }}">
+                            <button class="accordion-button custom-header" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ letter }}" aria-expanded="true" aria-controls="collapse{{ letter }}" aria-label="Expand section {{ letter }}">
                                 {{ letter }}
                             </button>
                         </h2>
