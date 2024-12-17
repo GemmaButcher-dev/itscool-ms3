@@ -253,7 +253,7 @@ header {
 
 .accordion-button.custom-header {
     background-color: #4caf50;
-    color: var(--text-color-primary);
+    color: var(--text-color-secondary);
 }
 
 .accordion-body.custom-body {
