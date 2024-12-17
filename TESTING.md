@@ -143,7 +143,7 @@ The project user stories have been met with the following features;
 
        The accordion can be seen below.
 
-![screenshot]()
+![screenshot](documents/readme/accordion.png)
 
 
 ✅  click on slang terms to view their definitions and sample usage, so I can understand the meaning and context.
