@@ -300,24 +300,31 @@ def profile(username):
 @app.route("/favourite/add", methods=["POST"])
 def add_to_favourites():
     if "user" not in session:
-        flash("Please log in to add to favourites.")
-        return redirect(url_for("login"))
+        return jsonify({"success": False, "message": "Please log in to add to favorites."}), 401
 
-    slang_id = request.form.get("slang_id")
-    if slang_id:
+    data = request.get_json()  # Get JSON data from the request
+    slang_id = data.get("slang_id")
+
+    if not slang_id:
+        return jsonify({"success": False, "message": "Slang ID is required."}), 400
+
+    try:
         user = mongo.db.users.find_one({"username": session["user"]})
         if user:
-            # -- Add slang to user's favourites if it's not already there
+            # Add slang to user's favorites if it's not already there
             if ObjectId(slang_id) not in user.get("favorites", []):
                 mongo.db.users.update_one(
                     {"username": session["user"]},
                     {"$addToSet": {"favorites": ObjectId(slang_id)}}
                 )
-                flash("Added to your favorites!", "success")
+                return jsonify({"success": True, "message": "Slang added to favorites!"})
             else:
-                flash("This slang is already in your favorites.", "info")
+                return jsonify({"success": False, "message": "This slang is already in your favorites."}), 409
+    except Exception as e:
+        print(e)  # Log the error
+        return jsonify({"success": False, "message": "An error occurred."}), 500
 
-    return redirect(url_for("profile", username=session["user"]))
+    return jsonify({"success": False, "message": "User not found."}), 404
 
 
 # Add slang route
