@@ -79,39 +79,6 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
 
-    // Functionality for delete slang button
-    document.querySelectorAll(".remove-fav-btn").forEach(button => {
-        button.addEventListener("click", function () {
-            const slangId = this.getAttribute("data-id"); // Get slang ID
-
-            // Send POST request to remove the slang
-            fetch("/favourite/remove", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({ slang_id: slangId })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    // Remove the slang element from the DOM
-                    const elementToRemove = document.getElementById(`favorite-${slangId}`);
-                    if (elementToRemove) {
-                        elementToRemove.remove();
-                    }
-                    alert("Slang removed from favorites!");
-                } else {
-                    alert("Failed to remove slang from favorites.");
-                }
-            })
-            .catch(error => {
-                console.error("Error:", error);
-                alert("An error occurred. Please try again.");
-            });
-        });
-    });
-
 
     // Update footer with the current year
     function updateDate() {
