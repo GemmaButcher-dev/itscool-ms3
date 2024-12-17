@@ -21,8 +21,6 @@
             <ul>
                 {% for slang in favorites %}
                     <li>{{ slang['slang'] }}: {{ slang['definition'] }}</li>
-                    <!-- Button to remove from favorites list -->
-                    <button class="btn btn-danger remove-fav-btn" data-id="{{ slang._id }}">Remove from Favorites</button>
                 {% endfor %}
             </ul>
         {% else %}
