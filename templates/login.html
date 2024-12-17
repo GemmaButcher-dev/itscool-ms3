@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h3>Log In</h3>
+    <h3 class="background-dark">Log In</h3>
         <div class="form-container">
             <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('login') }}">
                 <div class="card">
@@ -40,7 +40,7 @@
                         {% with messages = get_flashed_messages() %}
                         {% if messages %}
                             {% for message in messages %}
-                                <div class="row flashes">
+                                <div class="row flashes background-dark">
                                     <h4 class="center-align">{{ message }}</h4>
                                 </div>
                             {% endfor %}
@@ -49,7 +49,7 @@
             </div>
             <div class="login-link">
                 <div class="col-12">
-                    <p>
+                    <p class="background-dark">
                         New Here? <a href="{{ url_for('signup') }}" class="">Sign Up</a>
                     </p>
                 </div>

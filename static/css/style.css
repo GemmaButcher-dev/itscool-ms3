@@ -54,6 +54,13 @@ a {
     color: var(--primary-color);
 }
 
+.background-dark {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+}
+
 /* ===== Utility Classes ===== */
 .flex-center {
     display: flex;
@@ -147,10 +154,6 @@ header {
     justify-content: center;
     align-items: center;
     margin-top: 30px;
-    background-color: rgba(0, 0, 0, 0.3); /* 70% opacity black */
-    color: #ffffff; /* White text for high contrast */
-    padding: 1.5rem;
-    border-radius: 8px; /* Optional: rounded corners */
     text-align: center;
 }
 
@@ -159,11 +162,7 @@ header {
     justify-content: center;
     align-items: center;
     margin-top: 30px;
-    background-color: rgba(0, 0, 0, 0.3);
     color: #ffffff; 
-    padding: 1.5rem;
-    border-radius: 8px;
-    text-align: center;
 }
 
 .welcome-container{
