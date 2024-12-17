@@ -61,6 +61,10 @@ a {
     border-radius: 8px;
 }
 
+.label-dark {
+    color: var(--text-color-secondary);
+}
+
 /* ===== Utility Classes ===== */
 .flex-center {
     display: flex;

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="add_slang-container container-fluid">
+<div class="add_slang-container container-fluid background-dark">
     <div class="add-slang-heading">
         <h2>Add a slang word</h2>
     </div>
@@ -18,19 +18,19 @@
                 <form action="{{ url_for('add_slang') }}" method="post">
 
                     <!-- Slang word -->
-                        <label for="slang">Slang Word:</label>
+                        <label for="slang" class="label-dark">Slang Word:</label>
                         <input type="text" id="slang" name="slang" required placeholder="Enter slang word">
 
                     <!-- Definition -->
-                        <label for="definition">Definition:</label>
+                        <label for="definition" class="label-dark">Definition:</label>
                         <textarea id="definition" name="definition" required placeholder="Enter slang definition"></textarea>
                     
                     <!-- Age Range -->
-                        <label for="age">Age Range:</label>
+                        <label for="age" class="label-dark">Age Range:</label>
                         <input type="text" id="age" name="age" placeholder="Enter age range (e.g., 13-18)">
                     
                     <!-- Type -->
-                        <label for="type">Type:</label>
+                        <label for="type" class="label-dark">Type:</label>
                         <input type="text" id="type" name="type" placeholder="Enter word type (e.g., adjective)">
                     
                     <!-- Submit Button -->
