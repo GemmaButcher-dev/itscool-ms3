@@ -21,7 +21,7 @@
             <ul class="favourited-list">
                 {% for slang in favorites %}
                     <li id="favorite-{{ slang._id }}">
-                        <strong>{{ slang.slang }}</strong> - {{ slang.definition }} <br>
+                        <strong class="fav-word">{{ slang.slang }}</strong> - {{ slang.definition }} <br>
                         <em>Age:</em> {{ slang.age }} | <em>Type:</em> {{ slang.type }}
                     </li>
                 {% endfor %}

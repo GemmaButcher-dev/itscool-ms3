@@ -354,6 +354,11 @@ button {
     margin-top: 30px;
 }
 
+.fav-word {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
 /* ==== Add/Delete Slang Pages */
 .card-body h3 {
     color: #000000;
