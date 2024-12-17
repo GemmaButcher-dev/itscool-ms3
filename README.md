@@ -107,6 +107,9 @@ The target audience is for children, teenagers and adults trying to determine th
 
 ✅  request to delete slang terms that are no longer relevant or are duplicates, so the dictionary remains clean and useful.
 
+✅  Save Favourite Slang:
+   As a student, I want to be able to save my favourite slang words to a favourites list in my user dashboard.
+
 "**_As an student user, I would like to_** _______________"
 
 ✅  Learn About Common School Slang:
@@ -367,6 +370,8 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
    * A professionals dashboard where teachers and other professionals can view slang words and flag warnings and issues caused in educational settings by slang words and defintions retrospectively.
 
    * Functions for logged-in users to update profile details if necessary, so their account information is accurate.
+
+   * A remove button and function to allow users to remove a slang word from their favourites list using AJAX to asystematically remove it from the DOM.
 
 ## Technologies Used
 
