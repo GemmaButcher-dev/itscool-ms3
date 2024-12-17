@@ -46,17 +46,17 @@ The complete site was tested on the lighthouse facility in Google Developer Tool
 
 The W3C Markup Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project. The results and screenshots are in the table below.
 
-| Page                 | Screenshot                                                                          | Notes                             |
-|----------------------|-------------------------------------------------------------------------------------|-----------------------------------|
-|index.html            |[view here](static/images/documents/testing/markup_validator/index.html_validator.png) | Passed | 
-|login.html            |[view here](static/images/documents/testing/login.html_validator.png)                | Passed  |
-|signup.html           |[view here](documents/testing/webaim_signup.png)                                     | Passed |
-|dashboard.html        |[view here](static/images/documents/testing/dashboard.html_validator1.png)           |         | 
-|admin_dashboard.html  |[view here](static/images/documents/testing/admin_dashboard.html_validator.png)      | Passed  |
-|add_slang.html        |[view here]()   | Passed /Failed| 
-|delete_slang.html     |[view here]()   | Passed /Failed|
-|404.html              |[view here]()   | Passed /Failed| 
-|CSS                   |[view here]()   | Passed /Failed|
+| Page                 | Screenshot Link                                                                   | Notes  |
+|----------------------|-----------------------------------------------------------------------------------|--------|
+|index.html            |[view here](documents/testing/markup_validator/index.html_validator.png)           | Passed | 
+|login.html            |[view here](documents/testing/markup_validator/login.html_validator.png)           | Passed |
+|signup.html           |[view here](documents/testing/markup_validator/signup.html_validator.png)          | Passed |
+|dashboard.html        |[view here](documents/testing/markup_validator/dashboard.html_validator.png)       | Passed | 
+|admin_dashboard.html  |[view here](documents/testing/markup_validator/admin_dashboard.html_validator.png) | Passed |
+|add_slang.html        |[view here](documents/testing/markup_validator/add_slang.html_validator.png)       | Passed | 
+|delete_slang.html     |[view here](documents/testing/markup_validator/delete_slang.html_validator.png)    | Passed |
+|404.html              |[view here](documents/testing/markup_validator/404.html_validator.png)             | Passed |
+|CSS                   |[view here](documents/testing/markup_validator/w3c_css.png)   | Passed. Warnings due to root variables not able to be tested|
 
 
 ## Accesibility Testing
@@ -72,6 +72,8 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 |add_slang.html        |[view here](documents/testing/webaim/webaim_add_slang.png)                    | Passed | 
 |delete_slang.html     |[view here](documents/testing/webaim/webaim_remove_slang.png)                 | Passed |
 |404.html              |[view here](documents/testing/webaim/webaim_404.png)                          | Passed - alt text query(minor)| 
+|dashboard.html   |[view lighthouse testing here](documents/testing/lighthouse/dashboard_lighthouse.png) | Can only be tested in lighthouse due to login required. Not supported by webaim. |
+|admin_dashboard.html  |[view lighthouse testing here](documents/testing/lighthouse/admin_dashboard_lighthouse.png) | Can only be tested in lighthouse due to login required. Not supported by webaim. |
 
 
 ## JavaScript Testing
