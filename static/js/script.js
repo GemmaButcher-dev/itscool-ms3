@@ -48,28 +48,70 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // FUNCTIONALITY FOR FAVOURITE SLANG
     // Attach event listeners to all favorite buttons
-    document.querySelectorAll(".favorite-btn").forEach(button => {
-        button.addEventListener("click", function () {
-            const slangId = this.getAttribute("data-id");
+    const favoriteButtons = document.querySelectorAll(".favorite-btn");
 
-            // Send a POST request to the server to add to favorites
-            fetch("/add_to_favorites", {
+        favoriteButtons.forEach(button => {
+            button.addEventListener("click", function () {
+                const slangId = this.dataset.id; // Get the slang ID from data-id attribute
+
+                // Send POST request to add slang to favorites
+                fetch("/favourite/add", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-CSRFToken": "{{ csrf_token() }}"  // Include CSRF token if needed
+                    },
+                    body: JSON.stringify({ slang_id: slangId })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert("Slang added to favorites!");
+                        this.classList.add("active"); // Add active class for visual feedback
+                    } else {
+                        alert(data.message || "An error occurred. Please try again.");
+                    }
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                    alert("An error occurred. Please try again.");
+                });
+            });
+        });
+
+    // Functionality for delete slang button
+    document.querySelectorAll(".remove-fav-btn").forEach(button => {
+        button.addEventListener("click", function () {
+            const slangId = this.getAttribute("data-id"); // Get slang ID
+
+            // Send POST request to remove the slang
+            fetch("/favourite/remove", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({ slang_id: slangId })
             })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        alert("Added to favorites!");
-                    } else {
-                        alert("Failed to add to favorites.");
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Remove the slang element from the DOM
+                    const elementToRemove = document.getElementById(`favorite-${slangId}`);
+                    if (elementToRemove) {
+                        elementToRemove.remove();
                     }
-                });
+                    alert("Slang removed from favorites!");
+                } else {
+                    alert("Failed to remove slang from favorites.");
+                }
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                alert("An error occurred. Please try again.");
+            });
         });
     });
+
 
     // Update footer with the current year
     function updateDate() {
