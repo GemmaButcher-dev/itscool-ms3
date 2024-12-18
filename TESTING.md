@@ -416,7 +416,20 @@ It is particuarly useful as it can encompass a wide range of input from stakehol
 | Admin Dashboard Nav Link | Click to direct to admin dashboard | Links to admin dashboard, visible when logged in as admin | Pass |
 | Index Search Slang | Enter a slang word verified in database, enter close match | Displays exact or close match with related fields | Pass |
 | Accordion | Click headings and check verified slangs appear to all users | Displays slangs when expanded grouped by letter under relevant headings | Pass |
-| Add Slang Nav Link| Click to direct to add slang page| Links to add slang, visible when logged in as user | Pass |
+| Sign Up | Create user name and password, attempt login | Creates username and password. Logs in | Pass |
+| Log In | Attempt login with username and password used for signup | Logs in with registered credentials | Pass |
+| Logout | Click link in admin and user navbar | Logs user out and redirects to login page | Pass |
+| Sign Up & Login Link | Click links to direct to relevant page | Links to relevant page | Pass |
+| Sign Up | create user name and password, attempt login | Creates username and password. Logs in | Pass |
+| Add Slang | Input slang to be verified | Input appears in the admin dashboard pending slangs list | Pass |
+| Delete Slang | search slang to be deleted and click remove button, approve in confirmation modal | Returns close matches and modal shows on click of delete button | Pass |
+| User Dashboard Profile | Login as user and navigate to userdashboard | User dashboard displays username in the profile card | Pass |
+| Favourite Button | Click favourite button on search results and accordion slang items on index page. | Slang appears in favourites list in user dashboard | Pass |
+| Admin Dashboard | Navigate to admin dashboard, check for flash message | Flash message appears in dashboard when navigated to | Pass |
+| Admin Delete Slang | Input slang to delete, select from results and use confirmation modal to confirm. Re-search for deleted slang | Returns close matches, modal shows when delete button is clicked and removes from app, verified on re search | Pass |
+
+
+
 
 
 
