@@ -2,22 +2,21 @@
 
 ## Table of contents
 
-  1. [Overall Peformance](#overall-performance)
-  2. [Code Validation](#code-validation)
-  3. [Accessibility Testing](#accessibility-testing)
-  4. [Responsiveness & Compatability Testing](#responsiveness--compatability-testing)
-  5. [JavaScript Testing](#javascript-testing)
-  6. [Python Testing](#python-testing)
-        * JS Hint
-  7. [Fuzzywuzzy](#fuzzywuzzy-testing)
-  8. [Bug Fixes](#bug-fixes)
-        * 
-  9. [Testing User Stories from User Experience (UX) Section](#testing-user-stories)
-        * Project Goals
-        * User Goals
-        * ItScool helps players meet these goals by:
-  10.  [Other Testing Methods](#other-testing)
-  11. [Further Testing](#further-testing)
+  1. [**Overall Peformance**](#overall-performance)
+  2. [**Code Validation**](#code-validation)
+  3. [**Accessibility Testing**](#accessibility-testing)
+  4. [**Responsiveness & Compatability Testing**](#responsiveness--compatability-testing)
+  5. [**JavaScript Testing**](#javascript-testing)
+  6. [**Python Testing**](#python-testing)
+        - **JS Hint**
+  7. [**Fuzzywuzzy**](#fuzzywuzzy-testing)
+  8. [**Bug Fixes**](#bug-fixes)
+  9. [**Testing User Stories from User Experience (UX) Section**](#testing-user-stories)
+        - **Project Goals**
+        - **User Goals**
+        - 
+  10. [**Other Testing Methods**](#other-testing)
+  11. [**Further Testing**](#further-testing)
 
   ------
 
@@ -38,8 +37,16 @@ The complete site was tested on the lighthouse facility in Google Developer Tool
 
 ## Responsiveness & Compatability Testing
 
- The below matrix shows the responsiveness and browser compatability testing carried out.
-![Screenshot]()
+To ensure a broad range of users can successfully use this site, I tested it across the 6 major browsers in both desktop and mobile configuration.
+
+- Chrome *v.74*
+- Edge *v.18*
+- Firefox *v.67*
+- Safari *v.12*
+- Opera *v.56*
+- Internet Explorer *v.11*
+
+For testing compatibility, I created a testing matrix to test across multiple devices and browsers. The test matrix can be found [here](app/testing/test-matrix.png). A brief overview:
 
 
 ## Code Validation
@@ -143,7 +150,7 @@ The project user stories have been met with the following features;
 
    ItScool provides:<br>
       * a bootstrap accordion of all slangs listed alphabetically on all devices. <br>
-      * correspoding defintions in the accordion nect to each slang word.<br>
+      * correspoding defintions in the accordion next to each slang word.<br>
 
        The accordion can be seen below.
 
