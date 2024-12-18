@@ -94,8 +94,6 @@ The target audience is for children, teenagers and adults trying to determine th
 
 ✅  as a returning user, I want to log in with my username and password, so I can access my account.
 
-✅  as a logged-in user, I want to update my profile details if necessary, so my account information is accurate.
-
 ✅  as a logged-in user, I want to log out of my account, so I can ensure my account remains secure on shared devices.
 
 ✅  get immediate feedback to know if I have signed up, logged in or signed out.
@@ -104,12 +102,11 @@ The target audience is for children, teenagers and adults trying to determine th
 
 ✅  request to add new slang terms and definitions, so I can expand the slang dictionary and share knowledge.
 
-✅  to edit slang terms I’ve added to correct or improve definitions, ensuring the information stays accurate and up-to-date.
+✅  request to edit slang terms I’ve added to correct or improve definitions, ensuring the information stays accurate and up-to-date.
 
 ✅  request to delete slang terms that are no longer relevant or are duplicates, so the dictionary remains clean and useful.
 
-✅  Save Favourite Slang:
-   As a student, I want to be able to save my favourite slang words to a favourites list in my user dashboard.
+✅   be able to save my favourite slang words to a favourites list in my user dashboard.
 
 "**_As an student user, I would like to_** _______________"
 
@@ -139,7 +136,7 @@ The target audience is for children, teenagers and adults trying to determine th
 ✅  Browse by Letter or Category:
     As a teacher or parent, I want to browse slang by letter to find terms more easily and understand common slang patterns.
 
-✅  Save Relevant Slang:
+✅  Save Relevant/Favourite Slang:
     As a teacher or parent, I want to be able to save slang words to a favourites list in my user dashboard that i can come back to as a reference point.
 
 
@@ -148,13 +145,9 @@ The target audience is for children, teenagers and adults trying to determine th
 
 ✅  review slang terms submitted by users before they are published, so I can ensure quality and appropriateness.
 
-✅  manage user accounts, including editing and deleting accounts if needed, so I can enforce rules and maintain site integrity.
+✅  delete any slang term to correct inaccuracies, enforce content guidelines, and remove inappropriate entries.
 
-✅  edit or delete any slang term to correct inaccuracies, enforce content guidelines, and remove inappropriate entries.
-
-✅  edit, delete or approve pending approval requests from users requesting a slang word to be added to the app via an admin     dashboard.
-
-✅  search for slang words to be deleted from the app in the admin dashboard.
+✅  edit, delete or approve pending approval requests from users requesting a slang word to be added to the app via an admin dashboard.
 
 ✅  use a form to add new slang words to the app.
 
