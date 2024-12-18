@@ -5,7 +5,7 @@ Welcome to
 
 View the live project [here!](https://itscool-project-b4212f408fa2.herokuapp.com/index)
 
-## Table of Contents (#table-of-contents)
+## Table of Contents
 1. [UX](#ux)
 
    * [Project Goals](#project-goals)
