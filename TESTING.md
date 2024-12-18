@@ -162,14 +162,13 @@ The project user stories have been met with the following features;
 
    ItScool provides:<br>
       * a bootstrap accordion which when clicked, reveals slang words listed with their corresponding definitions. Viewable [here](documents/readme/accordion.png).<br>
-      * a search bar that displays search results to the user. The search bar can be seen below.<br>
 
-![screenshot](documents/readme/search_function.png)
 
 ✅  search for slang terms by typing keywords or phrases, so I can quickly find the slang term I'm interested in.
 
    ItScool provides:<br>
-     * a search bar function that returns searches that match key words. The search bar can be seen [here](documents/readme/search_function.png).<br>
+    * A search bar enabling the user to search for slang terms, that are relevance from partial matching using fuzzywuzzy. This displays partial match results due to the nature of slang spellings. This can be seen [here](documents/readme/search_function.png).<br>
+    * A search result area displaying the results of the search. Viewable [here](documents/readme/search_results.png).
 
 
 ✅  browse slang terms by selecting a letter from A-Z, so I can easily find terms that start with a specific letter.
@@ -187,12 +186,7 @@ The project user stories have been met with the following features;
 
 ![screenshot](documents/readme/signup.png)
 
-✅  read about the purpose of this slang dictionary, so I can understand the context and relevance of the terms listed.
-
-  ItScool provides:<br>
-     * 
-
-![screenshot]()
+------
 
 "**_As a registered user, I would like to_** _______________"
 
@@ -200,8 +194,17 @@ The project user stories have been met with the following features;
 
   ItScool provides:<br>
       * a login page for users to login with their username and password.<br>
+      * a flash message letting users know they are logged in.<br>
 
 ![screenshot](documents/readme/login.png)
+
+✅  as a logged-in user, I want to log out of my account, so I can ensure my account remains secure on shared devices.
+
+  ItScool provides:<br>
+    * a link in the navbar for both users and admin users to log out with one click. These can be seen below.<br>
+
+![screenshot](documents/readme/logout.png)
+![screenshot](documents/readme/admin_nav.png)
 
 ✅  get immediate feedback to know if I have signed up, logged in or signed out.
 
@@ -210,14 +213,14 @@ The project user stories have been met with the following features;
      * Immediate feedback via a flash message to let users know they have logged in successfully.<br>
      * Immediate feedback via a flash message to let users know they have logged out successfully.<br>
 
-    Examples of a flash message is shown below.
+    Example of a flash message is shown below.
 
 ![screenshot](documents/readme/admin_flash.png)
 
 ✅  access a user dashboard when logged in.
 
   ItScool provides:<br>
-     * a user dashboard for logged in users acessible via the navbar as required.<br>
+     * a user dashboard for logged in users accessible via the navbar as required.<br>
 
 ![screenshot](documents/readme/user_dashboard.png)
 
@@ -229,11 +232,11 @@ The project user stories have been met with the following features;
 
 ![screenshot](documents/readme/add_slang.png)
 
-✅  to request to edit slang terms I’ve added to correct or improve definitions, ensuring the information stays accurate and up-to-date.
+✅  request to edit slang terms I’ve added to correct or improve definitions, ensuring the information stays accurate and up-to-date.
 
   ItScool provides:<br>
       * A add slang form where any slang or revision of slang will be reviewed by admin to update appropriately.<br>
-      * This is the update functionality within the CRUD functionality. This can be seen [here](documents/readme/add_slang.png).
+      * This is the update functionality within the CRUD functionality. This can be seen [here](documents/readme/add_slang.png).<br>
 
 
 ✅  request to delete slang terms that are no longer relevant or are duplicates, so the dictionary remains clean and useful.
@@ -243,6 +246,17 @@ The project user stories have been met with the following features;
       * Delete slang form on the delete slang page that once submitted is subject to review by admin. This is part of the delete functionality within CRUD. 
      
 ![screenshot](documents/readme/delete_slang.png)
+
+✅   be able to save my favourite slang words to a favourites list in my user dashboard.
+
+    ItScool provides:<br>
+      * A heart shaped favourite button that allows users to add favourite slang words to be added to a favourites list in their user profile dashboard page.<br>
+      * Favourite buttons located in both the accordion and search results sections, next to slang words. These can be seen below.<br>
+     
+![screenshot](documents/readme/result_favourite.png)
+![screenshot](documents/readme/favourite_accordion.png)
+
+------
 
 "**_As an student user, I would like to_** _______________"
 
@@ -257,8 +271,14 @@ The project user stories have been met with the following features;
 
 ![screenshot](documents/readme/favourite_accordion.png)
 
+✅  Contribute School-Specific Slang:
+    As a student, I want to contribute slang that’s specific to my age, school type or region, so I can share it with other students who may find it relevant or interesting.<br>
+
+  ItScool provides:<br>
+    * A add slang page where users can add slang words that, pending approval, will be added to the dictionary allowing users to contribute, making the concept user centric. This can be seen [here](documents/readme/add_slang.png).<br>
+    
 ✅  See Slang Organized Alphabetically:
-    As a student, I want to see slang words organized by their first letter, so I can easily find terms that I hear frequently.
+    As a student, I want to see slang words organized by their first letter, so I can easily find terms that I hear frequently.<br>
 
   ItScool provides:<br>
       * A bootstrap accordion where students can browse slang words and their corresponding terminology grouped by the letter they begin with. This can be seen [here](documents/readme/accordion.png).<br>
@@ -266,13 +286,11 @@ The project user stories have been met with the following features;
 ✅   Report Incorrect or Inappropriate Content:
     As a student, I want to report slang entries that are incorrect, outdated, or inappropriate, so I can help maintain a positive and accurate dictionary.<br>
 
-
   ItScool provides:<br>
       * A delete slang word page where users can request a slang word and its related fields to be deleted from the dictionary if a users feels it is incorrect or innapropriate for the user groups.<br>
       * A clearly labelled delete slang page which can be navigated to from the nav bar.<br>
       * A simple, clear delete slang form that takes the slang word to be deleted and submits it to admin for approval.<br>
      
-
 ![screenshot](documents/readme/delete_nav.png)
 
 ✅  Save Favourite Slang:
@@ -284,12 +302,6 @@ The project user stories have been met with the following features;
      
 ![screenshot](documents/readme/result_favourite.png)
 ![screenshot](documents/readme/favourite_accordion.png)
-
-✅  Contribute School-Specific Slang:
-    As a student, I want to contribute slang that’s specific to my age, school type or region, so I can share it with other students who may find it relevant or interesting.<br>
-
-  ItScool provides:<br>
-    * A add slang page where users can add slang words that, pending approval, will be added to the dictionary allowing users to contribute, making the concept user centric. This can be seen [here](documents/readme/add_slang.png).<br>
 
 
 ##### back to [top](#table-of-contents)
@@ -319,9 +331,8 @@ The project user stories have been met with the following features;
     As a teacher or parent, I want to browse slang by letter to find terms more easily and understand common slang patterns.
 
   ItScool provides:<br>
-     
+     * a bootstrap accordion of all slangs listed alphabetically on all devices. The accordion can be seen [here](documents/readme/accordion.png).
 
-![screenshot]()
 
 ✅  Save Relevant Slang:
     As a teacher or parent, I want to be able to save slang words to a favourites list in my user dashboard that i can come back to as a reference point.
@@ -330,7 +341,6 @@ The project user stories have been met with the following features;
     * a favourites list for logged in and registered users available in the user dashboard.<br>
     * favourite buttons to allow logged in and registered users to add favourite slangs to their favourites list.<br>
      
-
 ![screenshot](documents/readme/favourite_list.png)
 
 ##### back to [top](#table-of-contents)
@@ -342,15 +352,16 @@ The project user stories have been met with the following features;
 ✅  review slang terms submitted by users before they are published, so I can ensure quality and appropriateness.
 
   ItScool provides:<br>
+    * a pending slang list where users have submitted request for slangs to be added to the dictionary by submitting the add slang form for users.
+    * Action button allowing the admin user to take appropriate action.
      
+![screenshot](documents/readme/action_buttons.png)
 
-![screenshot]()
-
-✅  edit or delete any slang term to correct inaccuracies, enforce content guidelines, and remove inappropriate entries.
+✅  delete any slang term to correct inaccuracies, enforce content guidelines, and remove inappropriate entries.
 
   ItScool provides:<br>
-    * an admin search function allowing admin to search slang words they wish to remove from the dictionary.<br>
-    * a confirmation modal to ensure admin confirm that they want to delete the slang entry, minimising mistakes.<br>
+    * an admin search function allowing admin to search slang words they wish to remove from the dictionary. This can be seen below.<br>
+    * a confirmation modal to ensure admin confirm that they want to delete the slang entry, minimising mistakes. This can be seen [here](documents/readme/delete_nav.png).<br>
      
 
 ![screenshot](documents/readme/admin_dashboard.png)
@@ -379,22 +390,9 @@ The project user stories have been met with the following features;
      
 ![screenshot](documents/readme/admin_nav.png)
 
-✅  
-
-  ItScool provides:<br>
-     
-
-![screenshot]()
-
-✅  
-
-  ItScool provides:<br>
-     
-
-![screenshot]()
-
-
 ##### back to [top](#table-of-contents)
+
+------
 
 ## Other Testing Methods
 
