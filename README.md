@@ -86,8 +86,6 @@ The target audience is for children, teenagers and adults trying to determine th
 
 ✅  browse slang terms by selecting a letter from A-Z, so I can easily find terms that start with a specific letter.
 
-✅  read about the purpose of this slang dictionary, so I can understand the context and relevance of the terms listed.
-
 ✅  as a new user, create an account by providing a username and password, so I can log in and use additional features.
 
 
