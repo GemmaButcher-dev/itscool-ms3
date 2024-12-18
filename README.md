@@ -46,9 +46,8 @@ View the live project [here!](https://itscool-project-b4212f408fa2.herokuapp.com
    * [Features left to implement](#features-left-to-implement)
 
 3. [Technologies used](#technologies-used)
-
-   * [Languages Used](#languages-used)
-   * [Frameworks, Programs and Libraries Used](#frameworks-programs-and-libraries-used)
+   * [Front-End Technologies](#front-end-technologies)
+   * [Back-End Technologies](#back-end-technologies)
 
 4. [Testing](#testing)
 
@@ -407,39 +406,48 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
 
 ## Technologies Used
 
-### Languages Used
 
-- ![HTML5](https://img.shields.io/static/v1?label=HTML&message=5&color=E34F26&logo=html5&logoColor=ffffff)
-    - [HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5) - Used as the base for markup text.
-- ![CSS3](https://img.shields.io/static/v1?label=CSS&message=3&color=1572B6&logo=css3&logoColor=ffffff)
-    - [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3) - Used as the base for cascading styles.
-- ![JavaScript](https://img.shields.io/static/v1?label=JavaScript&message=ES6&color=F7DF1E&logo=javascript&logoColor=ffffff)
-    - [JavaScript ES6](https://developer.mozilla.org/en-US/docs/Web/JavaScript) - Used as the base for interactive functionality.
-
-### Frameworks, Programs and Libraries Used
-
-1. [Bootstrap 5.3](https://getbootstrap.com/):
-   Bootstrap was used to assist with the responsiveness and styling of the website.
-2. [Google Fonts](https://fonts.google.com/):
-   Google fonts were used to import the 'Poppins' and 'Roboto' font into the html and css files which is used on all pages throughout the project.
-3. [Font Awesome](https://fontawesome.com/):
-   Font Awesome was used on all pages throughout the website to add icons for aesthetic and UX purposes.
-4. jQuery:
-   jQuery came with Bootstrap to make the app responsive.
-5. [Git](https://git-scm.com/):
-   Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
-6. [GitHub](https://github.com/):
-   GitHub is used to store the projects code after being pushed from Git and manage version control.
-7. [Balsamiq](https://balsamiq.com/):
+- [VS Code](https://code.visualstudio.com/) - Used as my primary IDE for coding.
+- [GitHub](https://github.com/) - Used as remote storage of my code online.
+- [Git](https://git-scm.com/) - Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
+- [Balsamiq](https://balsamiq.com/)- Used to create wireframes.
    Balsamiq was used to create the wireframes during the design process.
-8. [Am i responsive?](https://ui.dev/amiresponsive):
-   Am i reponsive was used to create the device mockup in README.md.
-9. [ahrefs](https://ahrefs.com/writing-tools/img-alt-text-generator):
-   ahrefs was used to help generate alt text for images.
-10. [Canva](https://www.canva.com/colors/color-palette-generator/):
-    Canva's logo generator was used to create a logo for the favicons,the title image and the 404 title image.
-11. [Lucid Cahrts](https://www.lucidchart.com/):
-    Lucid charts was used to create the entity relationship diagram.
+- [Am i responsive?](https://ui.dev/amiresponsive) - Am i reponsive was used to create the device mockup in README.md.
+- [ahrefs](https://ahrefs.com/writing-tools/img-alt-text-generator) - ahrefs was used to help generate alt text for images.
+- [Canva](https://www.canva.com/colors/color-palette-generator/) - Canva's logo generator was used to create a logo for the favicons,the title image and the 404 title image.
+- [Lucid Cahrts](https://www.lucidchart.com/) - Lucid charts was used to create the entity relationship diagram.
+
+### Front-End Technologies
+
+- [HTML](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5) - Used as the base for markup text.
+- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3) - Used as the base for cascading styles.
+- [jQuery 3.4.0](https://code.jquery.com/jquery/) - jQuery came with Bootstrap to make the app responsive.
+- [Bootstrap 5.3](https://getbootstrap.com/) - Bootstrap was used to assist with the responsiveness and styling of the website.
+- [Google Fonts](https://fonts.google.com/) - Google fonts were used to import the 'Poppins' and 'Roboto' font into the html and css files which is used on all pages throughout the project.
+- [Font Awesome](https://fontawesome.com/) - Font Awesome was used on all pages throughout the website to add icons for aesthetic and UX purposes.
+
+
+### Back-End Technologies
+
+- **Flask**
+    - [Flask 1.0.2](http://flask.pocoo.org/) - Used as a microframework.
+    - [Flask Blueprints](http://flask.pocoo.org/docs/1.0/blueprints/) - Used to split the python code for routes.
+    - [Flask Talisman](https://github.com/GoogleCloudPlatform/flask-talisman) - Used for security headers (HTTPS vs HTTP).
+    - [Jinja 2.10](http://jinja.pocoo.org/docs/2.10/) - Used for templating with Flask.
+    - [Werkzeug 0.16](https://werkzeug.palletsprojects.com/en/0.16.x/) - Used for password hashing, authentication, and authorization.
+- **Heroku**
+    - [Heroku](https://www.heroku.com) - Used for app hosting.
+- **Python**    
+    - [Python 3.6.7](https://www.python.org/) - Used as the back-end programming language.
+    - [MongoDB Atlas](https://www.mongodb.com/) - Used to store my database in the 'cloud'.
+    - [PyMongo 3.8.0](https://api.mongodb.com/python/current/) - Used as the Python API for MongoDB.
+    - [Python Slugify 3.0.2](https://pypi.org/project/python-slugify/) - Used to generate user-friendly URLs.
+    - [Python dotenv](https://github.com/theskumar/python-dotenv) - Used to get/set values in `.env` file.
+- **FuzzyWuzzy** 
+    - [Fuzzywuzzy](https://pypi.org/project/fuzzywuzzy/) - Used to partial match search input to the database.
+
+
+##### back to [top](#table-of-contents)
 
 ## Testing
 
