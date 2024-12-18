@@ -161,26 +161,26 @@ The project user stories have been met with the following features;
 ✅  click on slang terms to view their definitions and sample usage, so I can understand the meaning and context.
 
    ItScool provides:<br>
-      * A bootstrap accordion which when clicked, reveals slang words listed with their corresponding definitions. Viewable [here](documents/readme/accordion.png).<br>
-      * A search bar that displays search results to the user. The search bar can be seen below.<br>
+      * a bootstrap accordion which when clicked, reveals slang words listed with their corresponding definitions. Viewable [here](documents/readme/accordion.png).<br>
+      * a search bar that displays search results to the user. The search bar can be seen below.<br>
 
 ![screenshot](documents/readme/search_function.png)
 
 ✅  search for slang terms by typing keywords or phrases, so I can quickly find the slang term I'm interested in.
 
    ItScool provides:<br>
-     * A search bar function that returns searches that match key words. The search bar can be seen [here](documents/readme/search_function.png).<br>
+     * a search bar function that returns searches that match key words. The search bar can be seen [here](documents/readme/search_function.png).<br>
 
 
 ✅  browse slang terms by selecting a letter from A-Z, so I can easily find terms that start with a specific letter.
 
    ItScool provides:<br>
-     * A bootstrap accordion of all slangs listed alphabetically on all devices. The accordion can be seen [here](documents/readme/accordion.png).
+     * a bootstrap accordion of all slangs listed alphabetically on all devices. The accordion can be seen [here](documents/readme/accordion.png).
 
 ✅  as a new user, create an account by providing a username and password, so I can log in and use additional features.
 
    ItScool provides:<br>
-     * A signup page for users to register as a user with a signup form.<br>
+     * a signup page for users to register as a user with a signup form.<br>
      * This function is a create part of CRUD functionality for this project. It allows the user to create a profile with a username and password.
 
      Signup page is shown below.
@@ -199,7 +199,7 @@ The project user stories have been met with the following features;
 ✅  as a returning user, I want to log in with my username and password, so I can access my account.<br>
 
   ItScool provides:<br>
-      * A login page for users to login with their username and password.<br>
+      * a login page for users to login with their username and password.<br>
 
 ![screenshot](documents/readme/login.png)
 
@@ -212,7 +212,7 @@ The project user stories have been met with the following features;
 
     Examples of a flash message is shown below.
 
-![screenshot]()
+![screenshot](documents/readme/admin_flash.png)
 
 ✅  access a user dashboard when logged in.
 
@@ -325,9 +325,11 @@ The project user stories have been met with the following features;
     As a teacher or parent, I want to be able to save slang words to a favourites list in my user dashboard that i can come back to as a reference point.
 
   ItScool provides:<br>
+    * a favourites list for logged in and registered users available in the user dashboard.<br>
+    * favourite buttons to allow logged in and registered users to add favourite slangs to their favourites list.<br>
      
 
-![screenshot]()
+![screenshot](documents/readme/favourite_list.png)
 
 ##### back to [top](#table-of-contents)
 
@@ -340,26 +342,21 @@ The project user stories have been met with the following features;
 
 ![screenshot]()
 
-✅   manage user accounts, including editing and deleting accounts if needed, so I can enforce rules and maintain site integrity.
-
-  ItScool provides:<br>
-     
-
-![screenshot]()
-
 ✅  edit or delete any slang term to correct inaccuracies, enforce content guidelines, and remove inappropriate entries.
 
   ItScool provides:<br>
+    * an admin search function allowing admin to search slang words they wish to remove from the dictionary.<br>
+    * a confirmation modal to ensure admin confirm that they want to delete the slang entry, minimising mistakes.<br>
      
 
-![screenshot]()
+![screenshot](documents/readme/admin_dashboard.png)
 
 ✅  edit, delete or approve pending approval requests from users requesting a slang word to be added to the app via an admin     dashboard.
 
   ItScool provides:<br>
      
 
-![screenshot]()
+![screenshot](documents/readme/admin_dashboard.png)
 
 ✅  search for slang words to be deleted from the app in the admin dashboard.
 
