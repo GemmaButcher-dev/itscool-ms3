@@ -58,6 +58,8 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 |404.html              |[view here](documents/testing/markup_validator/404.html_validator.png)             | Passed |
 |CSS                   |[view here](documents/testing/markup_validator/w3c_css.png)   | Passed. Warnings due to root variables not able to be tested|
 
+##### back to [top](#table-of-contents)
+
 
 ## Accesibility Testing
 
@@ -108,6 +110,8 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 ### Summary
 
 After initially correcting the code format and it passing testing using the CI python linter it seemed that the indentation after breaking a line due to line length wasnt quite aesthetically correct, although meeting pep8 guidlines. The decision was made to use a python beautifier tool which then amended the code and changed the line lengths and indentations. To test if the beautifier tool was pep8 comliant the beautified code was re-run through the CI python linter which then logged warnings for some of the lines being too long. The app.py file was the reverted back to the tested and passed version that was verified by CI python linter, as this meant that  the beautifier tool was not pep8 compliant. As the criteria for this project is that python is to be pep8 compliant, using results and testing of the CI python linter was the most reliable approach.
+
+##### back to [top](#table-of-contents)
 
 
 ## Fuzzywuzzy Testing
@@ -295,6 +299,8 @@ The project user stories have been met with the following features;
 
 ![screenshot]()
 
+##### back to [top](#table-of-contents)
+
 "**_As a teacher or parent, I would like to_** _______________"
 
 ✅  Understand Student Language:
@@ -328,6 +334,8 @@ The project user stories have been met with the following features;
      
 
 ![screenshot]()
+
+##### back to [top](#table-of-contents)
 
 "**_As an administrator, I would like to_** _______________"
 
@@ -395,6 +403,7 @@ The project user stories have been met with the following features;
 ![screenshot]()
 
 
+##### back to [top](#table-of-contents)
 
 ## Other Testing Methods
 
@@ -436,3 +445,5 @@ It is best to combine manual and automated testing. Automated tests will not tes
  * A large amount of testing was carried out to ensure that all pages, buttons, feedback and functions were working correctly.
  * Friends and family members were asked to review the site and documentation to point out any bugs and/or user 
       experience issues. 
+
+##### back to [top](#table-of-contents)

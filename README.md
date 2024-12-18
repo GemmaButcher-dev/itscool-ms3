@@ -162,6 +162,9 @@ The target audience is for children, teenagers and adults trying to determine th
 
 ✅  navigate easily to the admin dashboard via a navbar. 
 
+##### back to [top](#table-of-contents)
+
+
 ### Entity Relationship Diagram
 
 #### Lucid Charts
@@ -200,6 +203,9 @@ The target audience is for children, teenagers and adults trying to determine th
 
 ![screenshot](static/images/ItsCool_title.webp)
 
+##### back to [top](#table-of-contents)
+
+
 ### Wireframes
 
 Wireframes were created using [Balsamiq](https://balsamiq.com/) and can all be found in the [wireframes folder](documents/wireframes).
@@ -233,6 +239,7 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
 
 ![screenshot](documents/wireframes/mobile_admin.png)
 
+##### back to [top](#table-of-contents)
 ------
 
 ## Features
@@ -307,7 +314,7 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
 
    * The logout link is accessible from the navbar by either expanding it using the 'hamburger' icon on smaller devices or from the fixed width navbar on larger screens. This can be viewed [here](documents/readme/logout.png).
 
-
+##### back to [top](#table-of-contents)
 
 #### User Dashboard
 
@@ -391,6 +398,9 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
    #### Error Handling
 
    * Error handling is built directly into the app functions so should the app data not load the function will handle the error and will show an error by way or stating 'error fetching data'. An example of this can be viewed [here](documents/readme/error_handling.png).
+
+##### back to [top](#table-of-contents)
+
 
 ### Features Left To Implement
 
@@ -505,6 +515,8 @@ $ git clone https://github.com/GemmaButcher-dev/itscool-ms3.git
 
 Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop) to retrieve pictures for some of the buttons and more detailed explanations of the above process.
 
+##### back to [top](#table-of-contents)
+
 ## Credits
 
 ### Code
@@ -545,6 +557,7 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
   * Tutor support at Code Institute for their support.
   * ChatGPT for problem solving out of hours.
 
+##### back to [top](#table-of-contents)
 
 ## Gitpod Reminders
 
@@ -631,6 +644,7 @@ We continually tweak and adjust this template to help give you the best experien
 
 **December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
 
+##### back to [top](#table-of-contents)
 ------
 
 ## FAQ about the uptime script
@@ -669,3 +683,5 @@ Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` f
 ---
 
 Happy coding!
+
+##### back to [top](#table-of-contents)
