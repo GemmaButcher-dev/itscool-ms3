@@ -161,27 +161,21 @@ The project user stories have been met with the following features;
 ✅  click on slang terms to view their definitions and sample usage, so I can understand the meaning and context.
 
    ItScool provides:<br>
-      * A bootstrap accordion which when clicked, reveals slang words listed with their corresponding definitions<br>
-      * A search bar that displays search results to the user.
-
-      The accordion is viewable [here](documents/readme/accordion.png) and the search bar can be seen below.
+      * A bootstrap accordion which when clicked, reveals slang words listed with their corresponding definitions. Viewable [here](documents/readme/accordion.png).<br>
+      * A search bar that displays search results to the user. The search bar can be seen below.<br>
 
 ![screenshot](documents/readme/search_function.png)
 
 ✅  search for slang terms by typing keywords or phrases, so I can quickly find the slang term I'm interested in.
 
    ItScool provides:<br>
-     * A search bar function that returns searches that match key words.<br>
-
-     The search bar can be seen [here](documents/readme/search_function.png).
+     * A search bar function that returns searches that match key words. The search bar can be seen [here](documents/readme/search_function.png).<br>
 
 
 ✅  browse slang terms by selecting a letter from A-Z, so I can easily find terms that start with a specific letter.
 
    ItScool provides:<br>
-     * A bootstrap accordion of all slangs listed alphabetically on all devices. <br>
-
-     The accordion can be seen [here](documents/readme/accordion.png).
+     * A bootstrap accordion of all slangs listed alphabetically on all devices. The accordion can be seen [here](documents/readme/accordion.png).
 
 ✅  as a new user, create an account by providing a username and password, so I can log in and use additional features.
 
@@ -202,7 +196,7 @@ The project user stories have been met with the following features;
 
 "**_As a registered user, I would like to_** _______________"
 
-✅  as a returning user, I want to log in with my username and password, so I can access my account.
+✅  as a returning user, I want to log in with my username and password, so I can access my account.<br>
 
   ItScool provides:<br>
       * A login page for users to login with their username and password.<br>
@@ -238,14 +232,14 @@ The project user stories have been met with the following features;
 ✅  to request to edit slang terms I’ve added to correct or improve definitions, ensuring the information stays accurate and up-to-date.
 
   ItScool provides:<br>
-      * A add slang form where any slang or revision of slang will be reviewed by admin to update appropriately.
+      * A add slang form where any slang or revision of slang will be reviewed by admin to update appropriately.<br>
       * This is the update functionality within the CRUD functionality. This can be seen [here](documents/readme/add_slang.png).
 
 
 ✅  request to delete slang terms that are no longer relevant or are duplicates, so the dictionary remains clean and useful.
 
   ItScool provides:<br>
-      * A delete slang page for logged in users which can be navigated to in the navbar.
+      * A delete slang page for logged in users which can be navigated to in the navbar.<br>
       * Delete slang form on the delete slang page that once submitted is subject to review by admin. This is part of the delete functionality within CRUD. 
      
 ![screenshot](documents/readme/delete_slang.png)
@@ -256,7 +250,9 @@ The project user stories have been met with the following features;
     As a student, I want to browse slang terminology so I can understand the informal language and slang used by peers in the school environment and elsewhere.
 
   ItScool provides:<br>
-      * A bootstrap accordion where students can browse slang words and their corresponding terminology.
+      * A bootstrap accordion where students can browse slang words and their corresponding terminology, seen [here](documents/readme/accordion.png).<br>
+      * A search bar enabling the user to search for slang terms, that are benefot from partial matching using fuzzywuzzy. This displays partial match results due to the nature of slang spellings. This can be seen [here](documents/readme/search_function.png).<br>
+      * A search result area displaying the results of the search. Viewable [here](documents/readme/search_results.png).
      
 
 ![screenshot](documents/readme/favourite_accordion.png)
@@ -265,36 +261,35 @@ The project user stories have been met with the following features;
     As a student, I want to see slang words organized by their first letter, so I can easily find terms that I hear frequently.
 
   ItScool provides:<br>
-      * A bootstrap accordion where students can browse slang words and their corresponding terminology grouped by the letter they begin with. This can be seen [here](documents/readme/accordion.png).
+      * A bootstrap accordion where students can browse slang words and their corresponding terminology grouped by the letter they begin with. This can be seen [here](documents/readme/accordion.png).<br>
 
 ✅   Report Incorrect or Inappropriate Content:
-    As a student, I want to report slang entries that are incorrect, outdated, or inappropriate, so I can help maintain a positive and accurate dictionary.
+    As a student, I want to report slang entries that are incorrect, outdated, or inappropriate, so I can help maintain a positive and accurate dictionary.<br>
 
 
   ItScool provides:<br>
-      * A delete slang word page where users can request a slang word and its related fields to be deleted from the dictionary if a users feels it is incorrect or innapropriate for the user groups.
-      * A clearly labelled delete slang page which can be navigated to from the nav bar.
-      * A simple, clear delete slang form that takes the slang word to be deleted and submits it to admin for approval.
+      * A delete slang word page where users can request a slang word and its related fields to be deleted from the dictionary if a users feels it is incorrect or innapropriate for the user groups.<br>
+      * A clearly labelled delete slang page which can be navigated to from the nav bar.<br>
+      * A simple, clear delete slang form that takes the slang word to be deleted and submits it to admin for approval.<br>
      
 
 ![screenshot](documents/readme/delete_nav.png)
 
 ✅  Save Favourite Slang:
-   As a student, I want to be able to save my favourite slang words to a favourites list in my user dashboard.
+   As a student, I want to be able to save my favourite slang words to a favourites list in my user dashboard.<br>
 
   ItScool provides:<br>
-      * A heart shaped favourite button that allows users to add favourite slang words to be added to a favourites list in their user profile dashboard page.
-      * Favourite buttons located in both the accordion and search results sections, next to slang words. These can be seen below.
+      * A heart shaped favourite button that allows users to add favourite slang words to be added to a favourites list in their user profile dashboard page.<br>
+      * Favourite buttons located in both the accordion and search results sections, next to slang words. These can be seen below.<br>
      
-
 ![screenshot](documents/readme/result_favourite.png)
 ![screenshot](documents/readme/favourite_accordion.png)
 
 ✅  Contribute School-Specific Slang:
-    As a student, I want to contribute slang that’s specific to my age, school type or region, so I can share it with other students who may find it relevant or interesting.
+    As a student, I want to contribute slang that’s specific to my age, school type or region, so I can share it with other students who may find it relevant or interesting.<br>
 
   ItScool provides:<br>
-    * A add slang page where users can add slang words that ,pending approval, will be added to the dictionary allowing users to contribute, making the concept user centric. This can be seen [here](documents/readme/add_slang.png).
+    * A add slang page where users can add slang words that, pending approval, will be added to the dictionary allowing users to contribute, making the concept user centric. This can be seen [here](documents/readme/add_slang.png).<br>
 
 
 ##### back to [top](#table-of-contents)
@@ -302,20 +297,21 @@ The project user stories have been met with the following features;
 "**_As a teacher or parent, I would like to_** _______________"
 
 ✅  Understand Student Language:
-    As a teacher or parent, I want to look up slang terms and definitions, so I can understand the language students are using in social and school settings. 
+    As a teacher or parent, I want to look up slang terms and definitions, so I can understand the language students are using in social and school settings.<br>
 
   ItScool provides:<br>
-     
+    * A search bar enabling the user to search for slang terms, that are benefot from partial matching using fuzzywuzzy. This displays partial match results due to the nature of slang spellings. This can be seen [here](documents/readme/search_function.png).<br>
+    * A search result area displaying the results of the search. Viewable [here](documents/readme/search_results.png).<br>
+    * A bootstrap accordion enabling the user to browse slang terms that they may find relevant or may be looking for. This can be seen [here](documents/readme/accordion.png).<br>
 
-![screenshot]()
 
 ✅  View Related Terms and Meanings:
     As a teacher or parent, I want to be able to search for slang words that i have heard and want to find out their corresponding definition and appropriateness.
 
   ItScool provides:<br>
+    * A search bar enabling the user to search for slang terms, that are benefot from partial matching using fuzzywuzzy. This displays partial match results due to the nature of slang spellings. This can be seen [here](documents/readme/search_function.png).<br>
+    * A search result area displaying the results of the search. Viewable [here](documents/readme/search_results.png).<br>
      
-
-![screenshot]()
 
 ✅  Browse by Letter or Category:
     As a teacher or parent, I want to browse slang by letter to find terms more easily and understand common slang patterns.
