@@ -294,6 +294,8 @@ The project user stories have been met with the following features;
 
 ##### back to [top](#table-of-contents)
 
+------
+
 "**_As a teacher or parent, I would like to_** _______________"
 
 ✅  Understand Student Language:
@@ -333,6 +335,8 @@ The project user stories have been met with the following features;
 
 ##### back to [top](#table-of-contents)
 
+------
+
 "**_As an administrator, I would like to_** _______________"
 
 ✅  review slang terms submitted by users before they are published, so I can ensure quality and appropriateness.
@@ -351,33 +355,29 @@ The project user stories have been met with the following features;
 
 ![screenshot](documents/readme/admin_dashboard.png)
 
-✅  edit, delete or approve pending approval requests from users requesting a slang word to be added to the app via an admin     dashboard.
+✅  edit, delete or approve pending approval requests from users requesting a slang word to be added to the app via an admin dashboard.
 
   ItScool provides:<br>
+    * action buttons allowing the admin user to add, delete or edit a pending slang.<br>
+    * an edit button that triggers an edit modal enabling the admin user to edit the pending slang before approval. This can be seen [here](documents/readme/edit_modal.png).<br>
      
+![screenshot](documents/readme/action_buttons.png)
 
-![screenshot](documents/readme/admin_dashboard.png)
-
-✅  search for slang words to be deleted from the app in the admin dashboard.
-
-  ItScool provides:<br>
-     
-
-![screenshot]()
 
 ✅  use a form to add new slang words to the app.
 
   ItScool provides:<br>
+    * an add slang form located in the admin dashboard where the admin can add a slang term and its corresponding fields without having to submit it for approval, streamlining the process for admin.
      
 
-![screenshot]()
+![screenshot](documents/readme/add_slang_admin.png)
 
 ✅  navigate easily to the admin dashboard via a navbar.
 
   ItScool provides:<br>
+    * a navbar specifically for admin users, which can be seen below.<br>
      
-
-![screenshot]()
+![screenshot](documents/readme/admin_nav.png)
 
 ✅  
 
