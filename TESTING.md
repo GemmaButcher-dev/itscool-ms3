@@ -427,6 +427,15 @@ It is particuarly useful as it can encompass a wide range of input from stakehol
 | Favourite Button | Click favourite button on search results and accordion slang items on index page. | Slang appears in favourites list in user dashboard | Pass |
 | Admin Dashboard | Navigate to admin dashboard, check for flash message | Flash message appears in dashboard when navigated to | Pass |
 | Admin Delete Slang | Input slang to delete, select from results and use confirmation modal to confirm. Re-search for deleted slang | Returns close matches, modal shows when delete button is clicked and removes from app, verified on re search | Pass |
+| Admin Pending Slangs | Add slang as user, log in as admin to check updated list | Request is shown in the pending slangs list and updates | Pass |
+| Admin Action Button (Approve) | Click approval button, check success by searching for approved slang. | Flash message appears with success. Slang is added to database | Pass |
+| Admin Action Button (Delete) | Click delete button, confirm in modal. | Confirming deletion removes slang from pending list and database | Pass |
+| Admin Action Button (Edit) | Click edit button |  Edit modal triggered and shows | Pass |
+| Admin Edit Modal | Enter input to edit pending slang, confirm or cancel | Pending slang is updated with edits upon saving changes, modal shuts upon clicking close button | Pass |
+| Add Slang Admin | Enter input to add slang | Search for new slang added using search bar | Pass |
+| Confirmation Modal | click delete slang button in admin dashboard & delete slang user form | Modal confirms with success message and closes upon clicking close button | Pass |
+| Footer | Check current year displayed in footer | Current year is displayed in footer after copyright text | Pass |
+
 
 
 
