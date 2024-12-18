@@ -24,15 +24,16 @@
 
 The complete site was tested on the lighthouse facility in Google Developer Tools to assess the overall performance of the site. The site meets the pass criteria and you can see the results in the below table.
 
-| Page         | Screenshot                                                                        | Notes          |
-|--------------|-----------------------------------------------------------------------------------|----------------|
-|Home Screen   |![screenshot](static/images/documents/testing/lighthouse/index_lighthouse.png)     |  Meets criteria|
-|Login         |![screenshot](static/images/documents/testing/lighthouse/login_lighthouse.png)     |  Meets criteria|                        
-|Sign Up       |![screenshot](static/images/documents/testing/lighthouse/signup_lighthouse.png)    |  Meets criteria|                        
-|Dashboard     |![screenshot](static/images/documents/testing/lighthouse/dashboard_lighthouse.png) |  Meets criteria|                        
-|Add slang     |![screenshot](static/images/documents/testing/lighthouse/add_slang_lighthouse.png) |  Meets criteria|                        
-|Delete slang  |![screenshot](static/images/documents/testing/lighthouse/delete_lighthouse.png)    |  Meets criteria|                        
-|404           |![screenshot](static/images/documents/testing/lighthouse/404_lighthouse.png)       |  Meets criteria. Lower SEO but as a 404 page this is not too concerning|
+| Page         | Screenshot                                                      | Notes          |
+|--------------|-----------------------------------------------------------------|----------------|
+| Index Page |![screenshot](documents/testing/lighthouse/index_lighthouse.png)  |  Meets criteria|
+|Login   |![screenshot](documents/testing/lighthouse/login_lighthouse.png) |  Meets criteria|                        
+| Sign Up |![screenshot](documents/testing/lighthouse/signup_lighthouse.png) |  Meets criteria|                        
+|User Dashboard |![screenshot](documents/testing/lighthouse/dashboard_lighthouse.png) |  Meets criteria |                        
+| Add slang |![screenshot](documents/testing/lighthouse/add_slang_lighthouse.png) |  Meets criteria |                        
+| Delete slang  |![screenshot](documents/testing/lighthouse/delete_lighthouse.png)    |  Meets criteria|
+| Admin Dashboard |![screenshot](documents/testing/lighthouse/admin_dashboard_lighthouse.png)    |  Meets criteria |                         
+|404       |![screenshot](documents/testing/lighthouse/404_lighthouse.png)       |  Meets criteria. Lower SEO but as a 404 page this is not too concerning |
 
 
 ## Responsiveness & Compatability Testing
@@ -46,7 +47,7 @@ To ensure a broad range of users can successfully use this site, I tested it acr
 - Opera *v.56*
 - Internet Explorer *v.11*
 
-For testing compatibility, I created a testing matrix to test across multiple devices and browsers. The test matrix can be found [here](app/testing/test-matrix.png). A brief overview:
+For testing compatibility, I created a testing matrix to test across multiple devices and browsers. The test matrix can be found [here]().
 
 
 ## Code Validation
@@ -130,15 +131,9 @@ After initially correcting the code format and it passing testing using the CI p
   * 70% match threshold seems to return close enough matches with enough tollerance and flexibility for spelling mistakes for all users.
 
 ## Bug Fixes
+  * please see the [development](DEVELOPMENT.md) file for bug fix information.
 
-### 
-
-
-
-### 
-
-
-
+------
 
 ## Testing User Stories from User Experience (UX) Section
 
@@ -470,7 +465,7 @@ It is best to combine manual and automated testing. Automated tests will not tes
 ## Further Testing
 
  * A large amount of testing was carried out to ensure that all pages, buttons, feedback and functions were working correctly.
- 
+
  * Friends and family members were asked to review the site and documentation to point out any bugs and/or user 
       experience issues.
 
