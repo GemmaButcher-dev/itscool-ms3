@@ -434,11 +434,15 @@ It is particuarly useful as it can encompass a wide range of input from stakehol
 | Admin Edit Modal | Enter input to edit pending slang, confirm or cancel | Pending slang is updated with edits upon saving changes, modal shuts upon clicking close button | Pass |
 | Add Slang Admin | Enter input to add slang | Search for new slang added using search bar | Pass |
 | Confirmation Modal | click delete slang button in admin dashboard & delete slang user form | Modal confirms with success message and closes upon clicking close button | Pass |
-| Footer | Check current year displayed in footer | Current year is displayed in footer after copyright text | Pass |
+| Auto date change in footer | Check year is present and correct on loading | Shows current year in span in footer | Pass |
+| 404 Page | Type unknown url extention in browser | Page loads when a page cannot be found or error occurs | Pass |
+| 404 take me home button | Click take me home button | Redirects to index and links to index.html page on click | Pass |
+| 404 redirect | Check redirect after 10 seconds of inactivity | Redirects to index after 10 seconds | Pass |
 
 
+##### back to [top](#table-of-contents)
 
-
+------
 
 
 
@@ -466,7 +470,16 @@ It is best to combine manual and automated testing. Automated tests will not tes
 ## Further Testing
 
  * A large amount of testing was carried out to ensure that all pages, buttons, feedback and functions were working correctly.
+ 
  * Friends and family members were asked to review the site and documentation to point out any bugs and/or user 
-      experience issues. 
+      experience issues.
+
+  ### School Testing
+
+  * The app was tested by a local primary school where family attend. Staff member were asked for feedback on the concept, design, experience and additional functionalities desired. Here is theor summary to be considered for future development...
+
+  'Thank you for asking us to review this project. Several members of staff have had a look at this and found it useful. We all agreed that we had not seen anything like this before and to us it is a totally new concept. The overall design is easy to use, and we feel it is appropriate for children and adults that would possibly want to use it. We liked the design, especially the blackboard design. We also liked the colours. Although some of our students may be too young to use it we feel that students aged 10+ would be able to use it without much supervision subject to how content is monitored.
+   As teachers professionally and some of us as parents, we feel it would be useful both in a school setting and recreationally. We particuarly liked the heart button and favourites list. 
+   Our constructive criticism is that it would be nice if you could take off a word and definition from the list. As teachers it would also be nice to be able to add our thoughts about a word and perhaps a teachers area, community and discussion thread would be very good. Maybe like a forum? We hope you find this feedback useful and look forward to looking at the finished product'.
 
 ##### back to [top](#table-of-contents)
