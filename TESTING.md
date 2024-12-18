@@ -406,6 +406,18 @@ It is particuarly useful as it can encompass a wide range of input from stakehol
 
 | **Feature**          | **Test Details**           | **Expected results**                      | **Pass/Fail** |                                             
 | :-- | :-- | :-- | :-- |
+| ItScool Nav Link | Click to redirect to index page | Links to start page, except when modal displayed | Pass |
+| Signup Nav Link | Click to direct to signup page | Links to signup page, except when modal displayed or logged in| Pass |
+| Login Nav Link | Click to direct to Login page | Links to login page, except when modal displayed and currently logged in | Pass |
+| Logout Nav Link | Click to logout | Logs out unless already logged out. redirects to login page | Pass |
+| User Dashboard nav link | Click to direct to user dashboard | Links to user dashboard, visible when logged in as user | Pass |
+| Add Slang Nav Link | Click to direct to add slang page| Links to add slang, visible when logged in as user | Pass |
+| Remove Slang Nav Link | Click to direct to remove slang page| Links to remove slang, visible when logged in as user | Pass |
+| Admin Dashboard Nav Link | Click to direct to admin dashboard | Links to admin dashboard, visible when logged in as admin | Pass |
+| Index Search Slang | Enter a slang word verified in database, enter close match | Displays exact or close match with related fields | Pass |
+| Accordion | Click headings and check verified slangs appear to all users | Displays slangs when expanded grouped by letter under relevant headings | Pass |
+| Add Slang Nav Link| Click to direct to add slang page| Links to add slang, visible when logged in as user | Pass |
+
 
 
 ### Automated Testing
