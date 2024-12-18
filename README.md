@@ -6,63 +6,63 @@ Welcome to
 View the live project [here!](https://itscool-project-b4212f408fa2.herokuapp.com/index)
 
 ## Table of Contents
-1. [UX](#ux)
+1. [**UX**](#ux)
 
-   * [Project Goals](#project-goals)
-   * [User Goals](#user-goals)
-   * [Entity Reltionship Diagram](#entity-relationship-diagram)
-      - [Lucid Charts](#lucid-charts)
-   * [Design Choices](#design-choices)
-      - [Colour Scheme](#colour-scheme)
-      - [Typography](#typography)
-      - [Imagery](#imagery)
-   * [Wireframes](#wireframes)
+   * [**Project Goals**](#project-goals)
+   * [**User Goals**](#user-goals)
+   * [**Entity Reltionship Diagram**](#entity-relationship-diagram)
+      - [**Lucid Charts**](#lucid-charts)
+   * [**Design Choices**](#design-choices)
+      - [**Colour Scheme**](#colour-scheme)
+      - [**Typography**](#typography)
+      - [**Imagery**](#imagery)
+   * [**Wireframes**](#wireframes)
 
-2. [Features](#features)
+2. [**Features**](#features)
 
-   * [Navigation Bar](#navigation-bar)
-   * [Search Slang Function](#search-slang-function)
-      - [Input and Button](#input-and-button)
-      - [Search Results](#search-results)
-   * [Accordion](#accordion)
-   * [Sign Up](#sign-up)
-   * [Log In](#log-in)
-   * [Logout](#log-out)
-   * [Add Slang Word](#add-slang-word)
-   * [Create username](#create-username)
-   * [Create password](#create-password)
-   * [User dashboard](#user-dashboard)
-   * [Admin Dashboard](#admin-dashboard)
-      - [Search Function](#search-function)
-      - [Pending Slangs](#pending-slangs)
-      - [Action Buttons](#action-buttons)
-      - [Add Slang Form](#add-slang-form)
-   * [Favourites](#favourites)
-      - [Favourite Button](#favourite-button)
-      - [Favourites List](#favourites-list)
-   * [Footer](#footer)
-   * [404 Page](#404-page)
-   * [Error Handling](#error-handling)
-   * [Features left to implement](#features-left-to-implement)
+   * [**Navigation Bar**](#navigation-bar)
+   * [**Search Slang Function**](#search-slang-function)
+      - [**Input and Button**](#input-and-button)
+      - [**Search Results**](#search-results)
+   * [**Accordion**](#accordion)
+   * [**Sign Up**](#sign-up)
+   * [**Log In**](#log-in)
+   * [**Logout**](#log-out)
+   * [**Add Slang Word**](#add-slang-word)
+   * [**Create username**](#create-username)
+   * [**Create password**](#create-password)
+   * [**User dashboard**](#user-dashboard)
+   * [**Admin Dashboard**](#admin-dashboard)
+      - [**Search Function**](#search-function)
+      - [**Pending Slangs**](#pending-slangs)
+      - [**Action Buttons**](#action-buttons)
+      - [**Add Slang Form**](#add-slang-form)
+   * [**Favourites**](#favourites)
+      - [**Favourite Button**](#favourite-button)
+      - [**Favourites List**](#favourites-list)
+   * [**Footer**](#footer)
+   * [**404 Page**](#404-page)
+   * [**Error Handling**](#error-handling)
+   * [**Features left to implement**](#features-left-to-implement)
 
-3. [Technologies used](#technologies-used)
-   * [Front-End Technologies](#front-end-technologies)
-   * [Back-End Technologies](#back-end-technologies)
+3. [**Technologies used**](#technologies-used)
+   * [**Front-End Technologies**](#front-end-technologies)
+   * [**Back-End Technologies**](#back-end-technologies)
 
-4. [Testing](#testing)
+4. [**Testing**](#testing)
 
-5. [Deployment](#deployment)
+5. [**Deployment**](#deployment)
 
-   * [GitHub Pages](#github-pages)
-   * [Forking the GitHub Repository](#forking-the-github-repository)
-   * [Making a Local Clone](#making-a-local-clone)
+   * [**GitHub Pages**](#github-pages)
+   * [**Forking the GitHub Repository**](#forking-the-github-repository)
+   * [**Making a Local Clone**](#making-a-local-clone)
 
-6. [Credits](#credits)
+6. [**Credits**](#credits)
 
-   * [Content](#content)
-   * [Media](#media)
-   * [Code](#code)
-   * [Acknowledgements](#acknowledgements)
+   * [**Content**](#content)
+   * [**Media**](#media)
+   * [**Code**](#code)
+   * [**Acknowledgements**](#acknowledgements)
 
 ------
 
@@ -167,7 +167,7 @@ The target audience is for children, teenagers and adults trying to determine th
 
 ### Entity Relationship Diagram
 
-#### Lucid Charts
+   **Lucid Charts**
 
    * The starting point for the entity relationships was drawn up as a entity relationship diagram using [lucid charts](https://www.lucidchart.com/).
 
@@ -426,6 +426,7 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
 - [ahrefs](https://ahrefs.com/writing-tools/img-alt-text-generator) - ahrefs was used to help generate alt text for images.
 - [Canva](https://www.canva.com/colors/color-palette-generator/) - Canva's logo generator was used to create a logo for the favicons,the title image and the 404 title image.
 - [Lucid Cahrts](https://www.lucidchart.com/) - Lucid charts was used to create the entity relationship diagram.
+- [Favicon Generator](https://favicon.io/) - Favicon Generator created the favicon icons and provided sitewebmanifest.
 
 ### Front-End Technologies
 
@@ -526,10 +527,8 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
   * [Google Developer Tools](https://developer.chrome.com/docs/devtools) : For problem solving with layout and managing css 
     overrides and use of console.
   * [ahref](https://ahrefs.com/writing-tools/img-alt-text-generator) : For image alt text.
-  * Favicon sitemanifest and header tags were provided by [Favicon Generator](https://favicon.io/)
+  * Favicon sitemanifest and header tags were provided by [Favicon Generator](https://favicon.io/).
   * ChatGPT for problem solving out of hours and providing help with function formatting.
-  * 
-  * 
    
 
 ### Content
@@ -543,8 +542,7 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
 
 ### Media
 
-  * All background images were sourced at [canva](https://www.canva.com/)python3 app.py
-  
+  * All background images were sourced at [canva](https://www.canva.com/).
   * [My Instants](https://www.myinstants.com/)
   * Image titles were created using [canva](https://www.canva.com/)
   * Favicon icons and png files were generated by [Favicon Generator](https://favicon.io/)
