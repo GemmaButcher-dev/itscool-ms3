@@ -9,6 +9,7 @@
         -[Bootstrap](#bootstrap)
         -[script.js](#scriptjs)
 6. [Box Shadows](#box-shadows)
+7. [Bug Fixes](#bug-fixes)
 ------
 
 ## Project Board
@@ -101,3 +102,9 @@
 
 ![screenshot](documents/development/box_shadow.png)
 
+## Bug Fixes
+
+* There was an issue with the cancel button in the confirmation modal. After lots of testing the only way to fix this was to declare the confirm button variable in the html file. This allowed the file to run and exeecute as expected. This does however mean that the variable shows as undefined in the js hint testing. This is expected and has been logged. This can be seen [here](documents/testing/jshint_testing.png)
+* safari render issue
+* heroku tail log error
+* heroku testing deployment.
