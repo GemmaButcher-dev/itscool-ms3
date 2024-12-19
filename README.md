@@ -309,55 +309,62 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
 
 #### User Dashboard
 
-   * There is a dashboard that displays the users profile and a list of favourited slang words appear.
+   * There is a dashboard that displays the users profile and a list of favourited slang words appear.<br>
 
    * The user can navigate here upon logging in successfully using their username and password on the login page.
-   This can be viewed [here](documents/readme/user_dashboard.png).
+   This can be viewed [here](documents/readme/user_dashboard.png).<br>
 
 
 #### Admin Dashboard
 
-   * Admin users are able to access an admin dashboard via the navbar when logged in successfully.
+   * Admin users are able to access an admin dashboard via the navbar when logged in successfully.<br>
+![screenshot](documents/readme/admin_dashboard.png)
 
    ##### Search Function
 
-   * Here admin can search for a slang word to delete from the dictionary. There is a search input box and a search button which then produces results found.
+   * Here admin can search for a slang word to delete from the dictionary. There is a search input box and a search button which then produces results found.<br>
 
    * There is a delete button next to the slang results which when clicked triggers the confirmation modal asking the admin user if they are sure they want to delete the item to minimise accidental or unwated deletion from the database.
 
+![screenshot](documents/readme/delete_slang_admin.png)
+
    ##### Pending Slangs 
 
-   * Within the dashboard there is a pending slangs section which displays slang words that have been subject to a removal request from registered users.
+   * Within the dashboard there is a pending slangs section which displays slang words that have been subject to a removal request from registered users.<br>
+
+![screenshot](documents/readme/action_buttons.png)
 
    ##### Action Buttons
 
-   * There are 3 action buttons next to each pending slang. Each are critical in the management of the dictionary.
+   * There are 3 action buttons next to each pending slang. Each are critical in the management of the dictionary.<br>
 
-   * A delete button allows the admin to delete the pending slang from the list meaning it will not be added. Before this action is executed a confirmation modal asks the user if they are sure they want to proceed to prevent accidental or unwanted deletion.
+   * A delete button allows the admin to delete the pending slang from the list meaning it will not be added. Before this action is executed a confirmation modal asks the user if they are sure they want to proceed to prevent accidental or unwanted deletion.<br>
 
-   * An approve button allows the admin to approve the request to add a slang to the database.
+   * An approve button allows the admin to approve the request to add a slang to the database.<br>
 
-   * An edit button next to the pending slang allows the admin to edit a pending slang before approval. Clicking this button triggers the display of the edit modal where the input is taken from the admin to make changes to the pending slang.
+   * An edit button next to the pending slang allows the admin to edit a pending slang before approval. Clicking this button triggers the display of the edit modal where the input is taken from the admin to make changes to the pending slang.<br>
+
+![screenshot](documents/development/action_buttons.png)
 
    ##### Add Slang Form
 
    * There is a form located in the admin dashboard that allows an admin user to add a slang word to the dictionary without it going through the pending approval process.
-   The admin dashboard can be seen below.
+   The admin dashboard can be seen below.<br>
 
-![screenshot](documents/readme/admin_dashboard.png)
+![screenshot](documents/readme/add_slang_admin.png)
 
    #### Favourites
 
    ##### Favourite Button
 
 
-   * A favourite button serves the function of allowing registered users to add their favourite slangs to a favourites list.
+   * A favourite button serves the function of allowing registered users to add their favourite slangs to a favourites list.<br>
 
-   * The favourite buttons are located next to each slang in the accordion and next to each slang in the search results in the index.html.
+   * The favourite buttons are located next to each slang in the accordion and next to each slang in the search results in the index.html.<br>
 
-   * Favourite buttons are visible to all users however if a user is not logged in there is immediate feedback to inform the user they need to be logged in to use this function. 
+   * Favourite buttons are visible to all users however if a user is not logged in there is immediate feedback to inform the user they need to be logged in to use this function.<br>
 
-   * The favourite buttons can be seen below.
+   * The favourite buttons can be seen below.<br>
 
 ![screenshot](documents/readme/favourite_accordion.png)
 
@@ -365,18 +372,19 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
 
    ##### Favourites List 
 
-   * Registered users have the additional function of a list of favourited slang words.
+   * Registered users have the additional function of a list of favourited slang words.<br>
 
-   * Registered users favourited slangs list is accessible in their user dashboard.
+   * Registered users favourited slangs list is accessible in their user dashboard.<br>
 
-   * Registered users can add slangs to their favourites list by clicking the heart shaped favourite button.
+   * Registered users can add slangs to their favourites list by clicking the heart shaped favourite button.<br>
 
+![screenshot](documents/readme/favourite_list.png)
    
    #### Footer
 
-   * There is a fixed footer at the bottom of the page. 
+   * There is a fixed footer at the bottom of the page.<br> 
 
-   * The footer contains the developer name and copyright with an automatically updated year. This has been done using JavaScript and updates when the page is loaded to the current year. The function updates the span element in the footer.
+   * The footer contains the developer name and copyright with an automatically updated year. This has been done using JavaScript and updates when the page is loaded to the current year. The function updates the span element in the footer.<br>
 
 ![screenshot](documents/readme/footer.png)
 
@@ -384,26 +392,26 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
 
    #### 404 Page
 
-   * A 404 page is navigated to when an error occurs or the website fails load. The page explains to the user that there is an issue and offers a button to navigate back to the homepage/index.html without using browser buttons. It also has a times redirect function so that after 10 seconds the user is redirected back to home page if they do not trigger the redirect via the button directly. This can be viewed [here](documents/readme/404.png).
+   * A 404 page is navigated to when an error occurs or the website fails load. The page explains to the user that there is an issue and offers a button to navigate back to the homepage/index.html without using browser buttons. It also has a times redirect function so that after 10 seconds the user is redirected back to home page if they do not trigger the redirect via the button directly. This can be viewed [here](documents/readme/404.png).<br>
 
    #### Error Handling
 
-   * Error handling is built directly into the app functions so should the app data not load the function will handle the error and will show an error by way or stating 'error fetching data'. An example of this can be viewed [here](documents/readme/error_handling.png).
+   * Error handling is built directly into the app functions so should the app data not load the function will handle the error and will show an error by way or stating 'error fetching data'. An example of this can be viewed [here](documents/readme/error_handling.png).<br>
 
 ##### back to [top](#table-of-contents)
 
 
 ### Features Left To Implement
 
-   * Functions to allow admin to manage user registration and accounts directly via the admin dashboard within the app.
+   * Functions to allow admin to manage user registration and accounts directly via the admin dashboard within the app.<br>
 
-   * External links to pages as an additional field to each slang document to allow users to find out more about slang origins, i.e links to youtubers who initiated the slang word.
+   * External links to pages as an additional field to each slang document to allow users to find out more about slang origins, i.e links to youtubers who initiated the slang word.<br>
 
-   * A professionals dashboard where teachers and other professionals can view slang words and flag warnings and issues caused in educational settings by slang words and defintions retrospectively.
+   * A professionals dashboard where teachers and other professionals can view slang words and flag warnings and issues caused in educational settings by slang words and defintions retrospectively.<br>
 
-   * Functions for logged-in users to update profile details if necessary, so their account information is accurate.
+   * Functions for logged-in users to update profile details if necessary, so their account information is accurate.<br>
 
-   * A remove button and function to allow users to remove a slang word from their favourites list using AJAX to asystematically remove it from the DOM.
+   * A remove button and function to allow users to remove a slang word from their favourites list using AJAX to asystematically remove it from the DOM.<br>
 
 ## Technologies Used
 
@@ -533,7 +541,6 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
   * Base Secondary slang content was sourced using [BBC Bitesize](https://www.bbc.co.uk/bitesize/articles/zkvwgwx).
   * Base middle slang content was sourced using [Tiny Beans](https://tinybeans.com/middle-school-slang/).
   * Base primary slang content was sourced using [Twinkle](https://www.twinkl.co.uk/resource/kids-explain-british-slang-words-mini-lesson-twinkl-kids-tv-t-tp-1659009278).
-  * [ChatGPT](https://openai.com/index/chatgpt/).
   * [Code institute](https://learn.codeinstitute.net) Learning material.
 
 ### Media
