@@ -29,9 +29,8 @@ View the live project [here!](https://itscool-project-b4212f408fa2.herokuapp.com
    * [**Log In**](#log-in)
    * [**Logout**](#log-out)
    * [**Add Slang Word**](#add-slang-word)
-   * [**Create username**](#create-username)
-   * [**Create password**](#create-password)
-   * [**User dashboard**](#user-dashboard)
+   * [**Delete Slang Word**](#delete-slang-word)
+   * [**User Dashboard**](#user-dashboard)
    * [**Admin Dashboard**](#admin-dashboard)
       - [**Search Function**](#search-function)
       - [**Pending Slangs**](#pending-slangs)
@@ -45,7 +44,7 @@ View the live project [here!](https://itscool-project-b4212f408fa2.herokuapp.com
    * [**Error Handling**](#error-handling)
    * [**Features left to implement**](#features-left-to-implement)
 
-3. [**Technologies used**](#technologies-used)
+3. [**Technologies Used**](#technologies-used)
    * [**Front-End Technologies**](#front-end-technologies)
    * [**Back-End Technologies**](#back-end-technologies)
 
@@ -54,8 +53,8 @@ View the live project [here!](https://itscool-project-b4212f408fa2.herokuapp.com
 5. [**Deployment**](#deployment)
 
    * [**GitHub Pages**](#github-pages)
-   * [**Forking the GitHub Repository**](#forking-the-github-repository)
-   * [**Making a Local Clone**](#making-a-local-clone)
+   * [**Forking The GitHub Repository**](#forking-the-github-repository)
+   * [**Making A Local Clone**](#making-a-local-clone)
 
 6. [**Credits**](#credits)
 
@@ -258,6 +257,7 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
 
    * Users can type a slang word into the search box and any matching results will be displayed underneath in the search results area. The search function can be seen below.
 
+   * Meets **CRUD** functionality requirements (READ).
 
 ![screenshot](documents/readme/search_function.png)
 
@@ -271,6 +271,8 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
 
    * There is immediate, automatic user feedback informing the user with a flash message if no matches are found. This can be seen below.
 
+   * Meets **CRUD** functionality requirements (READ).
+
    ![screenshot](documents/readme/search_results.png)
 
 #### Accordion
@@ -279,26 +281,30 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
 
    * The header for each letter expands revealing all slangs starting with that letter beneath it.
 
+   * Meets **CRUD** functionality requirements (READ).
+
 ![screenshot](documents/readme/accordion.png)
 
 #### Sign Up
 
    * Within the sign up page there is a sign up form which takes a username and password to register a user on the database.
 
-   * The sign up page is accessible from both the nav bar and links underneath the login and logout page.
+   * The sign up page is accessible from both the nav bar and links underneath the login and logout page.<br>
+
+   * Meets **CRUD** functionality requirements (CREATE).<br>
 
 ![screenshot](documents/readme/signup.png)
 
 
-
 #### Log In
 
-   * Within the log in page there is a log in form that takes a registered users username and password. The user is notified of login status via a flash message.
+   * Within the log in page there is a log in form that takes a registered users username and password. The user is notified of login status via a flash message.<br>
 
-   * The login page is accessible from the link in the nav bar, underneath the signup form and also appears after successfully logging out via the navbar log out link.
+   * The login page is accessible from the link in the nav bar, underneath the signup form and also appears after successfully logging out via the navbar log out link.<br>
+
+   * Meets **CRUD** functionality requirements (READ).<br>
 
 ![screenshot](documents/readme/login.png)
-
 
 
 #### Log Out
@@ -307,12 +313,35 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
 
 ##### back to [top](#table-of-contents)
 
+
+#### Add Slang Word
+
+   * There is a add slang page where registered and logged in users can request to add slang words to the dictionary pending admin approval.<br>
+
+   * This can also be submitted to amend existing slangs.<br>
+
+   * Meets **CRUD** functionality requirements (CREATE, UPDATE).<br>
+
+![screeenshot](documents/readme/add_slang.png)
+
+#### Delete Slang Word
+
+   * There is a add delete slang page where registered and logged in users can request to remove slang words from the dictionary pending admin approval.<br>
+
+   * This can also be submitted to amend existing slangs.<br>
+
+   * Meets **CRUD** functionality requirements (UPDATE, DELETE).<br>
+
+![screeenshot](documents/readme/delete_slang.png)
+
 #### User Dashboard
 
    * There is a dashboard that displays the users profile and a list of favourited slang words appear.<br>
 
    * The user can navigate here upon logging in successfully using their username and password on the login page.
    This can be viewed [here](documents/readme/user_dashboard.png).<br>
+
+   ** Meets **CRUD** functionality requirements (UPDATE).<br>
 
 
 #### Admin Dashboard
@@ -324,13 +353,17 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
 
    * Here admin can search for a slang word to delete from the dictionary. There is a search input box and a search button which then produces results found.<br>
 
-   * There is a delete button next to the slang results which when clicked triggers the confirmation modal asking the admin user if they are sure they want to delete the item to minimise accidental or unwated deletion from the database.
+   * There is a delete button next to the slang results which when clicked triggers the confirmation modal asking the admin user if they are sure they want to delete the item to minimise accidental or unwated deletion from the database.<br>
+
+   * Meets **CRUD** functionality requirements (READ, DELETE).
 
 ![screenshot](documents/readme/delete_slang_admin.png)
 
    ##### Pending Slangs 
 
    * Within the dashboard there is a pending slangs section which displays slang words that have been subject to a removal request from registered users.<br>
+
+   * Meets **CRUD** functionality requirements (CREATE, UPDATE, DELETE).
 
 ![screenshot](documents/readme/action_buttons.png)
 
@@ -344,12 +377,16 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
 
    * An edit button next to the pending slang allows the admin to edit a pending slang before approval. Clicking this button triggers the display of the edit modal where the input is taken from the admin to make changes to the pending slang.<br>
 
+   * Meets **CRUD** functionality requirements (CREATE, UPDATE, DELETE).
+
 ![screenshot](documents/development/action_buttons.png)
 
    ##### Add Slang Form
 
    * There is a form located in the admin dashboard that allows an admin user to add a slang word to the dictionary without it going through the pending approval process.
    The admin dashboard can be seen below.<br>
+
+   * Meets **CRUD** functionality requirements (CREATE, UPDATE, DELETE).
 
 ![screenshot](documents/readme/add_slang_admin.png)
 
@@ -366,6 +403,8 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
 
    * The favourite buttons can be seen below.<br>
 
+   * Meets **CRUD** functionality requirements (UPDATE).
+
 ![screenshot](documents/readme/favourite_accordion.png)
 
 ![screenshot](documents/readme/result_favourite.png)
@@ -378,6 +417,8 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
 
    * Registered users can add slangs to their favourites list by clicking the heart shaped favourite button.<br>
 
+   * Meets **CRUD** functionality requirements (READ).<br>
+
 ![screenshot](documents/readme/favourite_list.png)
    
    #### Footer
@@ -387,8 +428,6 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
    * The footer contains the developer name and copyright with an automatically updated year. This has been done using JavaScript and updates when the page is loaded to the current year. The function updates the span element in the footer.<br>
 
 ![screenshot](documents/readme/footer.png)
-
-
 
    #### 404 Page
 
