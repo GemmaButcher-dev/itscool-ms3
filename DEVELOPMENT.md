@@ -119,7 +119,7 @@
 
 * After checking through the requirements.txt and current installations it appeared gunicorn was missing. This was reinstalled and fixed the bug.<br>
 
-![screenshot](documents/testing/heroku_tail_error.png)
+![screenshot](documents/development/heroku_tail_error.png)
 
 ### Safari Render Issue
 
@@ -133,9 +133,20 @@
 
 * After checking the app in chrome it showed there was an issue with the app and safari specifically. The app was checked with different versions of safari on other devices and worked as expected.<br>
 
-* The version of safari on the mac used was unable to be updated due to age of machine and the issue points to the version of safari not supporting the app deployed in heroku. It did render the gitpod port rendering. The issue can be seen [here](documents/testing/safari_render_issue.png).<br>
+* The version of safari on the mac used was unable to be updated due to age of machine and the issue points to the version of safari not supporting the app deployed in heroku. It did render the gitpod port rendering. The issue can be seen [here](documents/development/safari_render_issue.png).<br>
 
 * The error logged can be seen below.<br>
 
-![screenshot](documents/testing/heroku_testing_deployment.png)
+![screenshot](documents/development/heroku_testing_deployment.png)
 
+### JS Hint
+
+* An bug occured during deveopment with the home page not linking correctly. This was due to jinja templating and files not linking correctly.<br>
+
+* In order to fix it the part of the script that was causing the issue was directly put in script tags into the html.<br>
+
+* This solved the isue but after problem solving this was the only was to fix the bug so this setup has remained.<br>
+
+* You can read more about how this was reflected in testing in [testing](TESTING.md).
+
+![screenshot](documents/development/flask_jinja_bugfix.png)
