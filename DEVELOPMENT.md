@@ -13,6 +13,8 @@
         -[Confirmation Modal](#confirmation-modal)
         -[Heroku Tail Log Error](#heroku-tail-log-error)
         -[Safari Render Issue](#safari-render-issue)
+        -[JS Hint](#js-hint)
+        
 ------
 
 ## Project Board
@@ -35,7 +37,11 @@
 
 * There is a clear need to allow some margin for error from the user when taking inputs and matching them to a document in mongoDB.<br> 
 
-* Research suggested several options for text operators, but the best operator for the solution that offers an adjustable threshold control for matching and filtering was Fuzzywuzzy. This will be initially set to 80% before testing.<br>
+* Research suggested several options for text operators, but the best operator for the solution that offers an adjustable threshold control for matching and filtering was [Fuzzywuzzy](https://pypi.org/project/fuzzywuzzy/). This will be initially set to 80% before testing.<br>
+
+* The final fuzzywuzzy code within the app route can be seen below.<br>
+
+![screenshot](documents/development/fuzzywuzzy_search_route.png)
 
 ------
 
@@ -105,6 +111,8 @@
 
 ![screenshot](documents/development/box_shadow.png)
 
+------
+
 ## Bug Fixes
 
 ### Confirmation Modal
@@ -147,6 +155,6 @@
 
 * This solved the isue but after problem solving this was the only was to fix the bug so this setup has remained.<br>
 
-* You can read more about how this was reflected in testing in [testing](TESTING.md).
+* You can read more about how this was reflected in testing in [testing](TESTING.md).<br>
 
 ![screenshot](documents/development/flask_jinja_bugfix.png)
