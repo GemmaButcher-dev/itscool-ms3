@@ -35,20 +35,24 @@ The complete site was tested on the lighthouse facility in Google Developer Tool
 | Admin Dashboard |![screenshot](documents/testing/lighthouse/admin_dashboard_lighthouse.png)    |  Meets criteria |                         
 |404       |![screenshot](documents/testing/lighthouse/404_lighthouse.png)       |  Meets criteria. Lower SEO but as a 404 page this is not too concerning |
 
+------
 
 ## Responsiveness & Compatability Testing
 
-To ensure a broad range of users can successfully use this site, I tested it across the 6 major browsers in both desktop and mobile configuration.
+To ensure a broad range of users can successfully use this site, I tested it across the 5 major browsers in both desktop and mobile configuration.
 
 - Chrome *v.74*
 - Edge *v.18*
 - Firefox *v.67*
 - Safari *v.12*
-- Opera *v.56*
+- Opera n/a
 - Internet Explorer *v.11*
 
-For testing compatibility, I created a testing matrix to test across multiple devices and browsers. The test matrix can be found [here]().
+For testing compatibility, I created a testing matrix to test across multiple devices and browsers. The test matrix can be found seen below.
 
+![screenshot](documents/testing/compatability_matrix.png)
+
+------
 
 ## Code Validation
 
@@ -68,6 +72,7 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
 ##### back to [top](#table-of-contents)
 
+------
 
 ## Accesibility Testing
 
@@ -85,6 +90,7 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 |dashboard.html   |[view lighthouse testing here](documents/testing/lighthouse/dashboard_lighthouse.png) | Can only be tested in lighthouse due to login required. Not supported by webaim. |
 |admin_dashboard.html  |[view lighthouse testing here](documents/testing/lighthouse/admin_dashboard_lighthouse.png) | Can only be tested in lighthouse due to login required. Not supported by webaim. |
 
+------
 
 ## JavaScript Testing
 
@@ -100,6 +106,7 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
  Shows an undefined variable in the script.js file. This variable is defined in a script tag in the 404.html file. For more information see bug fix section in the [development](DEVELOPMENT.md).
 
+------
 
 ## Python Testing
 
@@ -121,6 +128,7 @@ After initially correcting the code format and it passing testing using the CI p
 
 ##### back to [top](#table-of-contents)
 
+------
 
 ## Fuzzywuzzy Testing
 
@@ -131,6 +139,7 @@ After initially correcting the code format and it passing testing using the CI p
   * 70% match threshold seems to return close enough matches with enough tollerance and flexibility for spelling mistakes for all users.
 
 ## Bug Fixes
+
   * please see the [development](DEVELOPMENT.md) file for bug fix information.
 
 ------
@@ -438,8 +447,6 @@ It is particuarly useful as it can encompass a wide range of input from stakehol
 ##### back to [top](#table-of-contents)
 
 ------
-
-
 
 ### Automated Testing
 

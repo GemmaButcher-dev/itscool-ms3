@@ -451,13 +451,18 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
 
 ##### back to [top](#table-of-contents)
 
+------
+
 ## Testing
 
 All detailed testing information can be seen in the [TESTING.md](TESTING.md) file.
 Thorough manual testing has been carried out.
 
- The below matrix shows the responsiveness and browser compatability testing carried out.
-![Screenshot](docs/testing/testing_matrix.png)
+ The below matrix shows the responsiveness and browser compatability testing carried out.<br>
+
+![Screenshot](documents/testing/compatability_matrix.png)
+
+------
 
 ## Deployment
 
