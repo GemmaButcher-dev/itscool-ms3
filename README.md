@@ -437,6 +437,7 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
 
    * Error handling is built directly into the app functions so should the app data not load the function will handle the error and will show an error by way or stating 'error fetching data'. An example of this can be viewed [here](documents/readme/error_handling.png).<br>
 
+
 ##### back to [top](#table-of-contents)
 
 
