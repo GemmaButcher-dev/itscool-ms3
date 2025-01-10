@@ -3,6 +3,14 @@
 ## Table of contents
 1. [Project Board](##project-board)
 2. [Defensive Programming](#defensive-programming)
+        -[Password Hashing and Validation](#password-hashing-and-validation)
+        -[Form Validation](#form-validation)
+        -[Unique Username Checks](#unique-username-checks)
+        -[Login Required Decorator](#login-required-decorator)
+        -[User Ownership Checks](#user-ownership-checks)
+        -[Flash Messages and Feedback](#flash-messages-and-feedback)
+        -[Error Handling and Redirects](#error-handling-and-redirects)
+        -[Environment Variables for Sensitive Data](#environment-variables-for-sensitive-data)
 3. [Fuzzywuzzy](#fuzzywuzzy)
 4. [Status Badge](#status-badge)
 5. [Action Buttons](#action-buttons)
@@ -31,7 +39,15 @@
 ------
 ## Defensive Programming
 
-* 
+### Password Hashing and Validation
+### Form Validation
+### Unique Username Checks
+### Login Required Decorator
+### User Ownership Checks
+### Flash Messages and Feedback
+### Error Handling and Redirects
+### Environment Variables for Sensitive Data
+
 ------
 ## Fuzzywuzzy
 
