@@ -2,14 +2,15 @@
 
 ## Table of contents
 1. [Project Board](##project-board)
-2. [Fuzzywuzzy](#fuzzywuzzy)
-3. [Status Badge](#status-badge)
-4. [Action Buttons](#action-buttons)
-5. [Modals](#modals)
+2. [Defensive Programming](#defensive-programming)
+3. [Fuzzywuzzy](#fuzzywuzzy)
+4. [Status Badge](#status-badge)
+5. [Action Buttons](#action-buttons)
+6. [Modals](#modals)
         -[Bootstrap](#bootstrap)
         -[script.js](#scriptjs)
-6. [Box Shadows](#box-shadows)
-7. [Bug Fixes](#bug-fixes)
+7. [Box Shadows](#box-shadows)
+8. [Bug Fixes](#bug-fixes)
         -[Confirmation Modal](#confirmation-modal)
         -[Heroku Tail Log Error](#heroku-tail-log-error)
         -[Safari Render Issue](#safari-render-issue)
@@ -28,7 +29,10 @@
 ![screenshot](documents/development/github_project_1.png)
 
 ------
+## Defensive Programming
 
+* 
+------
 ## Fuzzywuzzy
 
 * After reviewing the search function it did not align well with all user stories. This is because the nature of the slang words, their definitions and origins mean that they are often not spelled as you might expect. For example a lot of newer slangs are adopted and popularised from youtubers.<br>
