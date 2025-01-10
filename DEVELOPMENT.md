@@ -39,14 +39,41 @@
 ------
 ## Defensive Programming
 
+Defensive programming involves writing code that anticipates problems before they happen and handles them gracefully, protecting your application from invalid inputs, unauthorized actions, and other potential issues.  Here are the ways defensive programming has been integrated in this project:
+
 ### Password Hashing and Validation
+
+* How?: Use of generate_password_hash() and check_password_hash() to store and validate passwords.
+* Why?: Storing passwords as plain text is a security risk. Hashing helps protect user credentials even the database is compromised.
+
 ### Form Validation
+
+* How?:
+* Why?:
 ### Unique Username Checks
+
+* How?:
+* Why?:
 ### Login Required Decorator
+
+* How?:
+* Why?:
 ### User Ownership Checks
+
+* How?:
+* Why?:
 ### Flash Messages and Feedback
+
+* How?:
+* Why?:
 ### Error Handling and Redirects
+
+* How?:
+* Why?:
 ### Environment Variables for Sensitive Data
+
+* How?:
+* Why?:
 
 ------
 ## Fuzzywuzzy
