@@ -10,7 +10,7 @@
                 <form action="{{ url_for('user_delete_slang') }}" method="post" style="display: inline;">
                     <div class="form-group">
                         <label class="label-dark" for="slang">Enter the slang word to delete:</label>
-                        <input type="text" name="slang" id="slang" class="form-control" placeholder="Enter a slang word to delete" required>
+                        <input type="text" name="slang" id="slang" class="form-control" placeholder="Enter a slang word to delete" min="2" max="30" required>
                     </div>
                     <button type="submit" class="btn btn-danger">Delete Slang</button>
                 </form>
