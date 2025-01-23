@@ -584,39 +584,44 @@ This project is deployed on Heroku, a popular PaaS (Platform as a Service) that 
 
 1. Prerequisites
 
-Heroku CLI: Install the Heroku CLI so you can manage your application from the command line.
-Heroku Account: Sign up for a free Heroku account if you don’t already have one.
+- Heroku CLI: Install the Heroku CLI so you can manage your application from the command line.
+- Heroku Account: Sign up for a free Heroku account if you don’t already have one.
 
 2. Prepare Your Application for Deployment
 
-Procfile: Create a Procfile in the root directory of your project. This file tells Heroku how to run your app. For a Flask application, it often looks like this:
+- Procfile: Create a Procfile in the root directory of your project. This file tells Heroku how to run your app. For a Flask application, it often looks like this:
 
 (bash)
 
 Copy
 web: gunicorn app:app
-Replace app:app with the name of your main application file and the Flask app instance if it’s different. For instance, if your file is called wsgi.py and your Flask app is named app, then it would be web: gunicorn wsgi:app.
-requirements.txt: Ensure your dependencies are listed in requirements.txt:
+
+ * Replace app:app with the name of your main application file and the Flask app instance if it’s different. For instance, if your file is called wsgi.py and your Flask app is named app, then it would be web: gunicorn wsgi:app.
+
+- requirements.txt: Ensure your dependencies are listed in requirements.txt:
 
 (bash)
 
 Copy
 pip freeze > requirements.txt
-This file tells Heroku which Python packages are needed to run your app.
 
-Runtime: (Optional) Include a runtime.txt file if you want to specify a particular Python version:
+* This file tells Heroku which Python packages are needed to run your app.
+
+- Runtime: (Optional) Include a runtime.txt file if you want to specify a particular Python version:
 
 (bash)
 
 Copy
 python-3.10.12
-You can see Heroku’s supported runtimes here.
+
+* You can see Heroku’s supported runtimes on their website.
 
 3. Configure Environment Variables
 
-Heroku uses environment variables for secrets and configuration. You can set these through the Heroku CLI or in the Heroku dashboard.
+* Heroku uses environment variables for secrets and configuration. You can set these through the Heroku CLI or in the Heroku dashboard.
 
-If using the CLI, run:
+- If using the CLI, run:
+
 (bash)
 
 Copy
@@ -624,11 +629,12 @@ heroku login
 heroku create your-app-name
 heroku config:set MONGO_URI="your_mongo_uri_here"
 heroku config:set FLASK_SECRET_KEY="your_secret_key_here"
-If using the Heroku dashboard, go to Settings > Reveal Config Vars and add your variables there.
+
+- If using the Heroku dashboard, go to Settings > Reveal Config Vars and add your variables there.
 
 4. Deploy to Heroku
 
-Initialize Git (if you haven’t already):
+- Initialize Git (if you haven’t already):
 
 (bash)
 
@@ -636,43 +642,59 @@ Copy
 git init
 git add .
 git commit -m "Initial commit"
-Add the Heroku remote:
+
+- Add the Heroku remote:
 
 (bash)
 
 Copy
 heroku git:remote -a your-app-name
-Make sure to replace your-app-name with the actual name of your Heroku app.
 
-Deploy:
+* Make sure to replace your-app-name with the actual name of your Heroku app.
+
+- Deploy:
 
 (bash)
 
 Copy
 git push heroku main
-Or, if you are on a branch named master:
+
+-* Or, if you are on a branch named master:
 
 (bash)
 
 Copy
 git push heroku master
-Once the deployment completes, Heroku will build your app and notify you of success or failure.
+
+* Once the deployment completes, Heroku will build your app and notify you of success or failure.
 
 5. Verify Your Deployment
 
-Open your newly deployed app in the browser:
+* Open your newly deployed app in the browser:
 
 (bash)
 
 Copy
 heroku open
-You can now test your site and ensure all routes, forms, and features are working correctly. If there are issues, use:
+
+* You can now test your site and ensure all routes, forms, and features are working correctly. If there are issues, use:
 
 (bash)
 
 Copy
 heroku logs --tail
-to see the real-time logs and debug any problems.
+
+* to see the real-time logs and debug any problems.
+
+6. Common Troubleshooting
+
+* Procfile Missing: Heroku needs a Procfile in the root directory to run your app correctly.
+
+* Incorrect Gunicorn Command: Verify that the file name and Flask app instance reference in the Procfile match your actual setup.
+
+* Missing Dependencies: Make sure everything is in requirements.txt via pip freeze.
+
+* Config Vars: If you’re connecting to external services (e.g., MongoDB), ensure the environment variables are set properly on Heroku.
 
 ### Forking the GitHub Repository
 
