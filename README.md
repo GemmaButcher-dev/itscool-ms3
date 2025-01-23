@@ -42,6 +42,15 @@ View the live project [here!](https://itscool-project-b4212f408fa2.herokuapp.com
    * [**Footer**](#footer)
    * [**404 Page**](#404-page)
    * [**Error Handling**](#error-handling)
+   * [**Defensive Programming**](#defensive-programming)
+      -[**Password Hashing and Validation**](#password-hashing-and-validation)
+      -[**Form Validation**](#form-validation)
+      -[**Unique Username Checks**](#unique-username-checks)
+      -[**Login Required Decorator**](#login-required-decorator)
+      -[**User Ownership Checks**](#user-ownership-checks)
+      -[**Flash Messages and Feedback**](#flash-messages-and-feedback)
+      -[**Error Handling and Redirects**](#error-handling-and-redirects)
+      -[**Environment Variables for Sensitive Data**](#environment-variables-for-sensitive-data)
    * [**Features left to implement**](#features-left-to-implement)
 
 3. [**Technologies Used**](#technologies-used)
@@ -436,6 +445,61 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
    #### Error Handling
 
    * Error handling is built directly into the app functions so should the app data not load the function will handle the error and will show an error by way or stating 'error fetching data'. An example of this can be viewed [here](documents/readme/error_handling.png).<br>
+
+   #### Defensive Programming
+   
+   Defensive programming involves writing code that anticipates problems before they happen and handles them gracefully, protecting your application from invalid inputs, unauthorized actions, and other potential issues.  Here are the ways defensive programming has been integrated in this project:
+   
+   ##### Password Hashing and Validation
+   
+   * How?: Use of generate_password_hash() and check_password_hash() to store and validate passwords.
+   
+   * Why?: Storing passwords as plain text is a security risk. Hashing helps protect user credentials even the database is compromised.
+   
+   ##### Form Validation
+   
+   * How?: By using FlaskForm with validators like InputRequired, Length, and EqualTo, it is ensured that form submissions meet certain criteria (e.g. password length, required fields).
+   
+   * Why?: Preventing invalid or malicious input (like empty fields or non-matching passwords) helps reduce common vulnerabilities such as incomplete or harmful data entering the system.
+   
+   ##### Unique Username Checks
+   
+   * How?: In the SignupForm, a username is verified if it has already taken before creating a new account.
+   
+   * Why?: This prevents duplicate user records and collisions, avoiding confusion and data corruption.
+   
+   ##### Login Required Decorator
+   
+   * How?: Certain routes (e.g., /add, /update, /delete) are protected with @login_required, allowing access to authenticated users only.
+   
+   * Why?: Restricting sensitive operations to authorized users prevents unauthorized changes, additions, or deletions of data.
+   
+   ##### User Ownership Checks
+   
+   * How?: When updating or deleting a slang entry, you check if the current user is the one who created that entry (slang_entry['user_id'] == current_user.id).
+   
+   * Why?: It prevents users from modifying or deleting entries they do not own, protecting data integrity and enforcing proper permissions.
+   
+   ##### Flash Messages and Feedback
+   
+   * How?: Using flash() to provide the user with feedback (e.g., “Username already taken!” or “Invalid username or password”).
+   
+   * Why?: Giving immediate feedback allows users to fix problems right away, reducing the risk of repeated invalid submissions or confusion.
+   
+   ##### Error Handling and Redirects
+   
+   * How?: If something goes wrong (e.g., user creation fails, or a user is not authorized), it either flashes an error message or redirects to a safe page.
+   
+   * Why?: Ensuring there is consistent fallback flow prevents the application from crashing or exposing sensitive information when unexpected events occur.
+   
+   ##### Environment Variables for Sensitive Data
+   
+   * How?: Instead of hardcoding credentials, they are stored in environment variables (e.g., MongoDB URI, secret key).
+   
+   * Why?: Protecting sensitive information (like database connection strings) helps prevent accidental leaks on public repositories and mitigates the risk of unauthorized access.
+   
+   
+   Overall, the programme uses multiple checks and safeguards—ranging from password hashing and form validation to ownership checks and secure data storage to reduce potential vulnerabilities and ensure that both user data and application logic remain safe. These are all methods and characteristics of defensive programming.<br>
 
 
 ##### back to [top](#table-of-contents)
