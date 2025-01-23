@@ -7,7 +7,7 @@
 
 <!-- Search Form -->
 <form method="POST" action="{{ url_for('admin_dashboard') }}">
-    <input class="admin-search" type="text" name="search_query" placeholder="Search for slang">
+    <input class="admin-search" type="text" name="search_query" min="2" max="30" placeholder="Search for slang">
     <button class="search-btn" type="submit">Search</button>
 </form>
 
@@ -84,19 +84,19 @@
 <form action="{{ url_for('add_slang_admin') }}" method="POST">
     <div class="form-group">
         <label for="slang">Slang Word:</label>
-        <input type="text" name="slang" id="slang" class="form-control" required>
+        <input type="text" name="slang" id="slang" class="form-control" min="2" max="30" required placeholder="Enter slang word">
     </div>
     <div class="form-group">
         <label for="definition">Definition:</label>
-        <textarea name="definition" id="definition" class="form-control" required></textarea>
+        <textarea name="definition" id="definition" class="form-control" minlength="10" maxlength="150" required placeholder="Enter slang definition"></textarea>
     </div>
     <div class="form-group">
         <label for="age">Age of Slang:</label>
-        <input type="text" name="age" id="age" class="form-control">
+        <input type="number" name="age" id="age" class="form-control" min="5" max="18" placeholder="Min age 5, max age 18" required>
     </div>
     <div class="form-group">
         <label for="type">Type of Slang (e.g., 'adjective', 'verb'):</label>
-        <input type="text" name="type" id="type" class="form-control">
+        <input type="text" name="type" id="type" class="form-control" minlength="3" maxlength="15" placeholder="Enter word type (e.g., adjective)">
     </div>
     <button type="submit" class="btn btn-primary">Add Slang</button>
 </form>
@@ -115,19 +115,19 @@
                     <input type="hidden" id="editSlangId" name="slang_id">
                     <div class="mb-3">
                         <label for="editSlang" class="form-label">Slang</label>
-                        <input type="text" class="form-control" id="editSlang" name="slang" required>
+                        <input type="text" class="form-control" id="editSlang" name="slang" min="2" max="30" required>
                     </div>
                     <div class="mb-3">
                         <label for="editDefinition" class="form-label">Definition</label>
-                        <input type="text" class="form-control" id="editDefinition" name="definition" required>
+                        <input type="text" class="form-control" id="editDefinition" name="definition" minlength="10" maxlength="150" required>
                     </div>
                     <div class="mb-3">
                         <label for="editAge" class="form-label">Age</label>
-                        <input type="text" class="form-control" id="editAge" name="age">
+                        <input type="number" class="form-control" id="editAge" name="age" min="5" max="18">
                     </div>
                     <div class="mb-3">
                     <label for="editType" class="form-label">Type</label>
-                    <input type="text" class="form-control" id="editType" name="type">
+                    <input type="text" class="form-control" id="editType" name="type"  minlength="3" maxlength="15">
                 </form>
             </div>
             <div class="modal-footer d-flex justify-content-between">
