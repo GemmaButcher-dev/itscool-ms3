@@ -19,19 +19,19 @@
 
                     <!-- Slang word -->
                         <label for="slang" class="label-dark">Slang Word:</label>
-                        <input type="text" id="slang" name="slang" required placeholder="Enter slang word">
+                        <input type="text" id="slang" name="slang" minlength="2" maxlength="20" required placeholder="Enter slang word">
 
                     <!-- Definition -->
                         <label for="definition" class="label-dark">Definition:</label>
-                        <textarea id="definition" name="definition" required placeholder="Enter slang definition"></textarea>
+                        <textarea id="definition" name="definition" minlength="10" maxlength="150" required placeholder="Enter slang definition"></textarea>
                     
                     <!-- Age Range -->
                         <label for="age" class="label-dark">Age Range:</label>
-                        <input type="text" id="age" name="age" placeholder="Enter age range (e.g., 13-18)">
+                        <input type="number" id="age" name="age" min="5" max="18" placeholder="Min age 5, max age 18">
                     
                     <!-- Type -->
                         <label for="type" class="label-dark">Type:</label>
-                        <input type="text" id="type" name="type" placeholder="Enter word type (e.g., adjective)">
+                        <input type="text" id="type" name="type" minlength="3" maxlength="15" placeholder="Enter word type (e.g., adjective)">
                     
                     <!-- Submit Button -->
                         <button type="submit">Add Slang</button>
