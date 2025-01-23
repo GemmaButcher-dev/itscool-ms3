@@ -659,7 +659,7 @@ heroku git:remote -a your-app-name
 Copy
 git push heroku main
 
--* Or, if you are on a branch named master:
+* Or, if you are on a branch named master:
 
 (bash)
 
