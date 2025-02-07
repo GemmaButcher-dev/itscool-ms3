@@ -1,5 +1,4 @@
 import os
-import datetime
 from flask import (
     Flask, flash, render_template, request, session, redirect, url_for, jsonify
 )
@@ -43,8 +42,8 @@ def admin_required(f):
 @app.route("/")
 @app.route("/index")
 def home():
-    # -- Retrieve all slangs
-    slangs = mongo.db.slangs.find({"approved": True}).sort("slang")  # ✅ Now only shows approved slangs
+    # -- Retrieve all approved slangs
+    slangs = mongo.db.slangs.find({"approved": True}).sort("slang")
 
     # -- Group slangs by their first letter
     grouped_slangs = {}
@@ -55,12 +54,18 @@ def home():
     return render_template("index.html", grouped_slangs=grouped_slangs)
 
 
+# Admin dashboard route
 @app.route('/admin_dashboard', methods=['GET', 'POST'])
-@admin_required
 def admin_dashboard():
+    # -- Check if user is logged in as admin
+    if 'user' not in session or session.get('role') != 'admin':
+        flash("You need to be an admin to access this page.")
+        return redirect(url_for('login'))  # Redirect if not admin
+
     search_results = []
     search_query = None
 
+    # -- Handle search functionality
     if request.method == 'POST' and 'search_query' in request.form:
         search_query = request.form.get('search_query')
         if search_query:
@@ -68,62 +73,58 @@ def admin_dashboard():
                 "slang": {"$regex": search_query, "$options": "i"}
             }))
 
-    # Retrieve slangs pending approval (new or deletion requests)
-    pending_slangs = list(mongo.db.slangs.find({
-        "$or": [
-            {"approved": False},  # New slang needing approval
-            {"delete_request": True}  # Slang requested for deletion
-        ]
-    }))
+    # ✅ Get all slangs pending deletion approval
+    pending_deletions = list(mongo.db.slangs.find({"delete_request": True})) 
 
-    # ✅ Retrieve slangs pending deletion
-    pending_deletions = list(mongo.db.slangs.find({
-        "delete_request": True  # Only slangs that users have requested to delete
-    }))
+    # -- Get all pending slangs (approved = False or not present)
+    pending_slangs = mongo.db.slangs.find({"approved": {"$ne": True}})
 
     return render_template(
         'admin_dashboard.html',
         pending_slangs=pending_slangs,
         pending_deletions=pending_deletions,
         search_results=search_results,
-        search_query=search_query
+        search_query=search_query,
     )
 
 
-
-# ✅ **Admin Approves a Slang**
+#  Admin approve slang route
 @app.route("/admin/approve_slang", methods=["POST"])
 @admin_required
 def approve_slang():
     slang_id = request.form.get("slang_id")
 
-    # Approve slang by setting `approved` to True
-    mongo.db.slangs.update_one(
+    # -- Find the slang by its ID and update the 'approved' field to True
+    result = mongo.db.slangs.update_one(
         {"_id": ObjectId(slang_id)},
         {"$set": {"approved": True}}
     )
 
-    flash("Slang approved successfully!", "success")
+    if result.modified_count > 0:
+        flash("Slang approved successfully!", "success")
+    else:
+        flash("There was an issue approving the slang.", "error")
+
+    # -- Redirect back to the admin dashboard after approval
     return redirect(url_for("admin_dashboard"))
 
 
+#  Admin delete slang route
 @app.route("/admin/delete_slang", methods=["POST"])
 @admin_required
 def delete_slang_admin():
     slang_id = request.form.get("slang_id")
-
     try:
-        # Attempt to delete slang from the database
+        # -- Delete the slang based on its ID
         result = mongo.db.slangs.delete_one({"_id": ObjectId(slang_id)})
-
         if result.deleted_count > 0:
-            return jsonify({"success": True, "message": "Slang deleted successfully!"})
+            flash("Slang deleted successfully!", "success")
         else:
-            return jsonify({"success": False, "message": "Slang not found or already deleted."}), 404
-
+            flash("Error deleting slang or slang not found.", "error")
     except Exception as e:
-        return jsonify({"success": False, "message": str(e)}), 500
+        flash(f"Error: {str(e)}", "error")
 
+    return redirect(url_for("admin_dashboard"))
 
 # Admin edit pending slang route
 @app.route("/admin/edit_slang/", methods=['POST'])
@@ -153,63 +154,35 @@ def edit_slang():
     # -- Redirect to the admin dashboard after editing
     return redirect(url_for("admin_dashboard"))
 
-# ✅ **Admin Approves a Delete Request**
-@app.route("/admin/approve_delete/<slang_id>", methods=["POST"])
-@admin_required
-def approve_delete_request(slang_id):
-    slang_entry = mongo.db.slangs.find_one({"_id": ObjectId(slang_id)})
 
-    if slang_entry:
-        mongo.db.slangs.delete_one({"_id": ObjectId(slang_id)})  # Delete slang
-        flash(f"'{slang_entry['slang']}' has been permanently deleted.", "success")
-
-    return redirect(url_for("admin_dashboard"))
-
-# ✅ **Admin Rejects a Delete Request**
-@app.route("/admin/reject_delete/<slang_id>", methods=["POST"])
-@admin_required
-def reject_delete_request(slang_id):
-    mongo.db.slangs.update_one(
-        {"_id": ObjectId(slang_id)},
-        {"$unset": {"delete_request": 1}}
-    )
-
-    flash("Deletion request rejected. Slang remains available.", "info")
-    return redirect(url_for("admin_dashboard"))
-
-
+# Add slang route for admin
 @app.route("/admin/add_slang", methods=["POST"])
 @admin_required
 def add_slang_admin():
-    slang_word = request.form.get("slang").strip().lower()
-    definition = request.form.get("definition").strip().lower()
-    age = request.form.get("age").strip().lower()
-    slang_type = request.form.get("type").strip().lower()
+    # -- Get form data
+    slang_word = request.form.get("slang").lower()
+    definition = request.form.get("definition").lower()
+    age = request.form.get("age").lower()
+    type = request.form.get("type").lower()
 
-    if not slang_word or not definition or not age or not slang_type:
-        flash("All fields are required!", "error")
-        return redirect(url_for("admin_dashboard"))
-
-    # ✅ Create the slang dictionary
+    # -- Create the new slang document to insert into MongoDB
     new_slang = {
         "slang": slang_word,
         "definition": definition,
         "age": age,
-        "type": slang_type,
-        "approved": True,  # ✅ Admin-added slangs are approved immediately
-        "submitted_by": session.get("user"),
-        "created_at": datetime.datetime.utcnow()
+        "type": type,
+        "approved": False  # -- Unapproved by default
     }
 
     try:
-        # ✅ Insert into MongoDB
+        # -- Insert new slang into MongoDB collection
         mongo.db.slangs.insert_one(new_slang)
-        flash(f"'{slang_word}' added successfully!", "success")
+        flash("New slang added successfully! Pending approval.", "success")
     except Exception as e:
         flash(f"Error adding slang: {str(e)}", "error")
 
+    # -- Redirect back to the admin dashboard after adding the slang
     return redirect(url_for("admin_dashboard"))
-
 
 
 # Route for filtering by a specific letter
@@ -354,54 +327,58 @@ def add_to_favourites():
     return jsonify({"success": False, "message": "User not found."}), 404
 
 
-# ✅ **User Adds a Slang (Pending Approval)**
+# Add slang route
 @app.route("/add_slang", methods=["GET", "POST"])
 def add_slang():
     if request.method == "POST":
-        slang = request.form.get("slang").lower()
-        definition = request.form.get("definition").lower()
-        age = request.form.get("age").lower()
-        slang_type = request.form.get("type").lower()
+        slang = request.form.get("slang").strip().lower()
+        definition = request.form.get("definition").strip().lower()
+        age = request.form.get("age").strip().lower()
+        type = request.form.get("type").strip().lower()
+
+        if not slang or not definition or not age or not type:
+            flash("All fields are required!", "error")
+            return redirect(url_for("home"))
 
         new_doc = {
             "slang": slang,
             "definition": definition,
             "age": age,
-            "type": slang_type,
-            "approved": False  # 🚀 Hidden until admin approves
+            "type": type,
+            "approved": False  # -- New slang is unapproved by default
         }
-
         mongo.db.slangs.insert_one(new_doc)
         flash("New slang added successfully! Pending approval.", "success")
 
     return render_template("add_slang.html")
 
 
-# ✅ **User Requests to Delete a Slang (Pending Admin Approval)**
-@app.route("/delete_slang", methods=["POST"], endpoint="user_delete_slang")
+# General delete slang route (accessible by all users)
+@app.route("/delete_slang", methods=["GET", "POST"], endpoint="user_delete_slang")
 def delete_slang_user():
-    slang_word = request.form.get("slang").strip().lower()
+    if request.method == "POST":
+        slang_word = request.form.get("slang").strip().lower()  # -- Get slang word from form
 
-    slang_entry = mongo.db.slangs.find_one({"slang": {"$regex": f"^{slang_word}$", "$options": "i"}})
+        # ✅ Find the slang in the database
+        slang_entry = mongo.db.slangs.find_one({"slang": {"$regex": f"^{slang_word}$", "$options": "i"}})
 
-    if not slang_entry:
-        flash(f"Slang '{slang_word}' not found!", "error")
-        return redirect(url_for("home"))
+        if not slang_entry:
+            flash(f"Slang '{slang_word}' not found!", "error")
+            return redirect(url_for("home"))
 
-    if session.get("role") != "admin":
-        if slang_entry.get("delete_request"):
-            flash(f"A deletion request for '{slang_word}' is already pending.", "info")
-        else:
+        # ✅ Instead of deleting, mark it as pending deletion
+        if not slang_entry.get("delete_request"):
             mongo.db.slangs.update_one(
                 {"_id": slang_entry["_id"]},
-                {"$set": {
-                    "approved": False,  # Hide from users
-                    "delete_request": True
-                }}
+                {"$set": {"delete_request": True}}
             )
             flash(f"Deletion request for slang '{slang_word}' submitted for admin approval.", "info")
+        else:
+            flash(f"A deletion request for '{slang_word}' is already pending.", "info")
 
-    return redirect(url_for("home"))
+    
+    # -- Render the form on both GET and POST requests
+    return render_template("delete_slang.html")
 
 # Logout route
 @app.route("/logout")

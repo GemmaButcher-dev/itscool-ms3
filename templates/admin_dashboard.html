@@ -1,3 +1,4 @@
+
 {% extends 'base.html' %}
 {% block content %}
 <div class="admin-welcome">
@@ -7,7 +8,7 @@
 
 <!-- Search Form -->
 <form method="POST" action="{{ url_for('admin_dashboard') }}">
-    <input class="admin-search" type="text" name="search_query" min="2" max="30" placeholder="Search for slang">
+    <input class="admin-search" type="text" name="search_query" placeholder="Search for slang">
     <button class="search-btn" type="submit">Search</button>
 </form>
 
@@ -20,18 +21,15 @@
                 <li id="result-{{ slang._id }}">
                     <strong>{{ slang.slang }}</strong>: {{ slang.definition }}
 
-                     <!-- Delete button should trigger confirmation modal -->
-                    <button type="button" class="btn btn-danger remove-btn" 
-                    data-id="{{ slang._id }}"
-                    data-slang="{{ slang.slang }}">
-                    Delete Slang
-                    </button>
+                     <!-- Delete button for search results -->
+                     <form action="{{ url_for('delete_slang_admin') }}" method="POST" style="display: inline;">
+                        <input type="hidden" name="slang_id" value="{{ slang._id }}">
+                        <button type="submit" class="btn btn-danger">Delete Slang</button>
+                    </form>
 
-                    <!-- Cancel button to remove the search result -->
-                    <button type="button" class="btn btn-secondary cancel-btn" 
-                    data-id="result-{{ slang._id }}">
-                    Cancel
-                    </button>
+                    <!-- cancel button to remove search result/s -->
+                    <button class="btn btn-secondary cancel-btn" data-id="result-{{ slang._id }}">Cancel</button>
+
                 </li>
             {% endfor %}
         </ul>
@@ -42,57 +40,44 @@
 
 <hr>
 
-<h3>Pending Slangs (Approval & Deletions)</h3>
+<h3>Pending Approval Slang</h3>
 
-{% if pending_slangs or pending_deletions %}
+{% if pending_slangs %}
 <ul class="list-group">
-    <!-- Pending slang approvals -->
     {% for slang in pending_slangs %}
-        <li id="slang-{{ slang._id }}">
-            <strong>{{ slang.slang }}</strong>: {{ slang.definition }} 
-            (Submitted by: {{ slang.submitted_by }})
+        <li>
+            <strong>{{ slang.slang }}</strong>: {{ slang.definition }}
 
-            <!-- Approve slang -->
-            <form action="{{ url_for('approve_slang') }}" method="post" style="display: inline;">
-                <input type="hidden" name="slang_id" value="{{ slang._id }}">
-                <button type="submit" class="btn btn-success">Approve</button>
-            </form>
+            <div class="action-buttons">
+                <!-- Approve button -->
+                <form action="{{ url_for('approve_slang') }}" method="post" style="display: inline;">
+                    <input type="hidden" name="slang_id" value="{{ slang._id }}">
+                    <button type="submit" class="btn btn-success approve-btn">Approve</button>
+                </form>
 
-            <!-- 🚀 Edit Button (Triggers Edit Modal) -->
-            <button class="btn btn-primary edit-btn"
-                data-id="{{ slang._id }}"
-                data-slang="{{ slang.slang }}"
-                data-definition="{{ slang.definition }}"
-                data-age="{{ slang.age }}"
+                <!-- Delete Form -->
+                <form class="delete-form" action="{{ url_for('delete_slang_admin') }}" method="POST" style="display: inline;">
+                    <input type="hidden" name="slang_id" value="{{ slang._id }}">
+                    <input type="hidden" name="delete_slang" value="true">
+                    <button type="button" class="btn btn-danger remove-btn" data-id="{{ slang._id }}">Delete Slang</button>
+                </form>
+
+                <!-- Edit button -->
+                <button class="btn btn-primary edit-btn" 
+                data-id="{{ slang._id }}" 
+                data-slang="{{ slang.slang }}" 
+                data-definition="{{ slang.definition }}" 
+                data-age="{{ slang.age }}" 
                 data-type="{{ slang.type }}">
                 Edit
-            </button>
-
-            <!-- Delete slang directly -->
-            <form class="delete-form" action="{{ url_for('delete_slang_admin') }}" method="POST" style="display: inline;">
-                <input type="hidden" name="slang_id" value="{{ slang._id }}">
-                <button type="button" class="btn btn-danger remove-btn" data-id="slang-{{ slang._id }}">Delete</button>
-            </form>
-        </li>
-    {% endfor %}
-
-    <!-- Pending deletion requests -->
-    {% for request in pending_deletions %}
-        <li id="slang-{{ request._id }}">
-            <strong>{{ request.slang }}</strong> - Requested for deletion by: {{ request.deletion_requested_by }}
-
-            <!-- Approve deletion request -->
-            <button class="btn btn-danger approve-delete-btn" data-id="{{ request._id }}">Approve Deletion</button>
-
-            <!-- Reject deletion request -->
-            <button class="btn btn-secondary reject-delete-btn" data-id="{{ request._id }}">Reject Deletion</button>
+                </button>
+            </div>
         </li>
     {% endfor %}
 </ul>
-{% else %}
-<p>No pending slangs for approval or deletion.</p>
+    {% else %}
+    <p>No pending slangs to approve.</p>
 {% endif %}
-
 
 <hr>
 
@@ -100,25 +85,22 @@
 <form action="{{ url_for('add_slang_admin') }}" method="POST">
     <div class="form-group">
         <label for="slang">Slang Word:</label>
-        <input type="text" name="slang" id="slang" class="form-control" minlength="2" maxlength="30" required placeholder="Enter slang word">
+        <input type="text" name="slang" id="slang" class="form-control" required>
     </div>
     <div class="form-group">
         <label for="definition">Definition:</label>
-        <textarea name="definition" id="definition" class="form-control" minlength="10" maxlength="150" required placeholder="Enter slang definition"></textarea>
+        <textarea name="definition" id="definition" class="form-control" required></textarea>
     </div>
     <div class="form-group">
         <label for="age">Age of Slang:</label>
-        <input type="number" name="age" id="age" class="form-control" min="5" max="18" placeholder="Age" required>
+        <input type="text" name="age" id="age" class="form-control">
     </div>
     <div class="form-group">
         <label for="type">Type of Slang (e.g., 'adjective', 'verb'):</label>
-        <input type="text" name="type" id="type" class="form-control" minlength="3" maxlength="15" placeholder="Enter word type (e.g., adjective)">
+        <input type="text" name="type" id="type" class="form-control">
     </div>
     <button type="submit" class="btn btn-primary">Add Slang</button>
 </form>
-
-<!-- Success message -->
-<p id="add-slang-success" class="text-success" style="display: none;">Slang added successfully!</p>
 
 
 <!-- Bootstrap Modal for Editing Slang -->
@@ -134,19 +116,19 @@
                     <input type="hidden" id="editSlangId" name="slang_id">
                     <div class="mb-3">
                         <label for="editSlang" class="form-label">Slang</label>
-                        <input type="text" class="form-control" id="editSlang" name="slang" min="2" max="30" required>
+                        <input type="text" class="form-control" id="editSlang" name="slang" required>
                     </div>
                     <div class="mb-3">
                         <label for="editDefinition" class="form-label">Definition</label>
-                        <input type="text" class="form-control" id="editDefinition" name="definition" minlength="10" maxlength="150" required>
+                        <input type="text" class="form-control" id="editDefinition" name="definition" required>
                     </div>
                     <div class="mb-3">
                         <label for="editAge" class="form-label">Age</label>
-                        <input type="number" class="form-control" id="editAge" name="age" min="5" max="18">
+                        <input type="text" class="form-control" id="editAge" name="age">
                     </div>
                     <div class="mb-3">
                     <label for="editType" class="form-label">Type</label>
-                    <input type="text" class="form-control" id="editType" name="type"  minlength="3" maxlength="15">
+                    <input type="text" class="form-control" id="editType" name="type">
                 </form>
             </div>
             <div class="modal-footer d-flex justify-content-between">
