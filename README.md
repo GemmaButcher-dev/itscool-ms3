@@ -6,19 +6,23 @@ Welcome to
 View the live project [here!](https://itscool-project-b4212f408fa2.herokuapp.com/index)
 
 ## Table of Contents
-1. [**UX**](#ux)
 
+1. [**UX**](#ux)
    * [**Project Goals**](#project-goals)
    * [**User Goals**](#user-goals)
-   * [**Entity Reltionship Diagram**](#entity-relationship-diagram)
-      - [**Lucid Charts**](#lucid-charts)
    * [**Design Choices**](#design-choices)
       - [**Colour Scheme**](#colour-scheme)
       - [**Typography**](#typography)
       - [**Imagery**](#imagery)
    * [**Wireframes**](#wireframes)
 
-2. [**Features**](#features)
+2. [**Database**](#database)
+   * [**Non Relational Database**](#non-relational-database)
+   * [**Mongo DB**](#mongodb)
+   * [**Entity Reltionship Diagram**](#entity-relationship-diagram)
+      - [**Lucid Charts**](#lucid-charts)
+
+3. [**Features**](#features)
 
    * [**Navigation Bar**](#navigation-bar)
    * [**Search Slang Function**](#search-slang-function)
@@ -53,19 +57,19 @@ View the live project [here!](https://itscool-project-b4212f408fa2.herokuapp.com
       -[**Environment Variables for Sensitive Data**](#environment-variables-for-sensitive-data)
    * [**Features left to implement**](#features-left-to-implement)
 
-3. [**Technologies Used**](#technologies-used)
+4. [**Technologies Used**](#technologies-used)
    * [**Front-End Technologies**](#front-end-technologies)
    * [**Back-End Technologies**](#back-end-technologies)
 
-4. [**Testing**](#testing)
+5. [**Testing**](#testing)
 
-5. [**Deployment**](#deployment)
+6. [**Deployment**](#deployment)
 
    * [**Heroku**](#heroku)
    * [**Forking The GitHub Repository**](#forking-the-github-repository)
    * [**Making A Local Clone**](#making-a-local-clone)
 
-6. [**Credits**](#credits)
+7. [**Credits**](#credits)
 
    * [**Content**](#content)
    * [**Media**](#media)
@@ -164,16 +168,6 @@ The target audience is for children, teenagers and adults trying to determine th
 ##### back to [top](#table-of-contents)
 
 
-### Entity Relationship Diagram
-
-   **Lucid Charts**
-
-   * The starting point for the entity relationships was drawn up as a entity relationship diagram using [lucid charts](https://www.lucidchart.com/).
-
-   * The initial ERD (entity relationship diagram) is very basic which will be built upon as the project develops in the future. The ERD is shown below.
-
-![screenshot](documents/readme/ItScool_erd.png)
-
 ### Design Choices
 
    * Mobile first, single column responsive design. 
@@ -241,6 +235,17 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
 ##### back to [top](#table-of-contents)
 ------
 
+## Database
+### Entity Relationship Diagram
+
+   **Lucid Charts**
+
+   * The starting point for the entity relationships was drawn up as a entity relationship diagram using [lucid charts](https://www.lucidchart.com/).
+
+   * The initial ERD (entity relationship diagram) is very basic which will be built upon as the project develops in the future. The ERD is shown below.
+
+![screenshot](documents/readme/itscool_erd.png)
+------
 ## Features
 
 ### Existing Features
