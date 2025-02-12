@@ -8,6 +8,7 @@ View the live project [here!](https://itscool-project-b4212f408fa2.herokuapp.com
 ## Table of Contents
 
 1. [**UX**](#ux)
+
    * [**Project Goals**](#project-goals)
    * [**User Goals**](#user-goals)
    * [**Design Choices**](#design-choices)
@@ -17,7 +18,8 @@ View the live project [here!](https://itscool-project-b4212f408fa2.herokuapp.com
    * [**Wireframes**](#wireframes)
 
 2. [**Database**](#database)
-   * [**Non Relational Database**](#non-relational-database)
+
+   * [**Types Of Databases**](#types-of-databases)
    * [**Mongo DB**](#mongodb)
    * [**Entity Reltionship Diagram**](#entity-relationship-diagram)
       - [**Lucid Charts**](#lucid-charts)
@@ -58,6 +60,7 @@ View the live project [here!](https://itscool-project-b4212f408fa2.herokuapp.com
    * [**Features left to implement**](#features-left-to-implement)
 
 4. [**Technologies Used**](#technologies-used)
+
    * [**Front-End Technologies**](#front-end-technologies)
    * [**Back-End Technologies**](#back-end-technologies)
 
@@ -236,13 +239,36 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
 ------
 
 ## Database
+
+### Types of Databases
+
+   **Relational Databases**
+
+   * A relational database is a type of database that stores data in a structured format, using rows and columns, which are organized into tables. This type of database is called "relational" because the data is stored in a way that defines relationships between different tables, which are connected through shared attributes or keys.
+
+   **Non Relational Databases**
+
+   * Non-relational databases (often referred to as NoSQL databases) are databases that do not use the traditional table-based relational model used by relational databases. Instead, they use various other data models to store and manage data, which can be more flexible and scalable in certain use cases.
+
+### MongoDB
+
+   * The database provider choice for this project is MongoDB Atlas. This is a Non-Relational Database.
+   * MongoDB has a flexible schema for dictionary style entries. ItScool app has words with varying definitions, synonyms, antonyms, and sentences.
+   * MongoDB’s document model (JSON-like structure) allows you to store these dynamically without a rigid schema, unlike SQL databases.
+   * MongoDB offers scalability for large word collections. This is ideal for this project as a dictionary can grow to millions of words and definitions. MongoDB Atlas offers automatic scaling to handle increasing data and user traffic efficiently.
+
+
 ### Entity Relationship Diagram
+
+   **What is a Entity Relationship Diagram?**
+   
+   * An Entity Relationship Diagram (ERD) is a visual representation that shows the relationships between different entities (or objects) within a system. It's commonly used in database design to illustrate how data is structured and how different pieces of information relate to each other.
 
    **Lucid Charts**
 
    * The starting point for the entity relationships was drawn up as a entity relationship diagram using [lucid charts](https://www.lucidchart.com/).
 
-   * The initial ERD (entity relationship diagram) is very basic which will be built upon as the project develops in the future. The ERD is shown below.
+   * The initial ERD (entity relationship diagram) will be built upon as the project develops in the future. The ERD is shown below.
 
 ![screenshot](documents/readme/itscool_erd.png)
 ------
