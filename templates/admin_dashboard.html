@@ -14,28 +14,82 @@
 
 <!-- Search Results -->
 {% if search_query %}
-<h3>Search Results for "{{ search_query }}":</h3>
-    {% if search_results%}        
-        <ul id="search-results-admin">
-            {% for slang in search_results %}
-                <li id="result-{{ slang._id }}">
-                    <strong>{{ slang.slang }}</strong>: {{ slang.definition }}
+<h3>Pending Slang Requests</h3>
 
-                     <!-- Delete button for search results -->
-                     <form action="{{ url_for('delete_slang_admin') }}" method="POST" style="display: inline;">
+{% if pending_slangs %}
+    <ul class="list-group">
+        {% for slang in pending_slangs %}
+            <li>
+                <strong>{{ slang.slang }}</strong>: {{ slang.definition }}
+
+                <div class="action-buttons">
+                    <!-- Approve button -->
+                    <form action="{{ url_for('approve_slang') }}" method="post" style="display: inline;">
                         <input type="hidden" name="slang_id" value="{{ slang._id }}">
-                        <button type="submit" class="btn btn-danger">Delete Slang</button>
+                        <button type="submit" class="btn btn-success approve-btn">Approve</button>
                     </form>
 
-                    <!-- cancel button to remove search result/s -->
-                    <button class="btn btn-secondary cancel-btn" data-id="result-{{ slang._id }}">Cancel</button>
+                    <!-- Delete button -->
+                    <form class="delete-form" action="{{ url_for('delete_slang_admin') }}" method="POST" style="display: inline;">
+                        <input type="hidden" name="slang_id" value="{{ slang._id }}">
+                        <button type="submit" class="btn btn-danger remove-btn">Delete</button>
+                    </form>
 
-                </li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>No results found matching "{{ search_query }}".</p>
-    {% endif %}
+                    <!-- Edit button -->
+                    <button class="btn btn-primary edit-btn"
+                            data-id="{{ slang._id }}"
+                            data-slang="{{ slang.slang }}"
+                            data-definition="{{ slang.definition }}"
+                            data-age="{{ slang.age }}"
+                            data-type="{{ slang.type }}">
+                        Edit
+                    </button>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No pending approval slangs.</p>
+{% endif %}
+
+<hr>
+
+{% if pending_deletions %}
+    <h3>Pending Deletion Requests</h3>
+    <ul class="list-group">
+        {% for slang in pending_deletions %}
+            <li>
+                <strong>{{ slang.slang }}</strong>: {{ slang.definition }} (Deletion Request)
+
+                <div class="action-buttons">
+                    <!-- Approve button -->
+                    <form action="{{ url_for('approve_slang') }}" method="post" style="display: inline;">
+                        <input type="hidden" name="slang_id" value="{{ slang._id }}">
+                        <button type="submit" class="btn btn-success approve-btn">Approve</button>
+                    </form>
+
+                    <!-- Delete button -->
+                    <form class="delete-form" action="{{ url_for('delete_slang_admin') }}" method="POST" style="display: inline;">
+                        <input type="hidden" name="slang_id" value="{{ slang._id }}">
+                        <button type="submit" class="btn btn-danger remove-btn">Delete</button>
+                    </form>
+
+                    <!-- Edit button -->
+                    <button class="btn btn-primary edit-btn"
+                            data-id="{{ slang._id }}"
+                            data-slang="{{ slang.slang }}"
+                            data-definition="{{ slang.definition }}"
+                            data-age="{{ slang.age }}"
+                            data-type="{{ slang.type }}">
+                        Edit
+                    </button>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No pending deletion requests.</p>
+{% endif %}
 {% endif %}
 
 <hr>
