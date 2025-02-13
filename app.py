@@ -353,11 +353,10 @@ def add_slang():
     return render_template("add_slang.html")
 
 
-# General delete slang route (accessible by all users)
 @app.route("/delete_slang", methods=["GET", "POST"], endpoint="user_delete_slang")
 def delete_slang_user():
     if request.method == "POST":
-        slang_word = request.form.get("slang").strip().lower()  # -- Get slang word from form
+        slang_word = request.form.get("slang").strip().lower()  # Get slang word from form
 
         # ✅ Find the slang in the database
         slang_entry = mongo.db.slangs.find_one({"slang": {"$regex": f"^{slang_word}$", "$options": "i"}})
@@ -366,19 +365,20 @@ def delete_slang_user():
             flash(f"Slang '{slang_word}' not found!", "error")
             return redirect(url_for("home"))
 
-        # ✅ Instead of deleting, mark it as pending deletion
-        if not slang_entry.get("delete_request"):
-            mongo.db.slangs.update_one(
-                {"_id": slang_entry["_id"]},
-                {"$set": {"delete_request": True}}
-            )
-            flash(f"Deletion request for slang '{slang_word}' submitted for admin approval.", "info")
-        else:
-            flash(f"A deletion request for '{slang_word}' is already pending.", "info")
+        # ✅ Check if the slang is already pending approval (avoid duplicates)
+        existing_pending = mongo.db.pending_slangs.find_one({"slang": slang_entry["slang"]})
 
-    
-    # -- Render the form on both GET and POST requests
+        if existing_pending:
+            flash(f"A deletion request for '{slang_word}' is already pending.", "info")
+            return redirect(url_for("home"))
+
+        # ✅ Move slang to `pending_slangs` collection
+        mongo.db.pending_slangs.insert_one(slang_entry)
+
+        flash(f"Deletion request for slang '{slang_word}' submitted for admin approval.", "info")
+
     return render_template("delete_slang.html")
+
 
 # Logout route
 @app.route("/logout")
