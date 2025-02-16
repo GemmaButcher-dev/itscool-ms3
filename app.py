@@ -74,7 +74,7 @@ def admin_dashboard():
             }))
 
     # ✅ Get all slangs pending deletion approval
-    pending_deletions = list(mongo.db.slangs.find({"delete_request": True})) 
+    pending_deletions = list(mongo.db.slangs.find({"pending_deletion": True})) 
 
     # -- Get all pending slangs (approved = False or not present)
     pending_slangs = mongo.db.slangs.find({"approved": {"$ne": True}})
@@ -353,6 +353,7 @@ def add_slang():
     return render_template("add_slang.html")
 
 
+# Delete slang route for users
 @app.route("/delete_slang", methods=["GET", "POST"], endpoint="user_delete_slang")
 def delete_slang_user():
     if request.method == "POST":
@@ -366,14 +367,15 @@ def delete_slang_user():
             return redirect(url_for("home"))
 
         # ✅ Check if the slang is already pending approval (avoid duplicates)
-        existing_pending = mongo.db.pending_slangs.find_one({"slang": slang_entry["slang"]})
-
-        if existing_pending:
+        if slang_entry.get("pending_deletion", False):
             flash(f"A deletion request for '{slang_word}' is already pending.", "info")
             return redirect(url_for("home"))
 
-        # ✅ Move slang to `pending_slangs` collection
-        mongo.db.pending_slangs.insert_one(slang_entry)
+        # ✅ Set the slang's `pending_deletion` field to True
+        mongo.db.slangs.update_one(
+            {"_id": slang_entry["_id"]},
+            {"$set": {"pending_deletion": True}}
+        )
 
         flash(f"Deletion request for slang '{slang_word}' submitted for admin approval.", "info")
 
