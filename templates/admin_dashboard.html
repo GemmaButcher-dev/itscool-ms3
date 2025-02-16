@@ -142,21 +142,4 @@
 
 <!-- Edit Modal JS Script -->
 <script src="{{ url_for('static', filename='js/edit-modal.js') }}"></script>
-<script>
-    // JavaScript for triggering the delete modal and passing data
-    document.querySelectorAll('.remove-btn').forEach(function(button) {
-        button.addEventListener('click', function(e) {
-            const slangId = e.target.dataset.id;
-            const slangWord = e.target.dataset.slang;
-            const pending = e.target.dataset.pending;
-            
-            // Update the modal with relevant details
-            document.getElementById('delete-message').textContent = `Are you sure you want to delete '${slangWord}'?${pending === 'true' ? ' This slang is pending deletion.' : ''}`;
-            document.getElementById('delete-slang-id').value = slangId;
-
-            // Show the modal
-            $('#deleteModal').modal('show');
-        });
-    });
-</script>
 {% endblock %}
