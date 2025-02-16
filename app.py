@@ -74,7 +74,7 @@ def admin_dashboard():
             }))
 
     #  Get all slangs pending deletion approval
-    pending_deletion = list(mongo.db.slangs.find({"pending_deletion": True})) 
+    pending_deletions = list(mongo.db.slangs.find({"pending_deletion": True})) 
 
     # -- Get all pending slangs (approved = False or not present)
     pending_slangs = mongo.db.slangs.find({"approved": {"$ne": True}})
