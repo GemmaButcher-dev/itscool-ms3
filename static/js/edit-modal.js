@@ -15,6 +15,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 const age = this.getAttribute("data-age");
                 const type = this.getAttribute("data-type");
 
+                // Log values to make sure data is being passed correctly
+                console.log("Edit button clicked:", slangId, slang, definition, age, type);
+
                 // Populate the modal form fields with data
                 document.getElementById("editSlangId").value = slangId;
                 document.getElementById("editSlang").value = slang;
@@ -26,20 +29,23 @@ document.addEventListener("DOMContentLoaded", function () {
                 editModal.show();
             });
         });
-    
+
         // Save changes to the slang word and close edit modal
         document.getElementById("save-edit").addEventListener("click", function () {
+            console.log("Saving edits...");
             document.getElementById("editSlangForm").submit();
         });
-    
+
         // Close edit modal when clicking cancel or close button
         document.getElementById("cancel-edit").addEventListener("click", function () {
+            console.log("Canceling edit...");
             editModal.hide();
         });
         document.getElementById("close-edit").addEventListener("click", function () {
+            console.log("Closing modal...");
             editModal.hide();
         });
-        
+
     } else {
         console.error("Edit modal element not found in the DOM.");
     }
