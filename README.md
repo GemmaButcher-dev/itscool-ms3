@@ -195,9 +195,9 @@ The target audience is for children, teenagers and adults trying to determine th
 
 #### Imagery
 
-[Canva](https://www.canva.com/) was used to create the background and title images for the project. The homepage title image is shown below. The 404 page title image can be seen [here](static/images/ItsCool404_img.webp).
+[Canva](https://www.canva.com/) was used to create the background and title images for the project. The homepage title image is shown below. The 404 page title image can be seen [here](static/images/itscool404_img.webp).
 
-![screenshot](static/images/itscool404_img.webp)
+![screenshot](static/images/itscool_title.webp)
 
 ##### back to [top](#table-of-contents)
 
