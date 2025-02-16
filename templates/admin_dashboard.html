@@ -12,28 +12,30 @@
 </form>
 
 <!-- Pending Slang Requests -->
+
 {% if pending_slangs %}
-    <h3>Pending Slang Requests</h3>
+    <!-- Pending Approvals Section -->
+    <h3>Pending Approvals</h3>
     <ul class="list-group">
         {% for slang in pending_slangs %}
+            {% if not slang.pending_deletion %}
             <li>
                 <strong>{{ slang.slang }}</strong>: {{ slang.definition }}
-                {% if slang.pending_deletion %} <span class="text-danger">(Deletion Request)</span> {% endif %}
-
                 <div class="action-buttons">
-                    <!-- Approve button -->
+                    <!-- Approve button only for pending approval -->
                     <form action="{{ url_for('approve_slang') }}" method="post" style="display: inline;">
                         <input type="hidden" name="slang_id" value="{{ slang._id }}">
                         <button type="submit" class="btn btn-success approve-btn">Approve</button>
                     </form>
 
-                    <!-- Delete button (Only for non-deletion requests) -->
-                    {% if not slang.pending_deletion %}
-                    <form class="delete-form" action="{{ url_for('delete_slang_admin') }}" method="POST" style="display: inline;">
-                        <input type="hidden" name="slang_id" value="{{ slang._id }}">
-                        <button type="submit" class="btn btn-danger remove-btn">Delete</button>
-                    </form>
-                    {% endif %}
+                    <!-- Delete button triggers the confirmation modal -->
+                    <button class="btn btn-danger remove-btn" 
+                            data-id="{{ slang._id }}" 
+                            data-slang="{{ slang.slang }}" 
+                            data-definition="{{ slang.definition }}"
+                            data-pending="{{ slang.pending_deletion }}">
+                        Delete
+                    </button>
 
                     <!-- Edit button -->
                     <button class="btn btn-primary edit-btn"
@@ -46,10 +48,50 @@
                     </button>
                 </div>
             </li>
+            {% endif %}
         {% endfor %}
     </ul>
+
+    <!-- Pending Deletions Section -->
+    <h3>Pending Deletions</h3>
+    <ul class="list-group">
+        {% for slang in pending_slangs %}
+            {% if slang.pending_deletion %}
+            <li>
+                <strong>{{ slang.slang }}</strong>: {{ slang.definition }} <span class="text-danger">(Deletion Request)</span>
+                <div class="action-buttons">
+                    <!-- Ignore button (blue) for pending deletions -->
+                    <form action="{{ url_for('ignore_deletion_request') }}" method="post" style="display: inline;">
+                        <input type="hidden" name="slang_id" value="{{ slang._id }}">
+                        <button type="submit" class="btn btn-info ignore-btn">Ignore</button>
+                    </form>
+
+                    <!-- Delete button triggers the confirmation modal for pending deletions -->
+                    <button class="btn btn-danger remove-btn" 
+                            data-id="{{ slang._id }}" 
+                            data-slang="{{ slang.slang }}" 
+                            data-definition="{{ slang.definition }}"
+                            data-pending="{{ slang.pending_deletion }}">
+                        Delete Permanently
+                    </button>
+
+                    <!-- Edit button -->
+                    <button class="btn btn-primary edit-btn"
+                            data-id="{{ slang._id }}"
+                            data-slang="{{ slang.slang }}"
+                            data-definition="{{ slang.definition }}"
+                            data-age="{{ slang.age }}"
+                            data-type="{{ slang.type }}">
+                        Edit
+                    </button>
+                </div>
+            </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+
 {% else %}
-    <p>No pending slangs to approve.</p>
+    <p>No pending slangs to approve or delete.</p>
 {% endif %}
 
 <hr>
@@ -76,38 +118,23 @@
     <button type="submit" class="btn btn-primary">Add Slang</button>
 </form>
 
-<!-- Bootstrap Modal for Editing Slang -->
-<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+<!-- Bootstrap Modal for Deleting Slang -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="editModalLabel">Edit Slang</h5>
-                <button type="button" class="btn-close" id="close-edit" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h5 class="modal-title" id="deleteModalLabel">Delete Slang</h5>
+                <button type="button" class="btn-close" id="close-delete" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="editSlangForm" action="{{ url_for('edit_slang') }}" method="post">
-                    <input type="hidden" id="editSlangId" name="slang_id">
-                    <div class="mb-3">
-                        <label for="editSlang" class="form-label">Slang</label>
-                        <input type="text" class="form-control" id="editSlang" name="slang" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="editDefinition" class="form-label">Definition</label>
-                        <input type="text" class="form-control" id="editDefinition" name="definition" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="editAge" class="form-label">Age</label>
-                        <input type="text" class="form-control" id="editAge" name="age">
-                    </div>
-                    <div class="mb-3">
-                        <label for="editType" class="form-label">Type</label>
-                        <input type="text" class="form-control" id="editType" name="type">
-                    </div>
-                </form>
+                <p id="delete-message">Are you sure you want to delete this slang?</p>
             </div>
             <div class="modal-footer d-flex justify-content-between">
-                <button type="button" class="btn btn-secondary" id="cancel-edit" data-bs-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary" id="save-edit">Save Changes</button>
+                <button type="button" class="btn btn-secondary" id="cancel-delete" data-bs-dismiss="modal">Cancel</button>
+                <form action="{{ url_for('delete_slang_admin') }}" method="POST" id="delete-form">
+                    <input type="hidden" name="slang_id" id="delete-slang-id">
+                    <button type="submit" class="btn btn-danger">Delete Permanently</button>
+                </form>
             </div>
         </div>
     </div>
@@ -115,4 +142,21 @@
 
 <!-- Edit Modal JS Script -->
 <script src="{{ url_for('static', filename='js/edit-modal.js') }}"></script>
+<script>
+    // JavaScript for triggering the delete modal and passing data
+    document.querySelectorAll('.remove-btn').forEach(function(button) {
+        button.addEventListener('click', function(e) {
+            const slangId = e.target.dataset.id;
+            const slangWord = e.target.dataset.slang;
+            const pending = e.target.dataset.pending;
+            
+            // Update the modal with relevant details
+            document.getElementById('delete-message').textContent = `Are you sure you want to delete '${slangWord}'?${pending === 'true' ? ' This slang is pending deletion.' : ''}`;
+            document.getElementById('delete-slang-id').value = slangId;
+
+            // Show the modal
+            $('#deleteModal').modal('show');
+        });
+    });
+</script>
 {% endblock %}

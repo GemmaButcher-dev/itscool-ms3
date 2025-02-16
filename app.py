@@ -77,7 +77,12 @@ def admin_dashboard():
     pending_deletions = list(mongo.db.slangs.find({"pending_deletion": True})) 
 
     # -- Get all pending slangs (approved = False or not present)
-    pending_slangs = mongo.db.slangs.find({"approved": {"$ne": True}})
+    pending_slangs = list(mongo.db.slangs.find({
+        "$or": [
+        {"approved": {"$ne": True}},
+        {"pending_deletion": True}
+        ]
+    }))
 
     return render_template(
         'admin_dashboard.html',
@@ -152,6 +157,19 @@ def edit_slang():
             flash(f"Error: {str(e)}", "error")
 
     # -- Redirect to the admin dashboard after editing
+    return redirect(url_for("admin_dashboard"))
+
+@app.route("/ignore_deletion_request", methods=["POST"])
+def ignore_deletion_request():
+    slang_id = request.form.get("slang_id")
+    
+    # Update the slang document to ignore the deletion request
+    mongo.db.slangs.update_one(
+        {"_id": ObjectId(slang_id)},
+        {"$set": {"pending_deletion": False}}  # Or use a field like "deletion_ignored": True
+    )
+    
+    flash("Deletion request has been ignored.", "info")
     return redirect(url_for("admin_dashboard"))
 
 
@@ -361,6 +379,9 @@ def delete_slang_user():
 
         # ✅ Find the slang in the database
         slang_entry = mongo.db.slangs.find_one({"slang": {"$regex": f"^{slang_word}$", "$options": "i"}})
+        print(slang_entry)
+        print(slang_word)
+        print("Word submitted: ", slang_word)
 
         if not slang_entry:
             flash(f"Slang '{slang_word}' not found!", "error")
@@ -372,10 +393,11 @@ def delete_slang_user():
             return redirect(url_for("home"))
 
         #  Set the slang's `pending_deletion` field to True
-        mongo.db.slangs.update_one(
+        result=mongo.db.slangs.update_one(
             {"_id": slang_entry["_id"]},
             {"$set": {"pending_deletion": True}}
         )
+        print("Modified result: ", result.matched_count, result.modified_count)
 
         flash(f"Deletion request for slang '{slang_word}' submitted for admin approval.", "info")
 

@@ -14,6 +14,7 @@
         -[Heroku Tail Log Error](#heroku-tail-log-error)
         -[Safari Render Issue](#safari-render-issue)
         -[JS Hint](#js-hint)
+        -[User Authority](#user-authority)
         
 ------
 
@@ -157,3 +158,5 @@
 * You can read more about how this was reflected in testing in [testing](TESTING.md).<br>
 
 ![screenshot](documents/development/flask_jinja_bugfix.png)
+
+### User Authority
