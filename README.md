@@ -264,7 +264,7 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
    
    * An Entity Relationship Diagram (ERD) is a visual representation that shows the relationships between different entities (or objects) within a system. It's commonly used in database design to illustrate how data is structured and how different pieces of information relate to each other.
 
-   **Lucid Charts**
+   #### Lucid Charts
 
    * The starting point for the entity relationships was drawn up as a entity relationship diagram using [lucid charts](https://www.lucidchart.com/).
 
@@ -559,7 +559,7 @@ The wireframe showing the admin dashboard on a mobile device is shown below.
 - [Am i responsive?](https://ui.dev/amiresponsive) - Am i reponsive was used to create the device mockup in README.md.
 - [ahrefs](https://ahrefs.com/writing-tools/img-alt-text-generator) - ahrefs was used to help generate alt text for images.
 - [Canva](https://www.canva.com/colors/color-palette-generator/) - Canva's logo generator was used to create a logo for the favicons,the title image and the 404 title image.
-- [Lucid Cahrts](https://www.lucidchart.com/) - Lucid charts was used to create the entity relationship diagram.
+- [Lucid Charts](https://www.lucidchart.com/) - Lucid charts was used to create the entity relationship diagram.
 - [Favicon Generator](https://favicon.io/) - Favicon Generator created the favicon icons and provided sitewebmanifest.
 
 ### Front-End Technologies
