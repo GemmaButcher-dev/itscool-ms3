@@ -118,28 +118,6 @@
     <button type="submit" class="btn btn-primary">Add Slang</button>
 </form>
 
-<!-- Bootstrap Modal for Deleting Slang -->
-<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="deleteModalLabel">Delete Slang</h5>
-                <button type="button" class="btn-close" id="close-delete" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p id="delete-message">Are you sure you want to delete this slang?</p>
-            </div>
-            <div class="modal-footer d-flex justify-content-between">
-                <button type="button" class="btn btn-secondary" id="cancel-delete" data-bs-dismiss="modal">Cancel</button>
-                <form action="{{ url_for('delete_slang_admin') }}" method="POST" id="delete-form">
-                    <input type="hidden" name="slang_id" id="delete-slang-id">
-                    <button type="submit" class="btn btn-danger">Delete Permanently</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
 <!-- Edit Modal JS Script -->
 <script src="{{ url_for('static', filename='js/edit-modal.js') }}"></script>
 {% endblock %}
