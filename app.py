@@ -73,8 +73,8 @@ def admin_dashboard():
                 "slang": {"$regex": search_query, "$options": "i"}
             }))
 
-    # ✅ Get all slangs pending deletion approval
-    pending_deletions = list(mongo.db.slangs.find({"pending_deletion": True})) 
+    #  Get all slangs pending deletion approval
+    pending_deletion = list(mongo.db.slangs.find({"pending_deletion": True})) 
 
     # -- Get all pending slangs (approved = False or not present)
     pending_slangs = mongo.db.slangs.find({"approved": {"$ne": True}})
@@ -366,12 +366,12 @@ def delete_slang_user():
             flash(f"Slang '{slang_word}' not found!", "error")
             return redirect(url_for("home"))
 
-        # ✅ Check if the slang is already pending approval (avoid duplicates)
+        #  Check if the slang is already pending approval (avoid duplicates)
         if slang_entry.get("pending_deletion", False):
             flash(f"A deletion request for '{slang_word}' is already pending.", "info")
             return redirect(url_for("home"))
 
-        # ✅ Set the slang's `pending_deletion` field to True
+        #  Set the slang's `pending_deletion` field to True
         mongo.db.slangs.update_one(
             {"_id": slang_entry["_id"]},
             {"$set": {"pending_deletion": True}}
