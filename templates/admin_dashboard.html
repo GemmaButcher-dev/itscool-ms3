@@ -18,7 +18,7 @@
     <h3>Pending Approvals</h3>
     <ul class="list-group">
         {% for slang in pending_slangs %}
-            {% if not slang.pending_deletion %}
+            {% if not slang.pending_approval %}
             <li id="slang-{{ slang._id }}">
                 <strong>{{ slang.slang }}</strong>: {{ slang.definition }}
                 <div class="action-buttons">
