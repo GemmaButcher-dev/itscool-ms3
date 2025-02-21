@@ -172,6 +172,19 @@ def ignore_deletion_request():
     flash("Deletion request has been ignored.", "info")
     return redirect(url_for("admin_dashboard"))
 
+@app.route("/ignore_approve_request", methods=["POST"])
+def ignore_approve_request():
+    slang_id = request.form.get("slang_id")
+
+    # Update the slang document to ignore the approval request
+    mongo.db.slangs.update_one(
+        {"_id": ObjectId(slang_id)},
+        {"$set": {"pending_approval": False}}  # Mark as not pending approval
+    )
+
+    flash("Approval request has been ignored.", "info")
+    return redirect(url_for("admin_dashboard"))
+
 
 # Add slang route for admin
 @app.route("/admin/add_slang", methods=["POST"])

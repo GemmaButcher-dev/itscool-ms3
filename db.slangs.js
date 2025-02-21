@@ -1,0 +1,1 @@
+db.slangs.find().pretty()
