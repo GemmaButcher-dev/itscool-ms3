@@ -54,7 +54,6 @@ def home():
     return render_template("index.html", grouped_slangs=grouped_slangs)
 
 
-# Admin dashboard route
 @app.route('/admin_dashboard', methods=['GET', 'POST'])
 def admin_dashboard():
     # -- Check if user is logged in as admin
@@ -73,16 +72,22 @@ def admin_dashboard():
                 "slang": {"$regex": search_query, "$options": "i"}
             }))
 
-    #  Get all slangs pending deletion approval
+    # -- Get all slangs pending deletion approval
     pending_deletions = list(mongo.db.slangs.find({"pending_deletion": True})) 
 
-    # -- Get all pending slangs (approved = False or not present)
+    # -- Get all slangs that are either pending approval or pending deletion
+    # This query retrieves slangs that:
+    # 1. Are not approved (i.e., either pending approval or never approved)
+    # 2. Are pending deletion (in any state: approved or not)
     pending_slangs = list(mongo.db.slangs.find({
         "$or": [
-        {"approved": {"$ne": True}},
-        {"pending_deletion": True}
+            {"approved": {"$ne": True}, "pending_approval": True},  # Not approved and pending approval
+            {"pending_deletion": True}  # Pending deletion
         ]
     }))
+
+    for slang in pending_slangs:
+        print('PENDING: ', slang)
 
     return render_template(
         'admin_dashboard.html',
@@ -159,6 +164,8 @@ def edit_slang():
     # -- Redirect to the admin dashboard after editing
     return redirect(url_for("admin_dashboard"))
 
+
+# Admin ignore slang routes
 @app.route("/ignore_deletion_request", methods=["POST"])
 def ignore_deletion_request():
     slang_id = request.form.get("slang_id")
@@ -186,7 +193,7 @@ def ignore_approve_request():
     return redirect(url_for("admin_dashboard"))
 
 
-# Add slang route for admin
+# Admin add slang route
 @app.route("/admin/add_slang", methods=["POST"])
 @admin_required
 def add_slang_admin():
@@ -202,7 +209,8 @@ def add_slang_admin():
         "definition": definition,
         "age": age,
         "type": type,
-        "approved": False  # -- Unapproved by default
+        "approved": False,  # -- Unapproved by default
+        "pending_approval": True  # -- Set to pending approval
     }
 
     try:
