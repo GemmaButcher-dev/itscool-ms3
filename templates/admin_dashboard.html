@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="admin-welcome">
-<h2>Admin Dashboard</h2>
-<p>Welcome, {{ session.get('user') }}!</p>
+    <h2>Admin Dashboard</h2>
+    <p>Welcome, {{ session.get('user') }}!</p>
 </div>
 
 <!-- Search Form -->
@@ -11,76 +11,80 @@
     <button class="search-btn" type="submit">Search</button>
 </form>
 
-<!-- Search Results -->
-{% if search_query %}
-<h3>Search Results for "{{ search_query }}":</h3>
-    {% if search_results%}        
-        <ul id="search-results-admin">
-            {% for slang in search_results %}
-                <li id="result-{{ slang._id }}">
-                    <strong>{{ slang.slang }}</strong>: {{ slang.definition }}
-
-                     <!-- Delete button for search results -->
-                     <form action="{{ url_for('delete_slang_admin') }}" method="POST" style="display: inline;">
-                        <input type="hidden" name="slang_id" value="{{ slang._id }}">
-                        <button type="submit" class="btn btn-danger">Delete Slang</button>
-                    </form>
-
-                    <!-- cancel button to remove search result/s -->
-                    <button class="btn btn-secondary cancel-btn" data-id="result-{{ slang._id }}">Cancel</button>
-
-                </li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>No results found matching "{{ search_query }}".</p>
-    {% endif %}
-{% endif %}
-
-<hr>
-
-<h3>Pending Approval Slang</h3>
+<!-- Pending Slang Requests -->
 
 {% if pending_slangs %}
-<ul class="list-group">
-    {% for slang in pending_slangs %}
-        <li>
-            <strong>{{ slang.slang }}</strong>: {{ slang.definition }}
+    <!-- Pending Approvals Section -->
+    <h3>Pending Approvals</h3>
+    <ul class="list-group">
+        {% for slang in pending_slangs %}
+            {% if slang.pending_approval %}
+            <li id="slang-{{ slang._id }}">
+                <strong>{{ slang.slang }}</strong>: {{ slang.definition }}
+                <div class="action-buttons">
 
-            <div class="action-buttons">
-                <!-- Approve button -->
-                <form action="{{ url_for('approve_slang') }}" method="post" style="display: inline;">
-                    <input type="hidden" name="slang_id" value="{{ slang._id }}">
-                    <button type="submit" class="btn btn-success approve-btn">Approve</button>
-                </form>
+                    <!-- Ignore button (blue) for pending approval -->
+                    <form action="{{ url_for('ignore_approve_request') }}" method="post" style="display: inline;">
+                        <input type="hidden" name="slang_id" value="{{ slang._id }}">
+                        <button type="submit" class="btn btn-info ignore-btn">Ignore</button>
+                    </form>
 
-                <!-- Delete Form -->
-                <form class="delete-form" action="{{ url_for('delete_slang_admin') }}" method="POST" style="display: inline;">
-                    <input type="hidden" name="slang_id" value="{{ slang._id }}">
-                    <input type="hidden" name="delete_slang" value="true">
-                    <button type="button" class="btn btn-danger remove-btn" data-id="{{ slang._id }}">Delete Slang</button>
-                </form>
+                    <!-- Approve button only for pending approval -->
+                    <form action="{{ url_for('approve_slang') }}" method="post" style="display: inline;">
+                        <input type="hidden" name="slang_id" value="{{ slang._id }}">
+                        <button type="submit" class="btn btn-success approve-btn">Approve</button>
+                    </form>
 
-                <!-- Edit button -->
-                <button class="btn btn-primary edit-btn" 
-                data-id="{{ slang._id }}" 
-                data-slang="{{ slang.slang }}" 
-                data-definition="{{ slang.definition }}" 
-                data-age="{{ slang.age }}" 
-                data-type="{{ slang.type }}">
-                Edit
-                </button>
-            </div>
-        </li>
-    {% endfor %}
-</ul>
-    {% else %}
-    <p>No pending slangs to approve.</p>
+                    <!-- Edit button -->
+                    <button class="btn btn-primary edit-btn"
+                            data-id="{{ slang._id }}"
+                            data-slang="{{ slang.slang }}"
+                            data-definition="{{ slang.definition }}"
+                            data-age="{{ slang.age }}"
+                            data-type="{{ slang.type }}">
+                        Edit
+                    </button>
+                </div>
+            </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+
+    <!-- Pending Deletions Section -->
+    <h3>Pending Deletions</h3>
+    <ul class="list-group">
+        {% for slang in pending_slangs %}
+            {% if slang.pending_deletion %}
+            <li id="slang-{{ slang._id }}">
+                <strong>{{ slang.slang }}</strong>: {{ slang.definition }} <span class="text-danger">(Deletion Request)</span>
+                <div class="action-buttons">
+                    <!-- Ignore button (blue) for pending deletions -->
+                    <form action="{{ url_for('ignore_deletion_request') }}" method="post" style="display: inline;">
+                        <input type="hidden" name="slang_id" value="{{ slang._id }}">
+                        <button type="submit" class="btn btn-info ignore-btn">Ignore</button>
+                    </form>
+
+                    <!-- Delete button triggers the confirmation modal for pending deletions -->
+                    <button class="btn btn-danger remove-btn" 
+                            data-id="{{ slang._id }}" 
+                            data-slang="{{ slang.slang }}" 
+                            data-definition="{{ slang.definition }}"
+                            data-pending="{{ slang.pending_deletion }}">
+                        Delete Permanently
+                    </button>
+                </div>
+            </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No pending slangs to approve or delete.</p>
 {% endif %}
 
 <hr>
 
-<h3> Add New Slang</h3>
+<!-- Add New Slang Form -->
+<h3>Add New Slang</h3>
 <form action="{{ url_for('add_slang_admin') }}" method="POST">
     <div class="form-group">
         <label for="slang">Slang Word:</label>
@@ -100,7 +104,6 @@
     </div>
     <button type="submit" class="btn btn-primary">Add Slang</button>
 </form>
-
 
 <!-- Bootstrap Modal for Editing Slang -->
 <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
@@ -126,8 +129,9 @@
                         <input type="text" class="form-control" id="editAge" name="age">
                     </div>
                     <div class="mb-3">
-                    <label for="editType" class="form-label">Type</label>
-                    <input type="text" class="form-control" id="editType" name="type">
+                        <label for="editType" class="form-label">Type</label>
+                        <input type="text" class="form-control" id="editType" name="type">
+                    </div>
                 </form>
             </div>
             <div class="modal-footer d-flex justify-content-between">
@@ -138,6 +142,6 @@
     </div>
 </div>
 
-<!-- edit modal js script tag-->
+<!-- Edit Modal JS Script -->
 <script src="{{ url_for('static', filename='js/edit-modal.js') }}"></script>
 {% endblock %}
