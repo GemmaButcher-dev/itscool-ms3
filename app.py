@@ -384,7 +384,8 @@ def add_slang():
             "definition": definition,
             "age": age,
             "type": type,
-            "approved": False  # -- New slang is unapproved by default
+            "approved": False,
+            "pending_approval": True
         }
         mongo.db.slangs.insert_one(new_doc)
         flash("New slang added successfully! Pending approval.", "success")
