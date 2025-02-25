@@ -11,6 +11,37 @@
     <button class="search-btn" type="submit">Search</button>
 </form>
 
+<!-- Search Results -->
+{% if search_query %}
+<h3>Search Results for "{{ search_query }}":</h3>
+    {% if search_results%}        
+        <ul id="search-results-admin">
+            {% for slang in search_results %}
+                <li id="result-{{ slang._id }}">
+                    <strong>{{ slang.slang }}</strong>: {{ slang.definition }}
+
+                     <!-- Delete button for search results -->
+                    <form class="delete-form" action="{{ url_for('delete_slang_admin') }}" method="post" style="display: inline;">
+                        <input type="hidden" name="slang_id" value="{{ slang._id }}">
+                        <button type="button" class="btn btn-danger remove-btn" 
+                                data-id="slang-{{ slang._id }}"
+                                data-form-id="form-{{ slang._id }}">
+                            Delete Permanently
+                        </button>
+                    </form>
+
+                    <!-- cancel button to remove search result/s -->
+                    <button class="btn btn-secondary cancel-btn" data-id="result-{{ slang._id }}">Cancel</button>
+
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No results found matching "{{ search_query }}".</p>
+    {% endif %}
+{% endif %}
+
+<hr>
 <!-- Pending Slang Requests -->
 
 {% if pending_slangs %}
@@ -65,13 +96,14 @@
                     </form>
 
                     <!-- Delete button triggers the confirmation modal for pending deletions -->
-                    <button class="btn btn-danger remove-btn" 
-                            data-id="{{ slang._id }}" 
-                            data-slang="{{ slang.slang }}" 
-                            data-definition="{{ slang.definition }}"
-                            data-pending="{{ slang.pending_deletion }}">
-                        Delete Permanently
-                    </button>
+                    <form class="delete-form" action="{{ url_for('delete_slang_admin') }}" method="post">
+                        <input type="hidden" name="slang_id" value="{{ slang._id }}">
+                        <button type="button" class="btn btn-danger remove-btn" 
+                                data-id="slang-{{ slang._id }}"
+                                data-form-id="form-{{ slang._id }}">
+                            Delete Permanently
+                        </button>
+                    </form>
                 </div>
             </li>
             {% endif %}
