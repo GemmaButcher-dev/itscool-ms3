@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
         button.addEventListener("click", function (event) {
             event.preventDefault();
 
-            // Set the current result ID to remove
+            // Set the current result ID and form
             currentResultId = this.getAttribute("data-id");
             currentForm = this.closest(".delete-form");
 
@@ -22,22 +22,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Attach event to confirm deletion and close modal
     document.getElementById("confirm-btn").addEventListener("click", function () {
-        if (currentResultId) {
+        if (currentResultId && currentForm) {
+
+            currentForm.submit();
+
             // Remove the slang element from the DOM
             const elementToRemove = document.getElementById(currentResultId);
             if (elementToRemove) {
                 elementToRemove.remove();
             }
 
-            // Optionally, submit the form to remove it from the database (if required)
-            if (currentForm) {
-                currentForm.submit();
-            }
-
-            // Reset variables and hide modal
-            currentResultId = null;
-            currentForm = null;
-            confirmationModal.hide();
+             // Reset and hide modal
+             currentResultId = null;
+             currentForm = null;
+             confirmationModal.hide();
         }
     });
 
@@ -78,6 +76,23 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
             });
         });
+
+     // Cancel deletion
+     document.getElementById("cancel-confirmation").addEventListener("click", function () {
+        confirmationModal.hide();
+    });
+
+    // Attach event listener to cancel buttons in search results
+    document.querySelectorAll(".cancel-btn").forEach(button => {
+        button.addEventListener("click", function () {
+            const resultId = this.getAttribute("data-id"); // Get the ID of the result
+            const resultElement = document.getElementById(resultId); // Find the result element
+
+            if (resultElement) {
+                resultElement.remove(); // Remove the element from the DOM
+            }
+        });
+    });
 
 
     // Update footer with the current year
