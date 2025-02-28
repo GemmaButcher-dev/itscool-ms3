@@ -47,7 +47,7 @@
 {% if pending_slangs %}
     <!-- Pending Approvals Section -->
     <h3>Pending Approvals</h3>
-    <ul class="list-group">
+    <ul class="list-group pend-approve-list">
         {% for slang in pending_slangs %}
             {% if slang.pending_approval %}
             <li id="slang-{{ slang._id }}">
@@ -83,12 +83,12 @@
 
     <!-- Pending Deletions Section -->
     <h3>Pending Deletions</h3>
-    <ul class="list-group">
+    <ul class="list-group pend-delete-list">
         {% for slang in pending_slangs %}
             {% if slang.pending_deletion %}
             <li id="slang-{{ slang._id }}">
                 <strong>{{ slang.slang }}</strong>: {{ slang.definition }} <span class="text-danger">(Deletion Request)</span>
-                <div class="action-buttons d-flex align-items-center gap-2">
+                <div class="action-buttons">
                     <!-- Ignore button (blue) for pending deletions -->
                     <form action="{{ url_for('ignore_deletion_request') }}" method="post" style="display: inline;">
                         <input type="hidden" name="slang_id" value="{{ slang._id }}">

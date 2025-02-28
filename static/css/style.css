@@ -383,10 +383,29 @@ button {
 
 .admin-search {
     box-shadow: 0 0 5px 3px hsla(0, 0%, 100%, 0.573);
-    width: 100%; /* Full width by default */
-    max-width: 400px; /* Set a maximum width for larger screens */
-    padding: 0.5rem; /* Add padding for a better appearance */
-    box-sizing: border-box; /* Ensure padding doesn't increase the width */
+    width: 100%; 
+    max-width: 400px;
+    padding: 0.5rem;
+    box-sizing: border-box;
+}
+
+.action-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Adds space between buttons */
+}
+
+.action-buttons form {
+    margin: 0;
+    display: flex;
+}
+
+.action-buttons button {
+    white-space: nowrap;
+}
+
+.pend-approve-list {
+    margin-bottom: 20px;
 }
 
 
