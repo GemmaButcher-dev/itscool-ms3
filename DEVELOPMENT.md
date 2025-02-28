@@ -164,11 +164,11 @@
 * During development there was an issue that arose where registered users could add and delete slang words without it being passed to the admin dashboard for approval or rejection.
 This issue could not be rectified using the current data schema. The reason after trouble shooting and testing was not clear.
 
-* New fields were added to try to solve the issue. These fields are pending_deletion and approved. The pending_deletion field is marked as false by default but is changed to true when a remove slang request is submitted by the user. The approved field is set to False as default when a user submits a request for a slang to be added subject to admin approval. 
+* New fields were added to try to solve the issue. These fields are pending_deletion and pending_approval. The pending_deletion field is marked as false by default but is changed to true when a remove slang request is submitted by the user. The pending_approval field is set to True as default when a user submits a request for a slang to be added subject to admin approval. 
 
 * This means that each instance of pending requests can be selected more directly. This is also reflected in the pending slang list which seperates the request types with two headings: Pending Approval and Pending Deletion. This is more user centric and logical than the original design. 
 
-* With additional complexity to the code and having thought about this, it made sense that when a pending deletion was created and shown in pending slangs, that the 'approve' button should change to an 'ignore' button. Meaning the admin user can ignore a request to delete a slang. This again is more user centric. The updated button and layout can be seen in the screenshot below.
+* With additional complexity to the code and having thought about this, it made sense that when a pending deletion was created and shown in pending slangs, that the 'approve' button should be changed to an 'ignore' button. Meaning the admin user can ignore a request to delete a slang. This again is more user centric. The updated button and layout can be seen in the screenshot below. The edit button has been removed from the pending deletion as it does not make sense to edit an entry made my admin and is requested to be deleted by the user.
 
 ![screenshot](documents/development/user_authority.png)
 
